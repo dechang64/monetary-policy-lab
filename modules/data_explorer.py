@@ -11,7 +11,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from utils.constants import FOMC_DATES
-from utils.helpers import generate_synthetic_returns
+from utils.helpers import generate_synthetic_returns, safe_style_format
 from data.fred_connector import FREDConnector
 
 
@@ -104,7 +104,7 @@ def render():
         st.markdown(f"**{len(selected_series)} series selected**")
 
         # ── Fetch Button ──
-        if st.button("🚀 Fetch Data from FRED", type="primary", use_container_width=True):
+        if st.button("🚀 Fetch Data from FRED", type="primary", width='stretch'):
             if not api_key:
                 st.error("Please enter your FRED API key first.")
                 return
@@ -154,10 +154,10 @@ def render():
 
             st.markdown("#### Data Preview")
             st.dataframe(
-                display_df.tail(30).style.format("{:.4f}").background_gradient(
+                safe_style_format(display_df.tail(30), "{:.4f}").background_gradient(
                     cmap="RdBu_r", vmin=-0.03, vmax=0.03, axis=0
                 ),
-                use_container_width=True,
+                width='stretch',
                 height=400,
             )
 
@@ -165,16 +165,16 @@ def render():
             with col1:
                 st.markdown("#### Summary Statistics")
                 st.dataframe(
-                    display_df.describe().T.style.format("{:.4f}"),
-                    use_container_width=True,
+                    safe_style_format(display_df.describe().T, "{:.4f}"),
+                    width='stretch',
                 )
             with col2:
                 st.markdown("#### Correlation Matrix")
                 st.dataframe(
-                    display_df.corr().style.format("{:.3f}").background_gradient(
+                    safe_style_format(display_df.corr(), "{:.3f}").background_gradient(
                         cmap="RdBu_r", vmin=-1, vmax=1
                     ),
-                    use_container_width=True,
+                    width='stretch',
                 )
 
             # Quick plot
@@ -195,7 +195,7 @@ def render():
                 height=400,
                 hovermode="x unified",
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
             # FOMC event windows
             st.markdown("#### FOMC Event Windows")
@@ -218,14 +218,14 @@ def render():
         returns = generate_synthetic_returns()
 
         st.dataframe(
-            returns.head(20).style.format("{:.4f}"),
-            use_container_width=True,
+            safe_style_format(returns.head(20), "{:.4f}"),
+            width='stretch',
             height=400,
         )
 
         st.markdown(f"**{len(returns)} trading days** | **{len(returns.columns)} assets**")
 
-        if st.button("Use Demo Data for Analysis", use_container_width=True):
+        if st.button("Use Demo Data for Analysis", width='stretch'):
             st.session_state["fred_returns"] = returns
             st.session_state["fred_levels"] = (1 + returns).cumprod()
             st.session_state["data_loaded"] = True
@@ -236,16 +236,16 @@ def render():
         with col1:
             st.markdown("#### Summary Statistics")
             st.dataframe(
-                returns.describe().T.style.format("{:.4f}"),
-                use_container_width=True,
+                safe_style_format(returns.describe().T, "{:.4f}"),
+                width='stretch',
             )
         with col2:
             st.markdown("#### Correlation Matrix")
             st.dataframe(
-                returns.corr().style.format("{:.3f}").background_gradient(
+                safe_style_format(returns.corr(), "{:.3f}").background_gradient(
                     cmap="RdBu_r", vmin=-1, vmax=1
                 ),
-                use_container_width=True,
+                width='stretch',
             )
 
     # ═══════════════════════════════════════════════════════════
@@ -264,7 +264,7 @@ def render():
 
         selected_date = st.selectbox("Select FOMC Date", available)
 
-        if st.button("Fetch Statement", use_container_width=True):
+        if st.button("Fetch Statement", width='stretch'):
             with st.spinner("Fetching from federalreserve.gov..."):
                 text = scraper.fetch_statement(selected_date)
 
@@ -337,10 +337,10 @@ def render():
             try:
                 df = pd.read_csv(uploaded, parse_dates=[0], index_col=0)
                 st.success(f"Loaded {len(df)} rows × {len(df.columns)} columns")
-                st.dataframe(df.head(10), use_container_width=True)
+                st.dataframe(df.head(10), width='stretch')
 
                 st.markdown("#### Data Summary")
-                st.dataframe(df.describe().T.style.format("{:.4f}"), use_container_width=True)
+                st.dataframe(safe_style_format(df.describe().T, "{:.4f}"), width='stretch')
 
                 st.session_state["fred_returns"] = df.pct_change().iloc[1:]
                 st.session_state["fred_levels"] = df

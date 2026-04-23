@@ -100,7 +100,7 @@ def render():
 
     if not summary.empty:
         fig = event_study_bar(summary)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     # ── Two-Row Layout ──
     col_left, col_right = st.columns(2)
@@ -121,7 +121,7 @@ def render():
         })
 
         fig2 = two_shocks_bar(response_df)
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
 
     with col_right:
         st.markdown("### 🔄 Risk Regime Timeline")
@@ -132,7 +132,7 @@ def render():
 
         if not regime.empty:
             fig3 = regime_timeline(regime)
-            st.plotly_chart(fig3, use_container_width=True)
+            st.plotly_chart(fig3, width='stretch')
 
     # ── Classic Papers ──
     st.markdown("### 📚 Classic Papers in This Field")

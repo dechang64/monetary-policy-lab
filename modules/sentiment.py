@@ -103,7 +103,7 @@ def render():
     st.markdown("### 📈 Historical Sentiment Trajectory")
     st.caption("Sentiment scores for sample FOMC statements")
     
-    if st.button("Generate Trajectory", use_container_width=True):
+    if st.button("Generate Trajectory", width='stretch'):
         dates = []
         scores = []
         labels = []
@@ -121,7 +121,7 @@ def render():
         })
         
         fig = sentiment_trajectory(trajectory_df)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
         
         # Detail table
         st.markdown("### Detailed Scores")
@@ -130,7 +130,7 @@ def render():
             "Sentiment": labels,
             "Score": [round(s, 3) for s in scores],
         })
-        st.dataframe(detail_df, use_container_width=True, hide_index=True)
+        st.dataframe(detail_df, width='stretch', hide_index=True)
     
     # ── Methodology ──
     with st.expander("🔧 NLP Methodology"):

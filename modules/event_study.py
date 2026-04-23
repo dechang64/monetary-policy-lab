@@ -48,7 +48,7 @@ def render():
     returns = _get_returns()
 
     # ── Run Event Study ──
-    if st.button("🚀 Run Event Study", type="primary", use_container_width=True):
+    if st.button("🚀 Run Event Study", type="primary", width='stretch'):
         with st.spinner("Computing abnormal returns..."):
             engine = EventStudyEngine(returns, FOMC_DATES)
             summary = engine.cumulative_by_asset(
@@ -64,14 +64,14 @@ def render():
             st.caption(f"Event window: [{-pre_window}, +{post_window}] | Estimation: {est_window} days")
 
             fig = event_study_bar(summary)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
             st.markdown("### Detailed Statistics")
             display_cols = ["asset", "avg_CAR_pct", "median_CAR", "std_CAR", "avg_t_stat", "n_events", "pct_positive"]
             display_df = summary[display_cols].copy()
             display_df.columns = ["Asset", "Avg CAR (%)", "Median CAR", "Std CAR", "Avg t-stat", "N Events", "% Positive"]
             display_df = display_df.round(4)
-            st.dataframe(display_df, use_container_width=True, hide_index=True)
+            st.dataframe(display_df, width='stretch', hide_index=True)
 
             st.markdown("### 🔍 Key Findings")
             most_positive = summary.loc[summary["avg_CAR_pct"].idxmax()]
@@ -91,7 +91,7 @@ def render():
     st.markdown("### 📈 Individual Asset Timeline")
     selected_asset = st.selectbox("Select Asset", returns.columns.tolist())
 
-    if st.button("Show Timeline", use_container_width=True):
+    if st.button("Show Timeline", width='stretch'):
         with st.spinner("Computing..."):
             engine = EventStudyEngine(returns, FOMC_DATES)
             market_candidates = [c for c in returns.columns if c != selected_asset]
@@ -104,7 +104,7 @@ def render():
             )
             if not results.empty:
                 fig = event_study_timeline(results, selected_asset)
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
     with st.expander("📖 Methodology"):
         st.markdown("""

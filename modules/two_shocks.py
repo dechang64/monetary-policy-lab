@@ -65,7 +65,7 @@ def render():
     returns, surprises = load_data()
     
     # ── Run Decomposition ──
-    if st.button("🎯 Decompose Shocks", type="primary", use_container_width=True):
+    if st.button("🎯 Decompose Shocks", type="primary", width='stretch'):
         with st.spinner("Decomposing monetary policy surprises..."):
             decomposer = TwoShocksDecomposer(surprises, returns)
             decomposition = decomposer.simplified_decompose(
@@ -108,22 +108,22 @@ def render():
             })
             
             fig_radar = two_shocks_radar(response_df)
-            st.plotly_chart(fig_radar, use_container_width=True)
+            st.plotly_chart(fig_radar, width='stretch')
             
             # ── Bar Chart ──
             fig_bar = two_shocks_bar(response_df)
-            st.plotly_chart(fig_bar, use_container_width=True)
+            st.plotly_chart(fig_bar, width='stretch')
             
             # ── Shock Correlation Matrix ──
             st.markdown("### 📊 Shock-Asset Correlation Matrix")
             corr = decomposer.shock_correlation_matrix(decomposition)
             fig_corr = correlation_heatmap(corr)
-            st.plotly_chart(fig_corr, use_container_width=True)
+            st.plotly_chart(fig_corr, width='stretch')
             
             # ── Temporal Evolution ──
             st.markdown("### 📅 Temporal Evolution")
             yearly = decomposer.temporal_evolution(decomposition)
-            st.dataframe(yearly, use_container_width=True, hide_index=True)
+            st.dataframe(yearly, width='stretch', hide_index=True)
     
     # ── Methodology ──
     with st.expander("🔧 Production Implementation Notes"):

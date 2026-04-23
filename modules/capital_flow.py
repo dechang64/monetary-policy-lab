@@ -9,7 +9,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from utils.constants import FOMC_DATES
-from utils.helpers import generate_synthetic_returns, generate_portfolio_flows
+from utils.helpers import generate_synthetic_returns, generate_portfolio_flows, safe_style_format
 from analysis.capital_flow import CapitalFlowAnalyzer
 from visualization.charts import capital_flow_sankey, regime_timeline
 
@@ -51,7 +51,7 @@ def render():
         post_window = st.slider("Post-FOMC Window (days)", 5, 60, 30)
     
     # ── Run Analysis ──
-    if st.button("🌊 Analyze Capital Flows", type="primary", use_container_width=True):
+    if st.button("🌊 Analyze Capital Flows", type="primary", width='stretch'):
         with st.spinner("Analyzing portfolio rebalancing patterns..."):
             analyzer = CapitalFlowAnalyzer(returns, FOMC_DATES)
             
@@ -59,10 +59,10 @@ def render():
             st.markdown("### 🏷️ Risk Regime Analysis")
             regime = analyzer.risk_regime_analysis()
             if not regime.empty:
-                st.dataframe(regime, use_container_width=True, hide_index=True)
+                st.dataframe(regime, width='stretch', hide_index=True)
                 
                 fig = regime_timeline(regime)
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
             
             # 2. Portfolio flow data
             st.markdown("### 💰 Fund Flow Changes by Category")
@@ -77,11 +77,11 @@ def render():
             ).sort_values("avg_change")
             
             st.dataframe(
-                avg_flows.style.format("{:.2f}").background_gradient(
+                safe_style_format(avg_flows, "{:.2f}").background_gradient(
                     subset=["avg_change"],
                     cmap="RdYlGn",
                 ),
-                use_container_width=True,
+                width='stretch',
             )
             
             # 3. Correlation changes
@@ -91,7 +91,7 @@ def render():
                 post_window=post_window,
             )
             if not corr_changes.empty:
-                st.dataframe(corr_changes, use_container_width=True, hide_index=True)
+                st.dataframe(corr_changes, width='stretch', hide_index=True)
                 
                 avg_corr_change = corr_changes["corr_change"].mean()
                 if avg_corr_change > 0:
@@ -104,12 +104,12 @@ def render():
     st.markdown("### 🌊 Capital Flow Sankey Diagram")
     st.caption("Visualize how capital flows between asset categories around FOMC events")
     
-    if st.button("Generate Sankey", use_container_width=True):
+    if st.button("Generate Sankey", width='stretch'):
         flows = generate_portfolio_flows(FOMC_DATES)
         avg_flows = flows.groupby("category")["flow_change_b"].mean().sort_values()
         
         fig = capital_flow_sankey(avg_flows)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     
     # ── Methodology ──
     with st.expander("📖 Methodology"):

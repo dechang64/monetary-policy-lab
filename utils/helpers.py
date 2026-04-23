@@ -269,3 +269,10 @@ def format_bp(val: float) -> str:
     """Format a decimal as basis points."""
     sign = "+" if val > 0 else ""
     return f"{sign}{val * 10000:.0f}bp"
+
+def safe_style_format(df, fmt="{:.4f}"):
+    """Apply format only to numeric columns (avoids pandas 2.x crash on string cols)."""
+    numeric_cols = df.select_dtypes(include="number").columns
+    if len(numeric_cols) == 0:
+        return df.style
+    return df.style.format({c: fmt for c in numeric_cols})
