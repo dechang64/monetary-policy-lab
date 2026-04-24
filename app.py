@@ -72,7 +72,7 @@ if "fred_returns" not in st.session_state:
 # ── Header ──
 st.markdown("""
 <div class="main-header">
-    <h1>📊 Abigail-Eileen‘s Research Lab</h1>
+    <h1>📊 Abigail-Eileen Zhang's Research Lab</h1>
     <p>Federal Reserve Announcements · Asset Prices · Portfolio Reallocation · NLP Analysis</p>
 </div>
 """, unsafe_allow_html=True)
