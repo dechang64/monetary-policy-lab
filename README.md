@@ -1,4 +1,4 @@
-# Monetary Policy Research Lab
+# Abigail-Eileen Zhang’s Monetary Policy Research Lab
 
 A distinctive research platform for studying how Federal Reserve announcements affect asset prices and portfolio reallocation.
 
@@ -107,4 +107,4 @@ monetary-policy-lab/
 
 ## 👤 Built For
 
-Eileen Zhang's research on monetary policy announcements, asset prices, and portfolio reallocation.
+Abigail-Eileen Zhang 's research on monetary policy announcements, asset prices, and portfolio reallocation.
