@@ -1,0 +1,153 @@
+/* MP Research Platform — Custom Theme */
+
+/* ─── Global ─────────────────────────────────────────────── */
+.stApp {
+    background: #FAFBFC;
+}
+
+/* ─── Sidebar ────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+[data-testid="stSidebar"] * {
+    color: #E8E8E8 !important;
+}
+
+[data-testid="stSidebar"] .stSelectbox label,
+[data-testid="stSidebar"] .stSlider label,
+[data-testid="stSidebar"] .stRadio label {
+    color: #B0B0B0 !important;
+    font-size: 0.85rem;
+}
+
+/* ─── Tabs ───────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 2px;
+    background: #F0F2F5;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #666;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.stTabs [aria-selected="true"] {
+    background: white;
+    color: #1a1a2e;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* ─── Cards ──────────────────────────────────────────────── */
+.metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid #E8ECF0;
+    margin-bottom: 16px;
+}
+
+/* ─── Dataframe ──────────────────────────────────────────── */
+[data-testid="stDataFrame"] {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ─── Buttons ────────────────────────────────────────────── */
+.stButton > button {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ─── Section Headers ────────────────────────────────────── */
+h1, h2, h3 {
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* ─── Tooltip ────────────────────────────────────────────── */
+.js-plotly-plot .plotly .modebar {
+    top: 5px !important;
+    right: 5px !important;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CCC;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #AAA;
+}
+
+/* ─── Badge ──────────────────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.badge-hawkish {
+    background: #FDEDEC;
+    color: #E74C3C;
+}
+
+.badge-dovish {
+    background: #EBF5FB;
+    color: #3498DB;
+}
+
+.badge-neutral {
+    background: #F9F9F9;
+    color: #666;
+}
+
+/* ─── Insight Box ────────────────────────────────────────── */
+.insight-box {
+    background: linear-gradient(135deg, #EBF5FB 0%, #D6EAF8 100%);
+    border-left: 4px solid #3498DB;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 0.9rem;
+}
+
+.insight-box.warning {
+    background: linear-gradient(135deg, #FEF9E7 0%, #FCF3CF 100%);
+    border-left-color: #F39C12;
+}
+
+.insight-box.danger {
+    background: linear-gradient(135deg, #FDEDEC 0%, #FADBD8 100%);
+    border-left-color: #E74C3C;
+}
+
+.insight-box.success {
+    background: linear-gradient(135deg, #EAFAF1 0%, #D5F5E3 100%);
+    border-left-color: #27AE60;
+}
