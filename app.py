@@ -1,5 +1,5 @@
 """
-Monetary Policy Research Lab
+Abigail-Eileen‘s Research Lab
 =============================
 A distinctive research platform for studying how monetary policy announcements
 affect asset prices and portfolio reallocation.
@@ -28,7 +28,7 @@ from utils.constants import FOMC_DATES, PAPERS
 
 # ── Page Config ──
 st.set_page_config(
-    page_title="Monetary Policy Research Lab",
+    page_title="Abigail-Eileen’s Research Lab",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -72,7 +72,7 @@ if "fred_returns" not in st.session_state:
 # ── Header ──
 st.markdown("""
 <div class="main-header">
-    <h1>📊 Monetary Policy Research Lab</h1>
+    <h1>📊 Abigail-Eileen‘s Research Lab</h1>
     <p>Federal Reserve Announcements · Asset Prices · Portfolio Reallocation · NLP Analysis</p>
 </div>
 """, unsafe_allow_html=True)
