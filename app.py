@@ -100,6 +100,7 @@ page = st.sidebar.radio(
         "📚 Paper Replication Lab",
         "⚙️ Data Explorer",
         "🔬 Phase 1 Research",
+        "🧠 联邦智能分析",
     ],
     label_visibility="collapsed",
 )
@@ -115,6 +116,7 @@ Built for studying how monetary policy announcements reshape asset prices and po
 - 🌊 Capital Flow Sankey
 - 📋 Classic Paper Replication
 - 🔗 Real-time FRED Data
+- 🧠 联邦智能分析 (NEW)
 """)
 
 # ── Route to Pages ──
@@ -142,3 +144,6 @@ elif page == "⚙️ Data Explorer":
 elif page == "🔬 Phase 1 Research":
     from modules import research
     research.render()
+elif page == "🧠 联邦智能分析":
+    from modules import fed_intelligence
+    fed_intelligence.render()

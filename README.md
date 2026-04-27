@@ -44,6 +44,7 @@ docker compose up -d
 | 🔄 Capital Flow | Portfolio rebalancing, risk regime detection | FRED / Demo |
 | 📚 Replication | One-click classic paper replication | Built-in |
 | ⚙️ Data Explorer | FRED API, CSV import, data preview | FRED / CSV |
+| 🧠 联邦智能分析 | HNSW向量库 · 联邦RAG/CoT/FL · 幻觉防御 · 审计链 | Built-in |
 
 ## 🎯 What Makes This Different
 
@@ -52,6 +53,7 @@ docker compose up -d
 - **Capital Flow Sankey**: Visualize portfolio rebalancing
 - **Classic Paper Replication**: Kuttner 2001, Bernanke-Kuttner 2005, etc.
 - **Real-time FRED**: 32 economic indicators, one-click fetch
+- **联邦智能分析**: 自研HNSW向量库 · 五层幻觉防御 · 区块链审计（整合自 federated-ai-platform）
 
 ## 📁 Project Structure
 
