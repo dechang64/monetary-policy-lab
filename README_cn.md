@@ -1,4 +1,4 @@
-# Abigail-Eileen Zhang's Monetary Policy Research Lab
+# Abigail-Eileen Zhang’s Monetary Policy Research Lab
 
 A distinctive research platform for studying how Federal Reserve announcements affect asset prices and portfolio reallocation.
 
@@ -9,8 +9,7 @@ A distinctive research platform for studying how Federal Reserve announcements a
 ### Option A: Local (no Docker)
 ```bash
 pip install -r requirements.txt
-streamlit run app.py          # Chinese module
-streamlit run app_en.py      # English module
+streamlit run app.py
 # Open http://localhost:8501
 ```
 
@@ -45,7 +44,7 @@ docker compose up -d
 | 🔄 Capital Flow | Portfolio rebalancing, risk regime detection | FRED / Demo |
 | 📚 Replication | One-click classic paper replication | Built-in |
 | ⚙️ Data Explorer | FRED API, CSV import, data preview | FRED / CSV |
-| 🧠 Federated AI Intelligence | HNSW · FL · RAG · CoT · Hallucination Defense · Audit | Built-in |
+| 🧠 联邦智能分析 | HNSW向量库 · 联邦RAG/CoT/FL · 幻觉防御 · 审计链 | Built-in |
 
 ## 🎯 What Makes This Different
 
@@ -54,39 +53,15 @@ docker compose up -d
 - **Capital Flow Sankey**: Visualize portfolio rebalancing
 - **Classic Paper Replication**: Kuttner 2001, Bernanke-Kuttner 2005, etc.
 - **Real-time FRED**: 32 economic indicators, one-click fetch
-- **Federated AI Intelligence**: Self-built HNSW · Five-layer hallucination defense · Blockchain audit (integrated from federated-ai-platform)
-
-## 🏛️ Federated AI Intelligence Module (NEW)
-
-Built on the [federated-ai-platform](https://github.com/dechang64/federated-ai-platform):
-
-| Sub-Module | Description |
-|------------|-------------|
-| 🔍 Vector Search | Self-built Rust HNSW vector DB for Fed statement retrieval, kNN < 1ms |
-| 📚 Federated RAG | Cross-institution privacy-preserving document retrieval |
-| 🧠 Federated CoT | Distributed chain-of-thought reasoning with multi-node voting |
-| 🤝 Federated Learning | FedAvg collaborative modeling, data stays local |
-| 🛡️ Hallucination Defense | 5-layer defense: Retrieval · CROWN · Multi-node vote · Self-consistency |
-| 🤖 Agent | ReAct task orchestration for autonomous research |
-| 🔗 Audit Chain | SHA-256 hash chain, tamper-proof operation log |
-
-**Five-Layer Hallucination Defense:**
-```
-Layer 1 → Retrieval Consistency (Vector DB)
-Layer 2 → Vector Fact-Check
-Layer 3 → CROWN Conformity Defense (NeuroSync Original)
-Layer 4 → Multi-Node Consensus Vote
-Layer 5 → LLM Self-Consistency
-```
+- **联邦智能分析**: 自研HNSW向量库 · 五层幻觉防御 · 区块链审计（整合自 federated-ai-platform）
 
 ## 📁 Project Structure
 
 ```
 monetary-policy-lab/
-├── app.py                    # Streamlit entry (Chinese)
-├── app_en.py                 # Streamlit entry (English) ← NEW
+├── app.py                    # Streamlit entry point
 ├── Dockerfile                # Docker image
-├── docker-compose.yml         # Docker orchestration
+├── docker-compose.yml        # Docker orchestration
 ├── deploy.sh                 # One-click deploy script
 ├── requirements.txt          # Python dependencies
 ├── analysis/                 # Core analysis engines
@@ -94,17 +69,44 @@ monetary-policy-lab/
 │   ├── two_shocks.py         # Policy vs information decomposition
 │   ├── nlp_engine.py         # FOMC sentiment (rule-based + FinBERT)
 │   └── capital_flow.py       # Portfolio rebalancing analysis
-├── modules/
-│   ├── fed_intelligence.py    # 🇨🇳 Chinese version
-│   ├── fed_intelligence_en.py # 🇺🇸 English version ← NEW
-│   ├── dashboard.py
-│   ├── research.py
-│   └── ...
-├── visualization/             # Plotly chart library
-├── data/                     # FRED connector & scraper
-└── utils/                    # Constants & helpers
+├── data/                     # Data connectors
+│   ├── fred_connector.py     # FRED API (32 series, caching, fallback)
+│   └── fomc_scraper.py       # FOMC statement scraper
+├── visualization/            # Plotly charts
+│   └── charts.py             # All interactive visualizations
+├── pages/                    # Streamlit pages
+│   ├── dashboard.py          # Overview dashboard
+│   ├── event_study.py        # Event study UI
+│   ├── two_shocks.py         # Two-shocks UI
+│   ├── sentiment.py          # Sentiment analysis UI
+│   ├── capital_flow.py       # Capital flow UI
+│   ├── replication.py        # Paper replication UI
+│   └── data_explorer.py      # Data management UI
+└── utils/                    # Utilities
+    ├── constants.py          # FOMC dates, paper metadata, series map
+    └── helpers.py            # Data generation, formatting
 ```
 
-## 📄 License
+## 🔧 Data Sources
 
-Apache-2.0
+| Data | Source | Cost | Series |
+|------|--------|------|--------|
+| Interest rates, yields | FRED API | Free | DGS2, DGS10, DFF, SOFR... |
+| Equity indices | FRED / Yahoo Finance | Free | SP500, NASDAQ... |
+| FX, Commodities | FRED | Free | DEXUSEU, DCOILWTICO... |
+| Inflation, Employment | FRED | Free | CPIAUCSL, UNRATE... |
+| FOMC statements | federalreserve.gov | Free | Scraped |
+| Fund holdings | CRSP/WRDS | University | Production only |
+
+## 📚 Theoretical Foundation
+
+- Rational Expectations (Lucas, 1972)
+- Efficient Market Hypothesis (Fama, 1970)
+- Present Value Decomposition (Campbell & Shiller, 1988)
+- Portfolio Balance Channel (Tobin, 1969)
+- Risk-Taking Channel (Borio & Zhu, 2012)
+- Two-Shocks Framework (Jarociński & Karadi, 2020)
+
+## 👤 Built For
+
+Abigail-Eileen Zhang 's research on monetary policy announcements, asset prices, and portfolio reallocation.

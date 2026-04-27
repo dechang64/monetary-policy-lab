@@ -1,7 +1,7 @@
 """
-Abigail-Eileen Zhang's Monetary Policy Research Lab
-=================================================
-A distinctive research platform for studying how Federal Reserve announcements
+Abigail-Eileen Zhang’s Research Lab
+=============================
+A distinctive research platform for studying how monetary policy announcements
 affect asset prices and portfolio reallocation.
 
 Unique Features:
@@ -10,7 +10,6 @@ Unique Features:
 - Capital Flow Sankey: Portfolio rebalancing visualization
 - Classic Paper Replication Lab
 - Real-time FRED API integration
-- Federated AI Intelligence: HNSW · FL · RAG · CoT · Hallucination Defense · Audit
 
 Deployment:
   Docker:     docker compose up --build
@@ -101,7 +100,7 @@ page = st.sidebar.radio(
         "📚 Paper Replication Lab",
         "⚙️ Data Explorer",
         "🔬 Phase 1 Research",
-        "🧠 Federated AI Intelligence",
+        "🧠 联邦智能分析",
     ],
     label_visibility="collapsed",
 )
@@ -117,7 +116,7 @@ Built for studying how monetary policy announcements reshape asset prices and po
 - 🌊 Capital Flow Sankey
 - 📋 Classic Paper Replication
 - 🔗 Real-time FRED Data
-- 🧠 Federated AI Intelligence (NEW)
+- 🧠 联邦智能分析 (NEW)
 """)
 
 # ── Route to Pages ──
@@ -145,7 +144,6 @@ elif page == "⚙️ Data Explorer":
 elif page == "🔬 Phase 1 Research":
     from modules import research
     research.render()
-elif page == "🧠 Federated AI Intelligence":
-    # Use English module
-    from modules import fed_intelligence_en
-    fed_intelligence_en.render()
+elif page == "🧠 联邦智能分析":
+    from modules import fed_intelligence
+    fed_intelligence.render()
