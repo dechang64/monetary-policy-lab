@@ -1,5 +1,5 @@
 """
-Abigail-Eileen Zhang's Monetary Policy Research Lab
+Eileen Zhang's Monetary Policy Research Lab
 =================================================
 A distinctive research platform for studying how Federal Reserve announcements
 affect asset prices and portfolio reallocation.
@@ -29,7 +29,7 @@ from utils.constants import FOMC_DATES, PAPERS
 
 # ── Page Config ──
 st.set_page_config(
-    page_title="Abigail-Eileen Zhang's Research Lab",
+    page_title="Eileen Zhang's Research Lab",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -73,7 +73,7 @@ if "fred_returns" not in st.session_state:
 # ── Header ──
 st.markdown("""
 <div class="main-header">
-    <h1>📊 Abigail-Eileen Zhang's Research Lab</h1>
+    <h1>📊 Eileen Zhang's Research Lab</h1>
     <p>Federal Reserve Announcements · Asset Prices · Portfolio Reallocation · NLP Analysis</p>
 </div>
 """, unsafe_allow_html=True)
