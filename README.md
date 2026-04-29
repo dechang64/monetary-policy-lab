@@ -1,4 +1,4 @@
-# Abigail-Eileen Zhang's Monetary Policy Research Lab
+# Eileen Zhang's Monetary Policy Research Lab
 
 A distinctive research platform for studying how Federal Reserve announcements affect asset prices and portfolio reallocation.
 
