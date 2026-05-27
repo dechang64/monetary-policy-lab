@@ -1,0 +1,168 @@
+{
+  "H1": {
+    "r_squared": 0.01574695330897513,
+    "r_squared_adj": -0.001520644001393734,
+    "beta_target": 0.0005765947280499551,
+    "beta_path": 0.0006325903675936735,
+    "se_target": 0.00026537345393448896,
+    "se_path": 0.0003816910925447278,
+    "p_target": 0.031867529082589385,
+    "p_path": 0.1002011325936989,
+    "n": 117
+  },
+  "H2": {
+    "vwretd_day": {
+      "label": "CRSP VW Market",
+      "beta_target": -0.004348888903730979,
+      "beta_path": -0.0018580497960390488,
+      "se_target": 0.0027037199780940917,
+      "se_path": 0.0021889132492907168,
+      "t_target": -1.6084834742378171,
+      "t_path": -0.8488457898645005,
+      "p_target": 0.11049532644119076,
+      "p_path": 0.39774604747953424,
+      "r_squared": 0.0909530165705833,
+      "n": 117,
+      "sig_target_10": false,
+      "sig_target_05": false,
+      "sig_path_10": false,
+      "sig_path_05": false
+    },
+    "sprtrn_day": {
+      "label": "S&P 500 (CRSP)",
+      "beta_target": -0.003912331782536756,
+      "beta_path": -0.0017916920712782302,
+      "se_target": 0.002750784605183058,
+      "se_path": 0.0020996982770972133,
+      "t_target": -1.422260316262167,
+      "t_path": -0.8533093020180047,
+      "p_target": 0.1576810755929472,
+      "p_path": 0.3952771695141295,
+      "r_squared": 0.07800041208480124,
+      "n": 117,
+      "sig_target_10": false,
+      "sig_target_05": false,
+      "sig_path_10": false,
+      "sig_path_05": false
+    },
+    "ewretd_day": {
+      "label": "CRSP EW Market",
+      "beta_target": -0.004492570837617796,
+      "beta_path": -0.0017400512265698417,
+      "se_target": 0.0022100931444367666,
+      "se_path": 0.0021543410064502116,
+      "t_target": -2.0327518090929644,
+      "t_path": -0.8076953561947879,
+      "p_target": 0.04440105577448472,
+      "p_path": 0.4209481045235046,
+      "r_squared": 0.10282529298262455,
+      "n": 117,
+      "sig_target_10": true,
+      "sig_target_05": true,
+      "sig_path_10": false,
+      "sig_path_05": false
+    },
+    "ty10_chg": {
+      "label": "10Y Yield Chg",
+      "beta_target": 0.006806821018877593,
+      "beta_path": -0.000832428145036881,
+      "se_target": 0.010426378814719495,
+      "se_path": 0.007245164025864484,
+      "t_target": 0.6528461261418996,
+      "t_path": -0.11489431323641519,
+      "p_target": 0.5151698854656737,
+      "p_path": 0.9087310161142019,
+      "r_squared": 0.007207565914153946,
+      "n": 117,
+      "sig_target_10": false,
+      "sig_target_05": false,
+      "sig_path_10": false,
+      "sig_path_05": false
+    },
+    "tb13w_chg": {
+      "label": "13W T-Bill Chg",
+      "beta_target": 0.004165729766952189,
+      "beta_path": -0.0027259145383578816,
+      "se_target": 0.009539800721485771,
+      "se_path": 0.0074121898417286725,
+      "t_target": 0.43666842616219764,
+      "t_path": -0.3677610256299295,
+      "p_target": 0.6631777796481773,
+      "p_path": 0.7137333425096255,
+      "r_squared": 0.006551740889831681,
+      "n": 117,
+      "sig_target_10": false,
+      "sig_target_05": false,
+      "sig_path_10": false,
+      "sig_path_05": false
+    },
+    "gold_ret": {
+      "label": "Gold Return",
+      "beta_target": -0.40420975216490346,
+      "beta_path": -0.4878259879884289,
+      "se_target": 0.2155472272354805,
+      "se_path": 0.3078354177176525,
+      "t_target": -1.8752723352052838,
+      "t_path": -1.5846974061830152,
+      "p_target": 0.06331389715656766,
+      "p_path": 0.11580529153762287,
+      "r_squared": 0.07012135022232058,
+      "n": 117,
+      "sig_target_10": true,
+      "sig_target_05": false,
+      "sig_path_10": false,
+      "sig_path_05": false
+    }
+  },
+  "H3": {
+    "target_beta": 0.0005765947280499551,
+    "path_beta": 0.0006325903675936735,
+    "target_p": 0.031867529082589385,
+    "path_p": 0.1002011325936989,
+    "path_dominates": true,
+    "info_channel_significant": false
+  },
+  "H4": {
+    "r_squared": 0.08835973489543969,
+    "beta_target": -0.004446616386978991,
+    "beta_sentiment": -0.22423598844200754,
+    "beta_sentiment_x_fg": -0.024485117491315864,
+    "p_target": 0.1151226047513203,
+    "p_sentiment": 0.24961999777904564,
+    "p_sentiment_x_fg": 0.8863972760121435,
+    "fg_strongest": false,
+    "n": 117
+  },
+  "robustness": {
+    "post_2010": {
+      "r_squared": 0.0059055383967139274,
+      "beta_target": -0.0004861276517395237,
+      "beta_path": 0.0006146101462271631,
+      "p_target": 0.6642914108366642,
+      "p_path": 0.22759655379010169,
+      "n": 97
+    },
+    "no_covid": {
+      "r_squared": 0.015725550334708238,
+      "beta_target": 0.0005747120805190075,
+      "beta_path": 0.0006337970664230621,
+      "p_target": 0.032972479707988,
+      "p_path": 0.10205443773114231,
+      "n": 115
+    },
+    "kuttner_bp": {
+      "r_squared": 0.021358359212093392,
+      "beta_kuttner": 0.00021168468110189736,
+      "beta_path": 0.0005998117299398514,
+      "p_kuttner": 0.006267617476193976,
+      "p_path": 0.11818326589814454,
+      "n": 117
+    }
+  },
+  "metadata": {
+    "shock_source": "Acosta (2022) replication of GSS + NS",
+    "return_source": "CRSP via WRDS",
+    "n_complete": 117,
+    "period": "2006-01-31 to 2022-07-27"
+  }
+}

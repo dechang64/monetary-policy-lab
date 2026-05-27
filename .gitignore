@@ -1,0 +1,16 @@
+
+# Large WRDS data files (keep structure, exclude bulk)
+data/wrds/compustat_*.csv
+data/wrds/crsp_financial_stocks_*.csv
+data/wrds/crsp_top50_*.csv
+data/wrds/crsp_stock_names.csv
+
+# Keep small/important files
+!data/wrds/crsp_dsi_index.csv
+!data/wrds/crsp_msi_index.csv
+
+# Generated charts (too many for git)
+results/charts/
+
+# PDF output
+docs/*.pdf
