@@ -115,16 +115,19 @@ class DataEngine:
         surprise = event["surprise_bp"]
 
         # Empirical patterns from literature:
-        # 25bp tightening surprise → SPX -1%, 10Y +10bp, DXY +0.5%, Gold -0.5%
+        # 25bp tightening (hawkish) surprise → SPX -1%, 10Y +10bp, DXY +0.5%, Gold -0.5%
+        # Key: all equity indices move in SAME direction; all yields move in SAME direction
+        # Positive surprise_bp = hawkish → yields UP, equities DOWN
         sensitivity = {
-            "S&P 500": {"coef": -0.04, "vol": 0.3},       # % per bp surprise
-            "NASDAQ": {"coef": -0.05, "vol": 0.5},
-            "2Y Treasury": {"coef": -0.015, "vol": 0.05},  # yield change in %
-            "10Y Treasury": {"coef": -0.008, "vol": 0.04},
-            "DXY": {"coef": 0.02, "vol": 0.15},
-            "Gold": {"coef": -0.015, "vol": 0.3},
-            "Oil": {"coef": -0.01, "vol": 0.5},
-            "VIX": {"coef": 0.03, "vol": 1.0},
+            "S&P 500": {"coef": -0.04, "vol": 0.3},       # % per bp surprise (negative = equity falls)
+            "NASDAQ": {"coef": -0.05, "vol": 0.5},         # tech more sensitive, SAME sign as SPX
+            "Russell 2000": {"coef": -0.06, "vol": 0.6},   # small cap most sensitive, SAME sign
+            "2Y Treasury": {"coef": 0.015, "vol": 0.05},   # yield UP for hawkish (positive coef)
+            "10Y Treasury": {"coef": 0.008, "vol": 0.04},  # yield UP, short end more sensitive
+            "DXY": {"coef": 0.02, "vol": 0.15},            # dollar strengthens
+            "Gold": {"coef": -0.015, "vol": 0.3},          # gold falls
+            "Oil": {"coef": -0.01, "vol": 0.5},            # oil falls slightly
+            "VIX": {"coef": 0.03, "vol": 1.0},             # volatility rises
         }
 
         total_minutes = window_before + window_after

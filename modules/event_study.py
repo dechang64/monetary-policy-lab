@@ -115,5 +115,12 @@ def render():
         3. **CAR**: $CAR_i = \\sum_{t=-T_1}^{T_2} AR_{it}$
         4. **t-stat**: $t = CAR_i / (\\sigma_{AR} \\sqrt{N})$
 
+        where $\\sigma_{AR}$ is the standard deviation of abnormal returns from the estimation window,
+        and $N$ is the number of days in the event window.
+
+        **Note**: This tests whether a single asset's CAR is significantly different from zero
+        across multiple FOMC events. For cross-sectional tests (average CAR across assets),
+        the denominator uses $\\sigma_{CAAR}/\\sqrt{N_{assets}}$ instead.
+
         **Reference**: Kuttner (2001), Bernanke & Kuttner (2005)
         """)

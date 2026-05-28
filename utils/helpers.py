@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 def generate_synthetic_returns(n_days: int = 2500, seed: int = 42) -> pd.DataFrame:
     """
     Generate synthetic daily returns for demo purposes.
+    Includes realistic FOMC event effects (hawkish/dovish shocks).
     In production, replace with real data from CRSP/Bloomberg.
     """
     rng = np.random.default_rng(seed)
@@ -28,6 +29,26 @@ def generate_synthetic_returns(n_days: int = 2500, seed: int = 42) -> pd.DataFra
         "US 30Y Treasury": 0.008, "Corporate BBB": 0.005,
         "DXY (USD)": 0.005, "Gold": 0.01, "Oil (WTI)": 0.02,
         "Bitcoin": 0.04,
+    }
+    
+    # FOMC event effects: 25bp hawkish surprise → asset responses (in %)
+    # Based on empirical literature (Gürkaynak et al. 2005a, Nakamura & Steinsson 2018)
+    # All equity indices move in the SAME direction (negative for hawkish)
+    # All Treasury yields move in the SAME direction (positive for hawkish)
+    # Scaled up for demo visibility (real effects are ~1% per 25bp, but daily vol is ~1%)
+    fomc_effects = {
+        "S&P 500": -2.0,       # -2% per 25bp hawkish surprise (amplified for demo)
+        "NASDAQ": -2.6,        # tech more sensitive
+        "Russell 2000": -3.0,  # small cap most sensitive
+        "MSCI EM": -1.6,
+        "US 2Y Treasury": 0.20,   # +20bp yield (short end more sensitive)
+        "US 10Y Treasury": 0.14,  # +14bp yield
+        "US 30Y Treasury": 0.10,  # +10bp yield
+        "Corporate BBB": -0.6,    # spread widens slightly
+        "DXY (USD)": 1.0,        # dollar strengthens
+        "Gold": -1.0,            # gold falls
+        "Oil (WTI)": -0.6,       # oil falls slightly
+        "Bitcoin": -1.6,         # risk-off
     }
     
     # Correlation structure
@@ -55,6 +76,26 @@ def generate_synthetic_returns(n_days: int = 2500, seed: int = 42) -> pd.DataFra
     df = pd.DataFrame(index=dates)
     for i, (asset, mu) in enumerate(assets.items()):
         df[asset] = correlated[:, i] * vols[asset] + mu
+    
+    # Add FOMC event effects on actual FOMC dates
+    # Effects persist over [-1, +5] event window with decay
+    from utils.constants import FOMC_DATES
+    fomc_event_dates = [pd.Timestamp(d) for d in FOMC_DATES if pd.Timestamp(d) in df.index]
+    for event_date in fomc_event_dates:
+        # Random shock: hawkish (+) or dovish (-), in 25bp units
+        shock_bp = rng.choice([-50, -25, 0, 25, 50], p=[0.05, 0.20, 0.50, 0.20, 0.05])
+        if shock_bp == 0:
+            continue
+        shock_units = shock_bp / 25  # normalize to 25bp units
+        # Inject effect over [-1, +5] window with decay
+        for offset in range(-1, 6):
+            target_date = event_date + pd.Timedelta(days=offset)
+            if target_date not in df.index:
+                continue
+            decay = 1.0 if offset <= 1 else max(0.3, 1.0 - 0.15 * (offset - 1))
+            for asset_name, effect_pct in fomc_effects.items():
+                if asset_name in df.columns:
+                    df.loc[target_date, asset_name] += (effect_pct / 100) * shock_units * decay
     
     return df
 
@@ -243,9 +284,13 @@ def compute_event_study_stats(
             if ar_list:
                 car = sum(ar_list)
                 n = len(ar_list)
-                # Sample t-stat (use ddof=1 for unbiased sample std)
+                # Brown & Warner (1985) t-stat for CAR:
+                # t = CAR / (σ_AR × √N)
+                # where σ_AR is the standard deviation of AR from the estimation window
+                # Here we use the cross-event AR std as a simplified proxy
                 ar_std = np.std(ar_list, ddof=1)
-                t_stat = car / (ar_std / np.sqrt(n)) if ar_std > 0 and n > 1 else 0
+                sar = ar_std * np.sqrt(n)  # standard deviation of CAR
+                t_stat = car / sar if sar > 0 and n > 1 else 0
                 
                 results.append({
                     "asset": asset,
