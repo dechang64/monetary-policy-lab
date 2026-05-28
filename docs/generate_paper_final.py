@@ -202,7 +202,7 @@ add_para(
     "Our empirical strategy proceeds in four steps. First, we construct an expanded central bank sentiment dictionary that "
     "captures hawkish and dovish language specific to monetary policy communications, going beyond the general-purpose "
     "Loughran-McDonald (2011) financial dictionary. Second, we use the GSS target and path shocks as our measure of monetary "
-    "policy surprises, sourced from the Acosta (2022) replication dataset covering 220 FOMC meetings from 1995 to 2022. "
+    "policy surprises, sourced from the Acosta (2024) replication dataset covering 220 FOMC meetings from 1995 to 2022. "
     "Third, we combine CRSP market data (accessed via WRDS) with FOMC statement texts to build a unified dataset spanning "
     "117 meetings from 2006 to 2022. Fourth, we estimate OLS regressions with Newey-West standard errors to test four hypotheses "
     "about the relationship between monetary policy shocks, statement sentiment, and asset returns."
@@ -330,7 +330,7 @@ doc.add_heading('3. Data and Measurement', level=1)
 doc.add_heading('3.1 Monetary Policy Shocks', level=2)
 
 add_para(
-    "We use the monetary policy shock series from Acosta (2022), who replicates and extends the GSS target and path factors "
+    "We use the monetary policy shock series from Acosta (2024), who replicates and extends the GSS target and path factors "
     "and the Nakamura-Steinsson (NS) policy news shock using tick-frequency data from the Chicago Mercantile Exchange. "
     "The dataset covers 220 FOMC meetings from February 1995 to July 2022. The target factor captures the surprise in the "
     "current federal funds rate target (analogous to the Kuttner surprise), while the path factor captures the surprise in "
@@ -420,9 +420,10 @@ add_para(
 
 add_para(
     "Our expanded dictionary represents a significant improvement over the original CB dictionary used in our preliminary "
-    "analysis (which contained only 18 hawkish and 18 dovish terms). The expansion from 36 to 120 terms increases the "
-    "hit rate for FOMC-specific language and improves the signal-to-noise ratio of the sentiment measure. As we show in "
-    "Section 6.3, the expanded dictionary produces substantially better results in the sentiment-shock regressions."
+    "analysis (which contained only 18 hawkish and 18 dovish terms). The expansion from 36 to 203 terms (97 hawkish, "
+    "106 dovish, fully disjoint) increases the hit rate for FOMC-specific language and improves the signal-to-noise "
+    "ratio of the sentiment measure. As we show in Section 6.3, the expanded dictionary produces substantially better "
+    "results in the sentiment-shock regressions."
 )
 
 doc.add_heading('3.3 Market Data', level=2)
@@ -459,7 +460,7 @@ doc.add_heading('3.4 FOMC Meeting Data', level=2)
 
 add_para(
     "Our sample covers 140 FOMC meetings from January 2006 to March 2025, with 164 FOMC statements available for text "
-    "analysis. Of these, 117 meetings overlap with the Acosta (2022) monetary policy shock data (2006-2022), forming our "
+    "analysis. Of these, 117 meetings overlap with the Acosta (2024) monetary policy shock data (2006-2022), forming our "
     "main analysis sample. We classify each meeting by the chair's tenure (Greenspan, Bernanke, Yellen, Powell) and the "
     "monetary policy regime: conventional (pre-2008), forward guidance (2008-2015), and normalization (2016+)."
 )
@@ -1100,7 +1101,7 @@ add_para(
 )
 
 add_para(
-    "We address this concern in two ways. First, we use the Acosta (2022) replication data, which follows "
+    "We address this concern in two ways. First, we use the Acosta (2024) replication data, which follows "
     "the Nakamura and Steinsson (2018) methodology of using tick-frequency data from the CME to construct "
     "the shocks. This approach minimizes contamination by using the narrowest possible window and by using "
     "all available futures contracts to extract the target and path factors. Second, we show that our results "
@@ -1130,33 +1131,36 @@ add_para(
     "to the returns."
 )
 
-doc.add_heading('6.15 Extended Sample with DFF Proxy', level=2)
+doc.add_heading('6.15 Extended Sample with USMPD', level=2)
 
 add_para(
-    "To extend our sample beyond the Acosta (2022) coverage (which ends in July 2022), we construct a "
-    "proxy for the target surprise using the daily change in the Federal Funds Effective Rate (DFF) from "
-    "FRED. This proxy captures the day-over-day change in the effective federal funds rate on FOMC "
-    "announcement days, providing a reasonable approximation for the Kuttner surprise during the 2022-2025 "
-    "tightening cycle."
+    "To extend our sample beyond the Acosta (2024) coverage (which ends in July 2022), we use the "
+    "Federal Reserve Bank of San Francisco's U.S. Monetary Policy Event-Study Database (USMPD). "
+    "The USMPD provides raw high-frequency changes in fed funds futures (FF1-FF6) and eurodollar "
+    "futures (ED1-ED8) around FOMC events, covering 276 meetings from February 1994 to April 2026. "
+    "We compute the target factor as the first principal component of [MP1, FF1-FF4] and the path "
+    "factor as the first PC of [FF4-FF6, ED2-ED4] after orthogonalizing against the target, following "
+    "the Gürkaynak, Sack, and Swanson (2005) methodology. Both factors are normalized by regressing "
+    "on daily 1-year GSW yield changes. The resulting factors have high correlation with Acosta (2024): "
+    "target r = 0.958, path r = 0.970."
 )
 
 add_para(
-    "The DFF proxy covers 21 FOMC meetings from August 2022 to March 2025, with surprise values ranging "
-    "from -1.0 to 76.0 basis points. The largest positive proxy surprise (76 bp) corresponds to the "
-    "aggressive 75-basis-point rate hike in July 2022, while the smallest surprises (near zero) correspond "
-    "to meetings where the rate decision was widely anticipated. When we extend our sample using the DFF "
-    "proxy, the total sample size increases from 117 to 138 meetings, but the results are qualitatively "
-    "similar: the path shock remains the dominant driver of sentiment, and the R² is comparable to the "
-    "main sample."
+    "The USMPD extension covers 33 additional FOMC meetings from September 2022 to April 2026, "
+    "spanning the aggressive tightening cycle that raised the federal funds rate from near-zero to "
+    "over 5 percent. When we combine the Acosta shocks for 2006-2022 with the USMPD factors for "
+    "2022-2026 (scaled to match Acosta's variance), the total sample size increases from 117 to "
+    "163 meetings. The path shock remains significant at the 10% level (p = 0.058), providing "
+    "further support for the information channel hypothesis. However, the target shock loses "
+    "significance (p = 0.419) and the R² declines from 4.06% to 1.65%, reflecting the different "
+    "dynamics of the 2022-2026 period where rapid rate changes dominated sentiment."
 )
 
 add_para(
-    "We emphasize that the DFF proxy is a second-best measure and should be interpreted with caution. "
-    "Unlike the high-frequency futures-based measure, the DFF proxy captures the daily change in the "
-    "effective rate, which may reflect not only the surprise component but also the expected component "
-    "of the rate change. Moreover, the DFF is a transaction-weighted average rate that may not perfectly "
-    "reflect the target rate change, especially during periods of market stress. For these reasons, we "
-    "use the DFF proxy only for robustness checks and rely on the Acosta data for our main results."
+    "We emphasize that the USMPD-based extension uses a replicated GSS decomposition rather than "
+    "the original Acosta factors. While the correlation is high (0.958 for target, 0.970 for path), "
+    "small differences in the PCA rotation and normalization may affect the results. For this reason, "
+    "we use the USMPD extension only for robustness checks and rely on the Acosta data for our main results."
 )
 
 add_figure(os.path.join(CHARTS, 'fig1_sentiment_shocks.png'),
@@ -1259,13 +1263,14 @@ doc.add_heading('Appendix', level=1)
 doc.add_heading('Appendix A: Expanded Central Bank Sentiment Dictionary', level=2)
 
 add_para(
-    "Our expanded central bank dictionary contains 60 hawkish terms, 60 dovish terms, and 50 bigram phrases. "
+    "Our expanded central bank dictionary contains 97 hawkish terms, 106 dovish terms, and 50 bigram phrases. "
+    "The dictionaries are fully disjoint — no term appears in both hawkish and dovish sets. "
     "The full list of terms is available in the replication package. Key hawkish terms include: tighten, "
     "restrictive, inflationary, overheating, elevated, vigilance, normalize, taper, hike, front-load, "
     "overshoot, upside risks, unacceptably high, persistently elevated, second-round effects, wage-pressure, "
     "capacity-constraint, inflation-expectations, unanchored, and quantitative-tightening. Key dovish terms "
     "include: accommodate, ease, stimulate, support, patient, gradual, data-dependent, transitory, cushion, "
-    "buffer, safeguard, dovish, flexible, optionality, confidence, benign, favorable, transitory, temporary, "
+    "buffer, safeguard, dovish, flexible, optionality, confidence, benign, favorable, temporary, "
     "and soft-landing. Bigram phrases include 'rate hike,' 'inflation expectations,' 'restrictive stance' "
     "(hawkish) and 'rate cut,' 'accommodative stance,' 'forward guidance' (dovish).",
     size=10, indent=False
@@ -1276,16 +1281,62 @@ doc.add_heading('Appendix B: Data Sources', level=2)
 add_table(
     ['Data', 'Source', 'Period', 'Frequency', 'Access'],
     [
-        ['Monetary policy shocks', 'Acosta (2022)/GSS+NS', '1995-2022', 'Per FOMC', 'Public'],
-        ['DFF shock proxy', 'FRED', '2022-2025', 'Daily', 'Public API'],
+        ['Monetary policy shocks', 'Acosta (2024)/GSS+NS', '1995-2022', 'Per FOMC', 'Public'],
+        ['USMPD raw HF data', 'SF Fed (USMPD)', '1994-2026', 'Per FOMC', 'Public'],
+        ['USMPD target/path factors', 'USMPD + GSS replication', '1994-2026', 'Per FOMC', 'Replicated'],
         ['CRSP market index', 'WRDS', '1990-2024', 'Daily', 'Institutional'],
         ['CRSP financial stocks', 'WRDS', '2020-2024', 'Daily', 'Institutional'],
         ['Compustat fundq', 'WRDS', '2010-2025', 'Quarterly', 'Institutional'],
         ['Compustat funda', 'WRDS', '2010-2025', 'Annual', 'Institutional'],
         ['FOMC statements', 'Fed website', '2006-2025', 'Per meeting', 'Public'],
         ['FRED macro series', 'FRED API', '1990-2025', 'Daily/Monthly', 'Public API'],
+        ['1Y GSW yield', 'Fed Board', '1994-2026', 'Daily', 'Public'],
     ],
     caption='Table A1: Data Sources Summary'
+)
+
+doc.add_heading('Appendix C: USMPD Factor Replication', level=2)
+
+add_para(
+    "We replicate the Gürkaynak, Sack, and Swanson (2005) target and path factor decomposition using "
+    "the U.S. Monetary Policy Event-Study Database (USMPD) published by the Federal Reserve Bank of "
+    "San Francisco. The USMPD provides raw high-frequency changes in fed funds futures (FF1-FF6) and "
+    "eurodollar futures (ED1-ED8) around FOMC events, covering 276 meetings from February 1994 to "
+    "April 2026. The official USMPD release includes an R script (mps.R) that computes the Acosta et al. "
+    "(2025) single-factor monetary policy surprise (STMT) from MP1, MP2, ED2-ED4. We replicate this "
+    "exactly in Python and confirm perfect agreement (r = 1.000).",
+    size=10, indent=False
+)
+
+add_para(
+    "For the two-factor decomposition, we implement a two-step orthogonalized PCA procedure: "
+    "(1) the target factor is the first principal component of [MP1, FF1, FF2, FF3, FF4], capturing "
+    "the surprise in the current federal funds rate; (2) the path factor is the first PC of "
+    "[FF4, FF5, FF6, ED2, ED3, ED4] after orthogonalizing each instrument against the target factor, "
+    "capturing the surprise in the future rate path. Both factors are normalized by regressing on the "
+    "daily change in the 1-year GSW yield (SVENY01), so that each factor has a one-for-one impact on "
+    "the 1-year yield.",
+    size=10, indent=False
+)
+
+add_table(
+    ['Factor', 'Instruments', 'PC1 Variance', 'Corr w/ Acosta Target', 'Corr w/ Acosta Path'],
+    [
+        ['Target', 'MP1, FF1-FF4', '87.1%', '0.958', '—'],
+        ['Path (orth)', 'FF4-FF6, ED2-ED4', '77.0%', '—', '0.970'],
+        ['STMT (single)', 'MP1, MP2, ED2-ED4', '78.5%', '0.687 (target+path)', '0.722 (target+path)'],
+    ],
+    caption='Table A2: USMPD Factor Replication Quality'
+)
+
+add_para(
+    "The target factor achieves high correlation with Acosta (2024) (r = 0.958), confirming that our "
+    "PCA decomposition correctly captures the current-rate surprise. The path factor correlation is "
+    "also high (r = 0.970), though the orthogonalization step introduces minor differences in the "
+    "rotation relative to Acosta's original decomposition. The single-factor STMT surprise, which "
+    "combines target and path information, has a correlation of 0.989 with the sum of Acosta's target "
+    "and path factors, confirming that the USMPD data are derived from the same underlying futures prices.",
+    size=10, indent=False
 )
 
 # ── Save ──
