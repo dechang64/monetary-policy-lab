@@ -149,6 +149,13 @@ High-frequency identified monetary policy shocks from Acosta, Bricongne, and L'H
 
 **Workaround for missing CME data**: We use Acosta et al. (2024) public shock data, which replicates the GSS target/path decomposition using the same CME futures data. This provides the correct surprise measures without requiring direct WRDS-CME access. The key limitation is that we cannot extend the shock series beyond 2022-07-27 (end of Acosta coverage) without CME access.
 
+**Alternative CME replacement**: Gürkaynak, Sack, and Swanson (2005) publish their target factor and path factor data on the Federal Reserve Board website (https://www.federalreserve.gov/econresdata/workingpapers.htm). This is the original GSS series that Acosta et al. replicate, covering 1990–2024 with regular updates. Using the GSS public data directly would:
+1. Extend shock coverage beyond Acosta's 2022 endpoint to the present
+2. Provide the canonical target/path decomposition used in the literature
+3. Enable direct comparison with Gürkaynak et al. (2005) and subsequent studies
+
+This is the preferred Phase 2 upgrade path — no WRDS-CME access required.
+
 **WRDS data files** (in `data/wrds/`):
 
 | File | Size | Description |
@@ -514,6 +521,7 @@ This is a **heuristic simulation**, not estimated from data. It serves as a peda
 |----------|---------------|--------|---------|
 | Δr_t (rate change) | FOMC records | ✅ Legacy (v1–v4) | Low — zero for unchanged meetings |
 | Acosta et al. (2024) shocks | HF futures | ✅ Active (v6+) | High — market-based, narrow-window |
+| GSS public data (Gürkaynak et al. 2005) | HF futures | ⏳ Phase 2 (FRB website) | High — canonical series, updated to 2024+ |
 | Kuttner (2001) target surprise | CME FF futures | ⏳ WRDS pending | High — direct replication |
 | Gürkaynak et al. (2005) path factor | CME ED futures | ⏳ WRDS pending | High — captures forward guidance |
 
@@ -605,7 +613,8 @@ The H1 regression uses N = 117 meetings (2006–2022). This is the intersection 
 | Phase | Component | Data Source | Expected Impact |
 |-------|-----------|-------------|-----------------|
 | **Phase 2** | CB-only sentiment | — | H1 R²: 4.06% → 5–8% (more sign variation) |
-| **Phase 2** | Kuttner surprise (direct) | CME FF futures (WRDS) | Independent replication of Acosta; requires CME access |
+| **Phase 2** | GSS target/path shocks (direct) | Gürkaynak public data (FRB website) | Extend coverage to 2024+; canonical decomposition; no WRDS needed |
+| **Phase 2** | Kuttner surprise (direct) | CME FF futures (WRDS) | Independent replication; requires CME access |
 | **Phase 2** | Path factor (direct) | CME ED futures (WRDS) | H3 decomposition validity; requires CME access |
 | **Phase 2** | Lag sensitivity analysis | — | Robustness of inference |
 | **Phase 2** | Recover 13 missing obs | Statement scraper | H1 N: 117 → 130 |
