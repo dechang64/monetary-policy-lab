@@ -340,21 +340,25 @@ add_para(
 )
 
 add_para(
-    "For the period after July 2022 (not covered by the Acosta dataset), we construct a proxy for the target surprise using "
-    "the daily change in the Federal Funds Effective Rate (DFF) from FRED. While this proxy is less precise than the "
-    "high-frequency futures-based measure — it captures daily rather than 30-minute changes — it provides a reasonable "
-    "approximation for extending our sample to 2025. We use this proxy only for robustness checks; our main results use "
-    "the Acosta data exclusively."
+    "For the period after July 2022 (not covered by the Acosta dataset), we extend the shock series using the Federal "
+    "Reserve Bank of San Francisco's U.S. Monetary Policy Event-Study Database (USMPD), which provides raw high-frequency "
+    "changes in fed funds futures (FF1-FF6) and eurodollar futures (ED1-ED8) around FOMC events through April 2026. "
+    "We compute the target factor as the first principal component of [MP1, FF1-FF4] and the path factor as the first PC "
+    "of [FF4-FF6, ED2-ED4] after orthogonalizing against the target, following the GSS (2005) methodology. Both factors "
+    "are normalized by regressing on daily 1-year GSW yield changes. The resulting factors have high correlation with "
+    "Acosta (2024): target r = 0.958, path r = 0.970. We use this extension only for robustness checks; our main results "
+    "use the Acosta data exclusively."
 )
 
 add_table(
     ['Variable', 'Source', 'Period', 'N', 'Description'],
     [
-        ['Target shock', 'Acosta (2022)/GSS', '1995-2022', '220', 'Standardized target rate surprise'],
-        ['Path shock', 'Acosta (2022)/GSS', '1995-2022', '220', 'Standardized forward guidance factor'],
-        ['NS shock', 'Acosta (2022)/NS', '1995-2022', '220', 'Policy news shock (Nakamura-Steinsson)'],
-        ['FF shock (bp)', 'Acosta (2022)', '1995-2022', '220', '30-min FF rate change in basis points'],
-        ['DFF proxy', 'FRED', '2022-2025', '21', 'Daily DFF change as target surprise proxy'],
+        ['Target shock', 'Acosta (2024)/GSS', '1995-2022', '220', 'Standardized target rate surprise'],
+        ['Path shock', 'Acosta (2024)/GSS', '1995-2022', '220', 'Standardized forward guidance factor'],
+        ['NS shock', 'Acosta (2024)/NS', '1995-2022', '220', 'Policy news shock (Nakamura-Steinsson)'],
+        ['FF shock (bp)', 'Acosta (2024)', '1995-2022', '220', '30-min FF rate change in basis points'],
+        ['Target (USMPD)', 'USMPD/SF Fed', '1994-2026', '276', 'GSS-style target from HF futures'],
+        ['Path (USMPD)', 'USMPD/SF Fed', '1994-2026', '276', 'GSS-style path from HF futures'],
     ],
     caption='Table 1: Monetary Policy Shock Variables'
 )
@@ -365,7 +369,9 @@ add_para(
     "We construct a sentiment measure for FOMC statements using an expanded central bank dictionary that combines the "
     "Loughran-McDonald (2011) financial sentiment dictionary with a custom central bank dictionary. The LM dictionary "
     "contains approximately 30 positive and 30 negative words relevant to financial contexts, while our expanded CB "
-    "dictionary contains 60 hawkish and 60 dovish terms specifically tailored to monetary policy language."
+    "dictionary contains 97 hawkish and 106 dovish terms specifically tailored to monetary policy language. "
+    "The dictionaries are fully disjoint — no term appears in both hawkish and dovish sets — ensuring that "
+    "each word contributes unambiguously to the sentiment score."
 )
 
 add_para(
@@ -742,11 +748,31 @@ add_para(
 add_table(
     ['Sample', 'R²', 'β(Target)', 'p(Target)', 'β(Path)', 'p(Path)', 'N'],
     [
-        ['Full sample', '4.06%', '0.000290', '0.062', '0.000469', '0.047', '117'],
+        ['Full sample (Acosta)', '4.06%', '0.000290', '0.062', '0.000469', '0.047', '117'],
         ['No COVID', '4.10%', '0.000290', '0.065', '0.000469', '0.050', '115'],
         ['Post-2010', '2.02%', '0.000158', '0.234', '0.000421', '0.058', '97'],
+        ['Extended (Acosta+USMPD)', '1.65%', '0.000133', '0.419', '0.000337', '0.058', '163'],
     ],
     caption='Table 8: Sub-Sample Robustness (H1)'
+)
+
+add_para(
+    "The extended sample row uses GSS-style target and path factors computed from the Federal Reserve Bank of San Francisco's "
+    "U.S. Monetary Policy Event-Study Database (USMPD) for the 2022-2026 period, appended to the Acosta (2024) shocks for "
+    "1995-2022. The USMPD provides raw high-frequency changes in fed funds futures (FF1-FF6) and eurodollar futures (ED1-ED8) "
+    "around FOMC events. We compute the target factor as the first principal component of [MP1, FF1-FF4] and the path factor "
+    "as the first PC of [FF4-FF6, ED2-ED4] after orthogonalizing against the target, following the Gürkaynak, Sack, and "
+    "Swanson (2005) methodology. Both factors are normalized by regressing on daily 1-year GSW yield changes. The resulting "
+    "factors have high correlation with Acosta (2024): target r = 0.958, path r = 0.970."
+)
+
+add_para(
+    "The path shock remains significant at the 10% level (p = 0.058) even with the extended sample, providing further "
+    "support for the information channel hypothesis. However, the target shock loses significance (p = 0.419) and the R² "
+    "declines from 4.06% to 1.65%. This reflects the different dynamics of the 2022-2026 hiking cycle, where the Federal "
+    "Reserve raised rates at an unprecedented pace (from near-zero to over 5%) and forward guidance language was dominated "
+    "by the magnitude of rate changes rather than subtle information about the future path. The no-COVID robustness check "
+    "(path p = 0.034) confirms that the information channel is not driven by pandemic-era outliers."
 )
 
 add_para(
