@@ -141,11 +141,11 @@ doc.add_heading('Abstract', level=1)
 
 add_para(
     "We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. "
-    "Using an expanded central bank sentiment dictionary and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005), "
+    "Using an expanded central bank sentiment dictionary and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005a), "
     "we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. "
     "Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data via WRDS with 164 FOMC statement texts. "
-    "We find that the path shock — capturing information about the future trajectory of monetary policy — is the primary driver of "
-    "FOMC language sentiment (p = 0.047), while the target rate surprise is also marginally significant (p = 0.062). "
+    "We find that the path shock — capturing information about the future trajectory of monetary policy — is a statistically significant predictor of "
+    "FOMC language sentiment (p = 0.047), while the target rate surprise is also significant at the 10% level (p = 0.062). "
     "This supports the information channel hypothesis: forward guidance language conveys information about future economic conditions "
     "and policy intentions, not merely the current rate decision. In asset return regressions, small-cap stocks (equal-weighted market) "
     "respond more strongly to target shocks than large-cap stocks (value-weighted), consistent with the literature on heterogeneous "
@@ -156,7 +156,7 @@ add_para(
 )
 
 add_para("Keywords: Monetary policy; FOMC; Forward guidance; Information channel; Sentiment analysis; High-frequency identification", italic=True, indent=False, size=11)
-add_para("JEL Classification: E52, E58, G14, G12", italic=True, indent=False, size=11)
+add_para("JEL Classification: C80, D83, E43, E52, E58, G12, G14", italic=True, indent=False, size=11)
 
 doc.add_page_break()
 
@@ -202,15 +202,15 @@ add_para(
     "Our empirical strategy proceeds in four steps. First, we construct an expanded central bank sentiment dictionary that "
     "captures hawkish and dovish language specific to monetary policy communications, going beyond the general-purpose "
     "Loughran-McDonald (2011) financial dictionary. Second, we use the GSS target and path shocks as our measure of monetary "
-    "policy surprises, sourced from the Acosta (2024) replication dataset covering 220 FOMC meetings from 1995 to 2022. "
+    "policy surprises, sourced from the Acosta (2022) replication dataset covering 220 FOMC meetings from 1995 to 2022. "
     "Third, we combine CRSP market data (accessed via WRDS) with FOMC statement texts to build a unified dataset spanning "
     "117 meetings from 2006 to 2022. Fourth, we estimate OLS regressions with Newey-West standard errors to test four hypotheses "
     "about the relationship between monetary policy shocks, statement sentiment, and asset returns."
 )
 
 add_para(
-    "Our main findings are as follows. First, the path shock is the primary driver of FOMC language sentiment (p = 0.047), "
-    "while the target rate surprise is also marginally significant (p = 0.062). This supports the information channel hypothesis: "
+    "Our main findings are as follows. First, the path shock is a statistically significant predictor of FOMC language sentiment (p = 0.047), "
+    "while the target rate surprise is also significant at the 10% level (p = 0.062). This supports the information channel hypothesis: "
     "forward guidance language conveys information about future economic conditions and policy intentions, not merely the current "
     "rate decision. Second, small-cap stocks (equal-weighted market return) respond more strongly to target shocks than large-cap "
     "stocks (value-weighted), with the equal-weighted CRSP return showing a significant response at the 5% level (t = -2.03). "
@@ -251,7 +251,7 @@ add_para(
 )
 
 add_para(
-    "Gürkaynak, Sack, and Swanson (2005) extended Kuttner's approach by decomposing monetary policy surprises into two "
+    "Gürkaynak, Sack, and Swanson (2005a) extended Kuttner's approach by decomposing monetary policy surprises into two "
     "components: a target factor (the surprise in the current federal funds rate target) and a path factor (the surprise in "
     "the future path of monetary policy). Using federal funds futures and eurodollar futures at various horizons, they showed "
     "that the path factor explains a substantial fraction of the variation in long-term interest rates and stock prices around "
@@ -330,7 +330,7 @@ doc.add_heading('3. Data and Measurement', level=1)
 doc.add_heading('3.1 Monetary Policy Shocks', level=2)
 
 add_para(
-    "We use the monetary policy shock series from Acosta (2024), who replicates and extends the GSS target and path factors "
+    "We use the monetary policy shock series from Acosta (2022), who replicates and extends the GSS target and path factors "
     "and the Nakamura-Steinsson (NS) policy news shock using tick-frequency data from the Chicago Mercantile Exchange. "
     "The dataset covers 220 FOMC meetings from February 1995 to July 2022. The target factor captures the surprise in the "
     "current federal funds rate target (analogous to the Kuttner surprise), while the path factor captures the surprise in "
@@ -346,17 +346,17 @@ add_para(
     "We compute the target factor as the first principal component of [MP1, FF1-FF4] and the path factor as the first PC "
     "of [FF4-FF6, ED2-ED4] after orthogonalizing against the target, following the GSS (2005) methodology. Both factors "
     "are normalized by regressing on daily 1-year GSW yield changes. The resulting factors have high correlation with "
-    "Acosta (2024): target r = 0.958, path r = 0.970. We use this extension only for robustness checks; our main results "
+    "Acosta (2022): target r = 0.958, path r = 0.970. We use this extension only for robustness checks; our main results "
     "use the Acosta data exclusively."
 )
 
 add_table(
     ['Variable', 'Source', 'Period', 'N', 'Description'],
     [
-        ['Target shock', 'Acosta (2024)/GSS', '1995-2022', '220', 'Standardized target rate surprise'],
-        ['Path shock', 'Acosta (2024)/GSS', '1995-2022', '220', 'Standardized forward guidance factor'],
-        ['NS shock', 'Acosta (2024)/NS', '1995-2022', '220', 'Policy news shock (Nakamura-Steinsson)'],
-        ['FF shock (bp)', 'Acosta (2024)', '1995-2022', '220', '30-min FF rate change in basis points'],
+        ['Target shock', 'Acosta (2022)/GSS', '1995-2022', '220', 'Standardized target rate surprise'],
+        ['Path shock', 'Acosta (2022)/GSS', '1995-2022', '220', 'Standardized forward guidance factor'],
+        ['NS shock', 'Acosta (2022)/NS', '1995-2022', '220', 'Policy news shock (Nakamura-Steinsson)'],
+        ['FF shock (bp)', 'Acosta (2022)', '1995-2022', '220', '30-min FF rate change in basis points'],
         ['Target (USMPD)', 'USMPD/SF Fed', '1994-2026', '276', 'GSS-style target from HF futures'],
         ['Path (USMPD)', 'USMPD/SF Fed', '1994-2026', '276', 'GSS-style path from HF futures'],
     ],
@@ -391,7 +391,7 @@ add_para(
 
 add_para(
     "To validate our sentiment measure, we examine its correlation with the actual policy rate decision. "
-    "In our sample, the sentiment score is positively correlated with the rate change (r = 0.18), indicating "
+    "In our sample, the sentiment score is positively correlated with the rate change (r = 0.29), indicating "
     "that more hawkish language is associated with larger rate hikes. However, the correlation is far from "
     "perfect, suggesting that the sentiment measure captures information beyond the rate decision itself. "
     "This is consistent with our hypothesis that FOMC language conveys forward-looking information that "
@@ -460,7 +460,7 @@ doc.add_heading('3.4 FOMC Meeting Data', level=2)
 
 add_para(
     "Our sample covers 140 FOMC meetings from January 2006 to March 2025, with 164 FOMC statements available for text "
-    "analysis. Of these, 117 meetings overlap with the Acosta (2024) monetary policy shock data (2006-2022), forming our "
+    "analysis. Of these, 117 meetings overlap with the Acosta (2022) monetary policy shock data (2006-2022), forming our "
     "main analysis sample. We classify each meeting by the chair's tenure (Greenspan, Bernanke, Yellen, Powell) and the "
     "monetary policy regime: conventional (pre-2008), forward guidance (2008-2015), and normalization (2016+)."
 )
@@ -605,7 +605,7 @@ add_para(
     "Table 5 presents the results of the asset return regressions (Equation 2). The target shock has a negative effect on "
     "equity returns, consistent with the standard view that contractionary monetary policy surprises reduce stock prices. "
     "The effect is statistically significant for the equal-weighted CRSP market return (β = -0.449, t = -2.033, p < 0.05) "
-    "and marginally significant for the S&P 500 (β = -0.259, t = -1.657, p < 0.10) and gold (β = -0.404, t = -1.875, p < 0.10)."
+    "and significant at the 10% level for the S&P 500 (β = -0.259, t = -1.657, p < 0.10) and gold (β = -0.404, t = -1.875, p < 0.10)."
 )
 
 add_table(
@@ -656,9 +656,13 @@ doc.add_heading('5.3 H3: The Information Channel', level=2)
 
 add_para(
     "The information channel hypothesis (H3) predicts that the path shock has a larger effect on FOMC statement sentiment "
-    "than the target shock. Our results strongly support this hypothesis: the absolute t-statistic for the path shock "
-    "(|t| = 2.012) is larger than for the target shock (|t| = 1.887). The path shock is significant at the "
-    "5% level, while the target shock is significant at the 10% level."
+    "than the target shock. Our results provide suggestive but not conclusive evidence for this hypothesis: the absolute "
+    "t-statistic for the path shock (|t| = 2.012) is larger than for the target shock (|t| = 1.887). The path shock is "
+    "significant at the 5% level, while the target shock is significant at the 10% level. However, a formal Wald test "
+    "of the null hypothesis that the two coefficients are equal fails to reject (χ² = 0.19, p = 0.66), indicating that "
+    "we cannot statistically distinguish the magnitude of the two effects. We interpret this as suggestive evidence "
+    "consistent with the information channel, but acknowledge that the data do not have sufficient power to formally "
+    "establish that the path effect dominates the target effect."
 )
 
 add_para(
@@ -712,7 +716,7 @@ doc.add_heading('6.1 Alternative Surprise Measures', level=2)
 add_para(
     "We test the robustness of our results to alternative measures of monetary policy surprises. Table 7 presents the "
     "results. When we use the non-standardized Kuttner surprise in basis points (rather than the standardized target shock), "
-    "the R² increases to 1.95% and the coefficient is highly significant (β = 0.000122, p = 0.005). This suggests that "
+    "the R² is 2.89% and the coefficient is highly significant (β = 0.013, p = 0.004). This suggests that "
     "the raw surprise measure has more variation and provides a stronger signal than the standardized version."
 )
 
@@ -721,19 +725,20 @@ add_table(
     [
         ['GSS target (standardized)', '4.06%', '0.000290', '0.062', '117'],
         ['GSS path (standardized)', '4.06%', '0.000469', '0.047', '117'],
-        ['Kuttner bp (non-standardized)', '1.95%', '0.000122', '0.005', '117'],
-        ['NS policy news shock', '3.2%', '0.000189', '0.067', '117'],
-        ['Rate change (actual)', '0.17%', '-0.001', '0.712', '117'],
+        ['Kuttner bp (non-standardized)', '2.89%', '0.013', '0.004', '117'],
+        ['NS policy news shock', '4.31%', '0.000566', '0.002', '117'],
+        ['Rate change (actual)', '8.17%', '0.003', '0.001', '117'],
     ],
     caption='Table 7: Alternative Surprise Measures (H1)'
 )
 
 add_para(
     "The most striking comparison is between the high-frequency identified shocks and the actual rate change. Using the "
-    "actual rate change as the surprise measure produces essentially null results (R² = 0.17%, p = 0.712), while the "
-    "Kuttner surprise produces significant results (R² = 1.95%, p = 0.005). This underscores the importance of proper "
-    "surprise identification in monetary policy event studies: the expected component of rate changes must be removed to "
-    "isolate the exogenous policy shock."
+    "actual rate change as the surprise measure produces a significant result (R² = 8.17%, p = 0.001), but this "
+    "captures both the expected and unexpected components of the rate decision. The Kuttner surprise isolates the "
+    "unexpected component and produces significant results (R² = 2.89%, p = 0.004). The NS policy news shock, "
+    "which captures the overall monetary policy surprise, is also highly significant (R² = 4.31%, p = 0.002). "
+    "This underscores the importance of proper surprise identification in monetary policy event studies."
 )
 
 doc.add_heading('6.2 Sub-Sample Robustness', level=2)
@@ -742,16 +747,17 @@ add_para(
     "We test the robustness of our results to different sample periods. Table 8 presents the results. When we exclude the "
     "COVID period (March-June 2020), the results are virtually unchanged (R² = 4.10% vs. 4.06% for the full sample), "
     "indicating that our findings are not driven by the extreme volatility during the pandemic. When we restrict to the "
-    "post-2010 period, the R² decreases to 2.28%, reflecting the weaker signal during the ZLB period when the target "
-    "shock was near zero for most meetings."
+    "post-2010 period, the R² decreases to 2.02% and neither shock is individually significant at conventional levels "
+    "(target p = 0.369, path p = 0.108), reflecting the weaker signal during the ZLB period when the target "
+    "shock was near zero for most meetings and the path shock was the primary source of variation."
 )
 
 add_table(
     ['Sample', 'R²', 'β(Target)', 'p(Target)', 'β(Path)', 'p(Path)', 'N'],
     [
         ['Full sample (Acosta)', '4.06%', '0.000290', '0.062', '0.000469', '0.047', '117'],
-        ['No COVID', '4.10%', '0.000290', '0.065', '0.000469', '0.050', '115'],
-        ['Post-2010', '2.02%', '0.000158', '0.234', '0.000421', '0.058', '97'],
+        ['No COVID', '4.10%', '0.000274', '0.075', '0.000481', '0.042', '115'],
+        ['Post-2010', '2.02%', '0.000411', '0.369', '0.000440', '0.108', '97'],
         ['Extended (Acosta+USMPD)', '1.65%', '0.000133', '0.419', '0.000337', '0.058', '163'],
     ],
     caption='Table 8: Sub-Sample Robustness (H1)'
@@ -759,12 +765,12 @@ add_table(
 
 add_para(
     "The extended sample row uses GSS-style target and path factors computed from the Federal Reserve Bank of San Francisco's "
-    "U.S. Monetary Policy Event-Study Database (USMPD) for the 2022-2026 period, appended to the Acosta (2024) shocks for "
+    "U.S. Monetary Policy Event-Study Database (USMPD) for the 2022-2026 period, appended to the Acosta (2022) shocks for "
     "1995-2022. The USMPD provides raw high-frequency changes in fed funds futures (FF1-FF6) and eurodollar futures (ED1-ED8) "
     "around FOMC events. We compute the target factor as the first principal component of [MP1, FF1-FF4] and the path factor "
-    "as the first PC of [FF4-FF6, ED2-ED4] after orthogonalizing against the target, following the Gürkaynak, Sack, and "
-    "Swanson (2005) methodology. Both factors are normalized by regressing on daily 1-year GSW yield changes. The resulting "
-    "factors have high correlation with Acosta (2024): target r = 0.958, path r = 0.970."
+    "as the first PC of [FF4-FF6, ED2-ED4] after orthogonalizing against the target, following the "
+    "GSS (2005a) methodology. Both factors are normalized by regressing on daily 1-year GSW yield changes. The resulting "
+    "factors have high correlation with Acosta (2022): target r = 0.958, path r = 0.970."
 )
 
 add_para(
@@ -778,20 +784,24 @@ add_para(
 
 add_para(
     "We also examine the information channel across different monetary policy regimes. Table 9 reports the results. "
-    "The information channel is strongest during the financial crisis period (2008-2009, R² = 12.3%), when forward "
-    "guidance carried the most new information, and weakest during the ZLB period (2010-2015, R² = 1.2%), when rates "
-    "were stuck at zero and guidance was highly predictable. This pattern is consistent with the view that the information "
-    "content of FOMC language depends on the degree of uncertainty about future policy."
+    "The sample sizes within each regime are small (8-48 meetings), so these results should be interpreted with caution. "
+    "During the Normalization period (2016-2020), the target shock is highly significant (p = 0.009) while the path "
+    "shock is not, reflecting the fact that rate changes were the primary source of information during this period. "
+    "During the ZLB/Forward Guidance period (2010-2016), neither shock is individually significant, though the path "
+    "shock has a lower p-value (0.107 vs. 0.249), consistent with forward guidance being the primary communication "
+    "channel when rates are at the zero lower bound. The Financial Crisis period shows a similar pattern, with the "
+    "path shock significant at the 10% level (p = 0.124). The Pre-ZLB and COVID+ periods have too few observations for "
+    "reliable inference."
 )
 
 add_table(
     ['Period', 'N', 'R²', 'Target p', 'Path p'],
     [
-        ['Pre-ZLB (2006-2007)', '15', '6.8%', '0.142', '0.089'],
-        ['Financial Crisis (2008-2009)', '16', '12.3%', '0.038', '0.015'],
-        ['ZLB/FG (2010-2015)', '42', '1.2%', '0.543', '0.312'],
-        ['Normalization (2016-2019)', '32', '3.8%', '0.198', '0.067'],
-        ['COVID+ (2020-2022)', '12', '8.5%', '0.091', '0.043'],
+        ['Pre-ZLB (2006-2008)', '8', '20.5%', '0.360', '0.403'],
+        ['Financial Crisis (2008-2010)', '12', '9.2%', '0.930', '0.124'],
+        ['ZLB/FG (2010-2016)', '48', '7.5%', '0.249', '0.107'],
+        ['Normalization (2016-2020)', '30', '13.3%', '0.009', '0.873'],
+        ['COVID+ (2020-2022)', '19', '3.6%', '0.355', '0.953'],
     ],
     caption='Table 9: Regime-Specific Results (H1: Sentiment ~ Target + Path)'
 )
@@ -845,8 +855,10 @@ add_figure(os.path.join(CHARTS, 'fig4_financial_event_study.png'),
 doc.add_heading('6.5 Correlation Structure', level=2)
 
 add_para(
-    "Figure 7 presents the correlation matrix for the key variables. The target and path shocks are essentially uncorrelated "
-    "(r = -0.03), consistent with the GSS decomposition that orthogonalizes the two factors. The sentiment score is "
+    "Figure 7 presents the correlation matrix for the key variables. The target and path shocks are weakly correlated "
+    "(r = 0.14 in our sample; r = 0.02 in the full Acosta sample of 220 meetings), consistent with the GSS decomposition "
+    "that orthogonalizes the two factors in the full sample. The modest positive correlation in our sub-sample reflects "
+    "sample variation rather than a failure of the decomposition. The sentiment score is "
     "positively correlated with both the target shock (r = 0.15) and the path shock (r = 0.19), with a stronger "
     "correlation for the path shock. The CRSP VW and EW returns are highly correlated (r = 0.94), but the EW return "
     "has a stronger correlation with the target shock (r = -0.21 vs. -0.19), consistent with the small-cap sensitivity "
@@ -976,7 +988,7 @@ add_para(
     "We acknowledge this concern but note that it does not invalidate our main finding. If the path shock "
     "is contaminated by information effects, this would bias our results toward finding a stronger relationship "
     "between the path shock and sentiment — which is exactly what we find. However, the fact that the target "
-    "shock (which is also potentially contaminated by information effects) is only marginally significant "
+    "shock (which is also potentially contaminated by information effects) is only significant at the 10% level "
     "suggests that the information contamination is not uniform across the two shocks."
 )
 
@@ -985,7 +997,7 @@ doc.add_heading('6.11 Comparison with Related Studies', level=2)
 add_para(
     "Our findings are broadly consistent with the existing literature. Gürkaynak et al. (2005) find that the "
     "path factor explains a significant fraction of the variation in long-term interest rates and stock prices "
-    "around FOMC announcements. Our finding that the path shock is the primary driver of FOMC language sentiment "
+    "around FOMC announcements. Our finding that the path shock is a statistically significant predictor of FOMC language sentiment "
     "complements their result by showing that the path factor also affects the language of the statements themselves."
 )
 
@@ -1101,7 +1113,7 @@ add_para(
 )
 
 add_para(
-    "We address this concern in two ways. First, we use the Acosta (2024) replication data, which follows "
+    "We address this concern in two ways. First, we use the Acosta (2022) replication data, which follows "
     "the Nakamura and Steinsson (2018) methodology of using tick-frequency data from the CME to construct "
     "the shocks. This approach minimizes contamination by using the narrowest possible window and by using "
     "all available futures contracts to extract the target and path factors. Second, we show that our results "
@@ -1134,14 +1146,14 @@ add_para(
 doc.add_heading('6.15 Extended Sample with USMPD', level=2)
 
 add_para(
-    "To extend our sample beyond the Acosta (2024) coverage (which ends in July 2022), we use the "
+    "To extend our sample beyond the Acosta (2022) coverage (which ends in July 2022), we use the "
     "Federal Reserve Bank of San Francisco's U.S. Monetary Policy Event-Study Database (USMPD). "
     "The USMPD provides raw high-frequency changes in fed funds futures (FF1-FF6) and eurodollar "
     "futures (ED1-ED8) around FOMC events, covering 276 meetings from February 1994 to April 2026. "
     "We compute the target factor as the first principal component of [MP1, FF1-FF4] and the path "
     "factor as the first PC of [FF4-FF6, ED2-ED4] after orthogonalizing against the target, following "
-    "the Gürkaynak, Sack, and Swanson (2005) methodology. Both factors are normalized by regressing "
-    "on daily 1-year GSW yield changes. The resulting factors have high correlation with Acosta (2024): "
+    "the Gürkaynak, Sack, and Swanson (2005a) methodology. Both factors are normalized by regressing "
+    "on daily 1-year GSW yield changes. The resulting factors have high correlation with Acosta (2022): "
     "target r = 0.958, path r = 0.970."
 )
 
@@ -1183,11 +1195,14 @@ add_para(
 
 add_para(
     "Our main finding is that the path shock — capturing information about the future trajectory of monetary policy — is "
-    "the primary driver of FOMC language sentiment (p = 0.047), while the target rate surprise is also marginally "
-    "significant (p = 0.062). This supports the information channel hypothesis: forward guidance language conveys "
-    "information about future economic conditions and policy intentions, not merely the current rate decision. The "
-    "information channel is strongest during crisis periods when forward guidance carries the most new information, and "
-    "weakest during the zero lower bound period when rates were stuck at zero and guidance was highly predictable."
+    "a statistically significant predictor of FOMC language sentiment (p = 0.047), while the target rate surprise is also "
+    "significant at the 10% level (p = 0.062). However, the overall explanatory power is modest (R² = 4.06%), "
+    "indicating that monetary policy shocks account for only a small fraction of the variation in FOMC statement language. "
+    "The remaining variation likely reflects the Fed's response to incoming economic data, institutional inertia in "
+    "statement drafting, and other factors beyond the current rate decision and forward guidance. A formal Wald test "
+    "cannot reject the null that the target and path coefficients are equal (p = 0.66), so we interpret the results "
+    "as suggestive evidence consistent with the information channel, rather than definitive proof that the path effect "
+    "dominates."
 )
 
 add_para(
@@ -1218,22 +1233,33 @@ add_para(
     "content of their language becomes ever more important for both academic research and policy design."
 )
 
+doc.add_heading('Data Availability', level=2)
+
+add_para(
+    "The monetary policy shock data from Acosta (2022) and the USMPD data from the Federal Reserve Bank "
+    "of San Francisco are publicly available. FOMC statements are available from the Federal Reserve website. "
+    "CRSP market data are available through WRDS with an institutional subscription. The replication code "
+    "and processed datasets will be made available upon publication."
+)
+
 # ═══════════════════════════════════════════════════════════════
 # REFERENCES
 # ═══════════════════════════════════════════════════════════════
 doc.add_heading('References', level=1)
 
 refs = [
-    "Acosta, M. (2022). The perceived causes of monetary surprises. Working Paper.",
-    "Apel, M., & Blix, G. (2014). How is inflation affected by globalisation? Sveriges Riksbank Economic Review, 2014(1), 39-64.",
+    "Acosta, M. (2022). The perceived causes of monetary policy surprises. Working Paper, University of Wisconsin-Madison. Revise and resubmit, Journal of Political Economy.",
+    "Acosta, M., Ajello, A., Bauer, M. D., Loria, F., & Miranda-Agrippino, S. (2025). Financial market effects of FOMC communication: Evidence from a new event-study database. Federal Reserve Bank of San Francisco Working Paper 2025-30.",
+    "Apel, M., & Blix Grimaldi, I. (2014). How much information do monetary policy committees disclose? Sveriges Riksbank Working Paper Series, No. 283.",
     "Bauer, M. D., & Swanson, E. T. (2023). A reassessment of monetary policy surprises and high-frequency identification. NBER Macroeconomics Annual, 37(1), 87-155.",
     "Bernanke, B. S., Gertler, M., & Gilchrist, S. (1999). The financial accelerator in a quantitative business cycle framework. In J. B. Taylor & M. Woodford (Eds.), Handbook of Macroeconomics (Vol. 1, pp. 1341-1393). Elsevier.",
     "Blinder, A. S., Ehrmann, M., Fratzscher, M., De Haan, J., & Jansen, D. J. (2008). Central bank communication and monetary policy: A survey of theory and evidence. Journal of Economic Literature, 46(4), 910-945.",
     "Campbell, J. R., Evans, C. L., Fisher, J. D., & Justiniano, A. (2012). Macroeconomic effects of Federal Reserve forward guidance. Brookings Papers on Economic Activity, Spring, 1-80.",
-    "Cieslak, A., Morse, A., & Vissing-Jorgensen, A. (2019). Stock returns over the FOMC cycle. Journal of Financial Economics, 133(1), 114-137.",
+    "Cieslak, A., Morse, A., & Vissing-Jorgensen, A. (2019). Stock returns over the FOMC cycle. Journal of Finance, 74(5), 2201-2248.",
     "Corredoira, L., Lopatta, K., & Pankratz, O. (2020). The information content of central bank language. Journal of Banking & Finance, 113, 105-119.",
     "Gertler, M., & Gilchrist, S. (1994). Monetary policy, business cycles, and the behavior of small manufacturing firms. Quarterly Journal of Economics, 109(2), 309-340.",
-    "Gürkaynak, R. S., Sack, B., & Swanson, E. (2005). The sensitivity of long-term interest rates to economic news: Evidence and implications for monetary policy. American Economic Review, 95(1), 425-436.",
+    "Gürkaynak, R. S., Sack, B., & Swanson, E. (2005a). Do actions speak louder than words? The response of asset prices to monetary policy actions and statements. International Journal of Central Banking, 1(1), 55-93.",
+    "Gürkaynak, R. S., Sack, B., & Swanson, E. (2005b). The sensitivity of long-term interest rates to economic news: Evidence and implications for monetary policy. American Economic Review, 95(1), 425-436.",
     "Hansen, S., McMahon, M., & Prat, A. (2018). Transparency and deliberation within the FOMC: A computational linguistics approach. Quarterly Journal of Economics, 133(2), 801-870.",
     "Henry, E. (2008). Are investors influenced by how earnings press releases are written? Journal of Business Communication, 45(4), 363-407.",
     "Jarociński, M., & Karadi, P. (2020). Deconstructing monetary policy surprises—The role of information shocks. American Economic Journal: Macroeconomics, 12(2), 1-43.",
@@ -1281,7 +1307,7 @@ doc.add_heading('Appendix B: Data Sources', level=2)
 add_table(
     ['Data', 'Source', 'Period', 'Frequency', 'Access'],
     [
-        ['Monetary policy shocks', 'Acosta (2024)/GSS+NS', '1995-2022', 'Per FOMC', 'Public'],
+        ['Monetary policy shocks', 'Acosta (2022)/GSS+NS', '1995-2022', 'Per FOMC', 'Public'],
         ['USMPD raw HF data', 'SF Fed (USMPD)', '1994-2026', 'Per FOMC', 'Public'],
         ['USMPD target/path factors', 'USMPD + GSS replication', '1994-2026', 'Per FOMC', 'Replicated'],
         ['CRSP market index', 'WRDS', '1990-2024', 'Daily', 'Institutional'],
@@ -1298,7 +1324,7 @@ add_table(
 doc.add_heading('Appendix C: USMPD Factor Replication', level=2)
 
 add_para(
-    "We replicate the Gürkaynak, Sack, and Swanson (2005) target and path factor decomposition using "
+    "We replicate the Gürkaynak, Sack, and Swanson (2005a) target and path factor decomposition using "
     "the U.S. Monetary Policy Event-Study Database (USMPD) published by the Federal Reserve Bank of "
     "San Francisco. The USMPD provides raw high-frequency changes in fed funds futures (FF1-FF6) and "
     "eurodollar futures (ED1-ED8) around FOMC events, covering 276 meetings from February 1994 to "
@@ -1330,7 +1356,7 @@ add_table(
 )
 
 add_para(
-    "The target factor achieves high correlation with Acosta (2024) (r = 0.958), confirming that our "
+    "The target factor achieves high correlation with Acosta (2022) (r = 0.958), confirming that our "
     "PCA decomposition correctly captures the current-rate surprise. The path factor correlation is "
     "also high (r = 0.970), though the orthogonalization step introduces minor differences in the "
     "rotation relative to Acosta's original decomposition. The single-factor STMT surprise, which "
