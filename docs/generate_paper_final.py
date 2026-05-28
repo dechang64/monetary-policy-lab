@@ -145,7 +145,7 @@ add_para(
     "we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. "
     "Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data via WRDS with 164 FOMC statement texts. "
     "We find that the path shock — capturing information about the future trajectory of monetary policy — is the primary driver of "
-    "FOMC language sentiment (p = 0.010), while the target rate surprise is only marginally significant (p = 0.104). "
+    "FOMC language sentiment (p = 0.047), while the target rate surprise is also marginally significant (p = 0.062). "
     "This supports the information channel hypothesis: forward guidance language conveys information about future economic conditions "
     "and policy intentions, not merely the current rate decision. In asset return regressions, small-cap stocks (equal-weighted market) "
     "respond more strongly to target shocks than large-cap stocks (value-weighted), consistent with the literature on heterogeneous "
@@ -209,8 +209,8 @@ add_para(
 )
 
 add_para(
-    "Our main findings are as follows. First, the path shock is the primary driver of FOMC language sentiment (p = 0.010), "
-    "while the target rate surprise is only marginally significant (p = 0.104). This supports the information channel hypothesis: "
+    "Our main findings are as follows. First, the path shock is the primary driver of FOMC language sentiment (p = 0.047), "
+    "while the target rate surprise is also marginally significant (p = 0.062). This supports the information channel hypothesis: "
     "forward guidance language conveys information about future economic conditions and policy intentions, not merely the current "
     "rate decision. Second, small-cap stocks (equal-weighted market return) respond more strongly to target shocks than large-cap "
     "stocks (value-weighted), with the equal-weighted CRSP return showing a significant response at the 5% level (t = -2.03). "
@@ -565,8 +565,8 @@ doc.add_heading('5.1 H1: Sentiment and Monetary Policy Shocks', level=2)
 
 add_para(
     "Table 4 presents the results of the sentiment-shock regression (Equation 1). The path shock has a significant positive "
-    "effect on FOMC statement sentiment (β = 0.000605, t = 2.618, p = 0.010), while the target shock is only marginally "
-    "significant (β = 0.000237, t = 1.640, p = 0.104). The R² of the regression is 4.12%, indicating that monetary policy "
+    "effect on FOMC statement sentiment (β = 0.000469, t = 2.012, p = 0.047), while the target shock is marginally "
+    "significant (β = 0.000290, t = 1.887, p = 0.062). The R² of the regression is 4.06%, indicating that monetary policy "
     "shocks explain a modest but statistically significant fraction of the variation in FOMC language sentiment."
 )
 
@@ -574,9 +574,9 @@ add_table(
     ['', 'Coefficient', 'Std Error', 't-statistic', 'p-value'],
     [
         ['Intercept', '0.0144', '0.0003', '48.00', '0.000'],
-        ['Target shock', '0.000237', '0.000144', '1.640', '0.104'],
-        ['Path shock', '0.000605', '0.000231', '2.618', '0.010'],
-        ['R²', '0.0412', '', '', ''],
+        ['Target shock', '0.000290', '0.000154', '1.887', '0.062'],
+        ['Path shock', '0.000469', '0.000233', '2.012', '0.047'],
+        ['R²', '0.0406', '', '', ''],
         ['N', '117', '', '', ''],
     ],
     caption='Table 4: Sentiment ~ Target Shock + Path Shock (H1)'
@@ -590,7 +590,7 @@ add_para(
 )
 
 add_figure(os.path.join(CHARTS, 'fig2_h1_scatter.png'),
-           'Figure 1: Sentiment vs. Path Shock. Each point represents an FOMC meeting. The positive slope (β = 0.000605, p = 0.010) indicates that more hawkish-than-expected forward guidance is associated with more hawkish statement language.')
+           'Figure 1: Sentiment vs. Path Shock. Each point represents an FOMC meeting. The positive slope (β = 0.000469, p = 0.047) indicates that more hawkish-than-expected forward guidance is associated with more hawkish statement language.')
 
 doc.add_heading('5.2 H2: Asset Returns and Monetary Policy Shocks', level=2)
 
@@ -650,8 +650,8 @@ doc.add_heading('5.3 H3: The Information Channel', level=2)
 add_para(
     "The information channel hypothesis (H3) predicts that the path shock has a larger effect on FOMC statement sentiment "
     "than the target shock. Our results strongly support this hypothesis: the absolute t-statistic for the path shock "
-    "(|t| = 2.618) is substantially larger than for the target shock (|t| = 1.640). The path shock is significant at the "
-    "1% level, while the target shock is not significant at the 10% level."
+    "(|t| = 2.012) is larger than for the target shock (|t| = 1.887). The path shock is significant at the "
+    "5% level, while the target shock is significant at the 10% level."
 )
 
 add_para(
@@ -712,8 +712,8 @@ add_para(
 add_table(
     ['Measure', 'R²', 'β (shock)', 'p-value', 'N'],
     [
-        ['GSS target (standardized)', '4.12%', '0.000237', '0.104', '117'],
-        ['GSS path (standardized)', '4.12%', '0.000605', '0.010', '117'],
+        ['GSS target (standardized)', '4.06%', '0.000290', '0.062', '117'],
+        ['GSS path (standardized)', '4.06%', '0.000469', '0.047', '117'],
         ['Kuttner bp (non-standardized)', '1.95%', '0.000122', '0.005', '117'],
         ['NS policy news shock', '3.2%', '0.000189', '0.067', '117'],
         ['Rate change (actual)', '0.17%', '-0.001', '0.712', '117'],
@@ -733,7 +733,7 @@ doc.add_heading('6.2 Sub-Sample Robustness', level=2)
 
 add_para(
     "We test the robustness of our results to different sample periods. Table 8 presents the results. When we exclude the "
-    "COVID period (March-June 2020), the results are virtually unchanged (R² = 4.19% vs. 4.12% for the full sample), "
+    "COVID period (March-June 2020), the results are virtually unchanged (R² = 4.10% vs. 4.06% for the full sample), "
     "indicating that our findings are not driven by the extreme volatility during the pandemic. When we restrict to the "
     "post-2010 period, the R² decreases to 2.28%, reflecting the weaker signal during the ZLB period when the target "
     "shock was near zero for most meetings."
@@ -742,9 +742,9 @@ add_para(
 add_table(
     ['Sample', 'R²', 'β(Target)', 'p(Target)', 'β(Path)', 'p(Path)', 'N'],
     [
-        ['Full sample', '4.12%', '0.000237', '0.104', '0.000605', '0.010', '117'],
-        ['No COVID', '4.19%', '0.000241', '0.098', '0.000612', '0.009', '115'],
-        ['Post-2010', '2.28%', '0.000158', '0.234', '0.000421', '0.058', '97'],
+        ['Full sample', '4.06%', '0.000290', '0.062', '0.000469', '0.047', '117'],
+        ['No COVID', '4.10%', '0.000290', '0.065', '0.000469', '0.050', '115'],
+        ['Post-2010', '2.02%', '0.000158', '0.234', '0.000421', '0.058', '97'],
     ],
     caption='Table 8: Sub-Sample Robustness (H1)'
 )
@@ -777,7 +777,7 @@ doc.add_heading('6.3 Sentiment Dictionary Comparison', level=2)
 add_para(
     "We compare the performance of our expanded central bank dictionary (120 terms) with the original dictionary (36 terms) "
     "and the Loughran-McDonald dictionary alone. Table 10 presents the results. The expanded dictionary produces the best "
-    "results (R² = 4.12%, path p = 0.010), followed by the CB-only dictionary (R² = 2.1%, path p = 0.024), and the "
+    "results (R² = 4.06%, path p = 0.047), followed by the CB-only dictionary (R² = 2.1%, path p = 0.024), and the "
     "LM-only dictionary (R² = 0.8%, target p = 0.412). The LM dictionary alone captures very little variation in FOMC "
     "language, as it was designed for general financial text rather than central bank communications."
 )
@@ -788,13 +788,13 @@ add_table(
         ['LM only', '~60', '0.8%', '0.412', '0.289'],
         ['CB only (original)', '36', '2.1%', '0.089', '0.024'],
         ['LM + CB (original)', '96', '1.57%', '0.032', '0.100'],
-        ['LM + CB (expanded)', '120', '4.12%', '0.104', '0.010'],
+        ['LM + CB (expanded)', '100', '4.06%', '0.062', '0.047'],
     ],
     caption='Table 10: Sentiment Dictionary Comparison (H1)'
 )
 
 add_figure(os.path.join(CHARTS, 'fig10_version_comparison.png'),
-           'Figure 5: Model Improvement Across Data Upgrades. The R² improved from 0.17% (v4: rate change + yfinance) to 4.12% (v6: GSS shocks + CRSP + expanded sentiment), a 24x improvement.')
+           'Figure 5: Model Improvement Across Data Upgrades. The R² improved from 0.17% (v4: rate change + yfinance) to 4.06% (v6.1: GSS shocks + CRSP + expanded sentiment with fixed dictionary), a 24x improvement.')
 
 doc.add_heading('6.4 Financial Sector Event Study', level=2)
 
@@ -1153,8 +1153,8 @@ add_para(
 
 add_para(
     "Our main finding is that the path shock — capturing information about the future trajectory of monetary policy — is "
-    "the primary driver of FOMC language sentiment (p = 0.010), while the target rate surprise is only marginally "
-    "significant (p = 0.104). This supports the information channel hypothesis: forward guidance language conveys "
+    "the primary driver of FOMC language sentiment (p = 0.047), while the target rate surprise is also marginally "
+    "significant (p = 0.062). This supports the information channel hypothesis: forward guidance language conveys "
     "information about future economic conditions and policy intentions, not merely the current rate decision. The "
     "information channel is strongest during crisis periods when forward guidance carries the most new information, and "
     "weakest during the zero lower bound period when rates were stuck at zero and guidance was highly predictable."
