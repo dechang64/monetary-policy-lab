@@ -4,7 +4,7 @@
 > 
 > Platform: https://monetary-policy-lab.streamlit.app  
 > Repository: GitHub (dechang64/monetary-policy-lab)  
-> Version: v1.1 (Phase 1 complete, v6.1 analysis pipeline, WRDS CRSP/Compustat integrated)
+> Version: v1.2 (Phase 1 complete, v6.2 analysis pipeline, audit fixes applied, WRDS CRSP/Compustat integrated)
 
 ---
 
@@ -85,7 +85,7 @@ For the v6.1 analysis pipeline, we use CRSP daily index returns downloaded from 
 
 **Coverage**: 1990-01-02 to 2024-12-31 (8,818 trading days). Mapped to FOMC meeting dates by exact date match.
 
-**Advantage over yfinance**: CRSP returns include delisting adjustments (important for long-run studies) and are the standard data source in the monetary policy event study literature (Gürkaynak et al. 2005, Nakamura & Steinsson 2018).
+**Advantage over yfinance**: CRSP returns include delisting adjustments (important for long-run studies) and are the standard data source in the monetary policy event study literature (Gürkaynak et al. 2005a, Nakamura & Steinsson 2018).
 
 **Secondary source (fallback)**: yfinance (`mp-research-platform/run_analysis_v4.py`)
 
@@ -152,12 +152,12 @@ High-frequency identified monetary policy shocks from Acosta, Bricongne, and L'H
 **Alternative CME replacement — USMPD (SF Fed)**: The Federal Reserve Bank of San Francisco publishes the U.S. Monetary Policy Event-Study Database (USMPD) at https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database. This database provides:
 
 1. **Raw high-frequency changes**: MP1, FF1–FF6, ED1–ED8, OIS1Y–2Y, UST3M–30Y, TIPS5Y–30Y, SP500, DXY around FOMC events (276 meetings, 1994-02-04 to 2026-04-29)
-2. **Acosta et al. (2025) single-factor surprise** (`mps.csv`): computed from MP1, MP2, ED2–ED4 via PCA, normalized to 1-for-1 impact on 1Y yield. Correlation with Acosta (2024) target+path = 0.989.
+2. **Acosta et al. (2025) single-factor surprise** (`mps.csv`): computed from MP1, MP2, ED2–ED4 via PCA, normalized to 1-for-1 impact on 1Y yield. Correlation with Acosta (2022) target+path = 0.989.
 3. **R code** (`mps.R`): official replication code for computing surprises from raw USMPD data
 
-**Status**: Downloaded and integrated. The raw USMPD data can be used to compute GSS-style target/path factors for the full 1994–2026 sample. Our current Acosta (2024) target/path factors are derived from the same underlying futures data. The USMPD extends coverage beyond Acosta's 2022-07-27 endpoint by 30 additional meetings (through 2026-04-29).
+**Status**: Downloaded and integrated. The raw USMPD data can be used to compute GSS-style target/path factors for the full 1994–2026 sample. Our current Acosta (2022) target/path factors are derived from the same underlying futures data. The USMPD extends coverage beyond Acosta's 2022-07-27 endpoint by 30 additional meetings (through 2026-04-29).
 
-**Caveat**: The exact GSS (2005) two-factor rotation (target vs. path) requires careful replication of their PCA methodology. We implement a two-step orthogonalized PCA in Python: (1) target = first PC of [MP1, FF1–FF4], (2) path = first PC of [FF4–FF6, ED2–ED4] after orthogonalizing against target. Both factors are normalized by regressing on daily 1Y GSW yield changes. This produces factors with high correlation to Acosta (2024): target r = 0.958, path r = 0.970. The single-factor STMT surprise replicates perfectly (r = 1.000).
+**Caveat**: The exact GSS (2005a) two-factor rotation (target vs. path) requires careful replication of their PCA methodology. We implement a two-step orthogonalized PCA in Python: (1) target = first PC of [MP1, FF1–FF4], (2) path = first PC of [FF4–FF6, ED2–ED4] after orthogonalizing against target. Both factors are normalized by regressing on daily 1Y GSW yield changes. This produces factors with high correlation to Acosta (2022): target r = 0.958, path r = 0.970. The single-factor STMT surprise replicates perfectly (r = 1.000).
 
 **Extended sample results (Acosta 2006–2022 + USMPD 2022–2026)**:
 
@@ -325,9 +325,9 @@ $$\text{Sentiment}_t = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2
 
 *Significance: \*\*\* p<0.01, \*\* p<0.05, \* p<0.10
 
-**Interpretation**: Both target and path shocks are marginally significant predictors of FOMC statement sentiment. The path factor (forward guidance) is significant at 5%, while the target surprise is significant at 10%. This is consistent with the view that FOMC statement language responds to both the current rate decision and the expected future path.
+**Interpretation**: Both target and path shocks are significant predictors of FOMC statement sentiment. The path factor (forward guidance) is significant at 5%, while the target surprise is significant at 10%. However, the overall explanatory power is modest (R² = 4.06%), and a formal Wald test cannot reject the null that the two coefficients are equal (χ² = 0.19, p = 0.66). We interpret this as suggestive evidence consistent with the information channel, rather than definitive proof that the path effect dominates.
 
-**Comparison with literature**: R² = 4.06% is substantially higher than the v4 result (0.39% with naive proxy) but still below the literature benchmark (~2.76% in Gürkaynak et al. 2005 for asset returns). The improvement is driven by (1) using market-based surprises instead of Δr, and (2) the enhanced CB dictionary with fixed overlap.
+**Comparison with literature**: R² = 4.06% is substantially higher than the v4 result (0.39% with naive proxy) but still modest in absolute terms. The low R² reflects the fact that monetary policy shocks explain only a small fraction of the variation in FOMC statement language — the remaining 96% likely reflects the Fed's response to incoming economic data, institutional inertia in statement drafting, and other factors. A formal Wald test cannot reject the null that the target and path coefficients are equal (χ² = 0.19, p = 0.66), so we interpret the results as suggestive evidence consistent with the information channel.
 
 **Newey-West lag choice**: We use lag = 1, which is conservative. The standard Bartlett formula suggests lag ≈ 4 for T = 117, but FOMC meetings are irregularly spaced (6–8 per year), making the autocorrelation structure different from daily data. Lag = 1 is defensible for event-time data but may understate standard errors. This is documented as a limitation.
 
@@ -337,17 +337,15 @@ $$\text{Sentiment}_t = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2
 
 $$R_{i,t} = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2 \cdot \text{Path Factor}_t + \varepsilon_t$$
 
-**Current results (v6.1)**:
+**Current results (v6.1, percentage points)**:
 
 | Asset | R² | β₁ (target) | p(target) | β₂ (path) | p(path) | N |
 |-------|:--:|:-----------:|:---------:|:---------:|:-------:|:--:|
-| S&P 500 | 0.0291 | — | 0.100 | — | 0.565 | 117 |
-| VIX | 0.0793 | — | 0.122 | — | 0.269 | 117 |
-| Rate Change | 0.1847 | — | 0.067* | — | 0.013** | 117 |
+| CRSP VW | 9.10% | -0.435 | 0.111 | -0.186 | 0.398 | 117 |
+| CRSP EW | 10.28% | -0.449 | 0.044** | -0.174 | 0.421 | 117 |
+| S&P 500 | 7.80% | -0.391 | 0.158 | -0.179 | 0.395 | 117 |
 
-**Interpretation**: The rate change regression has the highest R² (18.5%), with the path factor significant at 5%. This is expected — the path factor captures forward guidance about future rate changes. S&P 500 and VIX show marginal target shock effects (p ≈ 0.10–0.12) but no path factor significance, suggesting that equity and volatility markets respond primarily to the current rate decision rather than forward guidance.
-
-**Note**: The asset return data in the current dataset is limited (only `sp500_ret` and `vix` columns are available). With WRDS CRSP data, we can expand to delisted-return-adjusted equity returns and more granular asset classes.
+**Interpretation**: The target shock has a negative effect on equity returns, consistent with contractionary surprises reducing stock prices. The effect is statistically significant for the equal-weighted market (p = 0.044) but not for the value-weighted market (p = 0.111), consistent with small-cap stocks being more sensitive to monetary policy. The path shock does not have a statistically significant effect on any asset return at conventional levels, although the coefficients are consistently negative. This may reflect limited power (N = 117) or the fact that the path factor's effect on equity returns operates through a different channel than the narrow event window captures.
 
 ### 5.3 H3: Two-Shocks Decomposition
 
@@ -372,9 +370,9 @@ $$\text{Sentiment}_t = \alpha + \lambda_I \cdot \text{Info}_t + e_t$$
 5. **Share decomposition**:
 $$\text{Policy Share} = \frac{|\lambda_P|}{|\lambda_P| + |\lambda_I|}, \quad \text{Info Share} = \frac{|\lambda_I|}{|\lambda_P| + |\lambda_I|}$$
 
-**Current result (v6.1)**: Target shock t-statistic = 1.126, Path shock t-statistic ≈ 0. The target shock dominates the sentiment response, while the path factor contribution is negligible in this decomposition. This contrasts with the v4 result (information shock ~99.6%) which was inflated by the naive surprise proxy.
+**Current result (v6.1)**: In the H1 regression (Sentiment ~ Target + Path), the path shock has a larger absolute t-statistic (|t| = 2.012) than the target shock (|t| = 1.887). However, a formal Wald test of H0: β_target = β_path fails to reject (χ² = 0.19, p = 0.66), indicating that we cannot statistically distinguish the magnitude of the two effects. We interpret this as suggestive evidence consistent with the information channel, but acknowledge limited statistical power.
 
-**Critical caveat**: The current decomposition uses Acosta shocks but the analysis dataset still has gaps. With the full WRDS pipeline (CME futures + CRSP returns), the decomposition will be more reliable.
+**Critical caveat**: The modest R² (4.06%) and the inability to reject coefficient equality mean that the evidence for the information channel is suggestive rather than definitive. The remaining 96% of sentiment variation likely reflects the Fed's response to incoming economic data, institutional inertia, and other factors beyond the current rate decision and forward guidance.
 
 ### 5.4 H4: Regime-Dependent Effects
 
@@ -391,12 +389,26 @@ $$\text{Policy Share} = \frac{|\lambda_P|}{|\lambda_P| + |\lambda_I|}, \quad \te
 
 ### 5.5 Robustness Checks (v6.1)
 
-| Check | R² | N | Description |
-|-------|:--:|:--:|-------------|
-| Post-2010 | 0.0202 | 97 | Restrict to post-2010 meetings (standardized communication) |
-| No COVID | 0.0410 | 115 | Exclude Mar 2020 – Dec 2021 |
+| Check | R² | N | target p | path p | Description |
+|-------|:--:|:--:|:--------:|:------:|-------------|
+| Full sample | 0.0406 | 117 | 0.062* | 0.047** | Baseline |
+| Post-2010 | 0.0202 | 97 | 0.369 | 0.108 | Neither significant at 10% |
+| No COVID | 0.0410 | 115 | 0.075* | 0.042** | Virtually unchanged |
+| Extended (Acosta+USMPD) | 0.0165 | 163 | 0.419 | 0.058* | Path still significant at 10% |
 
-**Interpretation**: The post-2010 subsample has lower R² (2.02% vs. 4.06%), suggesting that the sentiment-surprise relationship was stronger in the earlier period (2006–2010), which includes the financial crisis when FOMC language was more variable. Excluding COVID has minimal impact (4.10% vs. 4.06%), confirming that the result is not driven by pandemic-era outliers.
+**Interpretation**: The post-2010 subsample has lower R² (2.02% vs. 4.06%) and neither shock is individually significant, suggesting that the sentiment-surprise relationship was stronger in the earlier period (2006–2010), which includes the financial crisis when FOMC language was more variable. Excluding COVID has minimal impact (4.10% vs. 4.06%), confirming that the result is not driven by pandemic-era outliers. The extended sample (Acosta 2006–2022 + USMPD 2022–2026) shows the path shock remains significant at 10% (p = 0.058), but the target shock loses significance.
+
+### 5.6 Regime-Specific Results (v6.1)
+
+| Period | N | R² | target p | path p |
+|--------|:--:|:--:|:--------:|:------:|
+| Pre-ZLB (2006-2008) | 8 | 20.5% | 0.360 | 0.403 |
+| Financial Crisis (2008-2010) | 12 | 9.2% | 0.930 | 0.124 |
+| ZLB/FG (2010-2016) | 48 | 7.5% | 0.249 | 0.107 |
+| Normalization (2016-2020) | 30 | 13.3% | 0.009*** | 0.873 |
+| COVID+ (2020-2022) | 19 | 3.6% | 0.355 | 0.953 |
+
+**Interpretation**: Sample sizes within each regime are small (8–48 meetings), so results should be interpreted with caution. During the Normalization period, the target shock is highly significant (p = 0.009) while the path shock is not, reflecting that rate changes were the primary information source. During the ZLB/FG period, neither shock is individually significant, though the path shock has a lower p-value (0.107 vs. 0.249), consistent with forward guidance being the primary channel when rates are at the zero lower bound.
 
 ---
 
