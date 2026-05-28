@@ -113,3 +113,31 @@ So the information channel may be weaker when policy is moving rapidly in one di
 3. **For researchers**: Text analysis of central bank communications is a valuable complement to asset-price-based measures. The two approaches capture different aspects of the information channel.
 
 But I want to be careful not to overstate the practical implications given the modest R². The information channel exists, but it's not the dominant force in statement language.
+
+---
+
+## Q11: "Your event study t-stat formula — is it CAR/(σ/√N) or CAR/(σ×√N)?"
+
+**A:** The correct formula is **t = CAR / (σ_AR × √N)**, following Brown & Warner (1985).
+
+- σ_AR is the standard deviation of abnormal returns from the estimation window
+- N is the number of days in the event window
+- The denominator σ_AR × √N is the standard deviation of CAR (since CAR is a sum of N independent ARs)
+
+A common mistake is using σ_AR / √N in the denominator, which gives t = CAR × √N / σ_AR — this inflates the t-statistic by a factor of N. For a 7-day event window, this would make t 7 times too large.
+
+We caught this error in our implementation and corrected it. The key distinction:
+- **Single-asset test** (is this asset's CAR significantly different from zero?): t = CAR / (σ_AR × √N)
+- **Cross-sectional test** (is the average CAR across K assets significantly different from zero?): t = CAAR / (σ_CAAR / √K)
+
+---
+
+## Q12: "Your demo platform shows S&P 500 positive but NASDAQ/Russell negative after FOMC — is that real data?"
+
+**A:** No, that was a bug in our demo data generator. The synthetic returns had no FOMC event effects — they were pure random noise, so equity CAR signs were random. We've fixed this by:
+
+1. Injecting correlated FOMC effects on actual FOMC dates (hawkish → all equities down, all yields up)
+2. Making effects persist over the [-1, +5] event window with decay
+3. Ensuring Treasury yield responses are directionally consistent (2Y and 10Y move in the same direction, with 2Y more sensitive)
+
+With real data (CRSP via WRDS), these patterns emerge naturally from the market. The demo mode is only for when FRED/WRDS data isn't available.

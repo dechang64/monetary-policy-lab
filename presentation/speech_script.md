@@ -131,4 +131,12 @@ Thank you. I welcome your questions.
 
 ---
 
+### Appendix Slide: Event Study Methodology (if asked)
+
+If someone asks about the event study t-statistic: the correct formula is t = CAR / (σ_AR × √N), where σ_AR is the standard deviation of abnormal returns from the estimation window, and N is the number of days in the event window.
+
+A common mistake is to use σ_AR / √N in the denominator, which inflates the t-statistic by a factor of N. For a 7-day event window, this would make t 7 times too large — turning insignificant results into apparently significant ones. We caught and corrected this in our implementation.
+
+---
+
 Total speaking time: approximately 15 minutes

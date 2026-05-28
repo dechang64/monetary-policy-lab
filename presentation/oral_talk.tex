@@ -362,6 +362,29 @@ COVID+ (2020--22) & 19 & 3.6\% & 0.355 & 0.953 \\
 \appendix
 % ═══════════════════════════════════════════════════════════════
 
+\begin{frame}{Appendix: Event Study Methodology}
+\textbf{Market Model} (Brown \& Warner, 1985):
+\begin{enumerate}
+  \item Estimation: $R_{it} = \alpha_i + \beta_i R_{mt} + \varepsilon_{it}$
+  \item Abnormal Return: $AR_{it} = R_{it} - (\hat{\alpha}_i + \hat{\beta}_i R_{mt})$
+  \item CAR: $CAR_i = \sum_{t=-T_1}^{T_2} AR_{it}$
+  \item \textbf{t-stat}: $\displaystyle t = \frac{CAR_i}{\sigma_{AR} \times \sqrt{N}}$
+\end{enumerate}
+
+\vspace{0.5em}
+\alert{Important:} The denominator is $\sigma_{AR} \times \sqrt{N}$, \textbf{not} $\sigma_{AR} / \sqrt{N}$.
+
+\vspace{0.3em}
+\begin{itemize}
+  \item $\sigma_{AR}$: std.\ dev.\ of abnormal returns from estimation window
+  \item $N$: number of days in event window
+  \item Common error: using $\sigma_{AR}/\sqrt{N}$ inflates $t$ by factor of $N$
+\end{itemize}
+
+\vspace{0.5em}
+\small\textit{For cross-sectional tests (average CAR across $K$ assets), use $\sigma_{CAAR}/\sqrt{K}$.}
+\end{frame}
+
 \begin{frame}{Appendix: USMPD Factor Replication}
 \textbf{GSS (2005a) two-step orthogonalized PCA:}
 \begin{enumerate}
