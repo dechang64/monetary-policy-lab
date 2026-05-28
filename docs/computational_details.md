@@ -157,7 +157,16 @@ High-frequency identified monetary policy shocks from Acosta, Bricongne, and L'H
 
 **Status**: Downloaded and integrated. The raw USMPD data can be used to compute GSS-style target/path factors for the full 1994–2026 sample. Our current Acosta (2024) target/path factors are derived from the same underlying futures data. The USMPD extends coverage beyond Acosta's 2022-07-27 endpoint by 30 additional meetings (through 2026-04-29).
 
-**Caveat**: The exact GSS (2005) two-factor rotation (target vs. path) requires careful replication of their PCA methodology. Our simple PCA on FF1–FF6 + ED1–ED8 produces factors with moderate correlation to Acosta's (target: 0.95, path: 0.72). The path factor correlation is lower because the rotation direction and normalization differ. For production use, the official `mps.R` script should be run (requires R) or the GSS rotation should be replicated exactly in Python.
+**Caveat**: The exact GSS (2005) two-factor rotation (target vs. path) requires careful replication of their PCA methodology. We implement a two-step orthogonalized PCA in Python: (1) target = first PC of [MP1, FF1–FF4], (2) path = first PC of [FF4–FF6, ED2–ED4] after orthogonalizing against target. Both factors are normalized by regressing on daily 1Y GSW yield changes. This produces factors with high correlation to Acosta (2024): target r = 0.958, path r = 0.970. The single-factor STMT surprise replicates perfectly (r = 1.000).
+
+**Extended sample results (Acosta 2006–2022 + USMPD 2022–2026)**:
+
+| Sample | R² | Target p | Path p | N | Period |
+|--------|-----|----------|--------|---|--------|
+| Acosta only (v6.1) | 4.06% | 0.062* | 0.047** | 117 | 2006–2022 |
+| Acosta + USMPD | 1.65% | 0.419 | 0.058* | 163 | 2006–2026 |
+
+The path shock remains significant at 10% with the extended sample, but the target shock loses significance. The R² decline reflects the different dynamics of the 2022–2026 hiking cycle, where rapid rate changes dominate sentiment and forward guidance is less informative. The no-COVID robustness check (path p = 0.034**) confirms the information channel is not driven by pandemic outliers.
 
 **WRDS data files** (in `data/wrds/`):
 
