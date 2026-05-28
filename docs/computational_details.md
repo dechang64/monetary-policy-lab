@@ -4,7 +4,7 @@
 > 
 > Platform: https://monetary-policy-lab.streamlit.app  
 > Repository: GitHub (dechang64/monetary-policy-lab)  
-> Version: v1.1 (Phase 1 complete, v6.1 analysis pipeline, WRDS integration pending)
+> Version: v1.1 (Phase 1 complete, v6.1 analysis pipeline, WRDS CRSP/Compustat integrated)
 
 ---
 
@@ -71,22 +71,36 @@ Hand-curated dataset of **164 FOMC meetings** (1994–2025) with:
 | `chair` | Greenspan / Bernanke / Yellen / Powell |
 | `regime` | `conventional` (pre-2008) / `forward_guidance` (2008–2015) / `normalization` (2016+) |
 
-### 2.4 Asset Prices (yfinance)
+### 2.4 Asset Prices
 
-**Source**: `mp-research-platform/run_analysis_v4.py`
+**Primary source (v6.1)**: CRSP via WRDS (`data/wrds/crsp_dsi_index.csv`)
 
-For the research pipeline, we use yfinance to download:
+For the v6.1 analysis pipeline, we use CRSP daily index returns downloaded from WRDS:
+
+| CRSP Variable | Label | Use |
+|---------------|-------|-----|
+| `vwretd` | CRSP Value-Weighted Return (incl. dividends) | H2: Large-cap equity response |
+| `ewretd` | CRSP Equal-Weighted Return (incl. dividends) | H2: Small-cap equity response |
+| `sprtrn` | S&P 500 Total Return | H2: Benchmark equity index |
+
+**Coverage**: 1990-01-02 to 2024-12-31 (8,818 trading days). Mapped to FOMC meeting dates by exact date match.
+
+**Advantage over yfinance**: CRSP returns include delisting adjustments (important for long-run studies) and are the standard data source in the monetary policy event study literature (Gürkaynak et al. 2005, Nakamura & Steinsson 2018).
+
+**Secondary source (fallback)**: yfinance (`mp-research-platform/run_analysis_v4.py`)
+
+The original v4 pipeline used yfinance for the following series, which remain in `analysis_dataset_expanded.csv` as fallback:
 
 | Ticker | Label | Use |
 |--------|-------|-----|
-| `^GSPC` | S&P 500 | Equity return |
+| `^GSPC` | S&P 500 | Equity return (fallback) |
 | `^IXIC` | NASDAQ | Tech equity return |
 | `^VIX` | VIX | Volatility control |
 | `^TNX` | 10Y Treasury | Long-rate change |
 | `^IRX` | 13W T-bill | Short-rate change |
 | `GC=F` | Gold | Safe-haven asset |
 
-**Note**: yfinance returns MultiIndex columns in newer versions; we flatten via `df.columns.get_level_values(0)`. The 13W T-bill (`^IRX`) has lower precision than FRED's DGS3MO — a known limitation documented in TOOLS.md.
+**Note**: yfinance returns MultiIndex columns in newer versions; we flatten via `df.columns.get_level_values(0)`. The 13W T-bill (`^IRX`) has lower precision than FRED's DGS3MO — a known limitation. For v6.1 H2 regressions, CRSP data takes priority over yfinance.
 
 ### 2.5 Acosta et al. (2024) Monetary Policy Shocks
 
@@ -105,18 +119,49 @@ High-frequency identified monetary policy shocks from Acosta, Bricongne, and L'H
 
 **Sample overlap**: Of 220 Acosta meetings, 132 are post-2006 (our statement coverage period). Of these, 117 have both statements and shock data in our analysis dataset. The 15 missing meetings have statements available in the scraper but were not included in the original `analysis_dataset_expanded.csv` — a data gap that could be recovered in future versions to increase H1 sample size from 117 to 130.
 
-### 2.6 WRDS (Planned, Not Yet Active)
+### 2.6 WRDS Integration
 
 **Connector**: `data/wrds_connector.py` (class `WRDSConnector`)
 
-Designed for:
-- **CME Fed Funds futures** (`cme.ff`): Kuttner (2001) surprise calculation
-- **CME Eurodollar futures** (`cme.ef`): Gürkaynak et al. (2005) path factor
-- **CRSP daily stock returns** (`crsp.dsf`): Delisted-return-adjusted equity data
-- **TAQ intraday trades** (`taqmsec.ctm_*`): High-frequency identification
-- **OptionMetrics** (`optionm.opprcd*`): Implied volatility surface
+**Authentication**: WRDS requires Duo MFA. Connection flow: `wrds.Connection()` → Duo Approve → 30-day MFA exemption. Current credentials: username `dechang`.
 
-**Current status**: WRDS requires Duo MFA authentication. Connection flow: `wrds.Connection()` → Duo Approve → 30-day MFA exemption. Not yet operational.
+**Available databases (with access)**:
+
+| Database | Tables Used | Status |
+|----------|-------------|--------|
+| `crsp.dsi` | Daily index returns (vwretd, ewretd, sprtrn) | ✅ Downloaded, used in v6.1 H2 |
+| `crsp.msi` | Monthly index returns | ✅ Downloaded, not yet used |
+| `crsp.dsf` | Daily stock returns (individual) | ✅ Downloaded (financial sector, top 50) |
+| `comp.fundq` | Compustat quarterly fundamentals | ✅ Downloaded, not yet used |
+| `comp.funda` | Compustat annual fundamentals | ✅ Downloaded, not yet used |
+
+**Databases without access**:
+
+| Database | Tables | Purpose | Status |
+|----------|--------|---------|--------|
+| `cme.ff` | Fed Funds futures | Kuttner (2001) surprise | ❌ No permission |
+| `cme.ef` | Eurodollar futures | Gürkaynak et al. (2005) path factor | ❌ No permission |
+| `taqmsec.ctm_*` | TAQ intraday trades | High-frequency identification | ❌ No permission |
+| `taqmsec.cqm_*` | TAQ intraday quotes | NBBO bid/ask | ❌ No permission |
+| `ibes.statsum_epsus` | Analyst forecasts | Information shock validation | ❌ No permission |
+| `philfed.spf` | SPF survey | Romer & Romer (2004) method | ❌ No permission |
+| `optionm.opprcd*` | OptionMetrics | Implied volatility surface | ❌ No permission |
+
+**Workaround for missing CME data**: We use Acosta et al. (2024) public shock data, which replicates the GSS target/path decomposition using the same CME futures data. This provides the correct surprise measures without requiring direct WRDS-CME access. The key limitation is that we cannot extend the shock series beyond 2022-07-27 (end of Acosta coverage) without CME access.
+
+**WRDS data files** (in `data/wrds/`):
+
+| File | Size | Description |
+|------|------|-------------|
+| `crsp_dsi_index.csv` | 755 KB | CRSP daily index, 1990-2024 (8,818 days) |
+| `crsp_msi_index.csv` | 36 KB | CRSP monthly index, 1990-2024 |
+| `crsp_financial_stocks_2020_2025.csv` | 80 MB | 910 financial sector stocks, 2020-2025 |
+| `crsp_top50_stocks_2020_2025.csv` | 5.8 MB | Top 50 stocks by market cap, 2020-2025 |
+| `crsp_stock_names.csv` | 5.6 MB | Stock name/PERMCO/PERMNO mapping |
+| `compustat_fundq_2010_2025.csv` | 144 MB | Compustat quarterly, 2010-2025 |
+| `compustat_funda_2010_2025.csv` | 57 MB | Compustat annual, 2010-2025 |
+
+Large files (>5 MB) are excluded from git via `.gitignore`.
 
 ---
 
@@ -560,12 +605,13 @@ The H1 regression uses N = 117 meetings (2006–2022). This is the intersection 
 | Phase | Component | Data Source | Expected Impact |
 |-------|-----------|-------------|-----------------|
 | **Phase 2** | CB-only sentiment | — | H1 R²: 4.06% → 5–8% (more sign variation) |
-| **Phase 2** | Kuttner surprise (direct) | CME FF futures (WRDS) | Independent replication of Acosta |
-| **Phase 2** | Path factor (direct) | CME ED futures (WRDS) | H3 decomposition validity |
+| **Phase 2** | Kuttner surprise (direct) | CME FF futures (WRDS) | Independent replication of Acosta; requires CME access |
+| **Phase 2** | Path factor (direct) | CME ED futures (WRDS) | H3 decomposition validity; requires CME access |
 | **Phase 2** | Lag sensitivity analysis | — | Robustness of inference |
 | **Phase 2** | Recover 13 missing obs | Statement scraper | H1 N: 117 → 130 |
+| **Phase 2** | Compustat fundamentals | WRDS comp.fundq/funda | Control variables for firm-level analysis |
 | **Phase 3** | FinBERT sentiment | GPU compute | Sentiment std: 0.013 → 0.02+ |
-| **Phase 3** | High-frequency identification | TAQ (WRDS) | Intraday event windows |
+| **Phase 3** | High-frequency identification | TAQ (WRDS) | Intraday event windows; requires TAQ access |
 | **Phase 3** | IV estimation | — | Address endogeneity |
 | **Phase 4** | Sign restriction (JK style) | — | Structural shock identification |
 | **Phase 4** | Panel regression with double-clustering | — | Efficient estimation |
