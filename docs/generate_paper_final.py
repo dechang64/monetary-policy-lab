@@ -641,7 +641,6 @@ add_para(
     "other news during the day could offset the FOMC announcement effect. Using intraday yield changes "
     "would provide a cleaner test, but this requires TAQ data that we do not have access to through WRDS."
 )
-)
 
 add_figure(os.path.join(CHARTS, 'fig_target_vs_returns.png'),
            'Figure 2: Target Shock vs. Market Returns. The equal-weighted market (right) shows a stronger response than the value-weighted market (left), consistent with small-cap stocks being more sensitive to monetary policy surprises.')
@@ -1187,7 +1186,6 @@ add_para(
     "text-based measures (topic models, embedding-based measures, or large language model outputs). "
     "As central banks increasingly rely on communication as a policy tool, understanding the information "
     "content of their language becomes ever more important for both academic research and policy design."
-)
 )
 
 # ═══════════════════════════════════════════════════════════════

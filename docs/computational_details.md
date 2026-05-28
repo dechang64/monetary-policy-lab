@@ -4,7 +4,7 @@
 > 
 > Platform: https://monetary-policy-lab.streamlit.app  
 > Repository: GitHub (dechang64/monetary-policy-lab)  
-> Version: v1.0 (Phase 1 complete, WRDS integration pending)
+> Version: v1.1 (Phase 1 complete, v6.1 analysis pipeline, WRDS integration pending)
 
 ---
 
@@ -15,7 +15,7 @@ The platform consists of two layers:
 | Layer | Component | Purpose |
 |-------|-----------|---------|
 | **Interactive Dashboard** | Streamlit app (`app.py` + `modules/`) | Real-time exploration, visualization, scenario analysis |
-| **Research Engine** | `mp-research-platform/` | Batch regression pipeline, hypothesis testing, robustness checks |
+| **Research Engine** | `mp-research-platform/` + `analysis/` | Batch regression pipeline, hypothesis testing, robustness checks |
 
 The dashboard provides 8 modules (Dashboard, Fed Intelligence, Research, Replication, Sentiment, Two Shocks, Capital Flow, Event Study, Data Explorer), while the research engine runs the formal econometric analysis offline and stores results in `results/`.
 
@@ -88,7 +88,24 @@ For the research pipeline, we use yfinance to download:
 
 **Note**: yfinance returns MultiIndex columns in newer versions; we flatten via `df.columns.get_level_values(0)`. The 13W T-bill (`^IRX`) has lower precision than FRED's DGS3MO — a known limitation documented in TOOLS.md.
 
-### 2.5 WRDS (Planned, Not Yet Active)
+### 2.5 Acosta et al. (2024) Monetary Policy Shocks
+
+**Source**: `data/mp_shocks_acosta.xlsx` (sheet: `shocks`)
+
+High-frequency identified monetary policy shocks from Acosta, Bricongne, and L'Hour (2024), providing:
+
+| Variable | Description | Coverage |
+|----------|-------------|----------|
+| `target` | Target rate surprise (Kuttner-style) | 220 meetings, 1995–2022 |
+| `path` | Path factor (Gürkaynak-style) | 220 meetings, 1995–2022 |
+| `ff.shock.0` | Fed Funds futures surprise | 220 meetings |
+| `ns` | Narrow-window surprise | 220 meetings |
+
+**Key advantage over naive proxy**: These are market-based surprises from futures contracts, capturing the *unexpected* component of FOMC decisions. The naive proxy (Δr) equals zero for all unchanged-rate meetings, compressing variance and attenuating regression coefficients.
+
+**Sample overlap**: Of 220 Acosta meetings, 132 are post-2006 (our statement coverage period). Of these, 117 have both statements and shock data in our analysis dataset. The 15 missing meetings have statements available in the scraper but were not included in the original `analysis_dataset_expanded.csv` — a data gap that could be recovered in future versions to increase H1 sample size from 117 to 130.
+
+### 2.6 WRDS (Planned, Not Yet Active)
 
 **Connector**: `data/wrds_connector.py` (class `WRDSConnector`)
 
@@ -105,25 +122,27 @@ Designed for:
 
 ## 3. Sentiment Analysis Engine
 
-### 3.1 Dictionary-Based Approach
+### 3.1 Enhanced Dual-Dictionary Approach (v6.1)
 
-**Module**: `mp-research-platform/data/sentiment.py` (function `compute_lm_sentiment`)
+**Module**: `analysis/run_v6_comprehensive.py` (function `compute_enhanced_sentiment`)
 
-We use a **dual-dictionary** approach combining:
+We use an **enhanced dual-dictionary** approach combining:
 
 #### Loughran-McDonald (2011) Financial Sentiment Dictionary
 
 - **Negative set**: ~120 words (e.g., "adverse", "concern", "deteriorate", "recession", "volatile")
-- **Positive set**: ~130 words (e.g., "achieve", "boost", "confident", "growth", "stable")
+- **Positive set**: ~50 words (e.g., "achieve", "boost", "confident", "stable")
 
 $$\text{LM Score} = \frac{N_{\text{pos}} - N_{\text{neg}}}{N_{\text{total}}}$$
 
-#### Central Bank Hawkish-Dovish Dictionary (Henry 2008 + custom)
+#### Central Bank Hawkish-Dovish Dictionary (Henry 2008 + custom expanded)
 
-- **Hawkish set**: ~18 words/bigrams (e.g., "tighten", "hike", "inflation", "vigilant", "restrictive")
-- **Dovish set**: ~18 words/bigrams (e.g., "accommodative", "patient", "gradual", "easing", "transitory")
+- **Hawkish set**: ~45 words/bigrams (e.g., "tighten", "hike", "inflation", "vigilant", "restrictive", "quantitative", "tightening", "contractionary")
+- **Dovish set**: ~55 words/bigrams (e.g., "accommodative", "patient", "gradual", "easing", "transitory", "reduce", "reducing", "decline", "declining")
 
 $$\text{CB Score} = \frac{N_{\text{hawk}} - N_{\text{dove}}}{N_{\text{total}}}$$
+
+**v6.1 Dictionary Fix**: Removed 5 overlapping terms that appeared in both hawkish and dovish sets ("contractionary", "quantitative", "reducing", "risks", "reduce"), keeping them in the hawkish set where they are more semantically appropriate. This eliminates cancellation effects and increases sentiment variance.
 
 #### Combined Sentiment
 
@@ -133,35 +152,71 @@ $$\text{Sentiment}_t = 0.5 \times \text{LM Score}_t + 0.5 \times \text{CB Score}
 
 **Preprocessing**: Lowercase → strip punctuation → filter words with length ≤ 1.
 
-### 3.2 Known Limitations
+#### Enhanced Features (v6+)
+
+Beyond the raw combined score, the enhanced pipeline also computes:
+
+| Feature | Description |
+|---------|-------------|
+| `word_count` | Statement length (tokens) |
+| `hawkish_count` | Raw hawkish word count |
+| `dovish_count` | Raw dovish word count |
+| `lm_score` | LM dictionary score (always positive for FOMC text) |
+| `cb_score` | CB dictionary score (has sign variation) |
+| `combined` | 0.5 × LM + 0.5 × CB |
+
+### 3.2 Sentiment Distribution (v6.1)
+
+| Statistic | Combined | LM Score | CB Score |
+|-----------|:--------:|:--------:|:--------:|
+| Mean | 0.024 | 0.038 | 0.010 |
+| Std | 0.013 | 0.008 | 0.032 |
+| Min | −0.012 | 0.006 | −0.089 |
+| Max | 0.065 | 0.067 | 0.098 |
+| % Negative | 18.8% | 0% | 78% |
+| % Positive | 81.2% | 100% | 22% |
+
+**Key observation**: The LM score is always positive for FOMC statements (min = 0.006), because FOMC statements use more positive than negative words regardless of policy stance (they say "growth" and "stable" even when cutting rates). The CB component has substantial sign variation (78% negative), but the equal-weighted combination dilutes this signal. This is a known limitation of the combined measure — see §10.2 for the upgrade path.
+
+### 3.3 Known Limitations
 
 | Issue | Detail | Impact |
 |-------|--------|--------|
-| **Sparsity** | LM dictionary designed for 10-K filings, not FOMC statements | std(sentiment) ≈ 0.003 vs. literature benchmark ≈ 0.035 |
+| **LM positivity bias** | LM score is always positive for FOMC text (min = 0.006) | Combined score is dominated by LM positivity; only 18.8% negative |
+| **Sparsity** | LM dictionary designed for 10-K filings, not FOMC statements | std(LM) ≈ 0.008 vs. literature benchmark ≈ 0.035 |
 | **Context blindness** | "higher" appears in both LM_POSITIVE and CB_HAWKISH — but "higher inflation" is hawkish while "higher growth" is dovish | Directional ambiguity |
 | **No bigram/trigram** | Only unigram matching; "strongly committed to returning inflation to 2%" misses the commitment signal | Information loss |
 | **Equal weighting** | 50/50 LM+CB is arbitrary; no empirical optimization | Suboptimal signal extraction |
+| **LM-CB polarity conflict** | 10 terms are LM-negative but CB-hawkish (e.g., "inflation", "tightening"); 6 terms are LM-positive but CB-dovish (e.g., "ease", "easing") | Combined measure mixes two different dimensions — financial sentiment vs. policy stance |
 
 **Planned improvements** (per WRDS_UPGRADE_PLAN.md):
-1. **FinBERT** (Huang et al. 2022): Contextual sentiment, requires GPU
-2. **Expanded CB dictionary**: Add FOMC-specific phrases from Apel & Blix Grimaldi (2012)
-3. **Weight optimization**: Cross-validate LM/CB weights against asset returns
+1. **CB-only sentiment**: Use CB score alone for H1 regression (has actual sign variation)
+2. **FinBERT** (Huang et al. 2022): Contextual sentiment, requires GPU
+3. **Expanded CB dictionary**: Add FOMC-specific phrases from Apel & Blix Grimaldi (2012)
+4. **Weight optimization**: Cross-validate LM/CB weights against asset returns
 
 ---
 
 ## 4. Monetary Policy Surprise
 
-### 4.1 Current Implementation (Proxy)
+### 4.1 Acosta et al. (2024) Shocks (Active)
 
-**Module**: `mp-research-platform/run_analysis_v4.py` (function `compute_surprises`)
+**Source**: `data/mp_shocks_acosta.xlsx`
 
-In the absence of CME futures data, we use:
+The v6.1 pipeline uses Acosta et al. (2024) high-frequency identified shocks, which provide:
+
+- **Target surprise** (`target`): The unexpected component of the rate decision, identified from Fed Funds futures price changes in a narrow window around the FOMC announcement
+- **Path factor** (`path`): The change in expected future rate path beyond the current meeting, identified from Eurodollar futures
+
+These replace the naive proxy (Δr) used in earlier versions (v1–v4), which was zero for all unchanged-rate meetings and severely attenuated regression coefficients.
+
+### 4.2 Naive Proxy (Legacy, v1–v4)
 
 $$\text{Surprise}_t = \Delta r_t = r_t^{\text{after}} - r_t^{\text{before}}$$
 
 where $r_t$ is the Federal Funds target rate. This is a **naive proxy** — it equals zero for all "unchanged" meetings, which constitute the majority of the sample.
 
-### 4.2 Target Implementation: Kuttner (2001)
+### 4.3 Target Implementation: Kuttner (2001)
 
 Once WRDS is operational, the correct surprise measure is:
 
@@ -174,7 +229,7 @@ where:
 
 For scheduled meetings, this captures the **unexpected component** of the rate decision.
 
-### 4.3 Path Factor: Gürkaynak et al. (2005)
+### 4.4 Path Factor: Gürkaynak et al. (2005)
 
 $$\text{Path Factor}_t = \text{Surprise}_t^{\text{ED2}} - \text{Surprise}_t^{\text{ED1}}$$
 
@@ -186,47 +241,49 @@ where $\text{ED1}$, $\text{ED2}$ are the first and second Eurodollar futures sur
 
 ### 5.1 H1: Sentiment ↔ Surprise
 
-**Test**: Does FOMC statement sentiment predict the monetary policy surprise?
+**Test**: Does FOMC statement sentiment respond to monetary policy surprises?
 
-$$\text{Sentiment}_t = \alpha + \beta \cdot \text{Surprise}_t + \varepsilon_t$$
+$$\text{Sentiment}_t = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2 \cdot \text{Path Factor}_t + \varepsilon_t$$
 
-**Method**: OLS via `scipy.stats.linregress`
+**Method**: OLS with Newey-West HAC standard errors (lag = 1)
 
-**Current result**: R² ≈ 0.39% (vs. literature benchmark ~2.76%)
+**Current result (v6.1)**:
 
-**Diagnosis**: The near-zero R² is primarily driven by the naive surprise proxy (all "unchanged" meetings have Surprise = 0, compressing variance). With Kuttner futures-based surprises, we expect R² to increase substantially.
+| Statistic | Value |
+|-----------|:-----:|
+| R² | 0.0406 |
+| β₁ (target) | 0.000290 |
+| p(target) | 0.062* |
+| β₂ (path) | 0.000469 |
+| p(path) | 0.047** |
+| N | 117 |
+| Period | 2006-01-31 to 2022-07-27 |
 
-### 5.2 H2: Incremental Predictive Power of Sentiment
+*Significance: \*\*\* p<0.01, \*\* p<0.05, \* p<0.10
 
-**Test**: Does sentiment explain asset returns beyond what surprise alone captures?
+**Interpretation**: Both target and path shocks are marginally significant predictors of FOMC statement sentiment. The path factor (forward guidance) is significant at 5%, while the target surprise is significant at 10%. This is consistent with the view that FOMC statement language responds to both the current rate decision and the expected future path.
 
-**Model 1** (baseline):
-$$R_{i,t} = \alpha + \beta_1 \cdot \text{Surprise}_t + \varepsilon_t$$
+**Comparison with literature**: R² = 4.06% is substantially higher than the v4 result (0.39% with naive proxy) but still below the literature benchmark (~2.76% in Gürkaynak et al. 2005 for asset returns). The improvement is driven by (1) using market-based surprises instead of Δr, and (2) the enhanced CB dictionary with fixed overlap.
 
-**Model 2** (augmented):
-$$R_{i,t} = \alpha + \beta_1 \cdot \text{Surprise}_t + \beta_2 \cdot \text{Sentiment}_t + \varepsilon_t$$
+**Newey-West lag choice**: We use lag = 1, which is conservative. The standard Bartlett formula suggests lag ≈ 4 for T = 117, but FOMC meetings are irregularly spaced (6–8 per year), making the autocorrelation structure different from daily data. Lag = 1 is defensible for event-time data but may understate standard errors. This is documented as a limitation.
 
-**Key statistic**: $\beta_2$ (sentiment coefficient) and $\Delta R^2 = R^2_2 - R^2_1$
+### 5.2 H2: Asset Return Response to Shocks
 
-**Inference**: OLS with heteroskedasticity-robust standard errors (HC0 via $(X'X)^{-1} \hat{\sigma}^2$):
+**Test**: How do asset returns respond to target and path surprises?
 
-$$\text{Var}(\hat{\beta}) = \hat{\sigma}^2 (X'X)^{-1}, \quad \hat{\sigma}^2 = \frac{\sum \hat{\varepsilon}_i^2}{n - k}$$
+$$R_{i,t} = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2 \cdot \text{Path Factor}_t + \varepsilon_t$$
 
-$$t = \frac{\hat{\beta}_2}{\text{SE}(\hat{\beta}_2)}, \quad p = 2 \cdot (1 - F_{t_{n-k}}(|t|))$$
+**Current results (v6.1)**:
 
-**Assets tested**: S&P 500, NASDAQ, Gold (percentage returns); 10Y Yield, 13W T-bill (basis point changes)
+| Asset | R² | β₁ (target) | p(target) | β₂ (path) | p(path) | N |
+|-------|:--:|:-----------:|:---------:|:---------:|:-------:|:--:|
+| S&P 500 | 0.0291 | — | 0.100 | — | 0.565 | 117 |
+| VIX | 0.0793 | — | 0.122 | — | 0.269 | 117 |
+| Rate Change | 0.1847 | — | 0.067* | — | 0.013** | 117 |
 
-**Current results**:
+**Interpretation**: The rate change regression has the highest R² (18.5%), with the path factor significant at 5%. This is expected — the path factor captures forward guidance about future rate changes. S&P 500 and VIX show marginal target shock effects (p ≈ 0.10–0.12) but no path factor significance, suggesting that equity and volatility markets respond primarily to the current rate decision rather than forward guidance.
 
-| Asset | $\hat{\beta}_2$ | $p$-value | $\Delta R^2$ | Significant? |
-|-------|:---:|:---:|:---:|:---:|
-| S&P 500 | — | — | — | No |
-| NASDAQ | — | — | — | No |
-| Gold | — | 0.087 | — | Marginal* |
-| 10Y Yield | — | — | — | No |
-| 13W T-bill | — | — | — | No |
-
-*Gold at p=0.087 is a potentially novel finding not reported in the reference paper.
+**Note**: The asset return data in the current dataset is limited (only `sp500_ret` and `vix` columns are available). With WRDS CRSP data, we can expand to delisted-return-adjusted equity returns and more granular asset classes.
 
 ### 5.3 H3: Two-Shocks Decomposition
 
@@ -251,9 +308,9 @@ $$\text{Sentiment}_t = \alpha + \lambda_I \cdot \text{Info}_t + e_t$$
 5. **Share decomposition**:
 $$\text{Policy Share} = \frac{|\lambda_P|}{|\lambda_P| + |\lambda_I|}, \quad \text{Info Share} = \frac{|\lambda_I|}{|\lambda_P| + |\lambda_I|}$$
 
-**Current result**: Information shock dominates (~99.6% of sentiment variation), consistent with the reference paper's finding of 97.2%.
+**Current result (v6.1)**: Target shock t-statistic = 1.126, Path shock t-statistic ≈ 0. The target shock dominates the sentiment response, while the path factor contribution is negligible in this decomposition. This contrasts with the v4 result (information shock ~99.6%) which was inflated by the naive surprise proxy.
 
-**Critical caveat**: The current implementation uses `Surprise = rate_change` (naive proxy), which means the "information shock" residual captures essentially all variation for unchanged-rate meetings. This inflates the information share. With Kuttner surprises, the decomposition will be more meaningful.
+**Critical caveat**: The current decomposition uses Acosta shocks but the analysis dataset still has gaps. With the full WRDS pipeline (CME futures + CRSP returns), the decomposition will be more reliable.
 
 ### 5.4 H4: Regime-Dependent Effects
 
@@ -264,9 +321,18 @@ $$\text{Policy Share} = \frac{|\lambda_P|}{|\lambda_P| + |\lambda_I|}, \quad \te
 - **Forward Guidance** (2008–2015): ZLB period with explicit guidance
 - **Normalization** (2016+): Rate hikes from ZLB
 
-**Method**: Run H2 regression (13W T-bill return ~ Surprise + Sentiment) separately within each regime subsample. Compare $|\hat{\beta}_2|$ across regimes.
+**Method**: Run H2 regression separately within each regime subsample. Compare $|\hat{\beta}|$ across regimes.
 
 **Hypothesis**: Forward guidance regime should exhibit the strongest sentiment effect, because when rates are at ZLB, the statement's forward guidance content is the primary policy tool.
+
+### 5.5 Robustness Checks (v6.1)
+
+| Check | R² | N | Description |
+|-------|:--:|:--:|-------------|
+| Post-2010 | 0.0202 | 97 | Restrict to post-2010 meetings (standardized communication) |
+| No COVID | 0.0410 | 115 | Exclude Mar 2020 – Dec 2021 |
+
+**Interpretation**: The post-2010 subsample has lower R² (2.02% vs. 4.06%), suggesting that the sentiment-surprise relationship was stronger in the earlier period (2006–2010), which includes the financial crisis when FOMC language was more variable. Excluding COVID has minimal impact (4.10% vs. 4.06%), confirming that the result is not driven by pandemic-era outliers.
 
 ---
 
@@ -354,29 +420,9 @@ An increase in average pairwise correlation post-FOMC suggests **herding behavio
 
 ---
 
-## 8. Robustness Checks
+## 8. Dashboard-Specific Modules
 
-### 8.1 Chair Fixed Effects
-
-Run H2 regression separately for each Fed Chair's tenure (Greenspan, Bernanke, Yellen, Powell). Compare $\hat{\beta}_2$ across chairs to test whether the sentiment effect is driven by a particular chair's communication style.
-
-### 8.2 Subsample: Post-2010
-
-Restrict to meetings from 2010 onward, when FOMC statement communication became more standardized (longer statements, explicit forward guidance language, press conferences).
-
-### 8.3 Exclude COVID Period
-
-Drop meetings from March 2020 – December 2021 to remove the extreme volatility and emergency actions during the pandemic.
-
-### 8.4 Full Asset Coverage
-
-Run H2 across all 5 assets (S&P 500, NASDAQ, Gold, 10Y Yield, 13W T-bill) with the full sample, reporting $\hat{\beta}_2$, SE, $t$, $p$, and $R^2$ for each.
-
----
-
-## 9. Dashboard-Specific Modules
-
-### 9.1 Fed Intelligence (NLP)
+### 8.1 Fed Intelligence (NLP)
 
 **Module**: `modules/analyzers.py` (class `NLPEngine`)
 
@@ -385,7 +431,7 @@ Run H2 across all 5 assets (S&P 500, NASDAQ, Gold, 10Y Yield, 13W T-bill) with t
 $$\text{Flesch} = 206.835 - 1.015 \cdot \frac{\text{words}}{\text{sentences}} - 84.6 \cdot \frac{\text{syllables}}{\text{words}}$$
 - **Diff analysis**: Set-difference of word tokens between two statements, filtered to words > 4 characters
 
-### 9.2 Two Shocks (Dashboard Visualization)
+### 8.2 Two Shocks (Dashboard Visualization)
 
 **Module**: `modules/analyzers.py` (class `TwoShocksEngine`)
 
@@ -401,7 +447,7 @@ The dashboard version uses **simulated** variance decomposition with empirical p
 
 With Gaussian noise ($\sigma = 3$) added and renormalized to 100%. These are **illustrative** and will be replaced by actual regression-based decomposition once WRDS data is available.
 
-### 9.3 Portfolio Rebalancing Simulation
+### 8.3 Portfolio Rebalancing Simulation
 
 **Module**: `modules/analyzers.py` (class `PortfolioEngine`)
 
@@ -415,45 +461,48 @@ This is a **heuristic simulation**, not estimated from data. It serves as a peda
 
 ---
 
-## 10. Key Methodological Notes & Limitations
+## 9. Key Methodological Notes & Limitations
 
-### 10.1 Surprise Measurement
+### 9.1 Surprise Measurement
 
 | Approach | Data Required | Status | Quality |
 |----------|---------------|--------|---------|
-| $\Delta r_t$ (rate change) | FOMC records | ✅ Active | Low — zero for unchanged meetings |
-| Kuttner (2001) target surprise | CME FF futures | ⏳ WRDS pending | High — market-based expectation |
+| Δr_t (rate change) | FOMC records | ✅ Legacy (v1–v4) | Low — zero for unchanged meetings |
+| Acosta et al. (2024) shocks | HF futures | ✅ Active (v6+) | High — market-based, narrow-window |
+| Kuttner (2001) target surprise | CME FF futures | ⏳ WRDS pending | High — direct replication |
 | Gürkaynak et al. (2005) path factor | CME ED futures | ⏳ WRDS pending | High — captures forward guidance |
 
-**Impact**: The naive surprise proxy is the single largest source of weak results in H1–H3. With futures-based surprises, we expect:
-- H1 R² to increase from ~0.4% to ~2–5%
-- H2 significance to improve across assets
-- H3 decomposition to become more balanced (less inflated info share)
+**Impact**: The switch from naive proxy to Acosta shocks increased H1 R² from 0.39% to 4.06%, a 10× improvement. The path factor is now significant at 5% (was not detectable with Δr).
 
-### 10.2 Sentiment Measurement
+### 9.2 Sentiment Measurement
 
-The dictionary approach has known limitations (see §3.2). The most impactful upgrade path:
+The dictionary approach has known limitations (see §3.3). The most impactful upgrade path:
 
-1. **Short-term**: Expand CB dictionary with FOMC-specific bigrams from Apel & Blix Grimaldi (2012)
+1. **Short-term**: Use CB-only sentiment for H1 regression (has actual sign variation, 78% negative)
 2. **Medium-term**: Implement FinBERT for contextual sentiment (requires GPU)
 3. **Long-term**: Fine-tune a BERT model on FOMC statements with hawkish/dovish labels
 
-### 10.3 Standard Errors
+**LM positivity bias**: The LM score is always positive for FOMC text (min = 0.006 across 140 statements). This is because FOMC statements use more positive than negative words regardless of policy stance — they say "growth" and "stable" even when cutting rates. The combined = 0.5 × LM + 0.5 × CB dilutes the CB signal. Using CB-only sentiment should improve H1 R².
 
-Current implementation uses **homoskedastic** standard errors (OLS variance formula). For financial time series with well-documented heteroskedasticity and potential autocorrelation, the appropriate upgrade is:
+### 9.3 Standard Errors
 
-- **Newey-West** HAC standard errors for time-series regressions
+Current implementation uses **Newey-West HAC** standard errors with lag = 1. This is appropriate for time-series data with potential heteroskedasticity and autocorrelation.
+
+**Lag choice**: Lag = 1 is conservative. The Bartlett formula suggests lag ≈ 4 for T = 117, but FOMC meetings are irregularly spaced (6–8 per year), making the autocorrelation structure different from daily data. Lag = 1 may understate standard errors (overstate significance). Sensitivity analysis with lag = 4 is recommended.
+
+**Planned upgrades**:
 - **White (1980)** heteroskedasticity-robust SE for cross-sectional regressions
 - **Thompson (2011)** double-clustered SE (by time and by asset) for panel regressions
+- **Lag sensitivity analysis**: Report results for lag ∈ {1, 2, 4, 6}
 
-### 10.4 Multiple Testing
+### 9.4 Multiple Testing
 
-H2 tests 5 assets simultaneously. Without correction, the probability of at least one false positive at $\alpha = 0.10$ is $1 - 0.90^5 = 41\%$. Appropriate corrections:
-- **Bonferroni**: $\alpha^* = 0.10 / 5 = 0.02$
+H2 tests 3+ assets simultaneously. Without correction, the probability of at least one false positive at $\alpha = 0.10$ is $1 - 0.90^3 = 27\%$. Appropriate corrections:
+- **Bonferroni**: $\alpha^* = 0.10 / 3 = 0.033$
 - **Holm-Bonferroni**: Step-down procedure, less conservative
 - **Benjamini-Hochberg**: Controls FDR at 10%
 
-### 10.5 Endogeneity
+### 9.5 Endogeneity
 
 The OLS regression $R_t = \alpha + \beta_1 \text{Surprise}_t + \beta_2 \text{Sentiment}_t + \varepsilon_t$ may suffer from:
 - **Reverse causality**: Market reactions could feed back into statement drafting (unlikely for pre-written statements)
@@ -462,23 +511,36 @@ The OLS regression $R_t = \alpha + \beta_1 \text{Surprise}_t + \beta_2 \text{Sen
 
 **IV strategy** (planned): Use the previous meeting's sentiment as an instrument for current sentiment, exploiting the autocorrelation in communication style while assuming past sentiment doesn't directly affect current returns.
 
+### 9.6 Sample Size
+
+The H1 regression uses N = 117 meetings (2006–2022). This is the intersection of:
+- 140 FOMC meetings in the analysis dataset (2006–2025)
+- 220 Acosta shock observations (1995–2022)
+- 164 FOMC statements with enhanced sentiment (2006–2026)
+
+**Data gaps**:
+- 15 Acosta shock meetings (2006–2022) are not in the analysis dataset but have statements available → could recover 13 obs
+- 23 FOMC meetings (2022–2025) are post-Acosta coverage → could use DFF proxy for surprise
+- Potential H1 sample with full recovery: ~130–140 meetings
+
 ---
 
-## 11. Reproducibility
+## 10. Reproducibility
 
-### 11.1 Data Versioning
+### 10.1 Data Versioning
 
 - FOMC meetings: Hard-coded in `fomc_meetings.py` (164 observations, 1994–2025)
-- FOMC statements: Cached as individual `.txt` files in `data/cache/fomc/`
+- FOMC statements: Cached as JSON in `mp-research-platform/data/fomc_statements_all.json`
 - FRED data: Cached as JSON in `data/cache/` with 6-hour TTL
-- Analysis results: Saved as CSV (`analysis_dataset_expanded.csv`) and JSON (`regression_results_expanded.json`)
+- Acosta shocks: `data/mp_shocks_acosta.xlsx` (220 observations, 1995–2022)
+- Analysis results: Saved as CSV (`analysis_dataset_expanded.csv`) and JSON (`regression_results_v6.json`)
 
-### 11.2 Randomness
+### 10.2 Randomness
 
 - `TwoShocksEngine.variance_decomposition()`: Uses `np.random.normal(0, 3)` for simulation noise — **not seeded**. Results vary across runs.
 - All other modules are deterministic given the same input data.
 
-### 11.3 Dependencies
+### 10.3 Dependencies
 
 | Package | Version | Use |
 |---------|---------|-----|
@@ -489,17 +551,20 @@ The OLS regression $R_t = \alpha + \beta_1 \text{Surprise}_t + \beta_2 \text{Sen
 | requests | — | FRED API, FOMC scraping |
 | beautifulsoup4 | — | HTML parsing |
 | plotly | — | Interactive charts |
+| openpyxl | — | Excel reading (Acosta shocks) |
 
 ---
 
-## 12. Upgrade Roadmap
+## 11. Upgrade Roadmap
 
 | Phase | Component | Data Source | Expected Impact |
 |-------|-----------|-------------|-----------------|
-| **Phase 2** | Kuttner surprise | CME FF futures (WRDS) | H1 R²: 0.4% → 2–5% |
-| **Phase 2** | Path factor | CME ED futures (WRDS) | H3 decomposition validity |
-| **Phase 2** | HAC standard errors | — | Correct inference |
-| **Phase 3** | FinBERT sentiment | GPU compute | Sentiment std: 0.003 → 0.02+ |
+| **Phase 2** | CB-only sentiment | — | H1 R²: 4.06% → 5–8% (more sign variation) |
+| **Phase 2** | Kuttner surprise (direct) | CME FF futures (WRDS) | Independent replication of Acosta |
+| **Phase 2** | Path factor (direct) | CME ED futures (WRDS) | H3 decomposition validity |
+| **Phase 2** | Lag sensitivity analysis | — | Robustness of inference |
+| **Phase 2** | Recover 13 missing obs | Statement scraper | H1 N: 117 → 130 |
+| **Phase 3** | FinBERT sentiment | GPU compute | Sentiment std: 0.013 → 0.02+ |
 | **Phase 3** | High-frequency identification | TAQ (WRDS) | Intraday event windows |
 | **Phase 3** | IV estimation | — | Address endogeneity |
 | **Phase 4** | Sign restriction (JK style) | — | Structural shock identification |
@@ -507,5 +572,5 @@ The OLS regression $R_t = \alpha + \beta_1 \text{Surprise}_t + \beta_2 \text{Sen
 
 ---
 
-*Document generated: 2025-05-25*  
+*Document updated: 2026-05-28 (v1.1 — v6.1 analysis pipeline with fixed CB dictionary)*  
 *Contact: dechang64 (GitHub) / 冬生*

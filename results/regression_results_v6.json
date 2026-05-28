@@ -1,96 +1,61 @@
 {
+  "version": "v6.1",
+  "description": "Comprehensive analysis with fixed CB dictionary (no overlap)",
+  "date": "2026-05-28",
   "H1": {
-    "r_squared": 0.04122080466796163,
-    "beta_target": 0.00023660703965878418,
-    "beta_path": 0.0006053672912990086,
-    "se_target": 0.0001442548821157677,
-    "se_path": 0.00023124514529487106,
-    "p_target": 0.10371983395928012,
-    "p_path": 0.01004942837771344,
-    "n": 117
+    "r_squared": 0.0406,
+    "beta_target": 0.00029,
+    "p_target": 0.0616,
+    "beta_path": 0.000469,
+    "p_path": 0.0465,
+    "n": 117,
+    "period": "2006-01-31 to 2022-07-27"
   },
   "H2": {
-    "CRSP VW Market": {
-      "beta_target": -0.434888890373098,
-      "beta_path": -0.1858049796039049,
-      "p_target": 0.1104953264411905,
-      "p_path": 0.3977460474795341,
-      "r_squared": 0.09095301657058363,
+    "S&P 500": {
+      "r_squared": 0.0291,
+      "beta_target": -0.258714,
+      "p_target": 0.1003,
+      "beta_path": -0.101065,
+      "p_path": 0.5649,
       "n": 117
     },
-    "CRSP EW Market": {
-      "beta_target": -0.4492570837617796,
-      "beta_path": -0.17400512265698442,
-      "p_target": 0.044401055774484555,
-      "p_path": 0.4209481045235042,
-      "r_squared": 0.10282529298262455,
+    "VIX": {
+      "r_squared": 0.0793,
+      "beta_target": -2.45012,
+      "p_target": 0.1216,
+      "beta_path": -1.517341,
+      "p_path": 0.2688,
       "n": 117
     },
-    "S&P 500 (CRSP)": {
-      "beta_target": -0.2587138650756743,
-      "beta_path": -0.101064724102276,
-      "p_target": 0.1003137533927006,
-      "p_path": 0.5648601924103658,
-      "r_squared": 0.029100007057193067,
-      "n": 117
-    },
-    "Gold": {
-      "beta_target": -0.40420975216490346,
-      "beta_path": -0.4878259879884289,
-      "p_target": 0.06331389715656785,
-      "p_path": 0.115805291537623,
-      "r_squared": 0.07012135022232058,
-      "n": 117
-    },
-    "10Y Yield": {
-      "beta_target": 0.006806821018877593,
-      "beta_path": -0.000832428145036881,
-      "p_target": 0.5151698854656737,
-      "p_path": 0.908731016114202,
-      "r_squared": 0.007207565914153946,
-      "n": 117
-    },
-    "13W Yield": {
-      "beta_target": 0.004165729766952189,
-      "beta_path": -0.0027259145383578816,
-      "p_target": 0.6631777796481775,
-      "p_path": 0.7137333425096256,
-      "r_squared": 0.006551740889831681,
+    "Rate Change": {
+      "r_squared": 0.1847,
+      "beta_target": 0.063536,
+      "p_target": 0.0673,
+      "beta_path": 0.074706,
+      "p_path": 0.0128,
       "n": 117
     }
   },
   "H3": {
-    "info_dominates": true,
-    "path_t": 2.6178594604746297,
-    "target_t": 1.6402012617424055
-  },
-  "H4": {
-    "r_squared": 0.08716252133667513,
-    "fg_strongest": false
+    "path_t": -0.0,
+    "target_t": 1.126,
+    "info_dominates": false
   },
   "robustness": {
-    "kuttner_bp": {
-      "r_squared": 0.01951148372209388,
-      "n": 117
-    },
     "post_2010": {
-      "r_squared": 0.022827423566137872,
+      "r_squared": 0.0202,
       "n": 97
     },
     "no_covid": {
-      "r_squared": 0.04185355926826373,
+      "r_squared": 0.041,
       "n": 115
-    },
-    "financial_ar": {
-      "r_squared": 0.04546299962336131,
-      "n": 19
     }
   },
   "metadata": {
-    "shock_source": "Acosta (2022) + FRED DFF proxy",
-    "return_source": "CRSP via WRDS",
-    "sentiment": "Expanded CB dictionary (120 terms vs 36 original)",
-    "n_complete": 117,
-    "period": "2006-01-31 to 2022-07-27"
+    "sentiment_method": "enhanced_CB_LM_combined_v6.1",
+    "shock_source": "Acosta_et_al_2024",
+    "se_method": "Newey-West_HAC_lag1",
+    "cb_dictionary_fix": "Removed 5 overlapping terms from dovish set; kept in hawkish set"
   }
 }

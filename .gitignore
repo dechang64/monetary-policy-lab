@@ -14,3 +14,5 @@ results/charts/
 
 # PDF output
 docs/*.pdf
+__pycache__/
+*.pyc

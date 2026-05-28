@@ -53,7 +53,7 @@ CB_HAWKISH_EXPANDED = {
     "escalating", "escalated", "step", "stepped", "stepping",
     # Inflation concerns
     "inflation", "inflationary", "overheating", "overheated",
-    "pressures", "upside", "risks", "unacceptable", "entrenched",
+    "pressures", "upside", "unacceptable", "entrenched",
     "persistent", "persistently", "stubborn", "sticky", "surge",
     "surging", "surged", "spike", "spiking", "spiked", "soar",
     "soaring", "soared", "rapid", "rapidly", "excessive", "excessively",
@@ -66,8 +66,7 @@ CB_HAWKISH_EXPANDED = {
     # Policy stance
     "normalize", "normalized", "normalization", "unwinding",
     "unwind", "balance", "rebalancing", "contractionary",
-    "withdraw", "withdrawing", "withdrawal", "reduce", "reducing",
-    "reduced", "diminish", "diminishing", "taper", "tapering",
+    "withdraw", "withdrawing", "withdrawal", "diminish", "diminishing", "taper", "tapering",
     "tapered", "quantitative", "tightening",
 }
 
@@ -79,7 +78,6 @@ CB_DOVISH_EXPANDED = {
     "moderate", "moderation", "modest", "modestly", "cautious",
     "careful", "carefully", "wait", "cut", "cutting", "reduce",
     "reducing", "lower", "lowering", "lowered", "decrease",
-    "decreasing", "decreased", "decline", "declining", "declined",
     # Economic weakness
     "soft", "softening", "softened", "subdued", "slack",
     "headwinds", "downturn", "slowdown", "slowing", "slowed",
@@ -87,7 +85,7 @@ CB_DOVISH_EXPANDED = {
     "fragility", "vulnerable", "vulnerability", "uncertainty",
     "uncertain", "risks", "downside", "deteriorate", "deteriorating",
     "deteriorated", "contraction", "contracting", "recession",
-    "recessionary", "contractionary", "drag", "dragging",
+    "recessionary", "drag", "dragging",
     # Inflation outlook
     "transitory", "temporary", "temporarily", "disinflation",
     "disinflationary", "contained", "contain", "containing",
@@ -100,7 +98,7 @@ CB_DOVISH_EXPANDED = {
     "sustain", "sustaining", "maintain", "maintaining", "preserve",
     "preserving", "protect", "protecting", "safeguard", "safeguarding",
     "expansionary", "expansion", "expand", "expanding",
-    "quantitative", "easing", "forward", "guidance",
+    "easing", "forward", "guidance",
 }
 
 
