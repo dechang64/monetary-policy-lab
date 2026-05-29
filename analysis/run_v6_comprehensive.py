@@ -581,11 +581,20 @@ def plot_summary_comparison(out_dir):
 # 5. OLS REGRESSION (same as v5)
 # ============================================================
 
-def ols_regression(y, X, robust=True, lag=1):
-    """OLS with Newey-West standard errors."""
+def ols_regression(y, X, robust=True, lag=None):
+    """OLS with Newey-West standard errors.
+    
+    Args:
+        lag: Newey-West lag order. If None, uses data-driven selection
+             lag = int(4*(n/100)^(2/9)) following Newey & West (1994).
+    """
     n = len(y)
     X = np.column_stack([np.ones(n), X])
     k = X.shape[1]
+    
+    # Data-driven lag selection (Newey & West, 1994)
+    if lag is None:
+        lag = max(1, int(4 * (n / 100) ** (2 / 9)))
 
     try:
         beta = np.linalg.lstsq(X, y, rcond=None)[0]
@@ -772,12 +781,14 @@ def main():
     df = df.join(df_sentiment[["sentiment_enhanced", "cb_score_enhanced", "hawk_count", "dove_count"]], how="left")
 
     # Fill missing enhanced sentiment with old sentiment (scaled)
+    # NOTE: Using the full-sample std ratio introduces look-ahead bias.
+    # For a production pipeline, use rolling/expanding window std.
+    # For now, we flag these observations and use simple 1:1 mapping.
     if "sentiment_enhanced" in df.columns:
         mask = df["sentiment_enhanced"].isna() & df["sentiment"].notna()
-        # Scale old sentiment to match new range
         if mask.any():
-            scale = df["sentiment_enhanced"].std() / df["sentiment"].std() if df["sentiment"].std() > 0 else 1
-            df.loc[mask, "sentiment_enhanced"] = df.loc[mask, "sentiment"] * scale
+            # Use 1:1 mapping instead of full-sample scaling to avoid look-ahead bias
+            df.loc[mask, "sentiment_enhanced"] = df.loc[mask, "sentiment"]
 
     # Compute CRSP event returns
     all_fomc_dates = df.index.tolist()

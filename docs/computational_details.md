@@ -284,12 +284,16 @@ where $r_t$ is the Federal Funds target rate. This is a **naive proxy** — it e
 
 Once WRDS is operational, the correct surprise measure is:
 
-$$\text{Target Surprise}_t = \frac{F_{t}^{\text{close}} - F_{t-1}^{\text{close}}}{1 - D \cdot F_{t}^{\text{close}} / 100}$$
+$$\text{Target Surprise}_t = \frac{D}{D-d} \times (F_{t}^{\text{close}} - F_{t-1}^{\text{close}})$$
 
 where:
 - $F_t^{\text{close}}$ = settlement price of the current-month Fed Funds futures contract on FOMC day
 - $F_{t-1}^{\text{close}}$ = same contract's settlement price on the day before
-- $D$ = day-of-month (scaling factor for within-month timing)
+- $D$ = number of days in the month, $d$ = day of the FOMC meeting
+
+The scaling factor $D/(D-d)$ adjusts for the fact that the futures price reflects the average rate over the remaining days in the month. For meetings late in the month (large $d$), the scaling is larger.
+
+> **Note**: An equivalent formulation (Piazzesi & Swanson, 2008) uses the continuous-compounding approximation: $\text{Surprise}_t = (F_t - F_{t-1}) / (1 - d \cdot F_t / 100)$. Both produce nearly identical results for typical rate levels.
 
 For scheduled meetings, this captures the **unexpected component** of the rate decision.
 
@@ -424,7 +428,9 @@ For each asset $i$ and FOMC event $t$:
 
 $$R_{i,\tau} = \hat{\alpha}_i + \hat{\beta}_i \cdot R_{m,\tau} + \varepsilon_{i,\tau}$$
 
-via OLS (`scipy.stats.linregress`), where $R_m$ is the market return (S&P 500 or NASDAQ as alternative market proxy).
+via OLS (`scipy.stats.linregress`), where $R_m$ is the market return (S&P 500).
+
+> **Important (v6.3 fix)**: S&P 500 IS the market index — it cannot be used as both the asset and the market proxy. For S&P 500, we use the **constant-mean-return model** (Brown & Warner, 1980): $AR_{i,t} = R_{i,t} - \hat{\mu}_i$, where $\hat{\mu}_i$ is the mean return from the estimation window. The previous version incorrectly used NASDAQ as the market proxy for S&P 500, which produces unreliable $\beta$ estimates.
 
 **Step 2 — Abnormal returns** (event window $[t-k, t+l]$):
 

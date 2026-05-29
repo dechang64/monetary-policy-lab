@@ -41,9 +41,15 @@ class SurpriseCalculator:
         """
         Compute Kuttner surprises using fed funds futures.
 
-        S_t = (f_{t,d} - f_{t-1,d}) / 100
+        S_t = D/(D-d) × (f_{t,d} - f_{t-1,d})
 
-        where f is the futures price for the month of the FOMC meeting.
+        where f is the futures price for the month of the FOMC meeting,
+        D is the number of days in the month, and d is the day of the
+        FOMC meeting. The scaling factor D/(D-d) adjusts for the fact
+        that the futures price reflects the average rate over the
+        remaining days in the month.
+
+        Reference: Kuttner (2001), Eq. (2).
 
         Returns:
             DataFrame with columns: fomc_date, surprise, surprise_bp
@@ -78,7 +84,13 @@ class SurpriseCalculator:
             if pd.isna(f_pre) or pd.isna(f_post):
                 continue
 
-            surprise = (f_post - f_pre) / 100.0  # Convert to decimal
+            # Kuttner (2001) scaling factor: D/(D-d)
+            # D = days in month, d = day of FOMC meeting
+            D = pd.Period(fomc_date, freq='M').days_in_month
+            d = fomc_date.day
+            scaling = D / (D - d) if (D - d) > 0 else 1.0
+
+            surprise = scaling * (f_post - f_pre) / 100.0  # Convert to decimal
             results.append({
                 "fomc_date": fomc_date,
                 "surprise": surprise,

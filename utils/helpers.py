@@ -244,11 +244,41 @@ def compute_event_study_stats(
     results = []
     
     for asset in returns.columns:
-        # Market model: use S&P 500 as market proxy (skip for S&P itself)
+        # Market model: use S&P 500 as market proxy
+        # S&P 500 IS the market — use constant-mean-return model instead
         if asset == "S&P 500":
-            market = returns["NASDAQ"]  # use NASDAQ as proxy
-        else:
-            market = returns["S&P 500"]
+            # Constant-mean-return model: AR = R - μ
+            event_mask = returns.index.isin([pd.Timestamp(d) for d in fomc_dates])
+            non_event = returns[~event_mask]
+            mu = non_event[asset].mean()
+            sigma = non_event[asset].std(ddof=1)
+            
+            for date_str in fomc_dates:
+                date = pd.Timestamp(date_str)
+                ar_list = []
+                for d in range(-window_pre, window_post + 1):
+                    target_date = date + timedelta(days=d)
+                    if target_date in returns.index:
+                        ar = returns.loc[target_date, asset] - mu
+                        ar_list.append(ar)
+                
+                if ar_list:
+                    car = sum(ar_list)
+                    n = len(ar_list)
+                    sar = sigma * np.sqrt(n)
+                    t_stat = car / sar if sar > 0 and n > 1 else 0
+                    
+                    results.append({
+                        "asset": asset,
+                        "fomc_date": date,
+                        "AR_mean": round(np.mean(ar_list), 6),
+                        "CAR": round(car, 6),
+                        "t_stat": round(t_stat, 3),
+                        "n_days": n,
+                    })
+            continue
+        
+        market = returns["S&P 500"]
         
         # Estimate market model on non-event days
         event_mask = returns.index.isin([pd.Timestamp(d) for d in fomc_dates])
