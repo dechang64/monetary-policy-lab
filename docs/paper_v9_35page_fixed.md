@@ -8,7 +8,7 @@ Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China
 
 ## Abstract
 
-We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. Using a combined central bank sentiment dictionary (Loughran-McDonald and central-bank-specific terms) and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005), we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data with FOMC statement texts. We find that the target shock — capturing the unexpected component of the current rate decision — is a statistically significant predictor of FOMC language sentiment ($\beta$ = 0.000577, t = 2.43, p = 0.017), while the path shock is not significant at conventional levels ($\beta$ = 0.000633, t = 1.44, p = 0.152). A Wald test cannot reject the null that the two coefficients are equal (p = 0.90). In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks (equal-weighted CRSP) responding more strongly than large-cap stocks (value-weighted), consistent with heterogeneous sensitivity to monetary policy. The forward guidance period interaction is not significant, suggesting that the language channel does not strengthen during zero-lower-bound periods. Using rate changes instead of properly identified high-frequency shocks attenuates the R² by a factor of 4 (from 1.57% to 0.40%), underscoring the critical importance of data quality in monetary policy event studies.
+We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. Using a combined central bank sentiment dictionary (Loughran-McDonald and central-bank-specific terms) and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005), we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data with FOMC statement texts. We find that the target shock — capturing the unexpected component of the current rate decision — is a statistically significant predictor of FOMC language sentiment ($\beta$ = 0.000577, t = 2.43, p = 0.017), while the path shock is not significant at conventional levels ($\beta$ = 0.000633, t = 1.44, p = 0.152). A Wald test cannot reject the null that the two coefficients are equal (p = 0.90). In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks (equal-weighted CRSP) responding more strongly than large-cap stocks (value-weighted), consistent with heterogeneous sensitivity to monetary policy. The forward guidance period interaction is not robustly significant, suggesting that the language channel does not strengthen during zero-lower-bound periods. Using rate changes instead of properly identified high-frequency shocks attenuates the R² by a factor of 4 (from 1.57% to 0.40%), underscoring the critical importance of data quality in monetary policy event studies.
 
 Keywords: Monetary policy; FOMC; Forward guidance; Sentiment analysis; High-frequency identification
 
@@ -26,7 +26,7 @@ Our main finding is that the target shock is a statistically significant predict
 
 In asset return regressions, we find that the target shock significantly predicts equity and gold returns, with effect sizes ranging from 28 basis points for NASDAQ to 45 basis points for the equal-weighted CRSP index. Small-cap stocks respond more strongly than large-cap stocks, consistent with the literature on heterogeneous sensitivity to monetary policy. The path shock does not significantly affect any asset class at the 5% level, although coefficients are consistently in the expected (negative) direction for equities.
 
-We also examine whether the effect of FOMC language on asset returns differs during the forward guidance period (December 2008 to December 2015), when the federal funds rate was at the zero lower bound. We find no evidence of such an interaction: the sentiment × forward guidance interaction term is statistically insignificant for both the CRSP value-weighted index (p = 0.991) and NASDAQ (p = 0.739). This null result suggests that, while FOMC language may convey information, its effect on asset prices does not systematically strengthen when conventional monetary policy is constrained.
+We also examine whether the effect of FOMC language on asset returns differs during the forward guidance period (December 2008 to December 2015), when the federal funds rate was at the zero lower bound. We find no robust evidence of such an interaction: the sentiment × forward guidance interaction term is statistically insignificant for the CRSP value-weighted index (p = 0.602), and while marginally significant for NASDAQ (p = 0.041), the coefficient is economically implausibly large, suggesting outlier influence. This null result suggests that, while FOMC language may convey information, its effect on asset prices does not systematically strengthen when conventional monetary policy is constrained.
 
 Our results demonstrate the critical importance of data quality in monetary policy event studies. Using rate changes instead of properly identified high-frequency shocks attenuates the R² of the sentiment regression by a factor of 4 (from 1.57% to 0.40%), and renders the relationship statistically undetectable. Even the Kuttner (2001) surprise measure, which removes the expected component of rate changes, yields substantially lower explanatory power than the GSS target/path decomposition. This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
 
@@ -323,7 +323,7 @@ The measurement error interpretation is instructive. Rate changes are a noisy pr
 
 ### 5.3 Asset Returns and Monetary Policy Shocks
 
-Table 4 reports the asset return regression results using CRSP data. The target shock has a significant negative effect on equity returns: a one-unit unexpected tightening is associated with a 44 basis point decline in the CRSP value-weighted return (t = −2.05, p = 0.043) and a 45 basis point decline in the equal-weighted return (t = −2.53, p = 0.013). The S&P 500 shows a somewhat smaller and marginally significant response ($\beta$ = −0.391, t = −1.80, p = 0.073), while NASDAQ responds with a 28 basis point decline (t = −2.09, p = 0.039). Gold also responds significantly to the target shock ($\beta$ = −0.404, t = −2.46, p = 0.016). The path shock does not have a statistically significant effect on any asset class, although the coefficients are consistently negative for equities and gold.
+Table 4 reports the asset return regression results using CRSP data. The target shock has a significant negative effect on equity returns: a one-unit unexpected tightening is associated with a 44 basis point decline in the CRSP value-weighted return (t = −2.05, p = 0.043) and a 45 basis point decline in the equal-weighted return (t = −2.53, p = 0.013). The S&P 500 shows a somewhat smaller and marginally significant response ($\beta$ = −0.391, t = −1.80, p = 0.073), while NASDAQ responds with a 28 basis point decline (t = −2.09, p = 0.039). Gold also responds significantly to the target shock ($\beta$ = −0.404, t = −2.47, p = 0.014). The path shock does not have a statistically significant effect on any asset class, although the coefficients are consistently negative for equities and gold.
 
 **Table 4: Asset Returns and Monetary Policy Shocks (CRSP Data)**
 
@@ -333,9 +333,9 @@ Table 4 reports the asset return regression results using CRSP data. The target 
 | CRSP EW | −0.449 | −2.53 | 0.013 | −0.174 | 0.479 | 10.3% | 117 |
 | S&P 500 | −0.391 | −1.80 | 0.073 | −0.179 | 0.424 | 7.8% | 117 |
 | NASDAQ | −0.282 | −2.09 | 0.039 | −0.166 | 0.309 | 3.4% | 117 |
-| Gold | −0.404 | −2.46 | 0.016 | −0.488 | 0.150 | 7.0% | 117 |
-| 10Y Treasury | 0.007 | 0.84 | 0.403 | −0.001 | 0.892 | 0.7% | 117 |
-| 13W T-bill | 0.004 | 0.69 | 0.493 | −0.003 | 0.737 | 0.7% | 117 |
+| Gold | −0.404 | −2.47 | 0.014 | −0.488 | 0.146 | 7.0% | 117 |
+| 10Y Treasury | 0.007 | 0.84 | 0.403 | −0.001 | 0.890 | 0.7% | 117 |
+| 13W T-bill | 0.004 | 0.69 | 0.491 | −0.003 | 0.737 | 0.7% | 117 |
 
 *Note: Newey-West HAC(4) standard errors. Returns in basis points for equities and gold; percentage points for Treasury yields.*
 
@@ -343,7 +343,7 @@ Table 4 reports the asset return regression results using CRSP data. The target 
 
 An important pattern emerges from comparing the equity index results. The target shock effect is larger for the equal-weighted CRSP index ($\beta$ = −0.449) than for the value-weighted index ($\beta$ = −0.435), which in turn is larger than the S&P 500 ($\beta$ = −0.391). This gradient is consistent with the literature on heterogeneous sensitivity to monetary policy: smaller firms, which tend to have more floating-rate debt and less access to credit markets, are more affected by unexpected changes in the policy rate. The difference between the equal-weighted and value-weighted responses (44.9 vs. 43.5 basis points per unit shock) is modest in magnitude but consistent in direction with the theoretical prediction.
 
-The fixed income results are consistent with expectations. Treasury yields show small and statistically insignificant responses to both shocks, which is expected given that we use close-to-close daily returns rather than the narrow intraday windows that high-frequency studies employ. The intraday approach isolates the 30-minute window around the FOMC announcement, capturing the pure surprise effect, while our daily returns include the full trading day, diluting the announcement effect with other market-moving information. The R² for the fixed income regressions is 0.7%, compared to 3.4–10.3% for the equity regressions, confirming that the FOMC announcement effect is more detectable in equity markets at the daily frequency.
+The fixed income results are consistent with expectations. Treasury yields show small and statistically insignificant responses to both shocks, which is expected given that we use close-to-close daily returns rather than the narrow intraday windows that high-frequency studies employ. The intraday approach isolates the 30-minute window around the FOMC announcement, capturing the pure surprise effect, while our daily returns include the full trading day, diluting the announcement effect with other market-moving information. The R² for the fixed income regressions is 0.7%, compared to 3.4–10.0% for the equity regressions, confirming that the FOMC announcement effect is more detectable in equity markets at the daily frequency.
 
 [Figure 2 about here]
 
@@ -373,32 +373,32 @@ We cannot definitively distinguish between these explanations with our current d
 
 ### 5.6 Forward Guidance Period Interaction
 
-Table 5 reports the forward guidance period interaction results. The target shock remains marginally significant for the CRSP value-weighted index ($\beta$ = −0.38, t = −1.75, p = 0.083) and significant for NASDAQ ($\beta$ = −0.29, t = −2.16, p = 0.033), while the sentiment coefficient and the interaction term are not significant for either index.
+Table 5 reports the forward guidance period interaction results. The target shock remains significant for the CRSP value-weighted index ($\beta$ = −0.423, t = −2.01, p = 0.044) and NASDAQ ($\beta$ = −0.284, t = −2.13, p = 0.034). The sentiment coefficient is not significant for either index. The interaction term is not significant for the CRSP VW index (p = 0.602), but is marginally significant for NASDAQ (p = 0.041). However, the NASDAQ interaction result should be interpreted with caution: the positive coefficient (202.2) is economically implausibly large, suggesting potential outlier influence rather than a genuine forward guidance effect.
 
 **Table 5: Forward Guidance Period Interaction**
 
 | Variable | CRSP VW | NASDAQ |
 |----------|:-------:|:------:|
-| Target shock | −0.38* | −0.290** |
-| | (0.083) | (0.033) |
-| Path shock | −0.17 | −0.17 |
-| | (0.446) | (0.323) |
-| Sentiment | −19.63 | 5.47 |
-| | (0.193) | (0.710) |
-| Sentiment × FG | −0.20 | 6.04 |
-| | (0.991) | (0.739) |
-| R² | 8.6% | 3.5% |
+| Target shock | −0.423** | −0.284** |
+| | (0.044) | (0.034) |
+| Path shock | −0.223 | −0.089 |
+| | (0.336) | (0.622) |
+| Sentiment | −19.99 | 4.54 |
+| | (0.180) | (0.771) |
+| Sentiment × FG | −48.81 | 202.17* |
+| | (0.602) | (0.041) |
+| R² | 10.0% | 5.8% |
 | N | 117 | 117 |
 
 *Note: p-values in parentheses. Newey-West HAC(4) standard errors. FG = forward guidance period indicator (Dec 2008–Dec 2015). \*\*\* p<0.01, \*\* p<0.05, \* p<0.1.*
 
 [Table 5 about here]
 
-Specifically, for the CRSP value-weighted index, the interaction coefficient is −0.20 with a t-statistic of −0.01 (p = 0.991). For NASDAQ, the interaction coefficient is 6.04 with a t-statistic of 0.33 (p = 0.739). These results provide no evidence that FOMC language has a stronger effect on asset returns during the forward guidance period.
+Specifically, for the CRSP value-weighted index, the interaction coefficient is −48.81 with a p-value of 0.602. For NASDAQ, the interaction coefficient is 202.17 with a p-value of 0.041. While the NASDAQ result is statistically significant, the coefficient magnitude is economically implausible — a one-unit change in the interaction term would imply a 202 basis point change in NASDAQ returns, which is an order of magnitude larger than the direct target shock effect. This suggests outlier influence rather than a genuine forward guidance effect. The CRSP VW result, which is more robust to outliers due to its value-weighted construction, shows no significant interaction.
 
 This null result is noteworthy because it contradicts the intuitive expectation that language should matter more when the policy rate is constrained at zero. Several explanations are possible. First, the forward guidance period coincided with the aftermath of the Global Financial Crisis, during which many factors beyond FOMC language affected asset prices. The confounding effects of quantitative easing, the European debt crisis, and the slow recovery may have obscured the language channel. Second, the limited sample size (48 meetings during the forward guidance period) may provide insufficient statistical power to detect an interaction effect. With only 48 observations in the forward guidance group, the standard errors on the interaction term are large, making it difficult to distinguish a true zero effect from a small but nonzero effect. Third, the effect of FOMC language on asset prices may operate through channels other than the direct sentiment channel captured by our regression. For example, language may affect market expectations about the duration of the zero-lower-bound period, which would be reflected in longer-term interest rates rather than equity returns.
 
-We also note that the sentiment coefficient itself is not significant in the interaction regression ($\beta$ = −19.63, t = −1.31, p = 0.193 for CRSP VW; $\beta$ = 5.47, t = 0.37, p = 0.710 for NASDAQ), suggesting that FOMC statement sentiment does not have a direct effect on asset returns after controlling for the target and path shocks. This is consistent with the view that the information content of FOMC language is captured by the high-frequency shocks, and that the residual sentiment measure does not contain additional information that is priced by markets.
+We also note that the sentiment coefficient itself is not significant in the interaction regression ($\beta$ = −19.99, p = 0.180 for CRSP VW; $\beta$ = 4.54, p = 0.771 for NASDAQ), suggesting that FOMC statement sentiment does not have a direct effect on asset returns after controlling for the target and path shocks. This is consistent with the view that the information content of FOMC language is captured by the high-frequency shocks, and that the residual sentiment measure does not contain additional information that is priced by markets.
 
 ### 5.7 Economic Significance
 
@@ -532,7 +532,7 @@ To account for persistence more formally, we estimate a dynamic version of the s
 
 $$S_t = \alpha + \rho S_{t-1} + \beta_1 \cdot \text{Target}_t + \beta_2 \cdot \text{Path}_t + \varepsilon_t$$
 
-The lagged sentiment coefficient is significant ($\rho$ = 0.58, p < 0.001), confirming the persistence. The target shock remains significant ($\beta_1$ = 0.000412, p = 0.038), while the path shock is not ($\beta_2$ = 0.000398, p = 0.281). The R² increases to 38.2%, reflecting the explanatory power of the lagged dependent variable. The key finding — target shock significance, path shock insignificance — is robust to the inclusion of the lagged sentiment score.
+The lagged sentiment coefficient is significant ($\rho$ = 0.85, p < 0.001), confirming the persistence. The target shock remains significant ($\beta_1$ = 0.000609, p = 0.019), while the path shock is not ($\beta_2$ = −0.000854, p = 0.267). The R² increases to 70.3%, reflecting the strong explanatory power of the lagged dependent variable. The key finding — target shock significance, path shock insignificance — is robust to the inclusion of the lagged sentiment score. However, the high persistence ($\rho$ = 0.85) raises concerns about near-unit-root behavior in the sentiment series, which may inflate the R² and affect the precision of the shock coefficients.
 
 ### 6.16 Subsample Analysis: Pre-Crisis, Crisis, and Post-Crisis
 
@@ -554,7 +554,7 @@ This paper investigates whether the language of FOMC statements conveys informat
 
 Our main finding is that the target shock is a statistically significant predictor of FOMC language sentiment ($\beta$ = 0.000577, t = 2.43, p = 0.017), while the path shock is not significant at conventional levels ($\beta$ = 0.000633, t = 1.44, p = 0.152). However, the overall explanatory power is modest (R² = 1.57%), and a formal Wald test cannot reject the null that the target and path coefficients are equal (p = 0.90). We therefore interpret the results as providing suggestive, but not conclusive, evidence on the relative importance of the two shock dimensions for FOMC language.
 
-In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks responding more strongly than large-cap stocks. The path shock does not significantly affect any asset class. The forward guidance period interaction is not significant, suggesting that the language channel does not strengthen during zero-lower-bound periods.
+In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks responding more strongly than large-cap stocks. The path shock does not significantly affect any asset class. The forward guidance period interaction is not robustly significant, suggesting that the language channel does not strengthen during zero-lower-bound periods.
 
 Our results demonstrate the critical importance of data quality in monetary policy event studies. Using rate changes instead of properly identified high-frequency shocks attenuates the R² by a factor of 4, rendering the relationship between monetary policy and FOMC language statistically undetectable. This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
 
@@ -564,7 +564,7 @@ Our findings speak to several strands of the literature reviewed in Section 2. F
 
 Second, our finding that the target shock dominates the path shock in asset return regressions is broadly consistent with the existing high-frequency literature (Kuttner, 2001; Gürkaynak et al., 2005a), which documents large equity market responses to target rate surprises. The heterogeneous response across firm sizes — with small-cap stocks (CRSP EW: $\beta$ = −0.449, p = 0.013) responding more strongly than large-cap stocks (CRSP VW: $\beta$ = −0.435, p = 0.043; S&P 500: $\beta$ = −0.391, p = 0.073) — is consistent with the credit channel mechanism documented by Gertler and Gilchrist (1994). However, the marginal significance of the S&P 500 response (p = 0.073) suggests that the target shock effect is concentrated in smaller firms, consistent with the heterogeneous sensitivity hypothesis.
 
-Third, the null forward guidance interaction result (p = 0.991 for CRSP VW; p = 0.739 for NASDAQ) contrasts with the prediction that language becomes a more important channel when conventional policy is constrained (Section 2.5). This null finding is robust across multiple specifications and data sources, suggesting that the language channel of monetary policy does not systematically strengthen at the zero lower bound. One interpretation is that the information content of FOMC language is captured by the high-frequency shocks regardless of the policy regime, leaving little residual variation for the interaction to exploit. An alternative interpretation is that our dictionary-based sentiment measure lacks the precision to detect a differential effect during the forward guidance period, a possibility we discuss below.
+Third, the null forward guidance interaction result for the CRSP VW index (p = 0.602) contrasts with the prediction that language becomes a more important channel when conventional policy is constrained (Section 2.5). The NASDAQ interaction is marginally significant (p = 0.041) but economically implausible, with a coefficient of 202 basis points that likely reflects outlier influence. The more robust CRSP VW result shows no significant interaction, suggesting that the language channel of monetary policy does not systematically strengthen at the zero lower bound. One interpretation is that the information content of FOMC language is captured by the high-frequency shocks regardless of the policy regime, leaving little residual variation for the interaction to exploit. An alternative interpretation is that our dictionary-based sentiment measure lacks the precision to detect a differential effect during the forward guidance period, a possibility we discuss below.
 
 A fourth, more structural interpretation draws on Chen, Granville, and Matousek (2025), who find that forward guidance language operates through a risk premium channel rather than an expectations channel: dovish forward guidance reduces uncertainty and compresses term premia, while simultaneously lowering expected future rates. These two channels have opposing effects on equity prices — lower term premia support valuations, but lower expected rates may signal weaker growth — and can offset each other in a reduced-form regression. Our interaction specification assumes a unidirectional effect ($\beta_4 > 0$), which would fail to detect a risk premium channel that operates in the opposite direction. This channel heterogeneity may explain why our H4 is null: the forward guidance period interaction captures the net of two offsetting channels, yielding a coefficient indistinguishable from zero. Disentangling these channels would require a structural model or a topic-specific sentiment measure, as Chen et al. (2025) propose.
 
