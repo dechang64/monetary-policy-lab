@@ -1,0 +1,210 @@
+
+================================================================================
+COMPREHENSIVE CODE AUDIT REPORT
+Beyond the Rate: The Informational Role of Federal Reserve Communication
+Author: Eileen Zhang
+Date: 2026-05-29
+================================================================================
+
+METHODOLOGY:
+- Re-ran ALL regressions from raw data using verified OLS + Newey-West HAC(4)
+- Cross-validated with statsmodels OLS(HAC) — results match exactly
+- Sample: 117 FOMC meetings, 2006-01-31 to 2022-07-27
+- Shocks: Acosta (2022) target & path factors
+- Sentiment: 0.5×LM + 0.5×CB (combined), verified = existing 'sentiment' column
+- Returns: CRSP value-weighted index (primary), yfinance S&P 500 (secondary)
+
+================================================================================
+FINDING 1: H1 SIGNIFICANCE COMPLETELY FLIPPED (FATAL)
+================================================================================
+
+Paper claims:                    Code reality:
+  β_target = 0.000237              β_target = 0.000577
+  t_target = 1.63                  t_target = 2.430
+  p_target = 0.102 (NOT sig)       p_target = 0.017 (SIGNIFICANT at 5%)
+
+  β_path   = 0.000605              β_path   = 0.000633
+  t_path   = 2.39                  t_path   = 1.443
+  p_path   = 0.017 (SIGNIFICANT)   p_path   = 0.152 (NOT sig)
+
+  R² = 0.0412                      R² = 0.0157
+
+IMPACT: The paper's entire narrative is "path shock (forward guidance) dominates
+the information channel, not the rate surprise itself." But the REAL data shows
+the OPPOSITE: target shock is significant, path shock is NOT. The paper's core
+story is built on flipped significance.
+
+ROOT CAUSE: The v6 regression_results.json was MANUALLY CREATED with fabricated
+numbers. The v5 (WRDS) results match our audit exactly (R²=0.0157, same βs).
+Someone replaced the real v5 numbers with fake v6 numbers that supported the
+desired narrative.
+
+================================================================================
+FINDING 2: H4 INTERACTION ENTIRELY FABRICATED (FATAL)
+================================================================================
+
+Paper claims (S&P 500):          Code reality (CRSP VW):
+  β_sentiment = 41.71              β_sentiment = -19.63
+  β_sent×FG   = +159.88            β_sent×FG   = -0.20
+  p_interaction = 0.081 (*)        p_interaction = 0.991
+
+Code reality (yfinance S&P):
+  β_sentiment = 19.52
+  β_sent×FG   = +0.26
+  p_interaction = 0.988
+
+IMPACT: The paper's H4 finding — "language matters more during forward guidance
+periods" — is ENTIRELY FABRICATED. The interaction effect is zero regardless of
+data source (CRSP or yfinance), sentiment variable (combined, LM, CB), or FG
+period definition. No reasonable specification produces β≈160 with p<0.10.
+
+ROOT CAUSE: The regression_engine.py has a BUG in Model 4 (line 218-220):
+  self.ols(sentiment_col, [surprise_col, sentiment_col, interaction])
+This regresses sentiment ON itself, which is nonsensical. The v6 results
+(β=159.88) cannot be reproduced by ANY specification — they appear to be
+manually fabricated.
+
+================================================================================
+FINDING 3: TABLE 1 SUMMARY STATISTICS ERRORS
+================================================================================
+
+Variable          Paper Claims        Code Reality        Status
+─────────────────────────────────────────────────────────────────
+Target shock std  1.00                0.82                WRONG (not standardized)
+Path shock std    1.00                0.80                WRONG (not standardized)
+Sentiment mean    0.014               0.014               ✓ MATCH
+Sentiment std     0.013               0.006               WRONG (2x off)
+CB score mean     +0.010              -0.013              WRONG (sign flipped!)
+CB score std      0.032               0.005               WRONG (6x off)
+
+NOTE: Acosta shocks ARE standardized in the FULL sample (std≈1.00), but our
+subsample (2006-2022) has std=0.82/0.80. The paper should either:
+(a) Report the actual subsample std, or
+(b) Re-standardize within the sample used
+
+The CB score sign flip (paper: +0.010, code: -0.013) suggests the paper used
+a different CB dictionary or scoring convention.
+
+================================================================================
+FINDING 4: H2 S&P 500 COEFFICIENT DIFFERENCE
+================================================================================
+
+Data source       β_target    t-stat    R²
+─────────────────────────────────────────────
+Paper (v6)        -0.259      -1.85     0.029
+yfinance S&P      -0.259      -2.19     0.029
+CRSP VW           -0.435      -2.05     0.091
+CRSP S&P (sprtrn) -0.391      -1.80     0.078
+
+The paper's β_target=-0.259 matches yfinance data exactly, NOT CRSP.
+This is a data source issue — yfinance returns are close prices which may
+differ from CRSP daily returns (which use closing bid/ask midpoint).
+
+RECOMMENDATION: Use CRSP data (academic standard). yfinance is not acceptable
+for a JMP/顶刊 submission.
+
+================================================================================
+FINDING 5: H3 WALD TEST
+================================================================================
+
+Paper: χ²=0.19, p=0.66
+Code:  χ²=0.015, p=0.90
+
+Both are insignificant, so the qualitative conclusion (cannot reject β_target=β_path)
+is the same. But the numerical values differ substantially, suggesting the paper
+used different data or a different Wald test formula.
+
+================================================================================
+FINDING 6: ROBUSTNESS — PATH SHOCK NEVER SIGNIFICANT
+================================================================================
+
+NW lag=1:  β_path p=0.100 (marginally not sig at 10%)
+NW lag=2:  β_path p=0.127
+NW lag=3:  β_path p=0.142
+NW lag=4:  β_path p=0.152
+NW lag=5:  β_path p=0.154
+NW lag=6:  β_path p=0.149
+
+Post-2010:  β_path p=0.258
+No-COVID:   β_path p=0.154
+
+Path shock is NEVER significant at 5% level regardless of NW lag or sample.
+Only at lag=1 does it approach 10% significance.
+
+================================================================================
+VERIFIED CORRECT NUMBERS (for paper revision)
+================================================================================
+
+TABLE 1: Summary Statistics (N=117, 2006-01-31 to 2022-07-27)
+  Target shock:  mean=-0.022, std=0.823, min=-4.955, max=2.691
+  Path shock:    mean=0.003,  std=0.795, min=-2.615, max=3.389
+  Sentiment:     mean=0.014,  std=0.006, min=0.008,  max=0.034
+  LM score:      mean=0.041,  std=0.008, min=0.031,  max=0.071
+  CB score:      mean=-0.013, std=0.005, min=-0.022, max=0.005
+  Kuttner (bp):  mean=-0.449, std=3.076, min=-20.00, max=9.539
+
+TABLE 2: H1 Sentiment ~ Target + Path (NW lag=4)
+  β_target = 0.000577, t=2.43, p=0.017 **
+  β_path   = 0.000633, t=1.44, p=0.152
+  R² = 0.0157, N = 117
+
+TABLE 4: H2 Asset Returns ~ Target + Path (CRSP, NW lag=4)
+  S&P 500:    β_t=-0.391*(p=0.073), β_p=-0.179(p=0.424), R²=0.078
+  CRSP VW:    β_t=-0.435**(p=0.043), β_p=-0.186(p=0.443), R²=0.091
+  CRSP EW:    β_t=-0.449**(p=0.013), β_p=-0.174(p=0.479), R²=0.103
+  NASDAQ:     β_t=-0.282**(p=0.039), β_p=-0.166(p=0.309), R²=0.034
+  Gold:       β_t=-0.404**(p=0.016), β_p=-0.488(p=0.150), R²=0.070
+  10Y Treas:  β_t=0.007(p=0.403),    β_p=-0.001(p=0.892), R²=0.007
+  13W T-bill: β_t=0.004(p=0.493),    β_p=-0.003(p=0.737), R²=0.007
+
+H3: Wald test β_target = β_path
+  χ²=0.015, p=0.902 → Cannot reject equality
+
+TABLE 5: H4 FG Interaction (CRSP VW, NW lag=4)
+  β_target   = -0.38, t=-1.75, p=0.083 *
+  β_path     = -0.17, t=-0.77, p=0.446
+  β_sentiment= -19.63, t=-1.31, p=0.193
+  β_sent×FG  = -0.20, t=-0.01, p=0.991
+  R² = 0.086
+
+================================================================================
+REVISED PAPER IMPLICATIONS
+================================================================================
+
+1. H1 story must FLIP: Target shock (rate surprise) significantly predicts
+   sentiment, NOT path shock (forward guidance). The "forward guidance
+   dominates information channel" narrative is unsupported by the data.
+
+2. H4 story must be DROPPED: There is NO evidence that language matters more
+   during forward guidance periods. The interaction effect is literally zero.
+
+3. The paper CAN still argue:
+   - Sentiment responds to monetary policy shocks (H1: target significant)
+   - Asset returns respond to target shocks (H2: significant for equities/gold)
+   - Sentiment provides incremental information beyond rate changes
+     (R² jumps from 0.4% with rate_change to 1.6% with GSS shocks)
+   - But the "information channel via forward guidance" story is dead
+
+4. Table 1 must be corrected: CB score sign is NEGATIVE (hawkish language
+   dominates on average), std is 0.005 not 0.032
+
+5. Data source must be standardized: Use CRSP (not yfinance) for all returns
+
+================================================================================
+CODE BUGS FOUND
+================================================================================
+
+1. regression_engine.py line 218-220: Model 4 regresses sentiment on itself
+   → Must use asset return as dependent variable
+
+2. regression_engine.py NW implementation: Double loop O(n×lag) is correct but
+   slow; the v6 ols_regression() has a cleaner vectorized implementation
+
+3. run_v6_comprehensive.py: sentiment_use vs sentiment confusion
+   → sentiment_enhanced fills NaN with sentiment (1:1 mapping), but the
+   "enhanced" dictionary gives different scores than the original
+
+4. Target/Path shocks not re-standardized for subsample
+   → Paper claims std=1.00 but actual std=0.82/0.80 in 2006-2022 sample
+
+================================================================================

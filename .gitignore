@@ -16,3 +16,29 @@ results/charts/
 docs/*.pdf
 __pycache__/
 *.pyc
+
+# Literature radar digests (regenerated daily)
+results/literature_digests/
+
+# Submission bundles (large, generated)
+submission/data/
+submission/mp-research-platform/
+submission/results/
+
+# Old/intermediate tex files
+docs/paper_body*.tex
+docs/paper_jfe_*.tex
+docs/paper_main_*.tex
+docs/paper_v8_*.tex
+docs/paper_v9_35page.tex
+docs/doublespacing.tex
+
+# Old markdown versions
+docs/paper_v8_verified.html
+docs/paper_v9_verified.html
+
+# Old docx versions (keep latest only)
+docs/paper_v9_35page.docx
+docs/Beyond_the_Rate_JMP_v6.docx
+submission/data
+submission/mp-research-platform

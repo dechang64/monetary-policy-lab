@@ -1,0 +1,256 @@
+{
+  "version": "verified_v1_2026-05-29",
+  "method": "OLS + Newey-West HAC(4), cross-validated with statsmodels",
+  "sample": {
+    "n": 117,
+    "period": "2006-01-31 to 2022-07-27",
+    "shock_source": "Acosta (2022) target & path factors",
+    "return_source": "CRSP (primary), yfinance (secondary only for comparison)",
+    "sentiment_source": "0.5*LM + 0.5*CB (combined), verified matches 'sentiment' column"
+  },
+  "table1": {
+    "target_shock": {
+      "mean": -0.0224,
+      "std": 0.8225,
+      "min": -4.9551,
+      "max": 2.6907,
+      "n": 117
+    },
+    "path_shock": {
+      "mean": 0.003,
+      "std": 0.795,
+      "min": -2.6147,
+      "max": 3.3894,
+      "n": 117
+    },
+    "sentiment": {
+      "mean": 0.0142,
+      "std": 0.0059,
+      "min": 0.0077,
+      "max": 0.0339,
+      "n": 117
+    },
+    "lm_score": {
+      "mean": 0.0411,
+      "std": 0.0081,
+      "min": 0.0305,
+      "max": 0.071,
+      "n": 117
+    },
+    "cb_score": {
+      "mean": -0.0126,
+      "std": 0.0052,
+      "min": -0.0215,
+      "max": 0.0048,
+      "n": 117
+    },
+    "kuttner_bp": {
+      "mean": -0.4485,
+      "std": 3.0758,
+      "min": -20.0,
+      "max": 9.5385,
+      "n": 117
+    }
+  },
+  "correlations": {
+    "target_path": 0.14,
+    "sentiment_target": 0.09,
+    "sentiment_path": 0.1
+  },
+  "H1": {
+    "model": "sentiment ~ target_shock + path_shock",
+    "target_shock": {
+      "beta": 0.000577,
+      "se": 0.000238,
+      "t": 2.43,
+      "p": 0.0167
+    },
+    "path_shock": {
+      "beta": 0.000633,
+      "se": 0.000439,
+      "t": 1.443,
+      "p": 0.1518
+    },
+    "const": {
+      "beta": 0.0145
+    },
+    "r2": 0.0157,
+    "n": 117,
+    "NOTE": "TARGET is significant, PATH is NOT \u2014 opposite of paper's claim"
+  },
+  "H1_robustness": {
+    "rate_change_only": {
+      "r2": 0.004,
+      "p": 0.5262
+    },
+    "kuttner_only": {
+      "r2": 0.0149,
+      "p": 0.0102
+    },
+    "cb_score_depvar": {
+      "r2": 0.039,
+      "target_p": 0.0001,
+      "path_p": 0.0332
+    },
+    "nw_lag_sensitivity": {
+      "lag1": {
+        "path_p": 0.1002
+      },
+      "lag2": {
+        "path_p": 0.1271
+      },
+      "lag3": {
+        "path_p": 0.1415
+      },
+      "lag4": {
+        "path_p": 0.1518
+      },
+      "lag5": {
+        "path_p": 0.1542
+      },
+      "lag6": {
+        "path_p": 0.1492
+      }
+    },
+    "post_2010": {
+      "r2": 0.0059,
+      "path_p": 0.2583,
+      "n": 97
+    },
+    "no_covid": {
+      "r2": 0.0157,
+      "path_p": 0.1544,
+      "n": 115
+    }
+  },
+  "H2_crsp": {
+    "sp500_sprtrn": {
+      "beta_target": -0.391,
+      "t_target": -1.8,
+      "p_target": 0.073,
+      "beta_path": -0.179,
+      "p_path": 0.424,
+      "r2": 0.078
+    },
+    "crsp_vw": {
+      "beta_target": -0.435,
+      "t_target": -2.05,
+      "p_target": 0.043,
+      "beta_path": -0.186,
+      "p_path": 0.443,
+      "r2": 0.091
+    },
+    "crsp_ew": {
+      "beta_target": -0.449,
+      "t_target": -2.53,
+      "p_target": 0.013,
+      "beta_path": -0.174,
+      "p_path": 0.479,
+      "r2": 0.103
+    },
+    "nasdaq": {
+      "beta_target": -0.282,
+      "t_target": -2.09,
+      "p_target": 0.039,
+      "beta_path": -0.166,
+      "p_path": 0.309,
+      "r2": 0.034
+    },
+    "gold": {
+      "beta_target": -0.404,
+      "t_target": -2.46,
+      "p_target": 0.016,
+      "beta_path": -0.488,
+      "p_path": 0.15,
+      "r2": 0.07
+    },
+    "ty10": {
+      "beta_target": 0.007,
+      "t_target": 0.84,
+      "p_target": 0.403,
+      "beta_path": -0.001,
+      "p_path": 0.892,
+      "r2": 0.007
+    },
+    "tb13w": {
+      "beta_target": 0.004,
+      "t_target": 0.69,
+      "p_target": 0.493,
+      "beta_path": -0.003,
+      "p_path": 0.737,
+      "r2": 0.007
+    }
+  },
+  "H2_yfinance": {
+    "sp500": {
+      "beta_target": -0.259,
+      "t_target": -2.193,
+      "p_target": 0.03,
+      "r2": 0.029
+    },
+    "NOTE": "Matches paper's v6 numbers exactly \u2014 paper used yfinance not CRSP"
+  },
+  "H3_wald": {
+    "H0": "beta_target = beta_path",
+    "chi2": 0.0152,
+    "p": 0.9018,
+    "conclusion": "Cannot reject equality \u2014 both shocks have similar effects on sentiment"
+  },
+  "H4_crsp_vw": {
+    "model": "crsp_vw_ret ~ target_shock + path_shock + sentiment + sentiment\u00d7FG",
+    "target_shock": {
+      "beta": -0.38,
+      "t": -1.75,
+      "p": 0.083
+    },
+    "path_shock": {
+      "beta": -0.17,
+      "t": -0.77,
+      "p": 0.446
+    },
+    "sentiment": {
+      "beta": -19.63,
+      "t": -1.31,
+      "p": 0.193
+    },
+    "sent_x_fg": {
+      "beta": -0.2,
+      "t": -0.01,
+      "p": 0.991
+    },
+    "r2": 0.086,
+    "n": 117,
+    "NOTE": "Interaction is ZERO \u2014 paper's \u03b2=+159.88/p=0.081 is FABRICATED"
+  },
+  "H4_nasdaq": {
+    "target_shock": {
+      "beta": -0.29,
+      "t": -2.16,
+      "p": 0.033
+    },
+    "path_shock": {
+      "beta": -0.17,
+      "t": -0.99,
+      "p": 0.323
+    },
+    "sentiment": {
+      "beta": 5.47,
+      "t": 0.37,
+      "p": 0.71
+    },
+    "sent_x_fg": {
+      "beta": 6.04,
+      "t": 0.33,
+      "p": 0.739
+    },
+    "r2": 0.035,
+    "NOTE": "Interaction also zero for NASDAQ \u2014 paper's \u03b2=+200.01/p=0.052 is FABRICATED"
+  },
+  "fatal_errors": [
+    "H1 significance flipped: target sig (p=0.017), path NOT sig (p=0.152) \u2014 paper claims opposite",
+    "H4 interaction fabricated: \u03b2=-0.20/p=0.991 in reality, paper claims \u03b2=+159.88/p=0.081",
+    "Table 1 CB score sign flipped: code=-0.013, paper=+0.010",
+    "Table 1 CB score std 6x off: code=0.005, paper=0.032",
+    "v6 regression_results.json manually fabricated \u2014 v5 (WRDS) results match audit exactly"
+  ]
+}
