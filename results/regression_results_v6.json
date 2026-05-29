@@ -1,61 +1,162 @@
 {
-  "version": "v6.1",
-  "description": "Comprehensive analysis with fixed CB dictionary (no overlap)",
-  "date": "2026-05-28",
+  "version": "v6.2",
+  "description": "Comprehensive analysis with Newey-West lag=4 (data-driven), fixed CB dictionary, constant-mean-return model",
+  "date": "2026-05-29",
   "H1": {
-    "r_squared": 0.0406,
-    "beta_target": 0.00029,
-    "p_target": 0.0616,
-    "beta_path": 0.000469,
-    "p_path": 0.0465,
+    "r_squared": 0.0412,
+    "beta_target": 0.000237,
+    "t_target": 1.651,
+    "p_target": 0.1015,
+    "beta_path": 0.000605,
+    "t_path": 2.421,
+    "p_path": 0.0171,
     "n": 117,
-    "period": "2006-01-31 to 2022-07-27"
+    "period": "2006-01-31 to 2022-07-27",
+    "nw_lag": 4
   },
   "H2": {
     "S&P 500": {
       "r_squared": 0.0291,
-      "beta_target": -0.258714,
-      "p_target": 0.1003,
+      "beta_target": -0.2587,
+      "t_target": -2.193,
+      "p_target": 0.0303,
       "beta_path": -0.101065,
-      "p_path": 0.5649,
+      "t_path": -0.615,
+      "p_path": 0.5395,
+      "n": 117
+    },
+    "NASDAQ": {
+      "r_squared": 0.034,
+      "beta_target": -0.2821,
+      "t_target": -2.089,
+      "p_target": 0.0389,
+      "beta_path": -0.165995,
+      "t_path": -1.022,
+      "p_path": 0.309,
+      "n": 117
+    },
+    "Gold": {
+      "r_squared": 0.0696,
+      "beta_target": -0.4042,
+      "t_target": -2.465,
+      "p_target": 0.0152,
+      "beta_path": -0.487826,
+      "t_path": -1.453,
+      "p_path": 0.149,
+      "n": 117
+    },
+    "10Y Treasury": {
+      "r_squared": 0.0069,
+      "beta_target": 0.0068,
+      "t_target": 0.837,
+      "p_target": 0.4043,
+      "beta_path": -0.000832,
+      "t_path": -0.138,
+      "p_path": 0.8904,
+      "n": 117
+    },
+    "13W T-bill": {
+      "r_squared": 0.0068,
+      "beta_target": 0.0042,
+      "t_target": 0.689,
+      "p_target": 0.4921,
+      "beta_path": -0.002726,
+      "t_path": -0.336,
+      "p_path": 0.7374,
       "n": 117
     },
     "VIX": {
       "r_squared": 0.0793,
-      "beta_target": -2.45012,
-      "p_target": 0.1216,
+      "beta_target": -2.4501,
+      "t_target": -1.605,
+      "p_target": 0.1112,
       "beta_path": -1.517341,
-      "p_path": 0.2688,
-      "n": 117
-    },
-    "Rate Change": {
-      "r_squared": 0.1847,
-      "beta_target": 0.063536,
-      "p_target": 0.0673,
-      "beta_path": 0.074706,
-      "p_path": 0.0128,
+      "t_path": -0.93,
+      "p_path": 0.3542,
       "n": 117
     }
   },
   "H3": {
-    "path_t": -0.0,
-    "target_t": 1.126,
-    "info_dominates": false
+    "target_t": 1.651,
+    "target_p": 0.1015,
+    "path_t": 2.421,
+    "path_p": 0.0171,
+    "path_dominance": "47% larger t-stat",
+    "info_dominates": true
+  },
+  "H4": {
+    "S&P 500": {
+      "beta_target": -0.286509,
+      "t_target": -2.587,
+      "p_target": 0.0109,
+      "beta_sentiment": 41.710008,
+      "t_sentiment": 0.992,
+      "p_sentiment": 0.3233,
+      "beta_interaction": 159.877178,
+      "t_interaction": 1.76,
+      "p_interaction": 0.0811,
+      "r_squared": 0.051
+    },
+    "NASDAQ": {
+      "beta_target": -0.305954,
+      "t_target": -2.451,
+      "p_target": 0.0158,
+      "beta_sentiment": 0.98997,
+      "t_sentiment": 0.021,
+      "p_sentiment": 0.9836,
+      "beta_interaction": 200.010601,
+      "t_interaction": 1.966,
+      "p_interaction": 0.0517,
+      "r_squared": 0.0496
+    }
   },
   "robustness": {
     "post_2010": {
-      "r_squared": 0.0202,
+      "r_squared": 0.0228,
+      "beta_path": 0.000584,
+      "p_path": 0.0499,
       "n": 97
     },
     "no_covid": {
-      "r_squared": 0.041,
+      "r_squared": 0.0419,
+      "beta_path": 0.000618,
+      "p_path": 0.0158,
       "n": 115
     }
   },
+  "lag_sensitivity": {
+    "lag_1": {
+      "t_path": 2.618,
+      "p_path": 0.01
+    },
+    "lag_2": {
+      "t_path": 2.53,
+      "p_path": 0.0128
+    },
+    "lag_3": {
+      "t_path": 2.485,
+      "p_path": 0.0144
+    },
+    "lag_4": {
+      "t_path": 2.421,
+      "p_path": 0.0171
+    },
+    "lag_5": {
+      "t_path": 2.4,
+      "p_path": 0.018
+    },
+    "lag_6": {
+      "t_path": 2.365,
+      "p_path": 0.0197
+    }
+  },
   "metadata": {
-    "sentiment_method": "enhanced_CB_LM_combined_v6.1",
+    "sentiment_method": "enhanced_CB_LM_combined_v6.2",
     "shock_source": "Acosta_et_al_2024",
-    "se_method": "Newey-West_HAC_lag1",
-    "cb_dictionary_fix": "Removed 5 overlapping terms from dovish set; kept in hawkish set"
+    "se_method": "Newey-West_HAC_lag4",
+    "nw_lag_formula": "floor(4*(N/100)^(2/9))",
+    "cb_dictionary_fix": "Removed 5 overlapping terms from dovish set; kept in hawkish set",
+    "sp500_model": "constant-mean-return (Brown & Warner 1980)",
+    "kuttner_scaling": "D/(D-d) following Kuttner 2001 Eq.2"
   }
 }
