@@ -1,15 +1,14 @@
 # Beyond the Rate: Information Content of FOMC Forward Guidance Language
 
-**Dechang Yu**¹ and **Eileen Zhang**²
+**Eileen Zhang**
 
-¹ Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China  
-² [Affiliation to be confirmed]
+Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China
 
 ---
 
 ## Abstract
 
-We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. Using an expanded central bank sentiment dictionary (591 hawkish and 222 dovish terms) and high-frequency monetary policy shocks from G\"urkaynak, Sack, and Swanson (2005), we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data via WRDS with 164 FOMC statement texts. We find that the path shock — capturing information about the future trajectory of monetary policy — is the primary driver of FOMC language sentiment ($\\beta$ = 0.000605, t = 2.421, p = 0.017), while the target rate surprise is only marginally significant ($\\beta$ = 0.000237, t = 1.651, p = 0.102). This supports the information channel hypothesis: forward guidance language conveys information about future economic conditions and policy intentions, not merely the current rate decision. In asset return regressions, the target shock significantly affects equity and gold returns, while the path shock does not, suggesting that the language channel and the asset price channel operate through different mechanisms. Small-cap stocks (equal-weighted market) respond more strongly to target shocks than large-cap stocks (value-weighted), consistent with heterogeneous sensitivity to monetary policy. Our results are robust to excluding the COVID period, using non-standardized Kuttner surprise measures, and restricting to the post-2010 zero lower bound period. The R² of the sentiment-shock regression improves from 0.17% with naive rate-change measures to 4.12% with proper high-frequency identification — a 24-fold improvement — underscoring the critical importance of data source selection in monetary policy event studies.
+We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. Using an expanded central bank sentiment dictionary (591 hawkish and 222 dovish terms) and high-frequency monetary policy shocks from G\"urkaynak, Sack, and Swanson (2005), we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data via WRDS with 164 FOMC statement texts. We find that the path shock — capturing information about the future trajectory of monetary policy — is a more significant predictor of FOMC language sentiment ($\\beta$ = 0.000605, t = 2.421, p = 0.017), while the target rate surprise is not significant at the 5% level ($\\beta$ = 0.000237, t = 1.651, p = 0.102). This supports the information channel hypothesis: forward guidance language conveys information about future economic conditions and policy intentions, not merely the current rate decision. In asset return regressions, the target shock significantly affects equity and gold returns, while the path shock does not, suggesting that the language channel and the asset price channel operate through different mechanisms. Small-cap stocks (equal-weighted market) respond more strongly to target shocks than large-cap stocks (value-weighted), consistent with heterogeneous sensitivity to monetary policy. Our results are robust to excluding the COVID period, using non-standardized Kuttner surprise measures, and restricting to the post-2010 zero lower bound period. The R² of the sentiment-shock regression improves from 0.17% with naive rate-change measures to 4.12% with proper high-frequency identification — a 24-fold improvement — underscoring the critical importance of data source selection in monetary policy event studies.
 
 **Keywords:** Monetary policy surprises; FOMC statements; Forward guidance; Information channel; High-frequency identification; Sentiment analysis
 
@@ -27,13 +26,13 @@ Practically, understanding the information content of FOMC language is essential
 
 The central challenge in answering this question is identification. A naive approach might regress FOMC statement sentiment on the observed rate change, but this conflates expected and unexpected components. The seminal contribution of Kuttner (2001) showed that only the unexpected component — the "surprise" — matters for asset prices, and this surprise must be measured using federal funds futures rather than ex-post rate changes. G\"urkaynak, Sack, and Swanson (2005, henceforth GSS) further decomposed this surprise into a target rate factor and a path factor, where the latter captures information about the future trajectory of policy. This decomposition is crucial for our purposes: if FOMC language is primarily driven by the path factor rather than the target factor, it constitutes direct evidence for the information channel, because the path factor captures forward guidance about future policy — precisely the type of information that language is designed to convey.
 
-Despite these methodological advances, many studies continue to use rate changes or low-frequency proxies as surprise measures, leading to severely attenuated estimates. Our first contribution is to demonstrate the magnitude of this attenuation: using the same FOMC statement corpus, the R² of the sentiment-surprise regression increases from 0.17% with rate changes to 4.12% with properly identified high-frequency shocks — a 24-fold improvement. This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises in the context of FOMC language analysis will substantially underestimate the relationship between policy and communication.
+Despite these methodological advances, many studies continue to use rate changes or low-frequency proxies as surprise measures, leading to severely attenuated estimates. We demonstrate the magnitude of this attenuation: using the same FOMC statement corpus, the R² of the sentiment-surprise regression increases from 0.17% with rate changes to 4.12% with properly identified high-frequency shocks — a 24-fold improvement. This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises in the context of FOMC language analysis will substantially underestimate the relationship between policy and communication.
 
-Our second contribution is to provide direct evidence for the information channel of monetary policy transmission through language. We find that the path shock — the component of the FOMC surprise that reflects forward guidance about future policy — is the primary driver of statement sentiment, with a t-statistic of 2.42 (p = 0.017). The target rate surprise, by contrast, is only marginally significant (t = 1.65, p = 0.102). This pattern is consistent with the view that FOMC language is primarily about revealing information about future economic conditions and policy intentions, not merely announcing the current rate decision. The result is robust across a range of Newey-West lag specifications (lag 1 through 6, all yielding p < 0.02 for the path shock), subsample periods, and alternative surprise measures.
+We provide direct evidence for the information channel of monetary policy transmission through language. We find that the path shock — the component of the FOMC surprise that reflects forward guidance about future policy — has a larger and more significant coefficient than the target shock in explaining statement sentiment, with a t-statistic of 2.42 (p = 0.017). The target rate surprise, by contrast, is not significant at the 5% level (t = 1.65, p = 0.102). This pattern is consistent with the view that FOMC language is primarily about revealing information about future economic conditions and policy intentions, not merely announcing the current rate decision. The result is robust across a range of Newey-West lag specifications (lag 1 through 6, all yielding p < 0.02 for the path shock), subsample periods, and alternative surprise measures.
 
-Our third contribution is a comprehensive analysis using institutional-grade data. We combine CRSP daily market returns accessed through WRDS with high-frequency monetary policy shocks from Acosta (2022), who replicates and extends the GSS and Nakamura and Steinsson (2018) shock series using tick-frequency CME data. This represents a significant upgrade over the commonly used yfinance data, which lacks delisting adjustments and dividend reinvestment — biases that are particularly consequential for equal-weighted portfolios where small-cap stocks are more affected by survivorship bias. We also construct an expanded central bank sentiment dictionary comprising 591 hawkish terms and 222 dovish terms, drawing on multiple sources in the linguistics and central bank communication literature, and demonstrate that this expanded dictionary captures more variation in FOMC language than standard financial sentiment dictionaries alone.
+A further contribution is the use of comprehensive data. We combine CRSP daily market returns accessed through WRDS with high-frequency monetary policy shocks from Acosta (2022), who replicates and extends the GSS and Nakamura and Steinsson (2018) shock series using tick-frequency CME data. This represents a significant upgrade over the commonly used yfinance data, which lacks delisting adjustments and dividend reinvestment — biases that are particularly consequential for equal-weighted portfolios where small-cap stocks are more affected by survivorship bias. We also construct an expanded central bank sentiment dictionary comprising 591 hawkish terms and 222 dovish terms, drawing on multiple sources in the linguistics and central bank communication literature, and demonstrate that this expanded dictionary captures more variation in FOMC language than standard financial sentiment dictionaries alone.
 
-Our analysis proceeds in four stages. First, we test whether FOMC statement sentiment is related to monetary policy shocks (H1). Second, we examine the effect of monetary policy shocks on asset returns (H2). Third, we compare the relative importance of target and path shocks for language, which constitutes a test of the information channel (H3). Fourth, we test whether the effect of sentiment on asset returns differs during the forward guidance period (H4). Throughout, we employ Newey-West heteroskedasticity and autocorrelation consistent (HAC) standard errors with a data-driven lag length of L = 4, following Newey and West (1994).
+Our analysis proceeds in four stages. First, we test whether FOMC statement sentiment is related to monetary policy shocks. Second, we examine the effect of monetary policy shocks on asset returns. Third, we compare the relative importance of target and path shocks for language, which constitutes a test of the information channel. Fourth, we test whether the effect of sentiment on asset returns differs during the forward guidance period. Throughout, we employ Newey-West heteroskedasticity and autocorrelation consistent (HAC) standard errors with a data-driven lag length of L = 4, following Newey and West (1994).
 
 The remainder of this paper is organized as follows. Section 2 reviews the related literature on monetary policy surprises, central bank communication, and the information channel. Section 3 describes the data sources and construction of key variables. Section 4 presents the empirical methodology. Section 5 reports the main results. Section 6 discusses robustness checks and extensions. Section 7 concludes with implications for policy and future research.
 
@@ -69,15 +68,15 @@ The "information channel" or "Fed information effect" posits that monetary polic
 
 Jarociński and Karadi (2020, henceforth JK) provided a structural decomposition of FOMC surprises into monetary policy shocks and information shocks, using the sign restriction that a monetary tightening should raise interest rates but lower stock prices, while positive information should raise both. They found that information shocks account for a substantial fraction of the variance in FOMC window asset price changes — roughly one-third of the total variance. Their decomposition is complementary to our approach: while JK use sign restrictions on asset prices to identify the two shocks, we use the GSS target-path decomposition and test which component drives FOMC language.
 
-The information channel has also been studied through the lens of the "Fed put" — the observation that the Fed tends to ease policy when stock prices fall. Cieslak and Vissing-Jorgensen (2021) argued that this pattern reflects the Fed's informational advantage: when stock prices fall, the Fed's private information suggests that economic conditions are deteriorating, prompting easing. This interpretation is consistent with our finding that the path shock — which captures forward-looking information — is the primary driver of FOMC language.
+The information channel has also been studied through the lens of the "Fed put" — the observation that the Fed tends to ease policy when stock prices fall. Cieslak and Vissing-Jorgensen (2021) argued that this pattern reflects the Fed's informational advantage: when stock prices fall, the Fed's private information suggests that economic conditions are deteriorating, prompting easing. This interpretation is consistent with our finding that the path shock — which captures forward-looking information — is a more significant predictor of FOMC language than the target shock.
 
-Our contribution to this literature is to provide direct textual evidence for the information channel. While previous studies have inferred the information channel from asset price responses, we show that the path component of the FOMC surprise — which captures forward guidance about future policy — is the primary driver of statement language. This is a more direct test of the information channel, because it examines the content of the communication itself rather than its effects on asset prices.
+Our contribution to this literature is to provide direct textual evidence for the information channel. While previous studies have inferred the information channel from asset price responses, we show that the path component of the FOMC surprise — which captures forward guidance about future policy — is a more significant predictor of statement language than the target shock. This is a more direct test of the information channel, because it examines the content of the communication itself rather than its effects on asset prices.
 
 ### 2.4 Data Quality in Monetary Policy Event Studies
 
-An underappreciated issue in the literature is the quality of financial data used in event studies. Many papers rely on freely available data from sources such as Yahoo Finance (yfinance), which has known limitations: it does not adjust for delisting returns (a source of survivorship bias), does not consistently reinvest dividends, and may have data gaps for less liquid securities. These limitations are particularly consequential for equal-weighted portfolios, where small-cap stocks — which are more likely to be delisted — receive equal weight.
+A related issue in the literature is the quality of financial data used in event studies. Many papers rely on freely available data from sources such as Yahoo Finance (yfinance), which has known limitations: it does not adjust for delisting returns (a source of survivorship bias), does not consistently reinvest dividends, and may have data gaps for less liquid securities. These limitations are particularly consequential for equal-weighted portfolios, where small-cap stocks — which are more likely to be delisted — receive equal weight.
 
-CRSP (Center for Research in Security Prices), accessed through WRDS, provides the gold standard for U.S. equity data, with delisting-adjusted returns and comprehensive coverage. The difference between CRSP and yfinance data is not merely academic: delisting returns average $-$30% for NYSE stocks and $-$55% for NASDAQ stocks (Shumway, 1997), and failing to include them introduces a systematic upward bias in returns. We demonstrate that the choice of data source matters: CRSP-based event returns yield systematically different results than yfinance-based returns, particularly for equal-weighted portfolios where small-cap stocks are more affected by delisting bias.
+CRSP (Center for Research in Security Prices), accessed through WRDS, is the standard source for U.S. equity data in academic research, with delisting-adjusted returns and comprehensive coverage. The difference between CRSP and yfinance data is not merely academic: delisting returns average $-$30% for NYSE stocks and $-$55% for NASDAQ stocks (Shumway, 1997), and failing to include them introduces a systematic upward bias in returns. We demonstrate that the choice of data source matters: CRSP-based event returns yield systematically different results than yfinance-based returns, particularly for equal-weighted portfolios where small-cap stocks are more affected by delisting bias.
 
 ### 2.5 Sentiment Analysis in Finance
 
@@ -121,7 +120,7 @@ The scraping success rate is 155/157 (99%) for the 2006–2025 period, with 2 fa
 
 We construct an expanded central bank sentiment dictionary that combines three sources:
 
-1. **Loughran-McDonald (2011) financial sentiment dictionary**: Standard positive and negative word lists for financial text analysis, comprising approximately 50 positive terms (e.g., "achieve," "boost," "confident," "stable") and 120 negative terms (e.g., "adverse," "concern," "deteriorate," "recession," "volatile").
+1. **Loughran-McDonald (2011) financial sentiment dictionary**: Standard positive and negative word lists for financial text analysis, comprising 354 positive terms and 2,329 negative terms in the master dictionary (Loughran and McDonald, 2011), of which a subset appears in FOMC text.
 
 2. **Central bank-specific hawkish/dovish terms**: Drawing on Apel and Blix (2014), Henry (2008), Cieslak et al. (2019), and Hansen et al. (2018), we compile 591 hawkish terms and 222 dovish terms. The hawkish set includes terms such as "tighten," "inflationary pressure," "restrictive stance," "vigilant," "overshoot," "preemptive," and compound phrases like "above-target," "upside-risk," "wage-pressure," and "capacity-constraint." The dovish set includes terms such as "accommodative," "patient," "data-dependent," "balanced approach," and compound phrases like "downside-risk," "labor-market-slack," and "below-potential." The expanded dictionary includes both single words and compound phrases (hyphenated and spaced variants) to capture the full range of FOMC language.
 
@@ -171,7 +170,7 @@ Table 1 presents summary statistics for the key variables in our analysis. The s
 
 The target shock has a mean near zero (by construction) and a standard deviation of 1.0 (standardized). The path shock similarly has unit standard deviation. The Kuttner surprise in basis points has a mean of $-$0.4 bp and a standard deviation of 3.9 bp, with a range from $-$20.6 bp to +13.0 bp. The asymmetry in the range reflects the fact that large negative surprises (unexpected easings) are more common than large positive surprises during our sample period, which includes the Global Financial Crisis and the COVID pandemic.
 
-The enhanced sentiment score has a mean of 0.014 and a standard deviation of 0.003, reflecting the subtle nature of FOMC language variation. The standard deviation is small in absolute terms because the sentiment score is a ratio (net sentiment divided by total word count), and FOMC statements are relatively long (average 400–600 words). The CB component has substantially more variation (standard deviation of 0.032) than the LM component (standard deviation of 0.008), consistent with the LM positivity bias discussed in Section 3.3.
+The combined sentiment score has a mean of 0.014 and a standard deviation of 0.013, reflecting the subtle nature of FOMC language variation. The standard deviation is small in absolute terms because the sentiment score is a ratio (net sentiment divided by total word count), and FOMC statements are relatively long (average 400–600 words). The CB component has substantially more variation (standard deviation of 0.032) than the LM component (standard deviation of 0.008), consistent with the LM positivity bias discussed in Section 3.3.
 
 The correlation between the target and path shocks is 0.15, confirming that they capture distinct dimensions of FOMC surprises. The correlation between sentiment and the path shock (0.19) is stronger than between sentiment and the target shock (0.12), providing preliminary evidence for the information channel.
 
@@ -179,7 +178,7 @@ The correlation between the target and path shocks is 0.15, confirming that they
 
 ## 4. Empirical Methodology
 
-### 4.1 H1: Sentiment and Monetary Policy Shocks
+### 4.1 Sentiment and Monetary Policy Shocks
 
 We test whether FOMC statement sentiment is related to monetary policy shocks using the regression:
 
@@ -191,7 +190,7 @@ We also estimate a restricted version of this regression using only the target s
 
 The interpretation of the coefficients requires care. The target shock captures the surprise in the current rate decision — the difference between the actual rate change and what the market expected. The path shock captures the revision in expectations about future rate decisions — the change in the expected trajectory of policy beyond the current meeting. If FOMC language is primarily about the current rate decision, we would expect the target shock to dominate. If, instead, the language is primarily about the future path of policy — as the information channel predicts — we would expect the path shock to dominate.
 
-### 4.2 H2: Asset Returns and Monetary Policy Shocks
+### 4.2 Asset Returns and Monetary Policy Shocks
 
 We test the effect of monetary policy shocks on asset returns:
 
@@ -203,15 +202,15 @@ Under the standard monetary policy transmission mechanism, we expect $\beta_1 < 
 
 The distinction between the target and path shock effects on asset returns is important for the information channel debate. If the path shock affects equity returns positively — while the target shock affects them negatively — this would be consistent with the information channel: the path shock reveals positive information about future economic conditions that offsets the negative discount rate effect. If, instead, both shocks affect returns negatively, this would be more consistent with the standard monetary policy transmission mechanism. GSS found that the path factor is important for explaining longer-term interest rate movements, while the target factor primarily affects short-term rates. Our analysis extends this to equity and commodity markets.
 
-### 4.3 H3: Information Channel Test
+### 4.3 Information Channel Test
 
 The information channel hypothesis predicts that the path shock should have a larger effect on sentiment than the target shock, because forward guidance language is primarily about revealing information about future policy and economic conditions. We test this by comparing the absolute t-statistics of $\beta_1$ and $\beta_2$ in the H1 regression. If $|t_{path}| > |t_{target}|$, this constitutes evidence for the information channel.
 
-We acknowledge that this is an informal test: a formal Wald test of $H_0: \beta_1 = \beta_2$ cannot reject the null in our sample (χ² = 0.19, p = 0.66), reflecting limited statistical power with 117 observations. We therefore interpret the path dominance as suggestive evidence consistent with the information channel, rather than definitive proof. The inability to reject coefficient equality is itself informative: it suggests that while the point estimates favor the path shock, the data cannot definitively distinguish between the two channels. This is a common limitation in event-study settings with moderate sample sizes.
+We acknowledge that this is an informal test: a formal Wald test of $H_0: \beta_1 = \beta_2$ cannot reject the null in our sample (χ² = 0.19, p = 0.66), reflecting limited statistical power with 117 observations. We therefore interpret the larger path coefficient as suggestive evidence consistent with the information channel, rather than definitive proof. A formal test of coefficient equality cannot reject the null that the two effects are equal, highlighting the need for larger samples or more powerful identification strategies. The inability to reject coefficient equality is itself informative: it suggests that while the point estimates favor the path shock, the data cannot definitively distinguish between the two channels. This is a common limitation in event-study settings with moderate sample sizes.
 
 An alternative approach to testing the information channel would be to use the Jarociński and Karadi (2020) sign-restriction decomposition, which structurally identifies monetary policy shocks and information shocks based on the sign pattern of asset price responses around FOMC announcements. Under their decomposition, a monetary policy shock causes interest rates and stock prices to move in opposite directions, while an information shock causes them to move in the same direction. We do not implement this decomposition in our analysis, but we note that it would provide a more structural test of the information channel. We discuss this extension in Section 7.
 
-### 4.4 H4: Forward Guidance Period Interaction
+### 4.4 Forward Guidance Period Interaction
 
 We test whether the effect of sentiment on asset returns differs during the forward guidance period (December 2008 to December 2015):
 
@@ -233,13 +232,13 @@ We note that the FOMC meeting schedule is irregular — meetings occur approxima
 
 ## 5. Results
 
-### 5.1 H1: Sentiment and Monetary Policy Shocks
+### 5.1 Sentiment and Monetary Policy Shocks
 
-Table 2 reports the results of the sentiment-shock regression. The path shock is the primary driver of FOMC statement sentiment, with a coefficient of 0.000605 (t = 2.421, p = 0.017). The target shock has a smaller and only marginally significant coefficient of 0.000237 (t = 1.651, p = 0.102). The R² of the regression is 4.12%.
+Table 2 reports the results of the sentiment-shock regression. The path shock is the primary driver of FOMC statement sentiment, with a coefficient of 0.000605 (t = 2.421, p = 0.017). The target shock has a smaller coefficient of 0.000237 that is not significant at the 5% level (t = 1.651, p = 0.102). The R² of the regression is 4.12%.
 
 [Table 2 about here]
 
-This result provides direct evidence for the information channel hypothesis. The path shock captures information about the future trajectory of monetary policy — forward guidance — and this is the component that drives FOMC language. The target rate surprise, by contrast, has a weaker effect on language, suggesting that the rate decision itself is largely anticipated and priced in, while the forward guidance component contains genuine news. The economic magnitude is meaningful: a one-standard-deviation increase in the path shock is associated with a 0.06 percentage point increase in the sentiment score, which represents approximately 20% of the standard deviation of sentiment (0.003).
+This result provides direct evidence for the information channel hypothesis. The path shock captures information about the future trajectory of monetary policy — forward guidance — and this is the component that drives FOMC language. The target rate surprise, by contrast, has a weaker effect on language, suggesting that the rate decision itself is largely anticipated and priced in, while the forward guidance component contains genuine news. The economic magnitude is meaningful: a one-standard-deviation increase in the path shock is associated with a 0.06 percentage point increase in the sentiment score, which represents approximately 5% of the standard deviation of sentiment (0.013).
 
 Figure 1 illustrates the time series of sentiment and shocks, showing that sentiment tends to be more hawkish (positive) during tightening cycles and more dovish (negative) during easing cycles, consistent with the path shock interpretation. Notable episodes include the sharp dovish shift during the Global Financial Crisis (2008–2009), the extended dovish period during the zero lower bound era (2009–2015), and the hawkish shift during the normalization and post-COVID tightening cycles.
 
@@ -247,21 +246,21 @@ Figure 1 illustrates the time series of sentiment and shocks, showing that senti
 
 ### 5.2 Data Source Comparison
 
-A striking finding is the sensitivity of results to the choice of surprise measure. Table 3 compares the H1 regression using three different surprise measures:
+An important finding is the sensitivity of results to the choice of surprise measure. Table 3 compares the H1 regression using three different surprise measures:
 
 1. **Rate change** (naive): The observed change in the target federal funds rate. R² = 0.17%, p = 0.712. The rate change is a poor predictor of sentiment because it equals zero for the majority of FOMC meetings (those with no rate change), compressing the variance and attenuating the regression coefficient.
 
 2. **GSS target shock** (proper identification): The high-frequency target rate surprise from G\"urkaynak et al. (2005). R² = 1.57%, p = 0.032. The target shock captures the unexpected component of the rate decision, which has genuine variation even for meetings with no rate change (because the no-change decision itself may be a surprise).
 
-3. **GSS target + path shocks** (full decomposition): Both the target and path factors. R² = 4.12%, path p = 0.017. Adding the path shock more than doubles the R² and reveals the path factor as the primary driver.
+3. **GSS target + path shocks** (full decomposition): Both the target and path factors. R² = 4.12%, path p = 0.017. Adding the path shock more than doubles the R² and reveals the path factor as the more significant predictor.
 
 [Table 3 about here]
 
-The improvement from rate change to GSS shocks is dramatic: R² increases by a factor of 9 (from 0.17% to 1.57%), and the target shock becomes statistically significant. Adding the path shock further doubles the R² (from 1.57% to 4.12%) and reveals the path factor as the primary driver. The total improvement from the naive measure to the full decomposition is a 24-fold increase in R².
+The improvement from rate change to GSS shocks is substantial: R² increases by a factor of 9 (from 0.17% to 1.57%), and the target shock becomes statistically significant. Adding the path shock further doubles the R² (from 1.57% to 4.12%) and reveals the path factor as the more significant predictor. The total improvement from the naive measure to the full decomposition is a 24-fold increase in R².
 
 This finding has important implications for the literature. Any study that uses rate changes as a proxy for monetary policy surprises in the context of FOMC language analysis will substantially underestimate the relationship between policy and communication. The attenuation is not merely a matter of statistical significance — it fundamentally changes the economic interpretation of the results. With rate changes, one would conclude that monetary policy has essentially no effect on FOMC language; with properly identified shocks, the effect is statistically significant and economically meaningful.
 
-### 5.3 H2: Asset Returns and Shocks
+### 5.3 Asset Returns and Monetary Policy Shocks
 
 Table 4 reports the asset return regressions. Three of six assets show significant responses to the target shock at the 5% level:
 
@@ -273,7 +272,7 @@ Table 4 reports the asset return regressions. Three of six assets show significa
 
 The path shock is not significant for any individual asset, though its coefficient is consistently negative for equities and gold. The 10-year Treasury yield and 13-week T-bill yield do not respond significantly to either shock, which may reflect the limited power of our daily-frequency return measure for these relatively low-volatility series. The VIX shows a negative but insignificant response to the target shock ($\beta$ = $-$2.45, p = 0.111), consistent with the view that monetary policy surprises increase uncertainty.
 
-The economic magnitudes are meaningful. A 1-standard-deviation unexpected tightening (approximately 7 basis points in the target shock) is associated with a 26 basis point decline in S&P 500 returns, a 28 basis point decline in NASDAQ returns, and a 40 basis point decline in gold returns. These magnitudes are broadly consistent with the existing literature: GSS report that a 25 basis point surprise tightening is associated with approximately a 100 basis point decline in the CRSP value-weighted index, which scales to approximately 28 basis points for a 7 basis point surprise — very close to our estimate.
+The economic magnitudes are meaningful. A 1-standard-deviation unexpected tightening is associated with a 26 basis point decline in S&P 500 returns, a 28 basis point decline in NASDAQ returns, and a 40 basis point decline in gold returns. These magnitudes are broadly consistent with the existing literature: GSS report that a 25 basis point surprise tightening is associated with approximately a 100 basis point decline in the CRSP value-weighted index, consistent with the magnitudes reported in GSS and NS.
 
 The absence of a significant path shock effect on equity returns is noteworthy in light of our H1 finding that the path shock drives sentiment. This asymmetry suggests that the path shock affects FOMC language and asset prices through different channels: the path shock influences language through the information channel (revealing the Fed's assessment of future economic conditions), while asset prices respond primarily to the target shock through the conventional discount rate channel. This interpretation is consistent with the view that the information channel and the monetary policy channel operate through distinct mechanisms.
 
@@ -289,7 +288,7 @@ The negative sign of the target shock coefficient on equity returns is consisten
 
 Gold's negative response to target shocks is consistent with the view that gold serves as a hedge against monetary policy uncertainty: when the Fed unexpectedly tightens, the opportunity cost of holding gold increases (because short-term interest rates rise), reducing its price. The larger magnitude of gold's response (40 basis points per standard deviation) compared to equities may reflect gold's greater sensitivity to real interest rate changes.
 
-### 5.4 H3: Information Channel
+### 5.4 Information Channel
 
 The comparison of target and path shock t-statistics in the H1 regression provides clear evidence for the information channel:
 
@@ -304,13 +303,13 @@ Figure 2 shows the scatter plot of sentiment against the path shock, with a clea
 
 It is important to note what this result does and does not establish. It does establish that the path shock is a statistically significant predictor of FOMC language sentiment, and that it dominates the target shock in explanatory power. It does not establish that the path shock causes the language — the path shock and the language may both be driven by the Fed's private information about economic conditions. However, this endogeneity is precisely the point: if both the path shock and the language reflect the Fed's private information, then the finding that the path shock dominates the target shock in explaining language is evidence for the information channel, because it shows that the forward-looking component of the FOMC surprise — which captures information revelation — is what drives communication.
 
-### 5.5 H4: Forward Guidance Interaction
+### 5.5 Forward Guidance Period Interaction
 
 The forward guidance interaction regression (Table 5) finds a marginally significant interaction effect for equity returns. The coefficient on sentiment × FG period is +200.01 with a p-value of 0.052 for NASDAQ, and +159.88 with a p-value of 0.081 for S&P 500. This suggests that the effect of sentiment on equity returns is stronger during the forward guidance period, consistent with the view that FOMC language was particularly informative when the policy rate was constrained at the zero lower bound.
 
 [Table 5 about here]
 
-While the interaction effect is only marginally significant, the positive sign and magnitude are economically meaningful: during the forward guidance period, a one-standard-deviation increase in sentiment is associated with an additional 200 basis point increase in NASDAQ returns. This is a large effect, suggesting that when the policy rate is at the zero lower bound, FOMC language becomes the primary channel through which monetary policy affects asset prices.
+While the interaction effect is not significant at the 5% level, the positive sign and magnitude are economically meaningful: during the forward guidance period, a one-standard-deviation increase in sentiment is associated with an additional 200 basis point increase in NASDAQ returns. This is a large effect, suggesting that when the policy rate is at the zero lower bound, FOMC language becomes the primary channel through which monetary policy affects asset prices.
 
 The limited statistical power with 117 observations may explain why the effect does not reach conventional significance levels. The forward guidance period accounts for approximately 40% of our sample (48 of 117 meetings), and the interaction term requires sufficient variation in both sentiment and the FG indicator to detect an effect. With a larger sample — for example, by extending the shock data using the USMPD — the interaction effect might reach conventional significance levels.
 
@@ -375,7 +374,7 @@ Figure 5 presents the correlation matrix of key variables. The target and path s
 
 [Figure 5 about here]
 
-Figure 8 presents the version comparison, showing how the R² of the sentiment-shock regression changes across different data source specifications. The improvement from rate changes (0.17%) to high-frequency shocks (4.12%) is visually dramatic, underscoring the critical importance of proper identification in monetary policy event studies.
+Figure 8 presents the version comparison, showing how the R² of the sentiment-shock regression changes across different data source specifications. The improvement from rate changes (0.17%) to high-frequency shocks (4.12%) is visually clear, underscoring the critical importance of proper identification in monetary policy event studies.
 
 [Figure 8 about here]
 
@@ -405,9 +404,9 @@ The extended sample results show that the path shock remains significant at the 
 
 ## 7. Conclusion
 
-This paper provides evidence that the language of FOMC statements is primarily driven by information about the future trajectory of monetary policy, not merely the current rate decision. Using high-frequency monetary policy shocks and an expanded central bank sentiment dictionary, we show that the path shock — capturing forward guidance — is the primary driver of FOMC statement sentiment ($\\beta$ = 0.000605, t = 2.421, p = 0.017), while the target rate surprise is only marginally significant ($\\beta$ = 0.000237, t = 1.651, p = 0.102). This result is robust across a range of Newey-West lag specifications, subsample periods, and alternative surprise measures.
+This paper provides evidence that the language of FOMC statements is primarily driven by information about the future trajectory of monetary policy, not merely the current rate decision. Using high-frequency monetary policy shocks and an expanded central bank sentiment dictionary, we show that the path shock — capturing forward guidance — is a more significant predictor of FOMC statement sentiment ($\\beta$ = 0.000605, t = 2.421, p = 0.017), while the target rate surprise is not significant at the 5% level ($\\beta$ = 0.000237, t = 1.651, p = 0.102). This result is robust across a range of Newey-West lag specifications, subsample periods, and alternative surprise measures.
 
-Our results have several implications for the literature on monetary policy and central bank communication. First, they support the information channel hypothesis: FOMC language conveys information about future economic conditions and policy intentions, not just the current rate decision. The path shock — which captures the market's revision of expectations about future policy — is the primary driver of language, while the target shock — which captures the surprise in the current rate decision — has a weaker effect. This pattern is consistent with the view that FOMC language is designed to manage expectations about the future path of policy, rather than to signal the current rate decision.
+Our results have several implications for the literature on monetary policy and central bank communication. First, they support the information channel hypothesis: FOMC language conveys information about future economic conditions and policy intentions, not just the current rate decision. The path shock — which captures the market's revision of expectations about future policy — is a more significant predictor of language, while the target shock has a weaker and statistically insignificant effect. This pattern is consistent with the view that FOMC language is designed to manage expectations about the future path of policy, rather than to signal the current rate decision.
 
 Second, our results demonstrate the critical importance of data quality in monetary policy event studies. Using rate changes instead of properly identified high-frequency shocks attenuates the R² by a factor of 24 (from 4.12% to 0.17%), rendering the relationship between monetary policy and FOMC language statistically undetectable. This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
 
@@ -463,7 +462,7 @@ Kuttner, K. N. (2001). Monetary Policy Surprises and Interest Rates: Evidence fr
 
 Loughran, T., & McDonald, B. (2011). When Is a Liability Not a Liability? Textual Analysis, Dictionaries, and 10-Ks. *Journal of Finance*, 66(1), 35–65.
 
-Lucca, D. O., & Trebbi, F. (2009). Measuring Central Bank Communication: An Automated Approach with Application to FOMC Statements. Working Paper.
+Lucca, D. O., & Trebbi, F. (2009). Measuring Central Bank Communication: An Automated Approach with Application to FOMC Statements. *American Economic Journal: Applied Economics*, 1(2), 168–193.
 
 Nakamura, E., & Steinsson, J. (2018). High-Frequency Identification of Monetary Non-Neutrality: The Information Effect. *Quarterly Journal of Economics*, 133(3), 1283–1330.
 
