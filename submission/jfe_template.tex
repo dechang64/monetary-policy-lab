@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+
+% Page layout
+\usepackage[margin=1in]{geometry}
+
+% Double spacing (journal standard)
+\usepackage{setspace}
+\doublespacing
+
+% Fonts
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+
+% Tables and figures
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+
+% For pandoc longtable with \real
+\usepackage{calc}
+
+% Hyperlinks
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% Section numbering
+\setcounter{secnumdepth}{3}
+
+% Title formatting
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Paragraph indent
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+
+% Pandoc compatibility
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(title)$
+\title{$title$}
+$endif$
+
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+
+$body$
+
+\end{document}
