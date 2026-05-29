@@ -650,12 +650,15 @@ The dovish dictionary includes terms indicating easing, accommodative policy, pa
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{lccc}
+\caption{Data Sources}
+\label{tab:data_sources}
+\small
+\begin{tabular}{p{2.2in}p{2.0in}p{1.0in}p{0.8in}}
 \toprule
 Variable & Source & Frequency & Coverage \\
 \midrule
-Target/Path shocks & Acosta (2022) & Per FOMC meeting & 1995--2022 \\
-FOMC statements & Federal Reserve website & Per FOMC meeting & 2006--2026 \\
+Target/Path shocks & Acosta (2022) & Per meeting & 1995--2022 \\
+FOMC statements & Federal Reserve website & Per meeting & 2006--2026 \\
 CRSP VW/EW/S\&P 500 returns & WRDS (crsp.dsi) & Daily & 1990--2024 \\
 Gold price & FRED (GOLDAMGBD228NLBM) & Daily & 1968--2025 \\
 10Y Treasury yield & FRED (DGS10) & Daily & 1962--2025 \\
@@ -674,9 +677,11 @@ Financial sector stocks & WRDS (crsp.dsf) & Daily & 2020--2025 \\
 
 \begin{table}[htbp]
 \centering
+\caption{Regime-Specific Regression Results}
+\label{tab:regime}
 \begin{tabular}{lcccc}
 \toprule
-Period & N & R$^2$ & Target p & Path p \\
+Period & N & $R^2$ & Target $p$ & Path $p$ \\
 \midrule
 Pre-ZLB (2006--2008) & 8 & 20.5\% & 0.360 & 0.403 \\
 Financial Crisis (2008--2010) & 12 & 9.2\% & 0.930 & 0.124 \\
@@ -693,9 +698,11 @@ Sample sizes within each regime are small (8--48 meetings), so results should be
 
 \begin{table}[htbp]
 \centering
+\caption{Extended Sample Results}
+\label{tab:extended}
 \begin{tabular}{lccccc}
 \toprule
-Sample & R$^2$ & Target p & Path p & N & Period \\
+Sample & $R^2$ & Target $p$ & Path $p$ & N & Period \\
 \midrule
 Acosta only & 4.12\% & 0.102 & 0.017 & 117 & 2006--2022 \\
 Acosta + USMPD & 1.65\% & 0.419 & 0.058 & 163 & 2006--2026 \\
@@ -709,6 +716,8 @@ The path shock remains significant at 10\% with the extended sample, but the tar
 
 \begin{table}[htbp]
 \centering
+\caption{Sentiment Score Distribution}
+\label{tab:sentiment_dist}
 \begin{tabular}{lccc}
 \toprule
 Statistic & Combined & LM Score & CB Score \\
@@ -717,8 +726,8 @@ Mean & 0.024 & 0.038 & 0.010 \\
 Std & 0.013 & 0.008 & 0.032 \\
 Min & $-$0.012 & 0.006 & $-$0.089 \\
 Max & 0.065 & 0.067 & 0.098 \\
-% Negative & 18.8\% & 0\% & 78\% \\
-% Positive & 81.2\% & 100\% & 22\% \\
+\% Negative & 18.8\% & 0\% & 78\% \\
+\% Positive & 81.2\% & 100\% & 22\% \\
 \bottomrule
 \end{tabular}
 \end{table}
