@@ -243,29 +243,20 @@ The financial sector event study provides stock-level evidence on the heterogene
 Table 1 presents summary statistics for the key variables in our analysis. The sample consists of 117 FOMC meetings with complete data on both monetary policy shocks and sentiment scores, spanning January 2006 to July 2022.
 
 
-\begin{table}[htbp]
-\centering
-\caption{Summary Statistics}
-\label{tab:summary}
-\begin{tabular}{lcccc}
-\toprule
-Variable \& Mean \& Std Dev \& Min \& Max \\
-\midrule
+\begin{table}[htbp]\centering\caption{Summary Statistics}\label{tab:summary}
+\begin{tabular}{lcccc}\toprule
+Variable \& Mean \& Std Dev \& Min \& Max \\\midrule
 Target shock \& 0.00 \& 1.00 \& $-$3.42 \& 2.78 \\
 Path shock \& 0.00 \& 1.00 \& $-$2.91 \& 3.15 \\
 Kuttner surprise (bp) \& $-$0.4 \& 3.9 \& $-$20.6 \& 13.0 \\
 Sentiment (combined) \& 0.014 \& 0.003 \& $-$0.012 \& 0.065 \\
 Sentiment (LM) \& 0.038 \& 0.008 \& 0.006 \& 0.067 \\
-Sentiment (CB) \& 0.010 \& 0.032 \& $-$0.089 \& 0.098 \\
-\midrule
+Sentiment (CB) \& 0.010 \& 0.032 \& $-$0.089 \& 0.098 \\\midrule
 \multicolumn{5}{l}{\textit{Correlations}} \\
-Target--Path \& 0.15 \& \& \& \\
-Sentiment--Target \& 0.12 \& \& \& \\
-Sentiment--Path \& 0.19 \& \& \& \\
-\bottomrule
-\end{tabular}
-\par\vspace{2pt}{\footnotesize Sample: 117 FOMC meetings, January 2006 to July 2022. Target and path shocks are standardized to unit variance. Kuttner surprise in basis points.}
-\end{table}
+Target--Path \& 0.15 \& & \& \\
+Sentiment--Target \& 0.12 \& & \& \\
+Sentiment--Path \& 0.19 \& & \& \\\bottomrule\end{tabular}
+\par\vspace{2pt}{\footnotesize Sample: 117 FOMC meetings, January 2006 to July 2022. Target and path shocks are standardized to unit variance.}\end{table}
 
 
 The target shock has a mean near zero (by construction) and a standard deviation of 1.0 (standardized). The path shock similarly has unit standard deviation. The Kuttner surprise in basis points has a mean of $-$0.4 bp and a standard deviation of 3.9 bp, with a range from $-$20.6 bp to +13.0 bp. The asymmetry in the range reflects the fact that large negative surprises (unexpected easings) are more common than large positive surprises during our sample period, which includes the Global Financial Crisis and the COVID pandemic.
@@ -341,41 +332,25 @@ We note that the FOMC meeting schedule is irregular --- meetings occur approxima
 Table 2 reports the results of the sentiment-shock regression. The path shock is the primary driver of FOMC statement sentiment, with a coefficient of 0.000605 (t = 2.421, p = 0.017). The target shock has a smaller and only marginally significant coefficient of 0.000237 (t = 1.651, p = 0.102). The R$^2$ of the regression is 4.12\%.
 
 
-\begin{table}[htbp]
-\centering
-\caption{Sentiment and Monetary Policy Shocks (H1)}
-\label{tab:h1}
-\begin{tabular}{lccc}
-\toprule
- \& (1) Target only \& (2) Target + Path \& (3) Rate change \\
-\midrule
+\begin{table}[htbp]\centering\caption{Sentiment and Monetary Policy Shocks (H1)}\label{tab:h1}
+\begin{tabular}{lccc}\toprule
+ \& (1) Target only \& (2) Target + Path \& (3) Rate change \\\midrule
 Target shock \& 0.00037 \& 0.00024 \& --- \\
  \& (1.51) \& (1.65) \& \\
 Path shock \& --- \& 0.00061** \& --- \\
- \& \& (2.42) \& \\
+ \& & (2.42) \& \\
 Rate change \& --- \& --- \& 0.00002 \\
- \& \& \& (0.37) \\
-\midrule
+ \& & \& (0.37) \\\midrule
 $R^2$ \& 0.20\% \& 4.12\% \& 0.17\% \\
-N \& 117 \& 117 \& 117 \\
-\bottomrule
-\end{tabular}
-\par\vspace{2pt}{\footnotesize Newey-West HAC standard errors with lag=4. t-statistics in parentheses. ** $p < 0.05$, * $p < 0.10$.}
-\end{table}
+N \& 117 \& 117 \& 117 \\\bottomrule\end{tabular}
+\par\vspace{2pt}{\footnotesize Newey-West HAC standard errors with lag=4. t-statistics in parentheses. ** $p < 0.05$, * $p < 0.10$.}\end{table}
 
 
 This result provides direct evidence for the information channel hypothesis. The path shock captures information about the future trajectory of monetary policy --- forward guidance --- and this is the component that drives FOMC language. The target rate surprise, by contrast, has a weaker effect on language, suggesting that the rate decision itself is largely anticipated and priced in, while the forward guidance component contains genuine news. The economic magnitude is meaningful: a one-standard-deviation increase in the path shock is associated with a 0.06 percentage point increase in the sentiment score, which represents approximately 20\% of the standard deviation of sentiment (0.003).
 
 Figure 1 illustrates the time series of sentiment and shocks, showing that sentiment tends to be more hawkish (positive) during tightening cycles and more dovish (negative) during easing cycles, consistent with the path shock interpretation. Notable episodes include the sharp dovish shift during the Global Financial Crisis (2008--2009), the extended dovish period during the zero lower bound era (2009--2015), and the hawkish shift during the normalization and post-COVID tightening cycles.
 
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.95\textwidth]{fig1_sentiment_shocks}
-\caption{Sentiment Scores and Monetary Policy Shocks over Time}
-\label{fig:sentiment_shocks}
-\end{figure}
-
+\begin{figure}[htbp]\centering\includegraphics[width=0.95\textwidth]{fig1_sentiment_shocks}\caption{Sentiment Scores and Monetary Policy Shocks over Time}\label{fig:sentiment_shocks}\end{figure}
 
 \subsection{Data Source Comparison}
 
@@ -394,21 +369,13 @@ A striking finding is the sensitivity of results to the choice of surprise measu
 \end{enumerate}
 
 
-\begin{table}[htbp]
-\centering
-\caption{Data Source Comparison: Rate Change vs.\ High-Frequency Shocks}
-\label{tab:comparison}
-\begin{tabular}{lccc}
-\toprule
-Measure \& $R^2$ \& $p$-value (path) \& N \\
-\midrule
+\begin{table}[htbp]\centering\caption{Data Source Comparison: Rate Change vs.\ High-Frequency Shocks}\label{tab:comparison}
+\begin{tabular}{lccc}\toprule
+Measure \& $R^2$ \& $p$-value (path) \& N \\\midrule
 Rate change (bp) \& 0.17\% \& 0.712 \& 117 \\
 Kuttner surprise (bp) \& 1.89\% \& 0.098 \& 117 \\
-Acosta target + path \& 4.12\% \& 0.017 \& 117 \\
-\bottomrule
-\end{tabular}
-\par\vspace{2pt}{\footnotesize All regressions include Newey-West HAC standard errors with lag=4.}
-\end{table}
+Acosta target + path \& 4.12\% \& 0.017 \& 117 \\\bottomrule\end{tabular}
+\par\vspace{2pt}{\footnotesize All regressions include Newey-West HAC standard errors with lag=4.}\end{table}
 
 
 The improvement from rate change to GSS shocks is dramatic: R$^2$ increases by a factor of 9 (from 0.17\% to 1.57\%), and the target shock becomes statistically significant. Adding the path shock further doubles the R$^2$ (from 1.57\% to 4.12\%) and reveals the path factor as the primary driver. The total improvement from the naive measure to the full decomposition is a 24-fold increase in R$^2$.
@@ -438,28 +405,23 @@ The economic magnitudes are meaningful. A 1-standard-deviation unexpected tighte
 The absence of a significant path shock effect on equity returns is noteworthy in light of our H1 finding that the path shock drives sentiment. This asymmetry suggests that the path shock affects FOMC language and asset prices through different channels: the path shock influences language through the information channel (revealing the Fed's assessment of future economic conditions), while asset prices respond primarily to the target shock through the conventional discount rate channel. This interpretation is consistent with the view that the information channel and the monetary policy channel operate through distinct mechanisms.
 
 
-\begin{table}[htbp]
-\centering
-\caption{Asset Returns and Monetary Policy Shocks (H2)}
-\label{tab:h2}
-\begin{tabular}{lcccc}
-\toprule
-Asset \& $\beta_{\text{target}}$ \& $t$ \& $\beta_{\text{path}}$ \& $t$ \\
-\midrule
+\begin{table}[htbp]\centering\caption{Asset Returns and Monetary Policy Shocks (H2)}\label{tab:h2}
+\begin{tabular}{lcccc}\toprule
+Asset \& $\beta_{\text{target}}$ \& $t$ \& $\beta_{\text{path}}$ \& $t$ \\\midrule
 S\&P 500 \& $-$0.259** \& $-$2.19 \& $-$0.101 \& $-$0.62 \\
 NASDAQ \& $-$0.282** \& $-$2.09 \& $-$0.166 \& $-$1.02 \\
 Gold \& $-$0.404** \& $-$2.47 \& $-$0.488 \& $-$1.45 \\
 10Y Treasury \& 0.007 \& 0.84 \& $-$0.001 \& $-$0.14 \\
 13W T-bill \& 0.004 \& 0.69 \& $-$0.003 \& $-$0.34 \\
-VIX \& $-$2.450 \& $-$1.61 \& $-$1.517 \& $-$0.93 \\
-\midrule
-$R^2$ range \& 0.7\%--7.0\% \& \& \& \\
-N \& 117 \& \& \& \\
-\bottomrule
-\end{tabular}
-\par\vspace{2pt}{\footnotesize Newey-West HAC standard errors with lag=4. ** $p < 0.05$. N = 117 for all assets.}
-\end{table}
+VIX \& $-$2.450 \& $-$1.61 \& $-$1.517 \& $-$0.93 \\\midrule
+$R^2$ range \& 0.7\%--7.0\% \& & \& \\
+N \& 117 \& & \& \\\bottomrule\end{tabular}
+\par\vspace{2pt}{\footnotesize Newey-West HAC standard errors with lag=4. ** $p < 0.05$. N = 117 for all assets.}\end{table}
 
+
+Figure 6 shows the time series of target and path shocks across our sample period. The target shock exhibits large spikes during the Global Financial Crisis (2008) and the COVID pandemic (2020), while the path shock shows more persistent variation that aligns with shifts in forward guidance. This visual pattern is consistent with the regression results: the path shock captures gradual shifts in expectations about the future policy trajectory, while the target shock captures discrete surprises in the current rate decision.
+
+\begin{figure}[htbp]\centering\includegraphics[width=0.95\textwidth]{fig6_shocks_timeseries}\caption{Target and Path Shocks over Time}\label{fig:shocks_ts}\end{figure}
 
 The finding that equal-weighted returns respond more strongly than value-weighted returns (though neither reaches significance in our sample) is consistent with the literature on heterogeneous effects of monetary policy: small-cap stocks are more sensitive to monetary policy surprises because they have higher financing costs, less access to credit markets, and greater exposure to domestic economic conditions. This heterogeneity has been documented by Gertler and Gilchrist (1994) and more recently by Ozdaglar and Parra (2022).
 
@@ -480,14 +442,7 @@ The path shock dominates, with a t-statistic 47\% larger than the target shock. 
 
 Figure 2 shows the scatter plot of sentiment against the path shock, with a clear positive relationship. The slope of the regression line is 0.000605, indicating that a one-standard-deviation increase in the path shock is associated with a 0.06 percentage point increase in the hawkishness of FOMC language.
 
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.85\textwidth]{fig2_h1_scatter}
-\caption{Sentiment vs.\ Monetary Policy Shocks (H1)}
-\label{fig:h1_scatter}
-\end{figure}
-
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig2_h1_scatter}\caption{Sentiment vs.\ Monetary Policy Shocks (H1)}\label{fig:h1_scatter}\end{figure}
 
 It is important to note what this result does and does not establish. It does establish that the path shock is a statistically significant predictor of FOMC language sentiment, and that it dominates the target shock in explanatory power. It does not establish that the path shock causes the language --- the path shock and the language may both be driven by the Fed's private information about economic conditions. However, this endogeneity is precisely the point: if both the path shock and the language reflect the Fed's private information, then the finding that the path shock dominates the target shock in explaining language is evidence for the information channel, because it shows that the forward-looking component of the FOMC surprise --- which captures information revelation --- is what drives communication.
 
@@ -496,27 +451,18 @@ It is important to note what this result does and does not establish. It does es
 The forward guidance interaction regression (Table 5) finds a marginally significant interaction effect for equity returns. The coefficient on sentiment × FG period is +200.01 with a p-value of 0.052 for NASDAQ, and +159.88 with a p-value of 0.081 for S\&P 500. This suggests that the effect of sentiment on equity returns is stronger during the forward guidance period, consistent with the view that FOMC language was particularly informative when the policy rate was constrained at the zero lower bound.
 
 
-\begin{table}[htbp]
-\centering
-\caption{Forward Guidance Period Interaction (H4)}
-\label{tab:h4}
-\begin{tabular}{lcc}
-\toprule
- \& S\&P 500 \& NASDAQ \\
-\midrule
+\begin{table}[htbp]\centering\caption{Forward Guidance Period Interaction (H4)}\label{tab:h4}
+\begin{tabular}{lcc}\toprule
+ \& S\&P 500 \& NASDAQ \\\midrule
 $\beta_{\text{target}}$ \& $-$0.287** \& $-$0.306** \\
  \& ($-$2.59) \& ($-$2.45) \\
 $\beta_{\text{sentiment}}$ \& 41.71 \& 0.99 \\
  \& (0.99) \& (0.02) \\
 $\beta_{\text{sentiment} \times \text{FG}}$ \& 159.88* \& 200.01** \\
- \& (1.76) \& (1.97) \\
-\midrule
+ \& (1.76) \& (1.97) \\\midrule
 $R^2$ \& 5.1\% \& 5.0\% \\
-N \& 117 \& 117 \\
-\bottomrule
-\end{tabular}
-\par\vspace{2pt}{\footnotesize Newey-West HAC standard errors with lag=4. t-statistics in parentheses. ** $p < 0.05$, * $p < 0.10$. FG = forward guidance period indicator (Dec 2008--Dec 2015).}
-\end{table}
+N \& 117 \& 117 \\\bottomrule\end{tabular}
+\par\vspace{2pt}{\footnotesize Newey-West HAC standard errors with lag=4. t-statistics in parentheses. ** $p < 0.05$, * $p < 0.10$. FG = forward guidance period indicator (Dec 2008--Dec 2015).}\end{table}
 
 
 While the interaction effect is only marginally significant, the positive sign and magnitude are economically meaningful: during the forward guidance period, a one-standard-deviation increase in sentiment is associated with an additional 200 basis point increase in NASDAQ returns. This is a large effect, suggesting that when the policy rate is at the zero lower bound, FOMC language becomes the primary channel through which monetary policy affects asset prices.
@@ -565,35 +511,24 @@ Excluding the COVID period (March--June 2020) has minimal effect on the results:
 The financial sector event study (Table 6) finds no significant average abnormal return on FOMC days: the mean AR is $-$0.05 basis points with a t-statistic of $-$0.280. The cross-sectional distribution of abnormal returns is roughly 50/50 positive/negative, suggesting that financial stocks as a group do not earn systematic abnormal returns on FOMC days.
 
 
-\begin{table}[htbp]
-\centering
-\caption{Financial Sector Event Study: Average Abnormal Returns on FOMC Days}
-\label{tab:event}
-\begin{tabular}{lc}
-\toprule
-Statistic \& Value \\
-\midrule
+\begin{table}[htbp]\centering\caption{Financial Sector Event Study: Average Abnormal Returns on FOMC Days}\label{tab:event}
+\begin{tabular}{lc}\toprule
+Statistic \& Value \\\midrule
 Mean AR (bp) \& $-$0.05 \\
 $t$-statistic \& $-$0.280 \\
 N (stocks) \& 910 \\
 \% Positive \& 50.2\% \\
-Cross-sectional SD \& 1.5\% \\
-\bottomrule
-\end{tabular}
-\par\vspace{2pt}{\footnotesize Abnormal returns computed relative to CRSP value-weighted market return. Sample: 2020--2024 FOMC meetings.}
-\end{table}
+Cross-sectional SD \& 1.5\% \\\bottomrule\end{tabular}
+\par\vspace{2pt}{\footnotesize Abnormal returns computed relative to CRSP value-weighted market return. Sample: 2020--2024 FOMC meetings.}\end{table}
 
 
 However, this aggregate result masks considerable heterogeneity. Figure 3 shows the time series of financial sector average abnormal returns, with substantial variation across FOMC meetings. Some meetings (particularly emergency meetings and large rate changes) show large abnormal returns, while routine meetings show near-zero effects. The cross-sectional standard deviation of abnormal returns is 1.5\%, indicating that individual financial stocks experience large but offsetting reactions to FOMC announcements.
 
+\begin{figure}[htbp]\centering\includegraphics[width=0.95\textwidth]{fig4_financial_event_study}\caption{Financial Sector Abnormal Returns on FOMC Days}\label{fig:event_study}\end{figure}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.95\textwidth]{fig4_financial_event_study}
-\caption{Financial Sector Abnormal Returns on FOMC Days}
-\label{fig:event_study}
-\end{figure}
+Figure 7 shows the cumulative abnormal returns for financial stocks across FOMC meetings, illustrating the substantial variation in announcement effects. The cumulative abnormal return series shows no systematic drift, consistent with the efficient market hypothesis, but individual meetings can produce large positive or negative abnormal returns.
 
+\begin{figure}[htbp]\centering\includegraphics[width=0.95\textwidth]{fig8_cumulative_ar}\caption{Cumulative Abnormal Returns for Financial Stocks around FOMC Meetings}\label{fig:car}\end{figure}
 
 The absence of a significant average abnormal return for financial stocks is consistent with the efficient market hypothesis: if FOMC announcements are quickly incorporated into stock prices, there should be no systematic abnormal returns on announcement days. The heterogeneity across meetings, however, suggests that some FOMC announcements contain more surprising information than others, and that the financial sector is differentially affected depending on the nature of the surprise.
 
@@ -601,14 +536,7 @@ The absence of a significant average abnormal return for financial stocks is con
 
 Figure 4 shows the distribution of sentiment scores across three monetary policy regimes. The forward guidance period (2008--2015) has the lowest average sentiment, reflecting the accommodative stance and dovish language of this period. The normalization period (2016+) has higher and more variable sentiment, consistent with the shift toward tightening and the increased uncertainty about the pace of rate increases.
 
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.85\textwidth]{fig7_sentiment_by_regime}
-\caption{Sentiment Distribution by Monetary Policy Regime}
-\label{fig:regime}
-\end{figure}
-
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig7_sentiment_by_regime}\caption{Sentiment Distribution by Monetary Policy Regime}\label{fig:regime}\end{figure}
 
 The regime-level analysis provides additional support for the information channel: during the forward guidance period, when the policy rate was constrained at zero, FOMC language became the primary tool for communicating policy intentions, and the sentiment score shows greater variation around the dovish mean. During the normalization period, when rate changes resumed, the sentiment score shifts toward the hawkish end of the spectrum and shows greater dispersion, reflecting the increased uncertainty about the pace and timing of rate increases.
 
@@ -616,14 +544,11 @@ The regime-level analysis provides additional support for the information channe
 
 Figure 5 presents the correlation matrix of key variables. The target and path shocks are weakly correlated ($\rho$ = 0.15), confirming that they capture distinct dimensions of FOMC surprises. Sentiment is positively correlated with both shocks but more strongly with the path shock ($\rho$ = 0.19) than the target shock ($\rho$ = 0.12), consistent with the H1 results. The Kuttner surprise in basis points is highly correlated with the standardized target shock ($\rho$ = 0.87), as expected.
 
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig9_correlation_heatmap}\caption{Correlation Matrix of Key Variables}\label{fig:correlation}\end{figure}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.85\textwidth]{fig5_comparison}
-\caption{Data Source Comparison: Rate Change vs.\ High-Frequency Shocks}
-\label{fig:comparison}
-\end{figure}
+Figure 8 presents the version comparison, showing how the R$^2$ of the sentiment-shock regression changes across different data source specifications. The improvement from rate changes (0.17\%) to high-frequency shocks (4.12\%) is visually dramatic, underscoring the critical importance of proper identification in monetary policy event studies.
 
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig10_version_comparison}\caption{R$^2$ Comparison Across Data Source Specifications}\label{fig:version}\end{figure}
 
 The weak correlation between target and path shocks is important for the identification of our regression model: it implies that multicollinearity is not a concern, and that the coefficients on the two shocks can be estimated with reasonable precision. The stronger correlation between sentiment and the path shock provides preliminary evidence for the information channel, which is confirmed by the formal regression analysis in Section 5.1.
 

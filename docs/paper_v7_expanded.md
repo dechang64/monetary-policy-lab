@@ -279,6 +279,10 @@ The absence of a significant path shock effect on equity returns is noteworthy i
 
 [Table 4 about here]
 
+Figure 6 shows the time series of target and path shocks across our sample period. The target shock exhibits large spikes during the Global Financial Crisis (2008) and the COVID pandemic (2020), while the path shock shows more persistent variation that aligns with shifts in forward guidance. This visual pattern is consistent with the regression results: the path shock captures gradual shifts in expectations about the future policy trajectory, while the target shock captures discrete surprises in the current rate decision.
+
+[Figure 6 about here]
+
 The finding that equal-weighted returns respond more strongly than value-weighted returns (though neither reaches significance in our sample) is consistent with the literature on heterogeneous effects of monetary policy: small-cap stocks are more sensitive to monetary policy surprises because they have higher financing costs, less access to credit markets, and greater exposure to domestic economic conditions. This heterogeneity has been documented by Gertler and Gilchrist (1994) and more recently by Ozdaglar and Parra (2022).
 
 The negative sign of the target shock coefficient on equity returns is consistent with the standard monetary policy transmission mechanism: an unexpected tightening (positive target shock) reduces equity valuations through higher discount rates and lower expected cash flows. The magnitude of the effect — approximately 26 basis points for a 1-standard-deviation surprise — is in line with the estimates of GSS and NS, who find equity responses of similar magnitude using higher-frequency data.
@@ -351,6 +355,10 @@ However, this aggregate result masks considerable heterogeneity. Figure 3 shows 
 
 [Figure 3 about here]
 
+Figure 7 shows the cumulative abnormal returns for financial stocks across FOMC meetings, illustrating the substantial variation in announcement effects. The cumulative abnormal return series shows no systematic drift, consistent with the efficient market hypothesis, but individual meetings can produce large positive or negative abnormal returns.
+
+[Figure 7 about here]
+
 The absence of a significant average abnormal return for financial stocks is consistent with the efficient market hypothesis: if FOMC announcements are quickly incorporated into stock prices, there should be no systematic abnormal returns on announcement days. The heterogeneity across meetings, however, suggests that some FOMC announcements contain more surprising information than others, and that the financial sector is differentially affected depending on the nature of the surprise.
 
 ### 6.6 Sentiment by Monetary Policy Regime
@@ -366,6 +374,10 @@ The regime-level analysis provides additional support for the information channe
 Figure 5 presents the correlation matrix of key variables. The target and path shocks are weakly correlated ($\\rho$ = 0.15), confirming that they capture distinct dimensions of FOMC surprises. Sentiment is positively correlated with both shocks but more strongly with the path shock ($\\rho$ = 0.19) than the target shock ($\\rho$ = 0.12), consistent with the H1 results. The Kuttner surprise in basis points is highly correlated with the standardized target shock ($\\rho$ = 0.87), as expected.
 
 [Figure 5 about here]
+
+Figure 8 presents the version comparison, showing how the R² of the sentiment-shock regression changes across different data source specifications. The improvement from rate changes (0.17%) to high-frequency shocks (4.12%) is visually dramatic, underscoring the critical importance of proper identification in monetary policy event studies.
+
+[Figure 8 about here]
 
 The weak correlation between target and path shocks is important for the identification of our regression model: it implies that multicollinearity is not a concern, and that the coefficients on the two shocks can be estimated with reasonable precision. The stronger correlation between sentiment and the path shock provides preliminary evidence for the information channel, which is confirmed by the formal regression analysis in Section 5.1.
 
