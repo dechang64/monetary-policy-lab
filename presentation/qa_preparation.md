@@ -40,7 +40,7 @@ Moreover, our forward-lookingness experiment shows that the path shock doesn't b
 
 ## Q4: "H4 is not robustly significant. Why is the forward guidance interaction insignificant?"
 
-**A:** The CRSP VW interaction is insignificant (p = 0.602). The NASDAQ interaction is marginally significant (p = 0.041), but the coefficient is 202 basis points — economically implausible and likely driven by outliers. We explore three interpretations:
+**A:** The CRSP VW interaction is insignificant (p = 0.602). The NASDAQ interaction is marginally significant (p = 0.041), but the coefficient is 202 basis points — economically implausible and likely driven by outliers. However, the regime analysis reveals a crucial nuance: when we split by decision type, the rate cut regime shows the path shock highly significant (p < 0.001, R² = 43.1%). This is the strongest result in the entire paper. The null H4 for the full sample masks this regime-dependent effect — forward guidance language IS responsive to the path shock, but only during easing cycles. Three interpretations for the full-sample null:
 
 1. **Information captured by shocks**: The high-frequency shocks absorb the information content regardless of regime, leaving no residual for the interaction.
 

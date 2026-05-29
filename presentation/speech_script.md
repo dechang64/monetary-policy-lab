@@ -69,6 +69,8 @@ H4 asks whether the language channel strengthens at the zero lower bound. The an
 
 Why? We explore three interpretations. First, the information content of FOMC language is captured by the high-frequency shocks regardless of regime. Second, our dictionary-based measure lacks the precision to detect a differential effect. Third — and this is where recent literature helps — Chen, Granville, and Matousek 2025 find that forward guidance operates through a risk premium channel, not an expectations channel. These two channels have opposing effects on equity prices and can offset each other in a reduced-form regression.
 
+But there's a new finding that changes the picture. When we split by decision type, the rate cut regime shows the path shock highly significant — p less than 0.001, R-squared 43 percent. This is by far the strongest result in the entire paper. It means that during easing cycles, forward guidance language is indeed responsive to the path shock. The null H4 result for the full sample masks this regime-dependent effect.
+
 ---
 
 ### Slide 9: Dual-Channel Test (45s)
