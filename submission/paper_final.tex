@@ -16,9 +16,11 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \title{\textbf{Beyond the Rate: Information Content of FOMC Forward Guidance Language}}
-\author{\textbf{Dechang Yu}$^{1}$ \and \textbf{Eileen Zhang}$^{2}$ \\[6pt]
+\author{
+Dechang Yu$^{1}$ \quad Eileen Zhang$^{2}$ \\[8pt]
 \small $^{1}$ Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China \\
-\small $^{2}$ [Affiliation to be confirmed]}
+\small $^{2}$ [Affiliation to be confirmed]
+}
 \date{}
 
 \begin{document}
@@ -240,7 +242,7 @@ The correlation between the target and path shocks is 0.15, confirming that they
 
 \section{Empirical Methodology}
 
-\subsection{H1: Sentiment and Monetary Policy Shocks}
+\subsection{Sentiment and Monetary Policy Shocks}
 
 We test whether FOMC statement sentiment is related to monetary policy shocks using the regression:
 
@@ -254,7 +256,7 @@ We also estimate a restricted version of this regression using only the target s
 
 The interpretation of the coefficients requires care. The target shock captures the surprise in the current rate decision --- the difference between the actual rate change and what the market expected. The path shock captures the revision in expectations about future rate decisions --- the change in the expected trajectory of policy beyond the current meeting. If FOMC language is primarily about the current rate decision, we would expect the target shock to dominate. If, instead, the language is primarily about the future path of policy --- as the information channel predicts --- we would expect the path shock to dominate.
 
-\subsection{H2: Asset Returns and Monetary Policy Shocks}
+\subsection{Asset Returns and Monetary Policy Shocks}
 
 We test the effect of monetary policy shocks on asset returns:
 
@@ -268,7 +270,7 @@ Under the standard monetary policy transmission mechanism, we expect $\beta_1 < 
 
 The distinction between the target and path shock effects on asset returns is important for the information channel debate. If the path shock affects equity returns positively --- while the target shock affects them negatively --- this would be consistent with the information channel: the path shock reveals positive information about future economic conditions that offsets the negative discount rate effect. If, instead, both shocks affect returns negatively, this would be more consistent with the standard monetary policy transmission mechanism. GSS found that the path factor is important for explaining longer-term interest rate movements, while the target factor primarily affects short-term rates. Our analysis extends this to equity and commodity markets.
 
-\subsection{H3: Information Channel Test}
+\subsection{Information Channel Test}
 
 The information channel hypothesis predicts that the path shock should have a larger effect on sentiment than the target shock, because forward guidance language is primarily about revealing information about future policy and economic conditions. We test this by comparing the absolute t-statistics of $\beta_1$ and $\beta_2$ in the H1 regression. If $|t_{path}| > |t_{target}|$, this constitutes evidence for the information channel.
 
@@ -276,7 +278,7 @@ We acknowledge that this is an informal test: a formal Wald test of $H_0: \beta_
 
 An alternative approach to testing the information channel would be to use the Jarocinski and Karadi (2020) sign-restriction decomposition, which structurally identifies monetary policy shocks and information shocks based on the sign pattern of asset price responses around FOMC announcements. Under their decomposition, a monetary policy shock causes interest rates and stock prices to move in opposite directions, while an information shock causes them to move in the same direction. We do not implement this decomposition in our analysis, but we note that it would provide a more structural test of the information channel. We discuss this extension in Section 7.
 
-\subsection{H4: Forward Guidance Period Interaction}
+\subsection{Forward Guidance Period Interaction}
 
 We test whether the effect of sentiment on asset returns differs during the forward guidance period (December 2008 to December 2015):
 
@@ -299,7 +301,7 @@ We note that the FOMC meeting schedule is irregular --- meetings occur approxima
 
 \section{Results}
 
-\subsection{H1: Sentiment and Monetary Policy Shocks}
+\subsection{Sentiment and Monetary Policy Shocks}
 
 Table 2 reports the results of the sentiment-shock regression. The path shock is the primary driver of FOMC statement sentiment, with a coefficient of 0.000605 (t = 2.421, p = 0.017). The target shock has a smaller and only marginally significant coefficient of 0.000237 (t = 1.651, p = 0.102). The R$^2$ of the regression is 4.12\%.
 
@@ -358,7 +360,7 @@ The improvement from rate change to GSS shocks is dramatic: R$^2$ increases by a
 
 This finding has important implications for the literature. Any study that uses rate changes as a proxy for monetary policy surprises in the context of FOMC language analysis will substantially underestimate the relationship between policy and communication. The attenuation is not merely a matter of statistical significance --- it fundamentally changes the economic interpretation of the results. With rate changes, one would conclude that monetary policy has essentially no effect on FOMC language; with properly identified shocks, the effect is statistically significant and economically meaningful.
 
-\subsection{H2: Asset Returns and Shocks}
+\subsection{Asset Returns and Shocks}
 
 Table 4 reports the asset return regressions. Three of six assets show significant responses to the target shock at the 5\% level:
 
@@ -407,7 +409,7 @@ The negative sign of the target shock coefficient on equity returns is consisten
 
 Gold's negative response to target shocks is consistent with the view that gold serves as a hedge against monetary policy uncertainty: when the Fed unexpectedly tightens, the opportunity cost of holding gold increases (because short-term interest rates rise), reducing its price. The larger magnitude of gold's response (40 basis points per standard deviation) compared to equities may reflect gold's greater sensitivity to real interest rate changes.
 
-\subsection{H3: Information Channel}
+\subsection{Information Channel}
 
 The comparison of target and path shock t-statistics in the H1 regression provides clear evidence for the information channel:
 
@@ -424,7 +426,7 @@ Figure 2 shows the scatter plot of sentiment against the path shock, with a clea
 
 It is important to note what this result does and does not establish. It does establish that the path shock is a statistically significant predictor of FOMC language sentiment, and that it dominates the target shock in explanatory power. It does not establish that the path shock causes the language --- the path shock and the language may both be driven by the Fed's private information about economic conditions. However, this endogeneity is precisely the point: if both the path shock and the language reflect the Fed's private information, then the finding that the path shock dominates the target shock in explaining language is evidence for the information channel, because it shows that the forward-looking component of the FOMC surprise --- which captures information revelation --- is what drives communication.
 
-\subsection{H4: Forward Guidance Interaction}
+\subsection{Forward Guidance Interaction}
 
 The forward guidance interaction regression (Table 5) finds a marginally significant interaction effect for equity returns. The coefficient on sentiment × FG period is +200.01 with a p-value of 0.052 for NASDAQ, and +159.88 with a p-value of 0.081 for S\&P 500. This suggests that the effect of sentiment on equity returns is stronger during the forward guidance period, consistent with the view that FOMC language was particularly informative when the policy rate was constrained at the zero lower bound.
 
