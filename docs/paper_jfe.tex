@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+
+% Page layout
+\usepackage[margin=1in]{geometry}
+
+% Double spacing (journal standard)
+\usepackage{setspace}
+\doublespacing
+
+% Fonts - use XeLaTeX-compatible fonts
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+% Math
+\usepackage{amsmath,amssymb}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% Figures
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+% Captions
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Hyperlinks
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% Section numbering
+\setcounter{secnumdepth}{3}
+
+% Paragraph indent
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+
+% Pandoc compatibility
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{\textbf{Beyond the Rate: Information Content of FOMC Forward Guidance Language}}
+
+\author{
+\textbf{Dechang Yu}$^{1}$ \and \textbf{Eileen Zhang}$^{2}$ \\[6pt]
+\small $^{1}$ Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China \\
+\small $^{2}$ [Affiliation to be confirmed]
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+
