@@ -200,7 +200,7 @@ Captures forward guidance — changes in expected future rate path beyond the cu
 
 | Approach | H1 R² | Target p | Path p | Quality |
 |----------|:------:|:--------:|:------:|---------|
-| Rate change (Δr) | 0.40% | 0.323 | 0.323 | Low — zero for unchanged meetings |
+| Rate change (Δr) | 1.05% | 0.726 | 0.726 | Low — zero for unchanged meetings |
 | Kuttner-style (DFF proxy) | 1.49% | 0.089 | 0.211 | Medium — single contract |
 | Acosta target+path | 1.57% | 0.017 | 0.152 | High — market-based, narrow-window |
 | CB-only + Acosta | 3.90% | <0.05 | 0.031 | High — best current specification |
@@ -241,10 +241,10 @@ $$R_{i,t} = \alpha + \beta_1 \cdot \text{Target}_t + \beta_2 \cdot \text{Path}_t
 
 | Asset | R² | β₁ (target) | p(target) | β₂ (path) | p(path) |
 |-------|:--:|:-----------:|:---------:|:---------:|:-------:|
-| CRSP VW | 8.6% | −0.435 | 0.043 | −0.186 | 0.434 |
-| CRSP EW | 10.3% | −0.449 | 0.013 | −0.174 | 0.421 |
-| S&P 500 | 7.8% | −0.391 | 0.073 | −0.179 | 0.426 |
-| Gold | 5.2% | −0.404 | 0.016 | 0.021 | 0.935 |
+| CRSP VW | 9.1% | −0.435 | 0.043 | −0.186 | 0.443 |
+| CRSP EW | 10.3% | −0.449 | 0.013 | −0.174 | 0.479 |
+| S&P 500 | 7.8% | −0.391 | 0.073 | −0.179 | 0.424 |
+| Gold | 7.0% | −0.404 | 0.014 | −0.488 | 0.146 |
 
 **Interpretation**: Target shock negatively affects equity returns, significant for small-cap (p=0.013) but marginal for large-cap (p=0.073). Path shock insignificant for all assets.
 
@@ -258,10 +258,20 @@ $$R_t = \alpha + \beta_1 \text{Target}_t + \beta_2 \text{Path}_t + \beta_3 S_t +
 
 | Asset | β₄ | p(β₄) |
 |-------|:--:|:-----:|
-| CRSP VW | −0.20 | 0.991 |
-| NASDAQ | 6.04 | 0.739 |
+| CRSP VW | −48.81 | 0.602 |
+| NASDAQ | 202.17 | 0.041* |
 
-**Result**: H4 is completely null. The language channel does NOT strengthen at the zero lower bound.
+*NASDAQ coefficient is economically implausible (202 bp), likely outlier-driven.*
+
+**Result**: H4 is not robustly significant. CRSP VW shows no effect. NASDAQ is marginally significant but implausible.
+
+**Key regime finding**: When split by decision type, the rate cut regime shows path shock highly significant (p < 0.001, R² = 43.1%) — the strongest result in the paper. The full-sample null masks this regime-dependent effect.
+
+| Regime | N | R² | Target p | Path p |
+|--------|:--:|:--:|:--------:|:------:|
+| Rate hike | 17 | 10.2% | 0.013 | 0.298 |
+| Rate cut | 11 | 43.1% | 0.089 | <0.001 |
+| Unchanged | 89 | 2.0% | 0.616 | 0.079 |
 
 ### 5.5 Dual-Equation Test (v9, new)
 
@@ -277,6 +287,8 @@ Testing the risk premium channel explanation for H4 null:
 **Result**: Risk premium channel not detectable at daily frequency. Consistent with Chen et al. (2025) finding that the channel operates at 30-minute frequency.
 
 ### 5.6 Statement Novelty Weighting (v9, new)
+
+Novelty measured as Jaccard distance between consecutive statement word sets (not cosine distance on embeddings).
 
 | Method | H1 R² | Improvement |
 |--------|:------:|:-----------:|
@@ -295,8 +307,8 @@ Novelty measured as cosine distance between TF-IDF vectors of consecutive statem
 | CB-only sentiment | 3.90% | <0.05 | 0.031 | 117 |
 | No COVID | 1.57% | 0.017 | 0.154 | 115 |
 | Post-2010 | 0.59% | 0.117 | 0.258 | 97 |
-| Rate change proxy | 0.40% | 0.323 | 0.323 | 117 |
-| Kuttner-style (DFF) | 1.49% | 0.089 | 0.211 | 117 |
+| Rate change proxy | 1.05% | 0.726 | 0.726 | 117 |
+| Kuttner-style (DFF) | 2.14% | 0.004 | 0.152 | 117 |
 | NW lag=1 | 1.57% | 0.006 | 0.100 | 117 |
 | NW lag=6 | 1.57% | 0.024 | 0.149 | 117 |
 | White HC SE | 1.57% | 0.012 | 0.134 | 117 |

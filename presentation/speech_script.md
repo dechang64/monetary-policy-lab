@@ -31,7 +31,7 @@ Our sample covers 117 FOMC meetings from 2006 to 2022, combining Acosta high-fre
 
 We use the Gürkaynak, Sack, and Swanson target/path decomposition, as replicated by Acosta 2022. The target surprise captures the unexpected component of the current rate decision, identified from fed funds futures. The path factor captures the surprise about the future rate trajectory, identified from eurodollar futures. Both are measured in a narrow 30-minute window around the announcement.
 
-This decomposition is crucial: using naive rate changes instead of high-frequency shocks attenuates R² by a factor of four — from 1.57% to 0.40%. The choice of surprise measure is not a secondary methodological decision; it's a primary determinant of inference.
+This decomposition is crucial: using naive rate changes instead of high-frequency shocks renders the relationship statistically undetectable — p goes from 0.017 to 0.726. The choice of surprise measure is not a secondary methodological decision; it's a primary determinant of inference.
 
 ---
 

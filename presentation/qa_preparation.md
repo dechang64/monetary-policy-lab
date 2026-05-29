@@ -8,7 +8,7 @@
 
 1. R² in event-study regressions with high-frequency shocks is typically low — Gürkaynak et al. 2005a report similar magnitudes for individual asset returns. The shocks capture the *surprise* component, which is by definition small relative to total variation.
 
-2. The 1.57% is a 4× improvement over using naive rate changes (R² = 0.40%), which tells us the market-based identification matters. And using CB-only sentiment doubles it to 3.90%.
+2. Using naive rate changes renders the relationship statistically undetectable (p = 0.726 vs. 0.017 for GSS shocks), which tells us the market-based identification matters. And using CB-only sentiment doubles R² to 3.90%.
 
 3. We don't claim the information channel is the *primary* driver — we say the target shock is a *statistically significant predictor*. The remaining 98% likely reflects the Fed's response to incoming data, institutional inertia, and other factors.
 
