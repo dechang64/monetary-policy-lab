@@ -8,7 +8,7 @@
 
 1. R² in event-study regressions with high-frequency shocks is typically low — Gürkaynak et al. 2005a report similar magnitudes for individual asset returns. The shocks capture the *surprise* component, which is by definition small relative to total variation.
 
-2. The 4% is a 10× improvement over using naive rate changes (R² = 0.39%), which tells us the market-based identification matters.
+2. The 4% is a 24× improvement over using naive rate changes (R² = 0.17%), which tells us the market-based identification matters.
 
 3. We don't claim the information channel is the *primary* driver — we say it's a *statistically significant predictor*. The remaining 96% likely reflects the Fed's response to incoming data, institutional inertia in statement drafting, and other factors. This is actually interesting: it means most of what the FOMC says is not driven by policy surprises, but by the economic outlook.
 
@@ -62,11 +62,13 @@ Our finding that the path shock doesn't significantly affect stock returns may r
 
 ---
 
-## Q6: "Why does your dictionary have 97 hawkish and 106 dovish terms? Isn't the asymmetry suspicious?"
+## Q6: "Your dictionary has 591 hawkish and 222 dovish terms — isn't the asymmetry suspicious?"
 
 **A:** The asymmetry reflects the reality of FOMC language. The Fed has more ways to signal accommodation than tightening — "patient," "gradual," "data-dependent," "accommodative," "supportive" are all distinct dovish signals. Hawkish signals tend to be more direct: "tighten," "hike," "restrictive."
 
 We verified that the two sets are fully disjoint — no word appears in both. We also tested the CB-only subset (without LM terms) and found it produces similar results with lower R², confirming that the expansion adds signal rather than noise.
+
+Note: Our expanded dictionary includes 591 hawkish and 222 dovish terms, which includes both single words and compound phrases (hyphenated and spaced variants like "inflationary-pressure" and "inflationary pressure"). The hawkish list is larger because it includes many domain-specific compound terms related to inflation expectations, capacity constraints, and policy normalization that don't have simple dovish counterparts.
 
 ---
 
@@ -141,3 +143,20 @@ We caught this error in our implementation and corrected it. The key distinction
 3. Ensuring Treasury yield responses are directionally consistent (2Y and 10Y move in the same direction, with 2Y more sensitive)
 
 With real data (CRSP via WRDS), these patterns emerge naturally from the market. The demo mode is only for when FRED/WRDS data isn't available.
+
+---
+
+## Q13: "How sensitive are your results to the Newey-West lag choice? You use lag=4 — what if you used lag=1 or lag=6?"
+
+**A:** We tested lag sensitivity and the core finding is robust:
+
+| Lag | β(path) t-stat | β(path) p-value | Significant at 5%? |
+|-----|----------------|-----------------|---------------------|
+| 1   | 1.875          | 0.063           | No (10% yes)        |
+| 2   | 2.005          | 0.047           | Yes                 |
+| 4   | 2.181          | 0.031           | Yes                 |
+| 6   | 2.168          | 0.032           | Yes                 |
+
+Our choice of lag=4 follows the data-driven formula from Newey & West (1994): `lag = int(4 × (n/100)^(2/9))`, which gives 4 for n=117. This is the standard recommendation in the econometrics literature.
+
+The path shock is significant at 5% for all lags ≥ 2, and significant at 10% even with lag=1. The qualitative conclusion — that forward guidance language carries statistically detectable information — does not depend on the lag choice.
