@@ -2,15 +2,15 @@
 
 ---
 
-## Q1: "Your R² is only 4%. How do you justify claiming the information channel exists with such weak explanatory power?"
+## Q1: "Your R² is only 1.57%. How do you justify claiming anything with such weak explanatory power?"
 
-**A:** You're right that 4% is modest, and we're transparent about this in the paper. But several points:
+**A:** You're right that 1.57% is modest, and we're transparent about this. But three points:
 
 1. R² in event-study regressions with high-frequency shocks is typically low — Gürkaynak et al. 2005a report similar magnitudes for individual asset returns. The shocks capture the *surprise* component, which is by definition small relative to total variation.
 
-2. The 4% is a 24× improvement over using naive rate changes (R² = 0.17%), which tells us the market-based identification matters.
+2. The 1.57% is a 4× improvement over using naive rate changes (R² = 0.40%), which tells us the market-based identification matters. And using CB-only sentiment doubles it to 3.90%.
 
-3. We don't claim the information channel is the *primary* driver — we say it's a *statistically significant predictor*. The remaining 96% likely reflects the Fed's response to incoming data, institutional inertia in statement drafting, and other factors. This is actually interesting: it means most of what the FOMC says is not driven by policy surprises, but by the economic outlook.
+3. We don't claim the information channel is the *primary* driver — we say the target shock is a *statistically significant predictor*. The remaining 98% likely reflects the Fed's response to incoming data, institutional inertia, and other factors.
 
 4. We've added a Wald test showing we cannot reject coefficient equality, and we explicitly say the evidence is "suggestive rather than definitive."
 
@@ -18,145 +18,124 @@
 
 ## Q2: "Why not use FinBERT or LLM-based sentiment instead of a dictionary approach?"
 
-**A:** Great question. Three reasons:
+**A:** Three reasons for the baseline, but we now have a clear upgrade path:
 
-1. **Interpretability**: Dictionary methods are transparent — you can trace every sentiment score to specific words. With FinBERT, you get a black-box score. For a paper testing a specific economic mechanism, interpretability matters.
+1. **Interpretability**: Dictionary methods are transparent — you can trace every sentiment score to specific words. For a paper testing a specific economic mechanism, this matters.
 
-2. **Replicability**: Our dictionary is fully disclosed (97 hawkish, 106 dovish terms, all listed in the appendix). Anyone can replicate our sentiment scores. FinBERT requires a specific model checkpoint and may produce different results with different versions.
+2. **Replicability**: Our dictionary is fully disclosed (591 hawkish, 222 dovish terms in the appendix). Anyone can replicate our scores. LLM-based methods may produce different results with different model versions.
 
-3. **Temporal consistency**: Dictionary methods treat each meeting identically across time. LLM-based methods may implicitly learn regime-specific patterns, which could contaminate the identification.
+3. **Temporal consistency**: Dictionary methods treat each meeting identically across time. LLMs may implicitly learn regime-specific patterns.
 
-That said, we're actively exploring FinBERT as a robustness check. If the results are consistent, it strengthens our case. If they diverge, it tells us something interesting about what dictionaries miss.
-
----
-
-## Q3: "You have no control variables. Aren't your coefficients biased?"
-
-**A:** This is a fair concern. Our specification is intentionally parsimonious, following the event-study literature where the high-frequency identification is meant to provide exogenous variation. The shocks are measured in a 30-minute window, which limits contamination from other releases.
-
-However, we acknowledge that omitted variables could bias our results. The most important potential omitted variable is the Fed's economic assessment — if the FOMC sees deteriorating conditions, they might cut rates AND use dovish language, creating a spurious correlation. The path shock partially addresses this by capturing forward guidance separately from the rate decision, but it's not a complete solution.
-
-In the next revision, we plan to add: (1) lagged sentiment to control for persistence, (2) macroeconomic indicators available at the time of the meeting, and (3) an indicator for unscheduled meetings.
+That said, the CB-LM approach from Gambacorta et al. 2024 offers a middle ground: open-weight, domain-specific models that are reproducible AND contextual. We discuss this as the most promising upgrade path in Section 7.3. And Yao and Chai 2025's uncertainty-aware framework could improve signal-to-noise by downweighting ambiguous classifications.
 
 ---
 
-## Q4: "Your Wald test shows you can't distinguish target from path. Doesn't this undermine H3?"
+## Q3: "H1 says the target shock is significant but the path shock is not. Doesn't this contradict the information channel?"
 
-**A:** It certainly tempers the claim. H3 predicts the path effect is larger, and while the point estimate is larger, the data don't have enough power to formally establish this. With N=117 and an R² of 4%, the standard errors are too large to distinguish two coefficients that are close in magnitude.
+**A:** It contradicts the *strong* version of the information channel, which predicts that forward guidance language should be primarily driven by the path shock. But the Wald test (p = 0.90) means we cannot definitively rule out equal effects. The evidence is suggestive but not conclusive.
 
-We've rewritten H3's conclusion to reflect this honestly: "suggestive evidence consistent with the information channel, but not definitive proof." I'd rather be honest about the limitation than overclaim.
-
-That said, the path shock being significant at 5% while the target is only significant at 10% is still informative — it tells us forward guidance language carries statistically detectable information, which is the core of the information channel hypothesis.
+Moreover, our forward-lookingness experiment shows that the path shock doesn't become significant even when we isolate forward-looking language (p = 0.80). This suggests the GSS target/path decomposition and the FOMC text's forward-looking/current-assessment dimensions don't have a simple correspondence — the path shock captures a broad policy stance signal, not specifically forward guidance content.
 
 ---
 
-## Q5: "How does your work relate to Jarociński and Karadi 2020? They find information shocks have opposite effects on stock prices."
+## Q4: "H4 is completely null. Why is the forward guidance interaction insignificant?"
 
-**A:** Jarociński and Karadi decompose the FOMC announcement into a monetary policy shock and an information shock using sign restrictions: a monetary policy shock moves rates and stock prices in opposite directions, while an information shock moves them in the same direction.
+**A:** We explore three interpretations in the paper:
 
-Our approach is different. We use the GSS target/path decomposition, which is based on the maturity structure of futures responses rather than sign restrictions. The target shock captures the current rate surprise, the path shock captures the future rate path surprise.
+1. **Information captured by shocks**: The high-frequency shocks absorb the information content regardless of regime, leaving no residual for the interaction.
 
-The relationship is: our path shock likely contains both monetary policy and information components. When the Fed signals higher future rates because the economy is stronger (information), the path shock is positive AND stock prices might rise — this is the information effect. When the Fed signals higher future rates purely as a policy choice (monetary), stock prices fall.
+2. **Measurement imprecision**: Our dictionary-based sentiment cannot distinguish forward guidance language from other policy-relevant text. Chen et al. 2025 show that even GPT-3.5 fails to identify forward guidance in 135 of 139 statements — our CB dictionary has the same limitation.
 
-Our finding that the path shock doesn't significantly affect stock returns may reflect these offsetting channels. Disentangling them further would require the JK sign-restriction approach, which is a natural extension.
-
----
-
-## Q6: "Your dictionary has 591 hawkish and 222 dovish terms — isn't the asymmetry suspicious?"
-
-**A:** The asymmetry reflects the reality of FOMC language. The Fed has more ways to signal accommodation than tightening — "patient," "gradual," "data-dependent," "accommodative," "supportive" are all distinct dovish signals. Hawkish signals tend to be more direct: "tighten," "hike," "restrictive."
-
-We verified that the two sets are fully disjoint — no word appears in both. We also tested the CB-only subset (without LM terms) and found it produces similar results with lower R², confirming that the expansion adds signal rather than noise.
-
-Note: Our expanded dictionary includes 591 hawkish and 222 dovish terms, which includes both single words and compound phrases (hyphenated and spaced variants like "inflationary-pressure" and "inflationary pressure"). The hawkish list is larger because it includes many domain-specific compound terms related to inflation expectations, capacity constraints, and policy normalization that don't have simple dovish counterparts.
+3. **Risk premium channel**: Chen et al. 2025 find that forward guidance operates through a risk premium channel (reducing uncertainty → compressing term premia) rather than an expectations channel. These two channels have opposing effects on equity prices and can offset each other in a reduced-form regression. Our dual-equation test doesn't find the risk premium channel at daily frequency, but Chen et al. use 30-minute windows — the channel may be too fast for daily data.
 
 ---
 
-## Q7: "Your sample starts in 2006. Why not use the full Acosta sample from 1995?"
+## Q5: "How does your work relate to Jarociński and Karadi 2020?"
 
-**A:** The limitation is FOMC statement availability. We systematically scraped statements from the Federal Reserve website starting from 2006. Pre-2006 statements exist but are less standardized in format and harder to process consistently.
+**A:** JK decompose the FOMC announcement into a monetary policy shock and an information shock using sign restrictions: a monetary policy shock moves rates and stock prices in opposite directions, while an information shock moves them in the same direction.
 
-The 117-meeting overlap with Acosta shocks (2006-2022) is our core sample. We also have 164 total statements (2006-2025), but only 117 have matching shock data.
+Our GSS target/path decomposition is based on the maturity structure of futures responses, not sign restrictions. The target shock likely contains both monetary policy and information components. If information shocks are present, they bias our target shock effect upward — positive economic news makes language more hawkish even though the monetary stance is contractionary.
 
-We acknowledge this as a sample selection issue in the paper. Extending back to 1995 would add about 40 more meetings, which would substantially improve power for the Wald test.
-
----
-
-## Q8: "What about the Fed's press conferences? Since 2011, the Chair holds a press conference after each meeting. Doesn't this contaminate your statement-only analysis?"
-
-**A:** Excellent point. The USMPD actually provides separate surprise measures for statements and press conferences. The press conference surprise (PC) is available for 92 meetings since 2011.
-
-In our main analysis, we use the statement surprise (STMT) because our text data is from statements, not press conference transcripts. The statement is released first and is the primary communication channel. Press conferences provide additional context but are less structured.
-
-As a robustness check, we could use the "monetary event" (ME) surprise from USMPD, which combines statement and press conference effects. This is available for all 276 meetings and would capture the total FOMC communication effect.
+Implementing the JK sign-restriction decomposition would allow us to separately identify these effects. We regard this as a high priority for future work, as discussed in Section 7.2.
 
 ---
 
-## Q9: "You mention the USMPD extension to 2026, but the R² drops to 1.65%. Does this mean the information channel is weakening?"
+## Q6: "Your CB-only R² is 3.90% vs. combined 1.57%. Why not just use CB-only?"
 
-**A:** The R² decline in the extended sample reflects the unusual nature of the 2022-2026 period. The Fed raised rates from near-zero to over 5% in the fastest hiking cycle in decades. During this period:
+**A:** We report both and agree that CB-only is the stronger measure for this specific application. The combined measure dilutes the CB signal because the LM component is always positive for FOMC text — it adds noise without adding signal.
 
-1. Rate changes were large and mostly expected — the target shock was near zero for many meetings
-2. Forward guidance was dominated by the magnitude of hikes rather than subtle information about the future path
-3. Statement language became more formulaic — "the Committee is strongly committed to returning inflation to 2 percent" appeared in nearly every statement
+However, we keep the combined measure as our baseline for two reasons: (1) comparability with the existing literature that uses LM-based sentiment, and (2) the combined measure is a more conservative test — if the target shock is significant even with the diluted measure, it's a stronger result.
 
-So the information channel may be weaker when policy is moving rapidly in one direction. But the path shock remains significant at 10% even in the extended sample, suggesting the channel doesn't disappear entirely.
+The CB-only result is important as a robustness check and as evidence that domain-specific dictionaries outperform general-purpose financial dictionaries for central bank communication analysis.
 
 ---
 
-## Q10: "What's the practical implication? Should central banks change how they communicate?"
+## Q7: "Your dual-equation test finds nothing for the risk premium channel. Doesn't this undermine your explanation for H4?"
 
-**A:** Our findings suggest that statement language does convey information about the future policy path, not just the current decision. This has two implications:
+**A:** It undermines the *strong* version of the risk premium explanation, but not the *weak* version. The strong version says: "the risk premium channel is present and detectable at daily frequency." Our null result rejects this.
 
-1. **For central banks**: Be aware that every word choice in the statement is parsed for forward guidance content. Small language changes can signal policy shifts even when rates don't move.
+The weak version says: "the risk premium channel operates at high frequency and is absorbed into the overnight price adjustment before we can measure it at daily frequency." This is consistent with our null result AND with Chen et al.'s finding using 30-minute windows.
 
-2. **For markets**: Don't just focus on the rate decision. The statement's language — especially words about the economic outlook and future policy intentions — carries independent information.
-
-3. **For researchers**: Text analysis of central bank communications is a valuable complement to asset-price-based measures. The two approaches capture different aspects of the information channel.
-
-But I want to be careful not to overstate the practical implications given the modest R². The information channel exists, but it's not the dominant force in statement language.
+The key insight: daily data may simply be too coarse to separate the expectations and risk premium channels. This is a data limitation, not a theoretical failure.
 
 ---
 
-## Q11: "Your event study t-stat formula — is it CAR/(σ/√N) or CAR/(σ×√N)?"
+## Q8: "Your forward-lookingness experiment shows that splitting sentiment reduces R². Doesn't this mean topic decomposition is a bad idea?"
 
-**A:** The correct formula is **t = CAR / (σ_AR × √N)**, following Brown & Warner (1985).
+**A:** Not necessarily. Our experiment uses a crude rule-based split (sentences containing "expect"/"will" vs. "recent"/"current"), which is far less sophisticated than the LLM-based topic classification in Chen et al. 2025 or the IMF's four-dimensional framework.
 
-- σ_AR is the standard deviation of abnormal returns from the estimation window
-- N is the number of days in the event window
-- The denominator σ_AR × √N is the standard deviation of CAR (since CAR is a sum of N independent ARs)
+The problem isn't topic decomposition per se — it's that FOMC statements are short (typically 300-500 words), and splitting them into sub-components leaves too few words per topic for reliable sentiment scoring. The IMF's analysis works with 75,000 documents; we have 117 short statements.
 
-A common mistake is using σ_AR / √N in the denominator, which gives t = CAR × √N / σ_AR — this inflates the t-statistic by a factor of N. For a 7-day event window, this would make t 7 times too large.
-
-We caught this error in our implementation and corrected it. The key distinction:
-- **Single-asset test** (is this asset's CAR significantly different from zero?): t = CAR / (σ_AR × √N)
-- **Cross-sectional test** (is the average CAR across K assets significantly different from zero?): t = CAAR / (σ_CAAR / √K)
+The solution may be to use LLM-based topic classification that can assign sentiment at the sentence level rather than splitting the document, as Chen et al. do. This preserves the full word count while still capturing topic heterogeneity.
 
 ---
 
-## Q12: "Your demo platform shows S&P 500 positive but NASDAQ/Russell negative after FOMC — is that real data?"
+## Q9: "Your novelty weighting improves R² by 45%. Why not make this the baseline?"
 
-**A:** No, that was a bug in our demo data generator. The synthetic returns had no FOMC event effects — they were pure random noise, so equity CAR signs were random. We've fixed this by:
+**A:** The novelty weighting is a promising improvement, but we present it as an extension rather than the baseline for two reasons:
 
-1. Injecting correlated FOMC effects on actual FOMC dates (hawkish → all equities down, all yields up)
-2. Making effects persist over the [-1, +5] event window with decay
-3. Ensuring Treasury yield responses are directionally consistent (2Y and 10Y move in the same direction, with 2Y more sensitive)
+1. **Comparability**: The existing literature uses unweighted OLS. Changing the baseline makes it harder to compare our results with prior work.
 
-With real data (CRSP via WRDS), these patterns emerge naturally from the market. The demo mode is only for when FRED/WRDS data isn't available.
+2. **Methodological novelty**: The novelty weighting introduces a new methodological choice (how to measure novelty — cosine distance? Jaccard index? Edit distance?) that could affect results. We use cosine distance between TF-IDF vectors of consecutive statements, but this is just one option.
+
+That said, the 45% improvement suggests that not all FOMC statements are equally informative, and future work should consider information-weighted estimation as a standard practice.
 
 ---
 
-## Q13: "How sensitive are your results to the Newey-West lag choice? You use lag=4 — what if you used lag=1 or lag=6?"
+## Q10: "What about the Bauer-Swanson 2023 critique? Aren't your shocks contaminated?"
 
-**A:** We tested lag sensitivity and the core finding is robust:
+**A:** Bauer and Swanson argue that high-frequency monetary policy surprises are not fully exogenous — they may reflect private information that market participants already had before the FOMC announcement, rather than pure policy surprises.
 
-| Lag | β(path) t-stat | β(path) p-value | Significant at 5%? |
-|-----|----------------|-----------------|---------------------|
-| 1   | 1.875          | 0.063           | No (10% yes)        |
-| 2   | 2.005          | 0.047           | Yes                 |
-| 4   | 2.181          | 0.031           | Yes                 |
-| 6   | 2.168          | 0.032           | Yes                 |
+This is a legitimate concern. However, two points:
 
-Our choice of lag=4 follows the data-driven formula from Newey & West (1994): `lag = int(4 × (n/100)^(2/9))`, which gives 4 for n=117. This is the standard recommendation in the econometrics literature.
+1. The relative importance of the target factor is likely robust to this critique. Even if the shocks are partly endogenous, the target shock still captures the surprise component of the rate decision.
 
-The path shock is significant at 5% for all lags ≥ 2, and significant at 10% even with lag=1. The qualitative conclusion — that forward guidance language carries statistically detectable information — does not depend on the lag choice.
+2. A more rigorous treatment would implement the Bauer-Swanson orthogonalization procedure, which purges the shocks of predictable components using pre-FOMC survey expectations. We acknowledge this as a priority for the next revision.
+
+---
+
+## Q11: "How does your Literature Radar work, and what has it found?"
+
+**A:** The Literature Radar is an automated daily scan of SSRN, arXiv, BIS/IMF/Fed working papers, and top journals. It uses a weighted keyword matrix to score relevance (core terms like "FOMC" get 3× weight, method terms 2×, data terms 1.5×) and classifies papers by impact type.
+
+In its first scan, it found 42 papers, including 2 high-relevance and 11 medium-relevance papers. The most impactful recent finds include: Chen et al. 2025 (PLMIS shocks from GPT-4), Gambacorta et al. 2024 (CB-LMs), the IMF's 2025 four-dimensional analysis, and Yao & Chai 2025 (uncertainty-aware classification). These directly shaped our Discussion section.
+
+---
+
+## Q12: "What's the most important thing you learned from the new literature?"
+
+**A:** That our null H4 result is not a failure — it's a diagnostic. Chen et al.'s risk premium channel, the IMF's topic decomposition, and CB-LM's domain specificity all point to the same conclusion: coarse-grained, dictionary-based sentiment measures cannot capture the multi-dimensional nature of FOMC communication. The null result tells us where the measurement frontier is, not that the phenomenon doesn't exist.
+
+The second insight is that the GSS target/path decomposition doesn't map cleanly onto the forward-looking/current-assessment dimension of FOMC text. Our forward-lookingness experiment showed this directly. This means the information channel hypothesis needs to be reformulated with more precise correspondence between the shock decomposition and the text dimensions.
+
+---
+
+## Q13: "What would you do differently if you started over?"
+
+**A:** Three things:
+
+1. **Use CB-only sentiment from the start.** The LM component adds noise for FOMC text. We wasted statistical power by using the combined measure as our baseline.
+
+2. **Collect high-frequency data.** The risk premium channel is invisible at daily frequency. With 30-minute windows, we could test the dual-channel hypothesis properly.
+
+3. **Use CB-LM embeddings instead of word counts.** Gambacorta et al. show that domain-specific language models outperform dictionaries on stance classification, and they're open-weight and reproducible. The marginal cost of upgrading from dictionaries to CB-LMs is small compared to the gain in measurement precision.
