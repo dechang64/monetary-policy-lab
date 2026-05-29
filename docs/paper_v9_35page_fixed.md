@@ -197,7 +197,7 @@ Third, the correlation between the target and path shocks is 0.14, indicating th
 
 Fourth, the Kuttner surprise has a mean of −0.45 basis points and a standard deviation of 3.08 basis points, reflecting the predominantly easing stance of monetary policy during our sample period. The large standard deviation relative to the mean indicates substantial variation in the magnitude of monetary policy surprises, with the largest surprises occurring during the financial crisis (the emergency rate cut of March 2008 produced a Kuttner surprise of −20 basis points) and the COVID pandemic (the emergency rate cut of March 2020 produced a similarly large surprise). The minimum value of −20.0 basis points corresponds to the March 18, 2008 emergency rate cut, while the maximum value of 9.54 basis points corresponds to the June 13, 2019 meeting, when the Fed surprised markets by not cutting rates as expected.
 
-Fifth, the positivity bias of the LM score deserves further discussion. The LM dictionary was designed for 10-K filings, where the distinction between positive and negative language is relatively clear-cut: firms use positive words to describe favorable developments and negative words to describe unfavorable ones. In FOMC statements, however, the relationship between word choice and policy stance is more nuanced. The Fed uses positive words such as "moderate" and "measured" to describe both expansionary and contractionary policy environments, because these words convey a sense of careful deliberation rather than a specific policy direction. As a result, the LM score is always positive for FOMC statements, providing little discriminatory power across policy regimes. The CB score, by contrast, has substantial sign variation: all 117 statements in our sample have negative CB scores, reflecting the predominantly dovish language used by the Fed during the 2006–2022 period. The near-zero maximum CB score (0.005) suggests that even the most hawkish statements in our sample used nearly equal numbers of hawkish and dovish terms.
+Fifth, the positivity bias of the LM score deserves further discussion. The LM dictionary was designed for 10-K filings, where the distinction between positive and negative language is relatively clear-cut: firms use positive words to describe favorable developments and negative words to describe unfavorable ones. In FOMC statements, however, the relationship between word choice and policy stance is more nuanced. The Fed uses positive words such as "moderate" and "measured" to describe both expansionary and contractionary policy environments, because these words convey a sense of careful deliberation rather than a specific policy direction. As a result, the LM score is always positive for FOMC statements, providing little discriminatory power across policy regimes. The CB score, by contrast, has substantial sign variation: 108 of 117 statements in our sample have negative CB scores, reflecting the predominantly dovish language used by the Fed during the 2006–2022 period. Only 2 statements have positive CB scores, and 7 have zero scores. The near-zero maximum CB score (0.005) suggests that even the most hawkish statements in our sample used nearly equal numbers of hawkish and dovish terms.
 
 ---
 
@@ -207,9 +207,9 @@ Fifth, the positivity bias of the LM score deserves further discussion. The LM d
 
 We estimate the following regression to test whether FOMC statement sentiment is related to monetary policy shocks:
 
-$$S_t = \alpha + \beta_1 \cdot Target_t + \beta_2 \cdot Path_t + \varepsilon_t$$
+$$S_t = \alpha + \beta_1 \cdot \text{Target}_t + \beta_2 \cdot \text{Path}_t + \varepsilon_t$$
 
-where $S_t$ is the combined sentiment score for FOMC meeting $t$, $Target_t$ is the target shock, and $Path_t$ is the path shock. Under the information channel hypothesis, $\beta_2 > \beta_1$, because the path shock captures forward guidance information that is primarily conveyed through language. Under the alternative hypothesis that FOMC language primarily reflects the current rate decision, $\beta_1 \geq \beta_2$.
+where $S_t$ is the combined sentiment score for FOMC meeting $t$, $\text{Target}_t$ is the target shock, and $\text{Path}_t$ is the path shock. Under the information channel hypothesis, $\beta_2 > \beta_1$, because the path shock captures forward guidance information that is primarily conveyed through language. Under the alternative hypothesis that FOMC language primarily reflects the current rate decision, $\beta_1 \geq \beta_2$.
 
 The economic interpretation of the coefficients depends on the scale of the variables. Since the target and path shocks are standardized to unit variance in the full Acosta sample (but have standard deviations of 0.82 and 0.80 in our subsample), a one-unit change in the target shock corresponds to approximately a 1.22-standard-deviation change within our sample. The sentiment score is measured in percentage points, so the coefficient $\beta_1$ = 0.000577 implies that a one-unit increase in the target shock is associated with a 0.058 percentage point increase in the sentiment score.
 
@@ -217,7 +217,7 @@ The economic interpretation of the coefficients depends on the scale of the vari
 
 We estimate separate regressions for each asset class:
 
-$$R_t = \alpha + \beta_1 \cdot Target_t + \beta_2 \cdot Path_t + \varepsilon_t$$
+$$R_t = \alpha + \beta_1 \cdot \text{Target}_t + \beta_2 \cdot \text{Path}_t + \varepsilon_t$$
 
 where $R_t$ is the daily return on the asset in question. We expect $\beta_1 < 0$ for equities (an unexpected tightening reduces equity valuations through higher discount rates and lower expected cash flows) and $\beta_1 > 0$ for short-term Treasury yields (an unexpected tightening raises short rates). The path shock is expected to have similar directional effects, but with potentially different magnitudes reflecting the different channels through which forward guidance affects asset prices.
 
@@ -237,7 +237,7 @@ where $\text{Var}(\hat{\beta}_1 - \hat{\beta}_2) = \text{Var}(\hat{\beta}_1) + \
 
 We test whether the effect of sentiment on asset returns differs during the forward guidance period by estimating:
 
-$$R_t = \alpha + \beta_1 \cdot Target_t + \beta_2 \cdot Path_t + \beta_3 \cdot S_t + \beta_4 \cdot (S_t \times FG_t) + \varepsilon_t$$
+$$R_t = \alpha + \beta_1 \cdot \text{Target}_t + \beta_2 \cdot \text{Path}_t + \beta_3 \cdot S_t + \beta_4 \cdot (S_t \times FG_t) + \varepsilon_t$$
 
 where $FG_t$ is an indicator for the forward guidance period (December 2008 to December 2015, when the federal funds rate was at the zero lower bound). Under the hypothesis that language becomes a more important channel when conventional policy is constrained, $\beta_4 > 0$. The forward guidance period includes 48 of the 117 meetings in our sample.
 
@@ -293,7 +293,7 @@ It is worth placing the R² of 1.57% in context. In the text analysis literature
 
 A formal Wald test of the equality of the target and path coefficients cannot reject the null hypothesis that $\beta_1 = \beta_2$ ($\chi^2$ = 0.015, p = 0.90). This is not surprising given the modest sample size (N = 117) and the relatively large standard errors. We therefore interpret the results as providing only suggestive evidence on the relative importance of the two shock dimensions, rather than definitive proof that one dominates the other.
 
-The Wald test result deserves further discussion. The point estimates suggest that the path shock has a slightly larger effect on sentiment than the target shock ($\beta_{path}$ = 0.000633 vs. $\beta_{target}$ = 0.000577), but the path coefficient is estimated with much less precision (SE = 0.000439 vs. SE = 0.000238). The imprecision of the path coefficient reflects the fact that the path shock has a weaker relationship with sentiment, which is captured by the larger standard error. The Wald test, which compares the two coefficients while accounting for their covariance, finds that the difference is not statistically significant. This means that we cannot rule out the possibility that the two shocks have equal effects on sentiment, even though the target shock is individually significant while the path shock is not.
+The Wald test result deserves further discussion. The point estimates suggest that the path shock has a slightly larger effect on sentiment than the target shock ($\beta_{\text{path}}$ = 0.000633 vs. $\beta_{\text{target}}$ = 0.000577), but the path coefficient is estimated with much less precision (SE = 0.000439 vs. SE = 0.000238). The imprecision of the path coefficient reflects the fact that the path shock has a weaker relationship with sentiment, which is captured by the larger standard error. The Wald test, which compares the two coefficients while accounting for their covariance, finds that the difference is not statistically significant. This means that we cannot rule out the possibility that the two shocks have equal effects on sentiment, even though the target shock is individually significant while the path shock is not.
 
 [Figure 1 about here]
 
@@ -327,7 +327,7 @@ Table 4 reports the asset return regression results using CRSP data. The target 
 
 **Table 4: Asset Returns and Monetary Policy Shocks (CRSP Data)**
 
-| Asset | $\beta$_target | t_target | p_target | $\beta$_path | p_path | R² | N |
+| Asset | $\beta_T$ | t_target | p_target | $\beta_P$ | p_path | R² | N |
 |-------|:--------:|:--------:|:--------:|:------:|:------:|:--:|:--:|
 | CRSP VW | −0.435 | −2.05 | 0.043 | −0.186 | 0.443 | 9.1% | 117 |
 | CRSP EW | −0.449 | −2.53 | 0.013 | −0.174 | 0.479 | 10.3% | 117 |
@@ -341,7 +341,7 @@ Table 4 reports the asset return regression results using CRSP data. The target 
 
 [Table 4 about here]
 
-An important pattern emerges from comparing the equity index results. The target shock effect is larger for the equal-weighted CRSP index ($\beta$ = −0.449) than for the value-weighted index ($\beta$ = −0.435), which in turn is larger than the S&P 500 ($\beta$ = −0.391). This gradient is consistent with the literature on heterogeneous sensitivity to monetary policy: smaller firms, which tend to have more floating-rate debt and less access to credit markets, are more affected by unexpected changes in the policy rate. The difference between the equal-weighted and value-weighted responses (4.5 vs. 4.4 basis points per unit shock) is modest in magnitude but consistent in direction with the theoretical prediction.
+An important pattern emerges from comparing the equity index results. The target shock effect is larger for the equal-weighted CRSP index ($\beta$ = −0.449) than for the value-weighted index ($\beta$ = −0.435), which in turn is larger than the S&P 500 ($\beta$ = −0.391). This gradient is consistent with the literature on heterogeneous sensitivity to monetary policy: smaller firms, which tend to have more floating-rate debt and less access to credit markets, are more affected by unexpected changes in the policy rate. The difference between the equal-weighted and value-weighted responses (44.9 vs. 43.5 basis points per unit shock) is modest in magnitude but consistent in direction with the theoretical prediction.
 
 The fixed income results are consistent with expectations. Treasury yields show small and statistically insignificant responses to both shocks, which is expected given that we use close-to-close daily returns rather than the narrow intraday windows that high-frequency studies employ. The intraday approach isolates the 30-minute window around the FOMC announcement, capturing the pure surprise effect, while our daily returns include the full trading day, diluting the announcement effect with other market-moving information. The R² for the fixed income regressions is 0.7%, compared to 3.4–10.3% for the equity regressions, confirming that the FOMC announcement effect is more detectable in equity markets at the daily frequency.
 
@@ -462,13 +462,13 @@ We examine whether sentiment varies systematically across monetary policy regime
 
 [Figure 3 about here]
 
-The regime-specific results also reveal an interesting asymmetry: the sentiment response to the target shock is stronger during tightening cycles (R² = 1.8%, $\beta_{target}$ = 0.000691, p = 0.098) than during easing cycles (R² = 2.1%, $\beta_{target}$ = 0.000412, p = 0.312). This asymmetry may reflect the fact that tightening decisions are more likely to be controversial and therefore require more careful language, while easing decisions are more straightforward and therefore require less linguistic adjustment.
+The regime-specific results also reveal an interesting asymmetry: the sentiment response to the target shock is stronger during tightening cycles (R² = 1.8%, $\beta_{\text{target}}$ = 0.000691, p = 0.098) than during easing cycles (R² = 2.1%, $\beta_{\text{target}}$ = 0.000412, p = 0.312). This asymmetry may reflect the fact that tightening decisions are more likely to be controversial and therefore require more careful language, while easing decisions are more straightforward and therefore require less linguistic adjustment.
 
 ### 6.7 Sentiment Dictionary Comparison
 
 A natural question is whether the choice of sentiment dictionary affects the results. Table 8 compares the regression results using three different sentiment measures.
 
-| Sentiment Measure | R² | $\beta$_target (p) | $\beta$_path (p) | N |
+| Sentiment Measure | R² | $\beta_T$ (p) | $\beta_P$ (p) | N |
 |-------------------|:--:|:------------:|:----------:|:--:|
 | Combined (LM + CB) | 1.57% | 0.000577 (0.017) | 0.000633 (0.152) | 117 |
 | LM only | 0.33% | 0.000288 (0.476) | 0.000465 (0.553) | 117 |
@@ -530,7 +530,7 @@ FOMC statement sentiment exhibits substantial persistence: the first-order autoc
 
 To account for persistence more formally, we estimate a dynamic version of the sentiment regression that includes the lagged sentiment score as a regressor:
 
-$$S_t = \alpha + \rho S_{t-1} + \beta_1 \cdot Target_t + \beta_2 \cdot Path_t + \varepsilon_t$$
+$$S_t = \alpha + \rho S_{t-1} + \beta_1 \cdot \text{Target}_t + \beta_2 \cdot \text{Path}_t + \varepsilon_t$$
 
 The lagged sentiment coefficient is significant ($\rho$ = 0.58, p < 0.001), confirming the persistence. The target shock remains significant ($\beta_1$ = 0.000412, p = 0.038), while the path shock is not ($\beta_2$ = 0.000398, p = 0.281). The R² increases to 38.2%, reflecting the explanatory power of the lagged dependent variable. The key finding — target shock significance, path shock insignificance — is robust to the inclusion of the lagged sentiment score.
 
@@ -538,7 +538,7 @@ The lagged sentiment coefficient is significant ($\rho$ = 0.58, p < 0.001), conf
 
 We estimate the H1 regression separately for three subperiods: pre-crisis (2006–2007, 16 meetings), crisis (2008–2009, 16 meetings), and post-crisis (2010–2022, 85 meetings). The results are as follows:
 
-| Subperiod | N | R² | $\beta$_target (p) | $\beta$_path (p) |
+| Subperiod | N | R² | $\beta_T$ (p) | $\beta_P$ (p) |
 |-----------|:--:|:--:|:------------:|:----------:|
 | Pre-crisis | 16 | 4.2% | 0.000891 (0.198) | 0.000712 (0.412) |
 | Crisis | 16 | 8.1% | 0.001245 (0.089) | 0.000934 (0.312) |
@@ -566,7 +566,7 @@ Second, our finding that the target shock dominates the path shock in asset retu
 
 Third, the null forward guidance interaction result (p = 0.991 for CRSP VW; p = 0.739 for NASDAQ) contrasts with the prediction that language becomes a more important channel when conventional policy is constrained (Section 2.5). This null finding is robust across multiple specifications and data sources, suggesting that the language channel of monetary policy does not systematically strengthen at the zero lower bound. One interpretation is that the information content of FOMC language is captured by the high-frequency shocks regardless of the policy regime, leaving little residual variation for the interaction to exploit. An alternative interpretation is that our dictionary-based sentiment measure lacks the precision to detect a differential effect during the forward guidance period, a possibility we discuss below.
 
-A third, more structural interpretation draws on Chen, Granville, and Matousek (2025), who find that forward guidance language operates through a risk premium channel rather than an expectations channel: dovish forward guidance reduces uncertainty and compresses term premia, while simultaneously lowering expected future rates. These two channels have opposing effects on equity prices — lower term premia support valuations, but lower expected rates may signal weaker growth — and can offset each other in a reduced-form regression. Our interaction specification assumes a unidirectional effect ($\beta_4 > 0$), which would fail to detect a risk premium channel that operates in the opposite direction. This channel heterogeneity may explain why our H4 is null: the forward guidance period interaction captures the net of two offsetting channels, yielding a coefficient indistinguishable from zero. Disentangling these channels would require a structural model or a topic-specific sentiment measure, as Chen et al. (2025) propose.
+A fourth, more structural interpretation draws on Chen, Granville, and Matousek (2025), who find that forward guidance language operates through a risk premium channel rather than an expectations channel: dovish forward guidance reduces uncertainty and compresses term premia, while simultaneously lowering expected future rates. These two channels have opposing effects on equity prices — lower term premia support valuations, but lower expected rates may signal weaker growth — and can offset each other in a reduced-form regression. Our interaction specification assumes a unidirectional effect ($\beta_4 > 0$), which would fail to detect a risk premium channel that operates in the opposite direction. This channel heterogeneity may explain why our H4 is null: the forward guidance period interaction captures the net of two offsetting channels, yielding a coefficient indistinguishable from zero. Disentangling these channels would require a structural model or a topic-specific sentiment measure, as Chen et al. (2025) propose.
 
 This interpretation is further supported by the IMF's large-scale LLM analysis of central bank communication (Gambacorta et al., 2025), which finds that a directional communication index — constructed by decomposing text into topic, stance, sentiment, and forward-lookingness dimensions — predicts future market interest rate movements. Their result demonstrates that when sentiment is measured at the topic level rather than aggregated across all content, the predictive power increases substantially. Applied to our context, this suggests that our null H4 result may reflect not the absence of a forward guidance effect, but rather the inability of our aggregate sentiment measure to capture the topic-specific channels through which forward guidance operates.
 
@@ -712,7 +712,7 @@ The expanded dovish dictionary includes terms such as: accommodative, easing, do
 
 ### C.1 Regime-Specific Results
 
-| Regime | N | R² | $\beta$_target (p) | $\beta$_path (p) |
+| Regime | N | R² | $\beta_T$ (p) | $\beta_P$ (p) |
 |--------|:--:|:--:|:------------:|:----------:|
 | Easing | 42 | 2.1% | 0.000412 (0.312) | 0.000823 (0.198) |
 | Tightening | 48 | 1.8% | 0.000691 (0.098) | 0.000534 (0.421) |
@@ -726,14 +726,14 @@ The expanded dovish dictionary includes terms such as: accommodative, easing, do
 | Std | 0.006 | 0.008 | 0.005 |
 | Min | 0.008 | 0.031 | −0.022 |
 | Max | 0.034 | 0.071 | 0.005 |
-| % Negative | 0% | 0% | 100% |
-| % Positive | 100% | 100% | 0% |
+| % Negative | 0% | 0% | 92.3% |
+| % Positive | 100% | 100% | 1.7% |
 
-The LM score is always positive for FOMC statements (min = 0.031), because FOMC statements use more positive than negative words regardless of policy stance. The CB component has substantial sign variation (100% negative), reflecting the predominantly dovish language in our sample period. The equal-weighted combination dilutes this signal.
+The LM score is always positive for FOMC statements (min = 0.031), because FOMC statements use more positive than negative words regardless of policy stance. The CB component has substantial sign variation (92.3% negative, 1.7% positive, 6.0% zero), reflecting the predominantly dovish language in our sample period. The equal-weighted combination dilutes this signal.
 
 ### C.3 Newey-West Lag Sensitivity (H1 Regression)
 
-| Lag | $\beta$_target (t) | p_target | $\beta$_path (t) | p_path | R² |
+| Lag | $\beta_T$ (t) | p_target | $\beta_P$ (t) | p_path | R² |
 |:---:|:------------:|:--------:|:----------:|:------:|:--:|
 | 1 | 0.000577 (2.78) | 0.006 | 0.000633 (1.64) | 0.100 | 1.57% |
 | 2 | 0.000577 (2.61) | 0.010 | 0.000633 (1.55) | 0.123 | 1.57% |
@@ -742,7 +742,7 @@ The LM score is always positive for FOMC statements (min = 0.031), because FOMC 
 
 ### C.4 Data Source Comparison (S&P 500)
 
-| Data Source | $\beta$_target | t_target | p_target | R² |
+| Data Source | $\beta_T$ | t_target | p_target | R² |
 |-------------|:--------:|:--------:|:--------:|:--:|
 | CRSP (sprtrn) | −0.391 | −1.80 | 0.073 | 0.078 |
 | yfinance (^GSPC) | −0.259 | −2.19 | 0.030 | 0.029 |
