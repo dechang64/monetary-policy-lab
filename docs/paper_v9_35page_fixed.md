@@ -8,7 +8,7 @@ Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China
 
 ## Abstract
 
-We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. Using a combined central bank sentiment dictionary (Loughran-McDonald and central-bank-specific terms) and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005), we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data with FOMC statement texts. We find that the target shock — capturing the unexpected component of the current rate decision — is a statistically significant predictor of FOMC language sentiment ($\beta$ = 0.000577, t = 2.43, p = 0.017), while the path shock is not significant at conventional levels ($\beta$ = 0.000633, t = 1.44, p = 0.152). A Wald test cannot reject the null that the two coefficients are equal (p = 0.90). In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks (equal-weighted CRSP) responding more strongly than large-cap stocks (value-weighted), consistent with heterogeneous sensitivity to monetary policy. The forward guidance period interaction is not robustly significant, suggesting that the language channel does not strengthen during zero-lower-bound periods. Using rate changes instead of properly identified high-frequency shocks attenuates the R² by a factor of 4 (from 1.57% to 0.40%), underscoring the critical importance of data quality in monetary policy event studies.
+We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. Using a combined central bank sentiment dictionary (Loughran-McDonald and central-bank-specific terms) and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005), we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data with FOMC statement texts. We find that the target shock — capturing the unexpected component of the current rate decision — is a statistically significant predictor of FOMC language sentiment ($\beta$ = 0.000577, t = 2.43, p = 0.017), while the path shock is not significant at conventional levels ($\beta$ = 0.000633, t = 1.44, p = 0.152). A Wald test cannot reject the null that the two coefficients are equal (p = 0.90). In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks (equal-weighted CRSP) responding more strongly than large-cap stocks (value-weighted), consistent with heterogeneous sensitivity to monetary policy. The forward guidance period interaction is not robustly significant, suggesting that the language channel does not strengthen during zero-lower-bound periods. Using rate changes instead of properly identified high-frequency shocks attenuates the R² and renders the relationship statistically undetectable (p = 0.726), underscoring the critical importance of data quality in monetary policy event studies.
 
 Keywords: Monetary policy; FOMC; Forward guidance; Sentiment analysis; High-frequency identification
 
@@ -28,7 +28,7 @@ In asset return regressions, we find that the target shock significantly predict
 
 We also examine whether the effect of FOMC language on asset returns differs during the forward guidance period (December 2008 to December 2015), when the federal funds rate was at the zero lower bound. We find no robust evidence of such an interaction: the sentiment × forward guidance interaction term is statistically insignificant for the CRSP value-weighted index (p = 0.602), and while marginally significant for NASDAQ (p = 0.041), the coefficient is economically implausibly large, suggesting outlier influence. This null result suggests that, while FOMC language may convey information, its effect on asset prices does not systematically strengthen when conventional monetary policy is constrained.
 
-Our results demonstrate the critical importance of data quality in monetary policy event studies. Using rate changes instead of properly identified high-frequency shocks attenuates the R² of the sentiment regression by a factor of 4 (from 1.57% to 0.40%), and renders the relationship statistically undetectable. Even the Kuttner (2001) surprise measure, which removes the expected component of rate changes, yields substantially lower explanatory power than the GSS target/path decomposition. This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
+Our results demonstrate the critical importance of data quality in monetary policy event studies. Using rate changes instead of properly identified high-frequency shocks renders the relationship between monetary policy and FOMC language statistically undetectable (p = 0.726 vs. 0.017), even though the R² difference is modest (1.05% vs. 1.57%). This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
 
 This paper contributes to three strands of the literature. First, we contribute to the literature on central bank communication (Blinder et al., 2008; Gürkaynak et al., 2005b) by directly examining the determinants of FOMC statement language, rather than its effects on asset prices. While the existing literature has extensively documented that FOMC statements move markets, we ask the reverse question: what moves FOMC statements? Second, we contribute to the information channel literature (Romer and Romer, 2000; Campbell et al., 2012; Nakamura and Steinsson, 2018) by testing whether the two dimensions of monetary policy surprises have differential effects on language. If the information channel operates primarily through forward guidance, the path shock should dominate; if it operates through the current decision context, the target shock should dominate. Third, we contribute to the methodology of monetary policy event studies by quantifying the sensitivity of results to the choice of surprise measure — a dimension that is often treated as a secondary robustness check but, as we show, has first-order implications for inference.
 
@@ -307,17 +307,17 @@ Table 3 compares the results using three different surprise measures: rate chang
 
 | Surprise Measure | $\beta$ (t) | p | R² | N |
 |------------------|:-----:|:---:|:---:|:---:|
-| Rate change | 0.000031 (0.64) | 0.526 | 0.40% | 117 |
-| Kuttner surprise (bp) | 0.000482 (2.60) | 0.010 | 1.49% | 117 |
+| Rate change | 0.001034 (0.73) | 0.726 | 1.05% | 117 |
+| Kuttner surprise (bp) | 0.000212 (2.88) | 0.004 | 2.14% | 117 |
 | GSS target shock | 0.000577 (2.43) | 0.017 | 1.57%* | 117 |
 
 *Note: The GSS specification includes both target and path shocks; R² is for the full model. Newey-West HAC(4) standard errors.*
 
 [Table 3 about here]
 
-The choice of surprise measure has a substantial effect on the results. Using rate changes, the R² is only 0.40% and neither the target nor the path coefficient is significant (target p = 0.526). Using the Kuttner surprise, the R² increases to 1.49% and the coefficient becomes significant (p = 0.010). Using the full GSS decomposition, the R² is 1.57% and the target coefficient is significant at the 5% level.
+The choice of surprise measure has a substantial effect on the results. Using rate changes, the R² is only 1.05% and the rate change coefficient is not significant (p = 0.726). Using the Kuttner surprise, the R² increases to 2.14% and the coefficient becomes significant (p = 0.004). Using the full GSS decomposition, the R² is 1.57% and the target coefficient is significant at the 5% level.
 
-This comparison demonstrates the critical importance of data quality in monetary policy event studies. The R² varies by a factor of 4 across specifications, and the statistical significance of the results depends entirely on the choice of surprise measure. Studies that use rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
+This comparison demonstrates the critical importance of data quality in monetary policy event studies. The statistical significance of the results depends entirely on the choice of surprise measure: rate changes yield p = 0.726, while the GSS target shock yields p = 0.017. Studies that use rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
 
 The measurement error interpretation is instructive. Rate changes are a noisy proxy for monetary policy surprises because they conflate expected and unexpected components. The expected component — which is anticipated by markets and therefore already reflected in asset prices and statement language — should have no effect on sentiment, but it adds noise to the regression, attenuating the estimated coefficient and reducing the R². The Kuttner surprise removes the expected component but does not separate the target and path factors, which may have different effects on sentiment. The GSS decomposition provides the cleanest identification by separating the two dimensions of monetary policy surprises, each of which has a distinct economic interpretation.
 
@@ -408,7 +408,7 @@ While the statistical significance of our results is established in the precedin
 
 **Asset return response magnitude.** A one-standard-deviation unexpected tightening (target shock = 0.82) is associated with a 36 basis point decline in the CRSP value-weighted return and a 37 basis point decline in the equal-weighted return. These are economically meaningful magnitudes: the average absolute daily return on the CRSP value-weighted index during our sample period is approximately 80 basis points, so a one-standard-deviation target shock accounts for roughly 45% of the average absolute daily return. This is consistent with the findings of Gürkaynak et al. (2005b), who report that monetary policy surprises have large effects on asset prices.
 
-**Practical implications.** Our finding that rate changes attenuate the R² by a factor of 4 relative to high-frequency shocks has immediate practical implications for researchers and policymakers. Studies that use rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication. This is particularly relevant for cross-country studies, where high-frequency shock data may not be available for all countries, and researchers may be tempted to use rate changes as a convenient proxy.
+**Practical implications.** Our finding that rate changes render the relationship statistically undetectable (p = 0.726) while high-frequency shocks yield significance (p = 0.017) has immediate practical implications for researchers and policymakers. Studies that use rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication. This is particularly relevant for cross-country studies, where high-frequency shock data may not be available for all countries, and researchers may be tempted to use rate changes as a convenient proxy.
 
 ### 5.8 Comparison with Previous Studies
 
@@ -498,13 +498,13 @@ However, we acknowledge that a complete treatment of the identification issue wo
 
 ### 6.10 Comparison Across Fed Chairs
 
-We estimate the H1 regression separately for the Bernanke era (2006–2014, 67 meetings) and the Powell era (2015–2022, 50 meetings). The target shock is significant during the Bernanke era (p = 0.048) but not during the Powell era (p = 0.351), possibly reflecting the smaller sample size and the unusual dynamics of the COVID period. The path shock is not significant in either subsample.
+We estimate the H1 regression separately for three Fed chair eras: Bernanke (2006–2014, 53 meetings), Yellen (2014–2018, 30 meetings), and Powell (2018–2022, 34 meetings). The target shock is significant during the Bernanke era (p = 0.005) and the Yellen era (p = 0.031), but not during the Powell era (p = 0.064, marginally significant). The path shock is not significant in any subsample. The R² is highest during the Bernanke era (10.3%), followed by Yellen (5.8%) and Powell (2.4%).
 
 The difference across Fed chairs may reflect several factors. First, the Bernanke era includes the financial crisis and the introduction of forward guidance, which were periods of significant changes in FOMC language. Second, the Powell era includes the COVID pandemic, during which the FOMC made unprecedented policy changes that may have disrupted the normal relationship between monetary policy shocks and statement language. Third, the Powell era has seen a further expansion of FOMC communication, including the introduction of press conferences after every meeting and the publication of the Summary of Economic Projections, which may have changed the role of the statement in the overall communication strategy.
 
 ### 6.11 Data Quality and Measurement Error
 
-An underappreciated issue in the monetary policy event study literature is the sensitivity of results to data quality choices. Our comparison of three surprise measures demonstrates that the choice of measure has a first-order effect on the results. The R² varies by a factor of 4 (from 0.40% to 1.57%), and the statistical significance of the results depends entirely on the choice of surprise measure.
+An underappreciated issue in the monetary policy event study literature is the sensitivity of results to data quality choices. Our comparison of three surprise measures demonstrates that the choice of measure has a first-order effect on the results. The statistical significance depends entirely on the measure: rate changes yield p = 0.726, the Kuttner surprise yields p = 0.004, and the GSS target shock yields p = 0.017.
 
 The measurement error interpretation is straightforward: rate changes are a noisy proxy for monetary policy surprises, because they conflate expected and unexpected components. The Kuttner surprise removes the expected component but does not separate the target and path factors. The GSS decomposition provides the cleanest identification by separating the two dimensions of monetary policy surprises, each of which has a distinct economic interpretation.
 
@@ -536,15 +536,17 @@ The lagged sentiment coefficient is significant ($\rho$ = 0.85, p < 0.001), conf
 
 ### 6.16 Subsample Analysis: Pre-Crisis, Crisis, and Post-Crisis
 
-We estimate the H1 regression separately for three subperiods: pre-crisis (2006–2007, 16 meetings), crisis (2008–2009, 16 meetings), and post-crisis (2010–2022, 85 meetings). The results are as follows:
+We estimate the H1 regression separately for three subperiods. However, our dataset contains only 7 meetings in the pre-crisis period (2006–2007) and 13 in the crisis period (2008–2009), which are insufficient for reliable regression analysis. We therefore report results only for the post-crisis period (2010–2022, 97 meetings):
 
 | Subperiod | N | R² | $\beta_T$ (p) | $\beta_P$ (p) |
 |-----------|:--:|:--:|:------------:|:----------:|
-| Pre-crisis | 16 | 4.2% | 0.000891 (0.198) | 0.000712 (0.412) |
-| Crisis | 16 | 8.1% | 0.001245 (0.089) | 0.000934 (0.312) |
-| Post-crisis | 85 | 0.9% | 0.000412 (0.198) | 0.000523 (0.281) |
+| Pre-crisis (2006–2007) | 7 | — | — | — |
+| Crisis (2008–2009) | 13 | — | — | — |
+| Post-crisis (2010–2022) | 97 | 1.6% | −0.000433 (0.699) | 0.001247 (0.056) |
 
-The crisis period shows the strongest relationship between shocks and sentiment (R² = 8.1%), consistent with the view that FOMC language was more responsive to monetary policy surprises during the financial crisis, when the Fed was making unprecedented policy changes and the language of statements was evolving rapidly. However, the small sample sizes in the pre-crisis and crisis subperiods limit the statistical power of these tests, and none of the coefficients are significant at the 5% level in any subperiod.
+The post-crisis subsample shows a different pattern from the full sample: the target shock is not significant (p = 0.699), while the path shock is marginally significant (p = 0.056). This reversal may reflect the extended zero-lower-bound period (2010–2015), during which the target shock had little variation (the rate was fixed at zero) and the path shock captured the forward guidance that was the primary tool of monetary policy. However, the marginal significance of the path shock should be interpreted with caution given the multiple testing across subsamples.
+
+The small sample sizes in the earlier subperiods are a limitation of our analysis. The Acosta (2022) shock data begins in 1995, but our FOMC statement data begins in 2006, which restricts the pre-crisis sample. Future work with a longer statement sample could provide more reliable subsample estimates.
 
 ---
 
@@ -556,7 +558,7 @@ Our main finding is that the target shock is a statistically significant predict
 
 In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks responding more strongly than large-cap stocks. The path shock does not significantly affect any asset class. The forward guidance period interaction is not robustly significant, suggesting that the language channel does not strengthen during zero-lower-bound periods.
 
-Our results demonstrate the critical importance of data quality in monetary policy event studies. Using rate changes instead of properly identified high-frequency shocks attenuates the R² by a factor of 4, rendering the relationship between monetary policy and FOMC language statistically undetectable. This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
+Our results demonstrate the critical importance of data quality in monetary policy event studies. Using rate changes instead of properly identified high-frequency shocks renders the relationship between monetary policy and FOMC language statistically undetectable (p = 0.726 vs. 0.017). This finding has immediate practical implications: any study that uses rate changes as a proxy for monetary policy surprises will substantially underestimate the relationship between policy and communication.
 
 ### 7.1 Reconciling with the Literature
 
@@ -572,7 +574,7 @@ This interpretation is further supported by the IMF's large-scale LLM analysis o
 
 To test the channel heterogeneity hypothesis directly, we estimate a dual-equation model: one equation for equity returns (capturing the expectations channel) and one for bond market variables (capturing the risk premium channel). If forward guidance operates primarily through the risk premium channel, as Chen et al. (2025) suggest, we would expect the path shock to have a significant effect on bond yields or credit spreads but not on equity returns. The results do not support this hypothesis: neither the target nor the path shock has a significant effect on 10-year Treasury yields (R² = 0.72%, target p = 0.403, path p = 0.890), the 13-week T-bill (R² = 0.66%, target p = 0.491, path p = 0.737), or VIX changes (R² = 0.24%, target p = 0.970, path p = 0.401). The forward guidance interaction is also insignificant in all risk premium specifications (e.g., sentiment × FG on VIX: p = 0.304). This null result suggests that the risk premium channel, if present, operates at a higher frequency than daily data can capture — consistent with Chen et al.'s use of 30-minute event windows. Our daily frequency may be too coarse to separate the expectations and risk premium channels, as both channels are absorbed into the overnight price adjustment.
 
-Fourth, the dramatic sensitivity of results to the choice of surprise measure (Section 5.2) reinforces the methodological concerns raised in Section 2.7. The four-fold attenuation in R² when using rate changes instead of high-frequency shocks (1.57% vs. 0.40%) demonstrates that the choice of surprise measure is not a secondary methodological decision but a primary determinant of inference. This finding has implications for the broader literature: studies that use rate changes as a proxy for monetary policy surprises may systematically underestimate the relationship between policy and communication.
+Fourth, the dramatic sensitivity of results to the choice of surprise measure (Section 5.2) reinforces the methodological concerns raised in Section 2.7. The loss of statistical significance when using rate changes instead of high-frequency shocks (p = 0.726 vs. 0.017) demonstrates that the choice of surprise measure is not a secondary methodological decision but a primary determinant of inference. This finding has implications for the broader literature: studies that use rate changes as a proxy for monetary policy surprises may systematically underestimate the relationship between policy and communication.
 
 ### 7.2 The Jarociński-Karadi Decomposition and Information Shocks
 
@@ -716,9 +718,11 @@ The expanded dovish dictionary includes terms such as: accommodative, easing, do
 
 | Regime | N | R² | $\beta_T$ (p) | $\beta_P$ (p) |
 |--------|:--:|:--:|:------------:|:----------:|
-| Easing | 42 | 2.1% | 0.000412 (0.312) | 0.000823 (0.198) |
-| Tightening | 48 | 1.8% | 0.000691 (0.098) | 0.000534 (0.421) |
-| ZLB | 27 | 0.4% | 0.000198 (0.782) | 0.000445 (0.612) |
+| Rate hike | 17 | 10.2% | −0.000554 (0.013) | −0.000145 (0.298) |
+| Rate cut | 11 | 43.1% | 0.000188 (0.089) | 0.000837 (0.000) |
+| Unchanged | 89 | 2.0% | 0.000638 (0.616) | 0.001379 (0.079) |
+
+During rate cut meetings, the path shock is highly significant (p < 0.001) and the R² is 43.1%, suggesting that forward guidance language is most responsive to the path shock when the Fed is easing. During rate hike meetings, the target shock dominates (p = 0.013). When rates are unchanged, neither shock is significant at 5%.
 
 ### C.2 Sentiment Distribution
 
