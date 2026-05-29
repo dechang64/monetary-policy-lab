@@ -313,7 +313,7 @@ where $\text{ED1}$, $\text{ED2}$ are the first and second Eurodollar futures sur
 
 $$\text{Sentiment}_t = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2 \cdot \text{Path Factor}_t + \varepsilon_t$$
 
-**Method**: OLS with Newey-West HAC standard errors (lag = 1)
+**Method**: OLS with Newey-West HAC standard errors (lag = 4, data-driven)
 
 **Current result (v6.1)**:
 
@@ -333,7 +333,7 @@ $$\text{Sentiment}_t = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2
 
 **Comparison with literature**: R² = 4.06% is substantially higher than the v4 result (0.39% with naive proxy) but still modest in absolute terms. The low R² reflects the fact that monetary policy shocks explain only a small fraction of the variation in FOMC statement language — the remaining 96% likely reflects the Fed's response to incoming economic data, institutional inertia in statement drafting, and other factors. A formal Wald test cannot reject the null that the target and path coefficients are equal (χ² = 0.19, p = 0.66), so we interpret the results as suggestive evidence consistent with the information channel.
 
-**Newey-West lag choice**: We use lag = 1, which is conservative. The standard Bartlett formula suggests lag ≈ 4 for T = 117, but FOMC meetings are irregularly spaced (6–8 per year), making the autocorrelation structure different from daily data. Lag = 1 is defensible for event-time data but may understate standard errors. This is documented as a limitation.
+**Newey-West lag choice**: We use the data-driven lag selection formula $L = \lfloor 4(N/100)^{2/9} \rfloor$ from Newey and West (1994). For N = 117, this yields L = 4. This replaces the previous conservative lag = 1, which may have understated standard errors.
 
 ### 5.2 H2: Asset Return Response to Shocks
 
@@ -579,14 +579,14 @@ The dictionary approach has known limitations (see §3.3). The most impactful up
 
 ### 9.3 Standard Errors
 
-Current implementation uses **Newey-West HAC** standard errors with lag = 1. This is appropriate for time-series data with potential heteroskedasticity and autocorrelation.
+Current implementation uses **Newey-West HAC** standard errors with data-driven lag selection $L = \lfloor 4(N/100)^{2/9} \rfloor$ (Newey and West, 1994). For N = 117, this yields L = 4. This is appropriate for time-series data with potential heteroskedasticity and autocorrelation.
 
-**Lag choice**: Lag = 1 is conservative. The Bartlett formula suggests lag ≈ 4 for T = 117, but FOMC meetings are irregularly spaced (6–8 per year), making the autocorrelation structure different from daily data. Lag = 1 may understate standard errors (overstate significance). Sensitivity analysis with lag = 4 is recommended.
+**Lag choice**: The data-driven formula replaces the previous lag = 1, which was conservative and may have understated standard errors (overstated significance). The Newey-West (1994) automatic lag selection is the standard approach in the literature.
 
 **Planned upgrades**:
 - **White (1980)** heteroskedasticity-robust SE for cross-sectional regressions
 - **Thompson (2011)** double-clustered SE (by time and by asset) for panel regressions
-- **Lag sensitivity analysis**: Report results for lag ∈ {1, 2, 4, 6}
+- **Lag sensitivity analysis**: Report results for lag ∈ {1, 2, 4, 6} (lag = 4 is the default per Newey-West 1994)
 
 ### 9.4 Multiple Testing
 

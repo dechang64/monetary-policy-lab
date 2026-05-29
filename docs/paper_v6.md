@@ -87,7 +87,7 @@ Our primary source of monetary policy shocks is the Acosta (2022) replication da
 
 3. **NS policy news shock**: The Nakamura and Steinsson (2018) policy news shock, which captures the full information content of FOMC announcements in a single factor.
 
-4. **Kuttner surprise (ff.shock.0)**: The 30-minute change in expectations of the federal funds rate immediately after each FOMC meeting, in percentage points. We convert this to basis points (multiply by 100) for interpretation.
+4. **Kuttner surprise (ff.shock.0)**: The 30-minute change in expectations of the federal funds rate immediately after each FOMC meeting, in percentage points. Following Kuttner (2001, Eq. 2), we apply the within-month scaling factor $D/(D-d)$ to convert the futures-implied change to a monthly rate, where $D$ is the number of days in the month and $d$ is the day of the FOMC meeting. The result is then converted to basis points (multiply by 100) for interpretation.
 
 For the period August 2022 to March 2025 (21 FOMC meetings not covered by Acosta), we construct a proxy surprise measure using the daily change in the FRED Effective Federal Funds Rate (DFF). While this is a lower-frequency proxy (daily rather than 30-minute), it captures the direction and approximate magnitude of policy surprises during the recent tightening cycle. We standardize this proxy to match the scale of the Acosta target shock.
 
@@ -127,7 +127,7 @@ For each FOMC meeting, we compute the event-window return as the close-to-close 
 
 We identify 910 financial sector stocks (SIC codes 6000–6999) from CRSP, covering banks, insurance companies, broker-dealers, and other financial institutions. For each FOMC meeting date in the 2020–2024 period, we compute:
 
-- **Abnormal return (AR)**: $AR_{i,t} = R_{i,t} - R^{mkt}_t$, where $R_{i,t}$ is stock $i$'s return and $R^{mkt}_t$ is the CRSP value-weighted market return.
+- **Abnormal return (AR)**: For individual stocks, $AR_{i,t} = R_{i,t} - R^{mkt}_t$, where $R_{i,t}$ is stock $i$'s return and $R^{mkt}_t$ is the CRSP value-weighted market return. For the S&P 500 index itself, which serves as the market proxy, we use the constant-mean-return model (Brown and Warner, 1980): $AR_{i,t} = R_{i,t} - \bar{R}_i$, where $\bar{R}_i$ is the mean return over the estimation window.
 
 - **Cross-sectional average AR**: $\overline{AR}_t = \frac{1}{N_t} \sum_{i=1}^{N_t} AR_{i,t}$
 
@@ -175,7 +175,7 @@ where $FG_t$ is an indicator for the forward guidance period. If forward guidanc
 
 ### 4.5 Estimation
 
-All regressions are estimated by OLS with Newey-West heteroskedasticity and autocorrelation consistent (HAC) standard errors, using a lag length of 1. This accounts for potential serial correlation in the residuals, which is a concern in event-study settings with overlapping windows.
+All regressions are estimated by OLS with Newey-West heteroskedasticity and autocorrelation consistent (HAC) standard errors, using a data-driven lag length of $L = \lfloor 4(N/100)^{2/9} \rfloor$ following Newey and West (1994), where $N$ is the sample size. For our sample of 117 observations, this yields $L = 4$. This accounts for potential serial correlation in the residuals, which is a concern in event-study settings with overlapping windows.
 
 ---
 
@@ -317,25 +317,29 @@ Future research could extend this analysis in several directions: (1) using FinB
 
 [4] Blinder, A. S., Ehrmann, M., Fratzscher, M., De Haan, J., & Jansen, D. J. (2008). Central Bank Communication and Monetary Policy: A Survey of Theory and Evidence. Journal of Economic Literature, 46(4), 910–945.
 
-[5] Cieslak, A., Morse, A., & Vissing-Jorgensen, A. (2019). Stock Returns over the FOMC Cycle. Journal of Financial Economics, 133(1), 114–137.
+[5] Brown, S. J., & Warner, J. B. (1980). Measuring Security Price Performance. Journal of Financial Economics, 8(3), 205–258.
 
-[6] Corredoira, R. A. (2020). The FOMC and the Cost of Capital. Working Paper.
+[6] Cieslak, A., Morse, A., & Vissing-Jorgensen, A. (2019). Stock Returns over the FOMC Cycle. Journal of Financial Economics, 133(1), 114–137.
 
-[7] Gürkaynak, R. S., Sack, B. P., & Swanson, E. T. (2005). The Sensitivity of Long-Term Interest Rates to Economic News: Evidence and Implications for Monetary Policy. American Economic Review, 95(1), 425–436.
+[7] Corredoira, R. A. (2020). The FOMC and the Cost of Capital. Working Paper.
 
-[8] Hansen, S., McMahon, M., & Prat, A. (2018). Transparency and Deliberation within the FOMC: A Computational Linguistics Approach. Quarterly Journal of Economics, 133(2), 801–870.
+[8] Gürkaynak, R. S., Sack, B. P., & Swanson, E. T. (2005). The Sensitivity of Long-Term Interest Rates to Economic News: Evidence and Implications for Monetary Policy. American Economic Review, 95(1), 425–436.
 
-[9] Henry, E. (2008). Are Investors Influenced by How Earnings Press Releases Are Written? Journal of Business Communication, 45(4), 363–407.
+[9] Hansen, S., McMahon, M., & Prat, A. (2018). Transparency and Deliberation within the FOMC: A Computational Linguistics Approach. Quarterly Journal of Economics, 133(2), 801–870.
 
-[10] Jarociński, M., & Karadi, P. (2020). Deconstructing Monetary Policy Surprises—The Role of Information Shocks. American Economic Journal: Macroeconomics, 12(2), 1–43.
+[10] Henry, E. (2008). Are Investors Influenced by How Earnings Press Releases Are Written? Journal of Business Communication, 45(4), 363–407.
 
-[11] Kuttner, K. N. (2001). Monetary Policy Surprises and Interest Rates: Evidence from the Fed Funds Futures Market. Journal of Monetary Economics, 47(3), 523–544.
+[11] Jarociński, M., & Karadi, P. (2020). Deconstructing Monetary Policy Surprises—The Role of Information Shocks. American Economic Journal: Macroeconomics, 12(2), 1–43.
 
-[12] Loughran, T., & McDonald, B. (2011). When Is a Liability Not a Liability? Textual Analysis, Dictionaries, and 10-Ks. Journal of Finance, 66(1), 35–65.
+[12] Kuttner, K. N. (2001). Monetary Policy Surprises and Interest Rates: Evidence from the Fed Funds Futures Market. Journal of Monetary Economics, 47(3), 523–544.
 
-[13] Lucca, D. O., & Trebbi, F. (2009). Measuring Central Bank Communication: An Automated Approach with Application to FOMC Statements. Working Paper.
+[13] Loughran, T., & McDonald, B. (2011). When Is a Liability Not a Liability? Textual Analysis, Dictionaries, and 10-Ks. Journal of Finance, 66(1), 35–65.
 
-[14] Nakamura, E., & Steinsson, J. (2018). High-Frequency Identification of Monetary Non-Neutrality: The Information Effect. Quarterly Journal of Economics, 133(3), 1283–1330.
+[14] Lucca, D. O., & Trebbi, F. (2009). Measuring Central Bank Communication: An Automated Approach with Application to FOMC Statements. Working Paper.
+
+[15] Nakamura, E., & Steinsson, J. (2018). High-Frequency Identification of Monetary Non-Neutrality: The Information Effect. Quarterly Journal of Economics, 133(3), 1283–1330.
+
+[16] Newey, W. K., & West, K. D. (1994). Automatic Lag Selection in Covariance Matrix Estimation. Review of Economic Studies, 61(4), 631–653.
 
 ---
 
