@@ -65,7 +65,7 @@ The path shock does NOT significantly affect daily returns. This is consistent a
 
 ### Slide 8: H4 — Forward Guidance Interaction (1 min)
 
-H4 asks whether the language channel strengthens at the zero lower bound. The answer is no. The forward guidance interaction is completely insignificant — p = 0.991 for CRSP VW, p = 0.739 for NASDAQ. This null result is robust across all specifications.
+H4 asks whether the language channel strengthens at the zero lower bound. The answer is no, not robustly. The forward guidance interaction is insignificant for the CRSP VW index (p = 0.602). For NASDAQ, the interaction is marginally significant (p = 0.041), but the coefficient is 202 basis points — economically implausible and likely driven by outliers. The more reliable CRSP VW result shows no effect.
 
 Why? We explore three interpretations. First, the information content of FOMC language is captured by the high-frequency shocks regardless of regime. Second, our dictionary-based measure lacks the precision to detect a differential effect. Third — and this is where recent literature helps — Chen, Granville, and Matousek 2025 find that forward guidance operates through a risk premium channel, not an expectations channel. These two channels have opposing effects on equity prices and can offset each other in a reduced-form regression.
 

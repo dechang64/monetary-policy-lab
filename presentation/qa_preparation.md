@@ -38,9 +38,9 @@ Moreover, our forward-lookingness experiment shows that the path shock doesn't b
 
 ---
 
-## Q4: "H4 is completely null. Why is the forward guidance interaction insignificant?"
+## Q4: "H4 is not robustly significant. Why is the forward guidance interaction insignificant?"
 
-**A:** We explore three interpretations in the paper:
+**A:** The CRSP VW interaction is insignificant (p = 0.602). The NASDAQ interaction is marginally significant (p = 0.041), but the coefficient is 202 basis points — economically implausible and likely driven by outliers. We explore three interpretations:
 
 1. **Information captured by shocks**: The high-frequency shocks absorb the information content regardless of regime, leaving no residual for the interaction.
 

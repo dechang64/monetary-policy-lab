@@ -100,7 +100,7 @@ The forward guidance period (December 2008 to December 2015) provides a natural 
 
 A growing literature documents that monetary policy has heterogeneous effects across firms of different sizes. Gertler and Gilchrist (1994) show that small firms are more sensitive to monetary policy shocks than large firms, a finding they attribute to the greater reliance of small firms on bank credit, which is itself sensitive to monetary policy conditions. This "credit channel" of monetary policy transmission implies that the equal-weighted stock index — which gives more weight to small firms — should respond more strongly to monetary policy shocks than the value-weighted index.
 
-More recently, Ozdaglar and Walden (2021) show that the heterogeneous response of firms to monetary policy can be explained by differences in their capital structure, with firms that have more floating-rate debt being more sensitive to interest rate changes. This finding is relevant for our analysis because it provides a theoretical foundation for the prediction that the equal-weighted CRSP index should respond more strongly to the target shock than the value-weighted index.
+More recently, Jeenas (2019) shows that the heterogeneous response of firms to monetary policy can be explained by differences in their capital structure, with firms that have more floating-rate debt being more sensitive to interest rate changes. This finding is relevant for our analysis because it provides a theoretical foundation for the prediction that the equal-weighted CRSP index should respond more strongly to the target shock than the value-weighted index.
 
 The heterogeneous sensitivity hypothesis also has implications for the information channel. If the target shock captures information about the current state of the economy, while the path shock captures information about the future path of policy, the two shocks may have different effects across firm sizes. Small firms, which are more dependent on current economic conditions, may be more sensitive to the target shock, while large firms, which have better access to forward-looking information, may be more sensitive to the path shock. We test this prediction in Section 5.3.
 
@@ -647,6 +647,8 @@ Hansen, S., McMahon, M., & Prat, A. (2018). Transparency and Deliberation within
 Huang, A. H., Zang, A. Y., & Zheng, R. (2022). Evidence on the Information Content of Text in Analyst Reports. *Review of Accounting Studies*, 27, 85–119.
 
 Jarociński, M., & Karadi, P. (2020). Deconstructing Monetary Policy Surprises—The Role of Information Shocks. *American Economic Journal: Macroeconomics*, 12(2), 1–43.
+
+Jeenas, P. (2019). Firm Balance Sheet Liquidity, Monetary Policy Shocks, and Investment Dynamics. Working Paper, Stockholm School of Economics.
 
 Kuttner, K. N. (2001). Monetary Policy Surprises and Interest Rates: Evidence from the Fed Funds Futures Market. *Journal of Monetary Economics*, 47(3), 523–544.
 
