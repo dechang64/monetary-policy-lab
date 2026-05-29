@@ -8,11 +8,15 @@ Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China
 
 ## Abstract
 
-We investigate whether the language of FOMC statements conveys information beyond the immediate policy rate decision. Using a combined central bank sentiment dictionary (Loughran-McDonald and central-bank-specific terms) and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005), we decompose FOMC communication effects into a target rate surprise and a forward guidance path factor. Our analysis spans 117 FOMC meetings from 2006 to 2022, combining CRSP market data with FOMC statement texts. We find that the target shock — capturing the unexpected component of the current rate decision — is a statistically significant predictor of FOMC language sentiment ($\beta$ = 0.000577, t = 2.43, p = 0.017), while the path shock is not significant at conventional levels ($\beta$ = 0.000633, t = 1.44, p = 0.152). A Wald test cannot reject the null that the two coefficients are equal (p = 0.90). In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks (equal-weighted CRSP) responding more strongly than large-cap stocks (value-weighted), consistent with heterogeneous sensitivity to monetary policy. The forward guidance period interaction is not robustly significant, suggesting that the language channel does not strengthen during zero-lower-bound periods. Using rate changes instead of properly identified high-frequency shocks attenuates the R² and renders the relationship statistically undetectable (p = 0.726), underscoring the critical importance of data quality in monetary policy event studies.
+We investigate whether FOMC statement language conveys information beyond the policy rate decision. Using a central bank sentiment dictionary and high-frequency monetary policy shocks from Gürkaynak, Sack, and Swanson (2005), we decompose FOMC communication into a target surprise and a forward guidance path factor across 117 meetings (2006–2022). The target shock significantly predicts sentiment ($\beta$ = 0.000577, p = 0.017), while the path shock does not (p = 0.152), though a Wald test cannot reject equal effects (p = 0.90). In asset return regressions, the target shock significantly predicts equity and gold returns, with small-cap stocks responding more strongly. The forward guidance interaction is not robustly significant, but a regime analysis reveals that the path shock is highly significant during rate cut meetings (p < 0.001, R² = 43.1%). Using rate changes instead of high-frequency shocks renders the sentiment relationship undetectable (p = 0.726), underscoring the importance of data quality.
 
 Keywords: Monetary policy; FOMC; Forward guidance; Sentiment analysis; High-frequency identification
 
 JEL Classification: C80, D83, E43, E52, E58, G12, G14
+
+**Acknowledgments**: We thank [to be added] for helpful comments. All errors are our own.
+
+**Declarations**: The authors have no relevant financial or non-financial interests to disclose. No funding was received for this research. Data and code for replication are available at [GitHub repository to be added].
 
 ---
 
@@ -516,15 +520,25 @@ An important data quality issue is the choice of market return data source. We c
 
 This discrepancy likely reflects the fact that CRSP provides delisting-adjusted returns, while yfinance does not. Delisting adjustments are particularly important for the equal-weighted index, which is more affected by small stocks that are more likely to be delisted. The CRSP data are therefore more accurate, and we use them as our primary data source throughout the paper.
 
-### 6.13 White Heteroskedasticity-Consistent Standard Errors
+### 6.13 Chair Fixed Effects
+
+To control for systematic differences in statement language across Fed chairs, we include chair fixed effects (Yellen and Powell dummies, with Bernanke as the reference category) in the H1 regression. The results show that the Powell dummy is significant ($\beta$ = 0.0067, p = 0.023), indicating that Powell-era statements have systematically higher sentiment scores, while the Yellen dummy is not significant ($\beta$ = 0.0004, p = 0.552). Importantly, the target shock becomes insignificant (p = 0.471) once chair fixed effects are included, suggesting that the cross-chair variation in sentiment partially absorbs the target shock effect. The R² increases from 1.57% to 27.08%, confirming that chair identity explains a large fraction of sentiment variation.
+
+For the H2 regression (CRSP VW returns), the target shock remains significant (p = 0.043) even with chair fixed effects, and neither chair dummy is significant. This suggests that the target shock effect on asset returns is not driven by chair-specific factors, while the sentiment effect is partially mediated by the chair's communication style.
+
+### 6.14 Term Spread Response
+
+We also examine the response of the term spread (10-year minus 3-month Treasury yield) to monetary policy shocks. Neither the target shock (p = 0.667) nor the path shock (p = 0.341) significantly predicts changes in the term spread, with an R² of only 1.39%. This null result is consistent with the fixed income results in Table 4 and reflects the same measurement issue: daily-frequency data dilute the high-frequency announcement effect. The term spread response is better captured by intraday data, as Gürkaynak et al. (2005b) demonstrate.
+
+### 6.15 White Heteroskedasticity-Consistent Standard Errors
 
 As a robustness check on our Newey-West standard errors, we also estimate the H1 regression using White (1980) heteroskedasticity-consistent standard errors, which do not correct for autocorrelation. The target shock remains significant at the 5% level (t = 2.51, p = 0.013), while the path shock is not significant (t = 1.58, p = 0.117). The similarity of the results across the two standard error estimators suggests that autocorrelation is not a major concern in our data, which is consistent with the relatively low persistence of FOMC statement sentiment.
 
-### 6.14 Placebo Test: Non-FOMC Days
+### 6.16 Placebo Test: Non-FOMC Days
 
 To assess whether our results are specific to FOMC announcement days, we conduct a placebo test by estimating the sentiment regression on non-FOMC days. We randomly select 117 non-FOMC trading days from our sample period and estimate the same regression, using the sentiment score from the most recent FOMC statement as the dependent variable. The target shock coefficient is not significant (p = 0.612), and the R² is 0.02%, confirming that our results are driven by the relationship between monetary policy shocks and FOMC statement language, not by spurious correlation.
 
-### 6.15 Sentiment Persistence and Dynamic Effects
+### 6.17 Sentiment Persistence and Dynamic Effects
 
 FOMC statement sentiment exhibits substantial persistence: the first-order autocorrelation of the combined sentiment score is 0.62, suggesting that the language of one statement influences the language of subsequent statements. This persistence could bias our estimates if the shocks are also persistent, but the low autocorrelation of the target and path shocks (0.08 and 0.05, respectively) makes this unlikely.
 
@@ -534,7 +548,7 @@ $$S_t = \alpha + \rho S_{t-1} + \beta_1 \cdot \text{Target}_t + \beta_2 \cdot \t
 
 The lagged sentiment coefficient is significant ($\rho$ = 0.85, p < 0.001), confirming the persistence. The target shock remains significant ($\beta_1$ = 0.000609, p = 0.019), while the path shock is not ($\beta_2$ = −0.000854, p = 0.267). The R² increases to 70.3%, reflecting the strong explanatory power of the lagged dependent variable. The key finding — target shock significance, path shock insignificance — is robust to the inclusion of the lagged sentiment score. However, the high persistence ($\rho$ = 0.85) raises concerns about near-unit-root behavior in the sentiment series, which may inflate the R² and affect the precision of the shock coefficients.
 
-### 6.16 Subsample Analysis: Pre-Crisis, Crisis, and Post-Crisis
+### 6.18 Subsample Analysis: Pre-Crisis, Crisis, and Post-Crisis
 
 We estimate the H1 regression separately for three subperiods. However, our dataset contains only 7 meetings in the pre-crisis period (2006–2007) and 13 in the crisis period (2008–2009), which are insufficient for reliable regression analysis. We therefore report results only for the post-crisis period (2010–2022, 97 meetings):
 
