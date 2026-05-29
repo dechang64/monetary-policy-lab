@@ -4,7 +4,7 @@
 > 
 > Platform: https://monetary-policy-lab.streamlit.app  
 > Repository: GitHub (dechang64/monetary-policy-lab)  
-> Version: v9.0 (JMP draft complete, Literature Radar operational, enhanced analysis pipeline)
+> Version: v9.9 (JMP draft complete, 18 robustness checks, rate cut regime in main text, chair FE analysis)
 
 ---
 
@@ -313,6 +313,10 @@ Novelty measured as cosine distance between TF-IDF vectors of consecutive statem
 | NW lag=6 | 1.57% | 0.024 | 0.149 | 117 |
 | White HC SE | 1.57% | 0.012 | 0.134 | 117 |
 | Extended (Acosta+USMPD) | 1.65% | 0.419 | 0.058 | 163 |
+| Chair FE (Yellen+Powell) | 27.08% | 0.471 | 0.642 | 117 |
+| Term spread chg | 1.39% | 0.667 | 0.341 | 117 |
+
+**Chair FE detail**: Powell dummy significant (β=0.0067, p=0.023), Yellen dummy not significant (β=0.0004, p=0.552). Target shock becomes insignificant with chair FE, but remains significant for asset returns (CRSP VW: p=0.043).
 
 ---
 
@@ -424,5 +428,5 @@ OLS may suffer from reverse causality (unlikely for pre-written statements) and 
 
 ---
 
-*Document updated: 2026-05-29 (v9.0 — JMP draft, Literature Radar, enhanced analysis)*  
+*Document updated: 2026-05-29 (v9.9 — 18 robustness checks, rate cut regime in main text, chair FE, term spread)*  
 *Contact: dechang64 (GitHub) / 冬生*

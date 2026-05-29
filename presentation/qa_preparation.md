@@ -96,7 +96,7 @@ The solution may be to use LLM-based topic classification that can assign sentim
 
 1. **Comparability**: The existing literature uses unweighted OLS. Changing the baseline makes it harder to compare our results with prior work.
 
-2. **Methodological novelty**: The novelty weighting introduces a new methodological choice (how to measure novelty — cosine distance? Jaccard index? Edit distance?) that could affect results. We use cosine distance between TF-IDF vectors of consecutive statements, but this is just one option.
+2. **Methodological novelty**: The novelty weighting introduces a new methodological choice (how to measure novelty — Jaccard distance? Edit distance?) that could affect results. We use Jaccard distance between consecutive statement word sets, but this is just one option.
 
 That said, the 45% improvement suggests that not all FOMC statements are equally informative, and future work should consider information-weighted estimation as a standard practice.
 
@@ -139,3 +139,28 @@ The second insight is that the GSS target/path decomposition doesn't map cleanly
 2. **Collect high-frequency data.** The risk premium channel is invisible at daily frequency. With 30-minute windows, we could test the dual-channel hypothesis properly.
 
 3. **Use CB-LM embeddings instead of word counts.** Gambacorta et al. show that domain-specific language models outperform dictionaries on stance classification, and they're open-weight and reproducible. The marginal cost of upgrading from dictionaries to CB-LMs is small compared to the gain in measurement precision.
+
+---
+
+## Q14: "Your chair fixed effects make the target shock insignificant for sentiment. Doesn't this invalidate H1?"
+
+**A:** It qualifies H1 but doesn't invalidate it. The chair FE result tells us that the target shock effect on sentiment is partially mediated by chair-specific communication style — Powell-era statements have systematically higher sentiment (p = 0.023). When we control for who is speaking, the target shock loses significance.
+
+But the key asymmetry is that the target shock remains significant for asset returns (p = 0.043) even with chair FE. This means:
+
+1. **Sentiment is a function of who is speaking** — the language of FOMC statements reflects the chair's communication style as much as the policy surprise.
+2. **Asset prices respond to what is decided, not who decides it** — the financial market reaction to the target shock is not driven by chair-specific factors.
+
+This is actually an important finding: it suggests that the mechanism from shocks to sentiment is indirect (mediated by chair style), while the mechanism from shocks to asset prices is direct. The information channel, if it exists, operates through the policy decision itself, not through the language used to describe it.
+
+---
+
+## Q15: "The rate cut regime has only 11 observations. How reliable is the 43.1% R²?"
+
+**A:** You're right to be cautious. With 11 observations, the R² is likely inflated by overfitting. However, three points:
+
+1. The path shock p-value (< 0.001) is highly significant even with the small sample, suggesting a genuine effect.
+2. The direction is consistent with theory — during easing cycles, forward guidance language should be responsive to the path shock.
+3. We present this as a "suggestive finding" rather than a definitive result, and we explicitly note the small sample limitation.
+
+The rate cut regime result is best interpreted as a hypothesis-generating finding that motivates future work with larger samples (e.g., extending the GSS series to 2025 using the SF Fed's USMPD data, which would add 6+ rate cut meetings from the 2024-2025 easing cycle).

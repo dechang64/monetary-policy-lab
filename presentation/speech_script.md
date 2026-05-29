@@ -71,6 +71,8 @@ Why? We explore three interpretations. First, the information content of FOMC la
 
 But there's a new finding that changes the picture. When we split by decision type, the rate cut regime shows the path shock highly significant — p less than 0.001, R-squared 43 percent. This is by far the strongest result in the entire paper. It means that during easing cycles, forward guidance language is indeed responsive to the path shock. The null H4 result for the full sample masks this regime-dependent effect.
 
+There's also an asymmetry with chair fixed effects. When we control for who the Fed chair is, the target shock effect on sentiment disappears — it's absorbed by chair-specific communication style. But the target shock effect on asset returns remains significant. In other words: sentiment is a function of who is speaking, but asset prices respond to what is decided, not who decides it.
+
 ---
 
 ### Slide 9: Dual-Channel Test (45s)
