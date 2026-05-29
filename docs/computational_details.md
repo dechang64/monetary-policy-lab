@@ -440,6 +440,8 @@ $$t = \frac{\text{CAR}_i}{\hat{\sigma} \cdot \sqrt{L}}$$
 
 where $\hat{\sigma}$ is the residual standard deviation from the estimation window, and $L$ is the number of days in the event window.
 
+> **Implementation note (v6.3 fix)**: The denominator is $\hat{\sigma} \cdot \sqrt{L}$, **not** $\hat{\sigma} / \sqrt{L}$. The latter would inflate the t-statistic by a factor of $L$ (e.g., 7× for a 7-day window). This bug existed in `utils/helpers.py` and has been corrected. The cross-sectional test (Section 3.5 of the paper) uses a different formula — $t = \overline{AR}_t / (SE_t / \sqrt{N_t})$ — which is the standard t-test for a sample mean and is correct as stated.
+
 **Default windows**: Estimation = 250 days; Event = $[-1, +5]$ (6 trading days).
 
 ### 6.2 Cross-Sectional Aggregation
@@ -448,7 +450,15 @@ $$\text{AAR}_t = \frac{1}{N} \sum_{i=1}^{N} \text{AR}_{i,t}, \quad \text{CAAR}_t
 
 Aggregated across all assets for each FOMC date.
 
-### 6.3 Asset-Level Summary
+### 6.3 Demo Data Limitations
+
+When FRED/WRDS data is unavailable, the platform falls back to synthetic returns (`utils/helpers.py:generate_synthetic_returns`). Key limitations:
+
+1. **Correlated noise only**: Base returns are generated from a multivariate normal with an empirical correlation structure, but no FOMC event effects.
+2. **FOMC effects injected post-hoc**: Directional shocks (hawkish/dovish) are added on actual FOMC dates with decay over the event window. This ensures equity indices move in the same direction and Treasury yields move in the same direction, consistent with the literature (Gürkaynak et al. 2005a).
+3. **Not suitable for publication**: Demo data is for platform demonstration only. All published results must use real data from CRSP/FRED.
+
+### 6.4 Asset-Level Summary
 
 For each asset, average CAR across all FOMC events:
 
