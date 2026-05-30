@@ -1,0 +1,50 @@
+{
+  "minutes_analysis": {
+    "n_meetings": 117,
+    "sample_period": "2006-2022",
+    "statement_vs_minutes": {
+      "lm_correlation": 0.3412082338038461,
+      "cb_correlation": -0.32714460940753987,
+      "statement_word_count_mean": 1470.4017094017095,
+      "minutes_word_count_mean": 8313.606837606838
+    },
+    "regressions": {
+      "statement_shocks": {
+        "target_beta": 0.0005765947280499553,
+        "target_p": 0.36520965286099094,
+        "path_beta": 0.0006325903675936735,
+        "path_p": 0.36520965286099094,
+        "r_squared": 0.01574695330897513
+      },
+      "minutes_lm_shocks": {
+        "target_beta": 0.0009229787330448776,
+        "target_p": 0.19146655998670825,
+        "path_beta": 0.0010506298706997627,
+        "path_p": 0.15097015707711736,
+        "r_squared": 0.037627172101627915
+      },
+      "minutes_cb_shocks": {
+        "target_beta": -0.007972878612173148,
+        "target_p": 0.6638363775506493,
+        "path_beta": -0.03778302843770738,
+        "path_p": 0.04831234223638359,
+        "r_squared": 0.038125553668788004
+      },
+      "statement_shocks_minutes_lm": {
+        "target_beta": 0.00034161801904714073,
+        "target_p": 0.6036416277956422,
+        "path_beta": 0.00036511557044134347,
+        "path_p": 0.5923151214665343,
+        "minutes_lm_beta": 0.25458518229086086,
+        "minutes_lm_p": 0.004081212880895135,
+        "r_squared": 0.08531824577852365
+      }
+    },
+    "information_channel_test": {
+      "minutes_cb_wald_chi2": 1.1207859160968259,
+      "minutes_cb_wald_p": 0.2897492888154948,
+      "statement_wald_chi2": 0.002926453251512604,
+      "statement_wald_p": 0.956858119204388
+    }
+  }
+}
