@@ -30,9 +30,9 @@ That said, the CB-LM approach from Gambacorta et al. 2024 offers a middle ground
 
 ---
 
-## Q3: "H1 says the target shock is significant but the path shock is not. Doesn't this contradict the information channel?"
+## Q3: "H1 (Equation 4) says the target shock is significant but the path shock is not. Doesn't this contradict the information channel?"
 
-**A:** It contradicts the *strong* version of the information channel, which predicts that forward guidance language should be primarily driven by the path shock. But the Wald test (p = 0.90) means we cannot definitively rule out equal effects. The evidence is suggestive but not conclusive.
+**A:** It contradicts the *strong* version of the information channel, which predicts that forward guidance language should be primarily driven by the path shock. But the Wald test (Equation 6, p = 0.90) means we cannot definitively rule out equal effects. The evidence is suggestive but not conclusive.
 
 Moreover, our forward-lookingness experiment shows that the path shock doesn't become significant even when we isolate forward-looking language (p = 0.80). This suggests the GSS target/path decomposition and the FOMC text's forward-looking/current-assessment dimensions don't have a simple correspondence — the path shock captures a broad policy stance signal, not specifically forward guidance content.
 
@@ -44,7 +44,7 @@ Moreover, our forward-lookingness experiment shows that the path shock doesn't b
 
 1. **Information captured by shocks**: The high-frequency shocks absorb the information content regardless of regime, leaving no residual for the interaction.
 
-2. **Measurement imprecision**: Our dictionary-based sentiment cannot distinguish forward guidance language from other policy-relevant text. Chen et al. 2025 show that even GPT-3.5 fails to identify forward guidance in 135 of 139 statements — our CB dictionary has the same limitation.
+2. **Measurement imprecision**: Our dictionary-based sentiment cannot distinguish forward guidance language from other policy-relevant text. Chen et al. 2025 show that even GPT-3.5 fails to identify forward guidance in 135 of 139 statements — our CB dictionary (Equation 2) has the same limitation.
 
 3. **Risk premium channel**: Chen et al. 2025 find that forward guidance operates through a risk premium channel (reducing uncertainty → compressing term premia) rather than an expectations channel. These two channels have opposing effects on equity prices and can offset each other in a reduced-form regression. Our dual-equation test doesn't find the risk premium channel at daily frequency, but Chen et al. use 30-minute windows — the channel may be too fast for daily data.
 
@@ -64,7 +64,7 @@ Implementing the JK sign-restriction decomposition would allow us to separately 
 
 **A:** We report both and agree that CB-only is the stronger measure for this specific application. The combined measure dilutes the CB signal because the LM component is always positive for FOMC text — it adds noise without adding signal.
 
-However, we keep the combined measure as our baseline for two reasons: (1) comparability with the existing literature that uses LM-based sentiment, and (2) the combined measure is a more conservative test — if the target shock is significant even with the diluted measure, it's a stronger result.
+However, we keep the combined measure as our baseline for two reasons: (1) comparability with the existing literature that uses LM-based sentiment, and (2) the combined measure is a more conservative test — if the target shock is significant (Equation 4) even with the diluted measure, it's a stronger result.
 
 The CB-only result is important as a robustness check and as evidence that domain-specific dictionaries outperform general-purpose financial dictionaries for central bank communication analysis.
 

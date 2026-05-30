@@ -51,7 +51,7 @@ The target shock is significant at 5% — a contractionary target surprise is as
 
 This is the opposite of what the information channel predicts. The strong version of the hypothesis says forward guidance language should be primarily driven by the path shock. We find the opposite: the current rate decision drives language, not the future path.
 
-However, a Wald test cannot reject that the two coefficients are equal (p = 0.90). So we cannot definitively rule out equal effects. The evidence is suggestive but not conclusive.
+However, a Wald test (Equation 6) cannot reject that the two coefficients are equal (p = 0.90). So we cannot definitively rule out equal effects. The evidence is suggestive but not conclusive.
 
 ---
 

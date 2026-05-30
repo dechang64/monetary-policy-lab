@@ -225,8 +225,8 @@ Beyond the raw combined score, the enhanced pipeline also computes:
 | `word_count` | Statement length (tokens) |
 | `hawkish_count` | Raw hawkish word count |
 | `dovish_count` | Raw dovish word count |
-| `lm_score` | LM dictionary score (always positive for FOMC text) |
-| `cb_score` | CB dictionary score (has sign variation) |
+| `lm_score` | LM dictionary (Equation 1) score (always positive for FOMC text) |
+| `cb_score` | CB dictionary (Equation 2) score (has sign variation) |
 | `combined` | 0.5 × LM + 0.5 × CB |
 
 ### 3.2 Sentiment Distribution (v6.1)
@@ -329,7 +329,7 @@ $$\text{Sentiment}_t = \alpha + \beta_1 \cdot \text{Target Surprise}_t + \beta_2
 
 *Significance: \*\*\* p<0.01, \*\* p<0.05, \* p<0.10
 
-**Interpretation**: Both target and path shocks are significant predictors of FOMC statement sentiment. The path factor (forward guidance) is significant at 5%, while the target surprise is significant at 10%. However, the overall explanatory power is modest (R² = 4.06%), and a formal Wald test cannot reject the null that the two coefficients are equal (χ² = 0.19, p = 0.66). We interpret this as suggestive evidence consistent with the information channel, rather than definitive proof that the path effect dominates.
+**Interpretation**: Both target and path shocks are significant predictors of FOMC statement sentiment. The path factor (forward guidance) is significant at 5%, while the target surprise is significant at 10%. However, the overall explanatory power is modest (R² = 4.06%), and a formal Wald test (Equation 6) cannot reject the null that the two coefficients are equal (χ² = 0.19, p = 0.66). We interpret this as suggestive evidence consistent with the information channel, rather than definitive proof that the path effect dominates.
 
 **Comparison with literature**: R² = 4.06% is substantially higher than the v4 result (0.39% with naive proxy) but still modest in absolute terms. The low R² reflects the fact that monetary policy shocks explain only a small fraction of the variation in FOMC statement language — the remaining 96% likely reflects the Fed's response to incoming economic data, institutional inertia in statement drafting, and other factors. A formal Wald test cannot reject the null that the target and path coefficients are equal (χ² = 0.19, p = 0.66), so we interpret the results as suggestive evidence consistent with the information channel.
 
