@@ -1,0 +1,304 @@
+{
+  "version": "Delta v3 信息论指标扩展版",
+  "date": "2026-05-31",
+  "period": "2024-01-02 to 2024-06-28",
+  "stocks_count": 13,
+  "miller_hypothesis": {
+    "high_dpost_avg_ret": 0,
+    "low_dpost_avg_ret": -0.0049,
+    "成立": false
+  },
+  "js_hypothesis": {
+    "high_js_avg_ret": -0.0181,
+    "low_js_avg_ret": -0.0038,
+    "成立": true
+  },
+  "stocks": [
+    {
+      "ticker": "NVDA",
+      "r2": [
+        8,
+        9,
+        3
+      ],
+      "sc": 6.6667,
+      "std": 0.2916,
+      "range": 0.6667,
+      "ret": -0.7347,
+      "js": 0.0278,
+      "H": 0.746,
+      "confidence": 0.7,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": false,
+      "ok_H": null,
+      "ok_D": false
+    },
+    {
+      "ticker": "JD",
+      "r2": [
+        4,
+        5,
+        8
+      ],
+      "sc": 5.6667,
+      "std": 0.1889,
+      "range": 0.4444,
+      "ret": -0.0271,
+      "js": 0.0116,
+      "H": 1.0297,
+      "confidence": 0.5,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "谨慎",
+      "dir_D": "做多",
+      "ok_js": false,
+      "ok_H": null,
+      "ok_D": false
+    },
+    {
+      "ticker": "META",
+      "r2": [
+        7,
+        8,
+        5
+      ],
+      "sc": 6.6667,
+      "std": 0.1386,
+      "range": 0.3333,
+      "ret": 0.4238,
+      "js": 0.0322,
+      "H": 0.8979,
+      "confidence": 0.6,
+      "confidence_low": false,
+      "dir_js": "中性",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": null,
+      "ok_H": null,
+      "ok_D": true
+    },
+    {
+      "ticker": "MSFT",
+      "r2": [
+        7,
+        6,
+        4
+      ],
+      "sc": 5.6667,
+      "std": 0.1386,
+      "range": 0.3333,
+      "ret": 0.1806,
+      "js": 0.0121,
+      "H": 0.8979,
+      "confidence": 0.6,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": true,
+      "ok_H": null,
+      "ok_D": true
+    },
+    {
+      "ticker": "TSLA",
+      "r2": [
+        5,
+        4,
+        4
+      ],
+      "sc": 4.3333,
+      "std": 0.0524,
+      "range": 0.1111,
+      "ret": -0.2536,
+      "js": 0.0156,
+      "H": 1.0397,
+      "confidence": 0.5,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "谨慎",
+      "dir_D": "做多",
+      "ok_js": false,
+      "ok_H": null,
+      "ok_D": false
+    },
+    {
+      "ticker": "GOOGL",
+      "r2": [
+        8,
+        7,
+        6
+      ],
+      "sc": 7.0,
+      "std": 0.0907,
+      "range": 0.2222,
+      "ret": 0.3152,
+      "js": 0.0389,
+      "H": 0.746,
+      "confidence": 0.7,
+      "confidence_low": false,
+      "dir_js": "中性",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": null,
+      "ok_H": null,
+      "ok_D": true
+    },
+    {
+      "ticker": "AMZN",
+      "r2": [
+        7,
+        7,
+        7
+      ],
+      "sc": 7.0,
+      "std": 0.0,
+      "range": 0.0,
+      "ret": 0.23,
+      "js": 0.0529,
+      "H": 0.8979,
+      "confidence": 0.6,
+      "confidence_low": false,
+      "dir_js": "中性",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": null,
+      "ok_H": null,
+      "ok_D": true
+    },
+    {
+      "ticker": "NKE",
+      "r2": [
+        7,
+        6,
+        5
+      ],
+      "sc": 6.0,
+      "std": 0.0907,
+      "range": 0.2222,
+      "ret": -0.0827,
+      "js": 0.0152,
+      "H": 0.8979,
+      "confidence": 0.6,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": false,
+      "ok_H": null,
+      "ok_D": false
+    },
+    {
+      "ticker": "BA",
+      "r2": [
+        7,
+        6,
+        5
+      ],
+      "sc": 6.0,
+      "std": 0.0907,
+      "range": 0.2222,
+      "ret": -0.12,
+      "js": 0.0152,
+      "H": 0.8979,
+      "confidence": 0.6,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": false,
+      "ok_H": null,
+      "ok_D": false
+    },
+    {
+      "ticker": "300750.SZ",
+      "r2": [
+        7,
+        6,
+        4
+      ],
+      "sc": 5.6667,
+      "std": 0.1386,
+      "range": 0.3333,
+      "ret": 0.0382,
+      "js": 0.0121,
+      "H": 0.8979,
+      "confidence": 0.6,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": true,
+      "ok_H": null,
+      "ok_D": true
+    },
+    {
+      "ticker": "000858.SZ",
+      "r2": [
+        6,
+        5,
+        4
+      ],
+      "sc": 5.0,
+      "std": 0.0907,
+      "range": 0.2222,
+      "ret": -0.0215,
+      "js": 0.0144,
+      "H": 1.0297,
+      "confidence": 0.5,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "谨慎",
+      "dir_D": "做多",
+      "ok_js": false,
+      "ok_H": null,
+      "ok_D": false
+    },
+    {
+      "ticker": "002594.SZ",
+      "r2": [
+        6,
+        5,
+        4
+      ],
+      "sc": 5.0,
+      "std": 0.0907,
+      "range": 0.2222,
+      "ret": 0.0057,
+      "js": 0.0144,
+      "H": 1.0297,
+      "confidence": 0.5,
+      "confidence_low": false,
+      "dir_js": "做多",
+      "dir_H": "谨慎",
+      "dir_D": "做多",
+      "ok_js": true,
+      "ok_H": null,
+      "ok_D": true
+    },
+    {
+      "ticker": "600519.SS",
+      "r2": [
+        8,
+        8,
+        8
+      ],
+      "sc": 8.0,
+      "std": 0.0,
+      "range": 0.0,
+      "ret": -0.0181,
+      "js": 0.0949,
+      "H": 0.746,
+      "confidence": 0.7,
+      "confidence_low": false,
+      "dir_js": "中性",
+      "dir_H": "中性",
+      "dir_D": "做多",
+      "ok_js": null,
+      "ok_H": null,
+      "ok_D": false
+    }
+  ]
+}
