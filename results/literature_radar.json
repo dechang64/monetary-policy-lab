@@ -898,9 +898,59 @@
       "already_cited": false,
       "discovered_date": "2026-05-30",
       "scan_id": "20260530_0913"
+    },
+    {
+      "title": "[PDF] Central Bank Communication Channel",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/d73354d7-0a3e-4149-ac3b-84cc1a20aa97-MECA.pdf?abstractid=5901252&mirid=1&type=2",
+      "snippet": "We construct two sentiment variables using FinBERT, called Central Bank. Sentiment (CBS for short). These sentiment indicators focus on the stock market.",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "a92dd35ce4aa",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "central bank communication",
+        "FinBERT"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-05-31",
+      "scan_id": "20260531_0913"
+    },
+    {
+      "title": "[PDF] Generative AI for Central Bank Statements: Large Language Models",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/6795338.pdf?abstractid=6795338&mirid=1",
+      "snippet": "The hawkish–dovish analysis is economically important because markets price not only the current policy step, but also the communicated path of policy, the ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "8b2602e07ba5",
+      "relevance_score": 0.2,
+      "matched_keywords": [
+        "large language model"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-05-31",
+      "scan_id": "20260531_0913"
+    },
+    {
+      "title": "[PDF] Anchoring Monetary Policy to Real Growth and Credit Using Artificial",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5161699.pdf?abstractid=5161699&mirid=1",
+      "snippet": "This appendix compares the AI-driven monetary policy framework proposed in the main paper with the Taylor Rule (1993), a widely recognized ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "e29de8b79f4d",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-05-31",
+      "scan_id": "20260531_0913"
     }
   ],
-  "last_scan": "2026-05-30 09:13",
+  "last_scan": "2026-06-01 09:30",
   "scan_history": [
     {
       "date": "2026-05-29 18:55",
@@ -915,6 +965,20 @@
       "high_relevance": 0,
       "medium_relevance": 1,
       "low_relevance": 11
+    },
+    {
+      "date": "2026-05-31 09:13",
+      "new_papers": 3,
+      "high_relevance": 0,
+      "medium_relevance": 1,
+      "low_relevance": 2
+    },
+    {
+      "date": "2026-06-01 09:30",
+      "new_papers": 0,
+      "high_relevance": 0,
+      "medium_relevance": 0,
+      "low_relevance": 0
     }
   ]
 }

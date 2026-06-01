@@ -99,7 +99,7 @@ page = st.sidebar.radio(
         "💬 FOMC Sentiment Analysis",
         "🔄 Capital Flow Analysis",
         "📚 Paper Replication Lab",
-        "📊 WRDS Results (v6)",
+        "📊 WRDS Results (v10.2)",
         "⚙️ Data Explorer",
         "🔬 Phase 1 Research",
         "🧠 Federated AI Intelligence",
@@ -118,7 +118,7 @@ Built for studying how monetary policy announcements reshape asset prices and po
 - 🌊 Capital Flow Sankey
 - 📋 Classic Paper Replication
 - 🔗 Real-time FRED Data
-- 📊 WRDS-Enhanced Results (v6)
+- 📊 WRDS-Enhanced Results (v10.2)
 - 🧠 Federated AI Intelligence (NEW)
 """)
 
@@ -141,7 +141,7 @@ elif page == "🔄 Capital Flow Analysis":
 elif page == "📚 Paper Replication Lab":
     from modules import replication
     replication.render()
-elif page == "📊 WRDS Results (v6)":
+elif page == "📊 WRDS Results (v10.2)":
     from modules import wrds_results
     wrds_results.render()
 elif page == "⚙️ Data Explorer":
