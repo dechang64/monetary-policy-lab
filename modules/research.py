@@ -163,7 +163,7 @@ def _run_pipeline(df, fomc_dates, label=""):
     |-------|-----------|---------------|
     | Model 1 | H1 | `Sentiment = α + β₁ · Surprise + ε` |
     | Model 2 | H2 | `Asset_Return = α + β₁ · Surprise + β₂ · Sentiment + ε` |
-    | Model 3 | H3 | `Sentiment = α + β₁ · Policy_Shock + β₂ · Info_Shock + ε` |
+    | Model 3 | H3 | `Sentiment = α + β₁ · Target_Shock + β₂ · Path_Shock + ε` |
     | Model 4 | H4 | `Asset_Return = α + β₁ · Surprise + β₂ · Sentiment + β₃ · (Sentiment × FG) + ε` |
     """)
 
@@ -181,7 +181,7 @@ def render():
     **Hypotheses:**
     - H1: Language sentiment correlates with Kuttner surprise but is not collinear
     - H2: Sentiment has incremental explanatory power for asset prices (ΔR²)
-    - H3: Sentiment maps to information shocks (Two-Shocks framework)
+    - H3: Target shock significantly predicts sentiment; path shock does not (policy implementation channel)
     - H4: Language matters more during Forward Guidance period (2008-2015)
     """)
 

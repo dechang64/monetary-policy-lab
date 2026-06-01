@@ -141,9 +141,9 @@ def _render_results(results):
                 if key in h4:
                     row[f"β({key})"] = f"{h4[key].get('beta', 0):.2f}"
                     row[f"p({key})"] = f"{h4[key].get('p', 1):.3f}"
-            if 'interaction' in h4:
-                row["β(interaction)"] = f"{h4['interaction'].get('beta', 0):.2f}"
-                row["p(interaction)"] = f"{h4['interaction'].get('p', 1):.3f}"
+            if 'sent_x_fg' in h4:
+                row["β(Sent×FG)"] = f"{h4['sent_x_fg'].get('beta', 0):.2f}"
+                row["p(Sent×FG)"] = f"{h4['sent_x_fg'].get('p', 1):.3f}"
             h4_data.append(row)
         if h4_data:
             st.dataframe(pd.DataFrame(h4_data), use_container_width=True)
