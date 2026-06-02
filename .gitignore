@@ -42,3 +42,23 @@ docs/paper_v9_35page.docx
 docs/Beyond_the_Rate_JMP_v6.docx
 submission/data
 submission/mp-research-platform
+
+# Paper/docx/pdf — do not upload
+delivery_v10.3/*.docx
+delivery_v10.3/*.pdf
+paper_v10.3.md
+delivery_v10.3.zip
+delivery_v10.zip
+presentation_v10.3.zip
+presentation_v10.3/Words_Beyond_the_Rate_v10.3_updated.docx
+
+# FF paper (copyrighted)
+results/fernandez_fuertes_2025_jmp.pdf
+
+# Old delivery bundles
+delivery_v9.2/*.docx
+delivery_v9.2/*.pdf
+delivery_v9.2/*.zip
+
+# JSON artifacts from web scraping
+results/paper2_*.json

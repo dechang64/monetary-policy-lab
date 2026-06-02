@@ -948,9 +948,105 @@
       "already_cited": false,
       "discovered_date": "2026-05-31",
       "scan_id": "20260531_0913"
+    },
+    {
+      "title": "[PDF] Gauging the Sentiment of Federal Open Market Committee",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/fedgfe2025-48.pdf?abstractid=5346292",
+      "snippet": "... monetary policy tools: conventional monetary policy, asset purchases, and forward guidance. ... NLP ... surprise and monetary policy shock affect policy.",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "0c1a04b1db76",
+      "relevance_score": 0.347,
+      "matched_keywords": [
+        "monetary policy shock",
+        "NLP",
+        "forward guidance"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": true,
+      "discovered_date": "2026-06-02",
+      "scan_id": "20260602_0924"
+    },
+    {
+      "title": "[PDF] How FOMC Statements Affected The Stock Market During the",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5297420.pdf?abstractid=5297420&mirid=1",
+      "snippet": "Unlike the positive fluctuations in dovish statements, hawkish statements presented a consistent tone throughout, often presenting the negative economic updates ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "8a948070ceb5",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "FOMC"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-06-02",
+      "scan_id": "20260602_0924"
+    },
+    {
+      "title": "[PDF] Bank Equity Anomalies and the Fed Regulatory Stance",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5924588.pdf?abstractid=5924588",
+      "snippet": "The results show that monetary policy sentiment does not qualitatively alter our main findings, with the return correction associated with High-.",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "39945d2465a1",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-06-02",
+      "scan_id": "20260602_0924"
+    },
+    {
+      "title": "[PDF] Linking Social Media Sentiment to Consumer Spending ص ﻟ اﻟﻣﺳ",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5341253.pdf?abstractid=5341253&mirid=1",
+      "snippet": "This research will underscore the imperative for central banks to strategically manage public perception and trust in the digital sphere, transforming ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "427e1eeb7c96",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-06-02",
+      "scan_id": "20260602_0924"
+    },
+    {
+      "title": "[PDF] Do Households React to Monetary Policy?",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5398750.pdf?abstractid=5398750&mirid=1",
+      "snippet": "While anticipated rate changes lead to modest adjustments, borrowers respond strongly to surprise rate changes: a 1 percentage point unexpected change in the ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "4a7e2087d044",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-06-02",
+      "scan_id": "20260602_0924"
+    },
+    {
+      "title": "[PDF] Unraveling the Dynamics of Mutual Fund Behavior",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/f261a80a-7d5f-40b0-b1c9-c4a229c02b5e-MECA.pdf?abstractid=6038625&mirid=1",
+      "snippet": "Additionally, we observe that the more hawkish the ECB speech, the less actively equity fund managers adjust their portfolios, whereas a more dovish stance ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "c10723a4b22d",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-06-02",
+      "scan_id": "20260602_0924"
     }
   ],
-  "last_scan": "2026-06-01 09:30",
+  "last_scan": "2026-06-02 09:24",
   "scan_history": [
     {
       "date": "2026-05-29 18:55",
@@ -979,6 +1075,13 @@
       "high_relevance": 0,
       "medium_relevance": 0,
       "low_relevance": 0
+    },
+    {
+      "date": "2026-06-02 09:24",
+      "new_papers": 6,
+      "high_relevance": 0,
+      "medium_relevance": 1,
+      "low_relevance": 5
     }
   ]
 }
