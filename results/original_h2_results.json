@@ -1,0 +1,183 @@
+{
+  "h2_sentiment_incremental": {
+    "vwretd_day": {
+      "label": "CRSP VW",
+      "beta_sentiment": -0.1987,
+      "se_sentiment": 0.1501,
+      "p_sentiment": 0.1853,
+      "baseline_r2": 9.1,
+      "full_r2": 9.84,
+      "incremental_r2": 0.74,
+      "beta_target": -0.0042,
+      "p_target": 0.0444,
+      "beta_path": -0.0017,
+      "p_path": 0.4637
+    },
+    "ewretd_day": {
+      "label": "CRSP EW",
+      "beta_sentiment": -0.101,
+      "se_sentiment": 0.1761,
+      "p_sentiment": 0.5663,
+      "baseline_r2": 10.28,
+      "full_r2": 10.49,
+      "incremental_r2": 0.21,
+      "beta_target": -0.0044,
+      "p_target": 0.012,
+      "beta_path": -0.0017,
+      "p_path": 0.49
+    },
+    "sp500_ret": {
+      "label": "S&P 500",
+      "beta_sentiment": 19.4585,
+      "se_sentiment": 11.4194,
+      "p_sentiment": 0.0884,
+      "baseline_r2": 2.91,
+      "full_r2": 3.57,
+      "incremental_r2": 0.66,
+      "beta_target": -0.2699,
+      "p_target": 0.021,
+      "beta_path": -0.1134,
+      "p_path": 0.4938
+    },
+    "nasdaq_ret": {
+      "label": "NASDAQ",
+      "beta_sentiment": 4.0734,
+      "se_sentiment": 14.4845,
+      "p_sentiment": 0.7785,
+      "baseline_r2": 3.39,
+      "full_r2": 3.42,
+      "incremental_r2": 0.02,
+      "beta_target": -0.2844,
+      "p_target": 0.0338,
+      "beta_path": -0.1686,
+      "p_path": 0.3047
+    },
+    "ty10_chg": {
+      "label": "10Y Treasury",
+      "beta_sentiment": 1.2355,
+      "se_sentiment": 0.7456,
+      "p_sentiment": 0.0975,
+      "baseline_r2": 0.72,
+      "full_r2": 1.94,
+      "incremental_r2": 1.22,
+      "beta_target": 0.0061,
+      "p_target": 0.4488,
+      "beta_path": -0.0016,
+      "p_path": 0.789
+    },
+    "gold_ret": {
+      "label": "Gold",
+      "beta_sentiment": -11.0297,
+      "se_sentiment": 20.8601,
+      "p_sentiment": 0.597,
+      "baseline_r2": 7.01,
+      "full_r2": 7.11,
+      "incremental_r2": 0.1,
+      "beta_target": -0.3979,
+      "p_target": 0.0183,
+      "beta_path": -0.4808,
+      "p_path": 0.1524
+    }
+  },
+  "h4_fg_subsample": {
+    "vwretd_day": {
+      "label": "CRSP VW",
+      "fg_n": 57,
+      "fg_beta_sentiment": -2.5979,
+      "fg_se_sentiment": 0.9113,
+      "fg_p_sentiment": 0.0044,
+      "fg_r2": 30.58,
+      "nonfg_n": 60,
+      "nonfg_beta_sentiment": -0.0521,
+      "nonfg_p_sentiment": 0.7265,
+      "nonfg_r2": 5.57
+    },
+    "ewretd_day": {
+      "label": "CRSP EW",
+      "fg_n": 57,
+      "fg_beta_sentiment": -2.6976,
+      "fg_se_sentiment": 1.0311,
+      "fg_p_sentiment": 0.0089,
+      "fg_r2": 31.8,
+      "nonfg_n": 60,
+      "nonfg_beta_sentiment": 0.0371,
+      "nonfg_p_sentiment": 0.8148,
+      "nonfg_r2": 7.72
+    },
+    "sp500_ret": {
+      "label": "S&P 500",
+      "fg_n": 57,
+      "fg_beta_sentiment": 155.6818,
+      "fg_se_sentiment": 91.9162,
+      "fg_p_sentiment": 0.0903,
+      "fg_r2": 4.12,
+      "nonfg_n": 60,
+      "nonfg_beta_sentiment": 10.0469,
+      "nonfg_p_sentiment": 0.4105,
+      "nonfg_r2": 11.81
+    }
+  },
+  "h4_interaction": {
+    "vwretd_day": {
+      "label": "CRSP VW",
+      "beta_sentiment": -0.0322,
+      "p_sentiment": 0.8341,
+      "beta_interaction": -2.8672,
+      "p_interaction": 0.0045
+    },
+    "ewretd_day": {
+      "label": "CRSP EW",
+      "beta_sentiment": 0.053,
+      "p_sentiment": 0.7391,
+      "beta_interaction": -2.9501,
+      "p_interaction": 0.0028
+    },
+    "sp500_ret": {
+      "label": "S&P 500",
+      "beta_sentiment": 8.1229,
+      "p_sentiment": 0.5385,
+      "beta_interaction": 184.3535,
+      "p_interaction": 0.0597
+    },
+    "nasdaq_ret": {
+      "label": "NASDAQ",
+      "beta_sentiment": -6.5106,
+      "p_sentiment": 0.6997,
+      "beta_interaction": 199.5299,
+      "p_interaction": 0.041
+    },
+    "ty10_chg": {
+      "label": "10Y Treasury",
+      "beta_sentiment": 0.9185,
+      "p_sentiment": 0.2397,
+      "beta_interaction": 7.2736,
+      "p_interaction": 0.1169
+    },
+    "gold_ret": {
+      "label": "Gold",
+      "beta_sentiment": -13.8175,
+      "p_sentiment": 0.6098,
+      "beta_interaction": -156.5037,
+      "p_interaction": 0.2863
+    }
+  },
+  "partial_correlations": {
+    "fg": {
+      "r": -0.3643,
+      "p": 0.0053
+    },
+    "nonfg": {
+      "r": -0.0328,
+      "p": 0.8036
+    }
+  },
+  "audit": {
+    "permutation_p_value": 0.0,
+    "leave_one_out_max_delta_beta": 0.5388,
+    "leave_one_out_worst_p": 0.025,
+    "vif_max": 1.33,
+    "ols_hac_se_ratio": 1.0,
+    "fg_sentiment_std": 0.001923,
+    "nonfg_sentiment_std": 0.007758
+  }
+}
