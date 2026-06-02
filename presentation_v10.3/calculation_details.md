@@ -537,7 +537,86 @@ S_t = α + β_T · target_orth_t + β_P · path_orth_t + ε_t
 
 ---
 
+## Table 10: Original H2 — Sentiment Incremental Explanatory Power
+
+### 计算方法
+检验 FOMC 声明情绪是否包含超越 target/path shocks 的增量信息：
+
+```
+R_t = α + β_T · Target_t + β_P · Path_t + β_S · Sentiment_t + ε_t
+```
+
+如果 β_S 显著且增量 R² > 0 → 语言包含增量信息。
+
+### 全样本结果
+
+| 资产 | β_S | p | ΔR² | R²(shocks) | R²(both) |
+|------|-----|---|-----|-----------|----------|
+| CRSP VW | -0.199 | 0.185 | +0.74% | 9.10% | 9.84% |
+| CRSP EW | -0.101 | 0.566 | +0.21% | 10.28% | 10.49% |
+| S&P 500 | 19.46 | 0.088* | +0.66% | 2.91% | 3.57% |
+| NASDAQ | 4.07 | 0.779 | +0.02% | 3.39% | 3.42% |
+| 10Y Treasury | 1.24 | 0.098* | +1.22% | 0.72% | 1.94% |
+| Gold | -11.03 | 0.597 | +0.10% | 7.01% | 7.11% |
+
+### FG 时期子样本（核心发现）
+
+| | FG (N=57) | Non-FG (N=60) |
+|---|---|---|
+| β_S (CRSP VW) | **-2.60*** (p=0.004)** | -0.05 (p=0.727) |
+| R² (CRSP VW) | **30.6%** | 5.6% |
+| β_S (CRSP EW) | **-2.70*** (p=0.009)** | 0.04 (p=0.815) |
+| R² (CRSP EW) | **31.8%** | 7.7% |
+
+### 交互项结果
+
+| 资产 | β_S | β_{S×FG} | p(交互) |
+|------|-----|---------|---------|
+| CRSP VW | -0.199 | **-2.87*** (p=0.005)** | 0.005 |
+| CRSP EW | -0.101 | **-2.95*** (p=0.003)** | 0.003 |
+
+### 偏相关（控制 Target + Path）
+
+| | FG | Non-FG |
+|---|---|---|
+| Partial corr(S,R\|Target,Path) | **-0.364 (p=0.005)** | -0.033 (p=0.804) |
+
+### 稳健性审计
+
+| 检查 | 结果 |
+|------|------|
+| Permutation test (1000次) | p = 0.000 |
+| Leave-one-out max |Δβ| | 0.54 (删除后 p=0.025) |
+| VIF | 全部 < 1.5 |
+| OLS vs NW HAC SE 比率 | 1.00 |
+| FG sentiment std | 0.0019 |
+| Non-FG sentiment std | 0.0078 (4x更大但预测力更弱) |
+
+### 关键解读
+- 全样本 H2 不显著，但 FG 时期高度显著 → **regime-dependent effect**
+- FG 时期 sentiment 方差更小但预测力更强 → 不是统计功效问题
+- 偏相关证明 sentiment 不是 shock 的代理变量
+- 经济机制：ZLB 时期利率工具受限，语言成为主要传导渠道
+
+### 计算代码
+```python
+import statsmodels.api as sm
+
+# Full model
+X = df[['target_shock', 'path_shock', 'sentiment']]
+X = sm.add_constant(X)
+model = sm.OLS(df['vwretd_day'], X).fit(cov_type='HAC', cov_kwds={'maxlags': 4})
+
+# FG subsample
+fg = df[df['fg_period'] == 1]
+X_fg = fg[['target_shock', 'path_shock', 'sentiment']]
+X_fg = sm.add_constant(X_fg)
+model_fg = sm.OLS(fg['vwretd_day'], X_fg).fit(cov_type='HAC', cov_kwds={'maxlags': 4})
+```
+
+---
+
 *文档生成日期: 2026-06-02*
-*对应论文版本: v10.3 (with JK + B-S extensions)*
+*对应论文版本: v10.3 (with JK + B-S + Original H2-H4)*
 *数据文件: minutes_sentiment_corrected.csv (N=117)*
-*扩展分析: jk_bs_decomposition.py → results/jk_bs_results.json*
+*扩展分析: jk_bs_decomposition.py + results/original_h2_results.json*

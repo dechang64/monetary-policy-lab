@@ -576,6 +576,86 @@ Target loses significance ($p = 0.012 \to 0.108$) after B-S orthogonalization, b
 \end{frame}
 
 % ============================================================
+\begin{frame}{New Finding: Sentiment Has Incremental Power in FG Period}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\begin{ablock}{Full Sample (H2)}
+{\small
+\begin{tabular}{lcc}
+\toprule
+ & $\hat{\beta}_S$ & $p$ \\
+\midrule
+CRSP VW & $-0.199$ & 0.185 \\
+CRSP EW & $-0.101$ & 0.566 \\
+S\&P 500 & $19.46$ & 0.088* \\
+10Y Treasury & $1.24$ & 0.098* \\
+\bottomrule
+\end{tabular}
+}
+\vspace{0.3em}
+{\small Weak incremental power overall}
+\end{ablock}
+
+\column{0.48\textwidth}
+\begin{aalertblock}{FG Period: Sentiment Dominates}
+{\small
+\begin{tabular}{lcc}
+\toprule
+ & FG ($N\!=\!57$) & Non-FG ($N\!=\!60$) \\
+\midrule
+$\hat{\beta}_S$ (VW) & $-2.60$*** & $-0.05$ \\
+ & (0.004) & (0.727) \\
+$R^2$ & \textbf{30.6\%} & 5.6\% \\
+\midrule
+$\hat{\beta}_S$ (EW) & $-2.70$*** & $0.04$ \\
+ & (0.009) & (0.815) \\
+$R^2$ & \textbf{31.8\%} & 7.7\% \\
+\bottomrule
+\end{tabular}
+}
+\end{aalertblock}
+\end{columns}
+
+\vspace{0.3em}
+\begin{aexampleblock}{Robustness}
+Permutation test $p = 0.000$; Leave-one-out max $|\Delta\hat{\beta}| = 0.54$; Partial corr (FG) $= -0.364$ ($p = 0.005$)
+\end{aexampleblock}
+\end{frame}
+
+% ============================================================
+\begin{frame}{Why FG Period? Language as Primary Transmission Channel}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\begin{ablock}{The Mechanism}
+\begin{itemize}
+  \item ZLB: rate tool constrained $\to$ language becomes the signal
+  \item FG period: FOMC \emph{must} communicate through words
+  \item Non-FG: rate action speaks for itself
+\end{itemize}
+\end{ablock}
+\vspace{0.3em}
+\begin{aexampleblock}{Not a Power Issue}
+FG sentiment $\sigma = 0.0019$ \\
+Non-FG sentiment $\sigma = 0.0078$ \\
+$\to$ 4$\times$ \textbf{less} variation, but \textbf{more} predictive
+\end{aexampleblock}
+
+\column{0.48\textwidth}
+\begin{ablock}{Reframes the FG Null Result}
+\begin{itemize}
+  \item Old: ``FG doesn't strengthen path shock'' (TRUE but misses the point)
+  \item New: ``FG strengthens \textbf{sentiment channel}'' (TRUE and highly significant)
+  \item Interaction: $\hat{\beta}_{S \times FG} = -2.87$*** ($p = 0.005$)
+\end{itemize}
+\end{ablock}
+\vspace{0.3em}
+\begin{aalertblock}{Key Insight}
+Full-sample weakness $=$ averaging two regimes: language redundant (normal) vs.\ language dominant (ZLB)
+\end{aalertblock}
+\end{columns}
+\end{frame}
+
+% ============================================================
 \section{Conclusion}
 % ============================================================
 
@@ -588,10 +668,18 @@ Target loses significance ($p = 0.012 \to 0.108$) after B-S orthogonalization, b
   \item Path shock does \textbf{not} ($p = 0.152$)
   \item Target shock drives equity responses; path effects are weak
   \item EW $>$ VW: financing-channel evidence
-  \item FG interaction \textbf{not significant}
-  \item CB dictionary outperforms LM
-  \item Minutes reveal path information
+  \item \textbf{NEW:} Sentiment has \textbf{incremental} power in FG period ($R^2 = 30.6\%$***)
 \end{enumerate}
+\end{ablock}
+
+\column{0.48\textwidth}
+\begin{ablock}{What It Means}
+\begin{itemize}
+  \item Language reflects \textbf{implementation} in normal times
+  \item Language becomes \textbf{primary channel} at ZLB
+  \item Path shock $\neq$ information shock
+  \item Different documents serve different roles
+\end{itemize}
 \end{ablock}
 
 \column{0.48\textwidth}

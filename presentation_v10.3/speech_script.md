@@ -173,7 +173,27 @@ After orthogonalization, the target shock loses significance for sentiment (p go
 
 ---
 
-### Slide 18: Relation to Fernández-Fuertes 2025 (1 min)
+### Slide 18: NEW — Sentiment Has Incremental Power in FG Period (1 min 30s)
+
+This is our most important new finding. We ask: does FOMC statement sentiment contain incremental information beyond what the target and path shocks capture? If language is just a noisy reflection of the rate decision, controlling for shocks should eliminate its predictive power.
+
+In the full sample, the evidence is weak — S&P 500 and 10-year Treasury are marginally significant, but broad equity indices are not. However, when we split by regime, the picture changes dramatically. During the forward guidance period — when the rate was at the zero lower bound — sentiment is a highly significant predictor of CRSP VW returns, with R-squared of 30.6% and p-value of 0.004. In the non-FG period, sentiment is completely insignificant with R-squared of only 5.6%.
+
+This is not a statistical artifact. A permutation test with 1,000 random regime splits gives p-value of zero. Leave-one-out analysis confirms no single observation drives the result. The partial correlation between sentiment and returns, conditional on both shocks, is minus 0.364 in the FG period versus minus 0.033 in the non-FG period. And here's the kicker: the FG period has four times LESS sentiment variation but MORE predictive power — the opposite of what a statistical-power explanation would predict.
+
+---
+
+### Slide 19: Why FG Period? Language as Primary Transmission Channel (1 min)
+
+The mechanism is intuitive. When the interest rate is at the zero lower bound, the conventional policy tool is constrained. The FOMC must communicate through words — forward guidance IS language. In normal times, the rate action speaks for itself, and language is largely redundant.
+
+This completely reframes our earlier FG null result. We previously found that the FG interaction with path shock is not significant — "FG doesn't strengthen the path channel." That's true, but it misses the point. What FG strengthens is not the path shock channel, but the SENTIMENT channel. Language itself becomes the primary transmission mechanism.
+
+The key insight: the full-sample weakness of sentiment is not evidence against the information content of language. It's the averaging of two very different regimes — one where language is redundant, and one where language is the main signal.
+
+---
+
+### Slide 20: Relation to Fernández-Fuertes 2025 (1 min)
 
 A natural question is how our work relates to Fernández-Fuertes 2025, which also uses LLMs and Fed communications to study monetary policy shocks. He constructs a better shock measure — multi-agent LLM framework, processes Statements, Minutes, Beige Books, press conferences. His R-squared is 12.4% versus our 1.57%.
 
@@ -185,7 +205,7 @@ Complementary, not competing.
 
 ---
 
-### Slide 19: Future Directions (30s)
+### Slide 21: Future Directions (30s)
 
 Several extensions remain. LLM-based sentiment measures, building on Chen et al. 2025 and Fernández-Fuertes 2025, could capture nuances that dictionary methods miss. Intraday event windows using TAQ data could capture channels that daily data misses. And extending the GSS series to 2025 using the SF Fed's USMPD data would add the recent rate-cut cycle.
 
@@ -193,7 +213,7 @@ On the data side, press conference transcripts and SEP projections could provide
 
 ---
 
-### Slide 20: Conclusion (30s)
+### Slide 22: Conclusion (30s)
 
 To conclude: the target shock is a statistically significant predictor of FOMC statement sentiment, but the path shock is not. The information channel, as traditionally formulated, receives only suggestive support. Forward guidance does not strengthen the language channel at the zero lower bound.
 
