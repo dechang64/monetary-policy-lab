@@ -1,27 +1,41 @@
-# Phase 2-4 研究计划调整建议（v3 — 终版）
-## 基于 Eileen 四份原始文档 + FF (2025) + 当前论文进展
+# Phase 2-4 研究计划调整建议（v4 — 终版）
+## 基于 Eileen 六份原始文档 + FF (2025) + 当前论文 v10.3
 
 ---
 
-## 一、Eileen 的完整研究架构（四份文档整合）
+## 一、原始假设 vs 当前论文假设（关键偏离）
 
-### 文档清单
+### Phase 1 执行方案定义的四个假设
 
-| 文档 | 日期 | 核心内容 |
-|------|------|---------|
-| Research Proposal | Feb 2026 | 核心问题：MP shocks → Fund flows → Risk-Ladder |
-| Literature Review (FOMC) | 早期版 | 100篇文献，7个渠道，cross-asset/cross-country |
-| Literature Review (Revised) | Apr 2026 | 44条引用，10章，从理论到开放问题的完整综述 |
-| Research Plan (4 Directions) | — | 四方向跨学科架构：信息→再平衡→放大→Regime |
-| 5-Year Proposal | — | 扩展版：+REIT异质性 +国际溢出 +LLM识别 |
+| # | 原始假设 | 检验方法 | 预期结果 |
+|---|---------|---------|---------|
+| H1 | FOMC 声明 hawkish/dovish 情绪与 Kuttner surprise 正相关但不完全重叠 | 相关系数 < 1 | β₁ > 0, R² ≈ 0.4-0.6 |
+| H2 | 控制利率 surprise 后，语言情绪对资产价格仍有显著解释力 | 增量 R² | β₂ 显著, 增量 R² ≈ 5-15% |
+| H3 | 语言情绪与 Two-Shocks 框架中的 **information shock** 正相关 | 回归分析 | β₂(info) > β₂(policy) |
+| H4 | 语言情绪的预测力在 **forward guidance 时期（2008-2015）更强** | 交互项回归 | β₃ > 0 |
 
-### 原始核心问题
+### 当前论文 v10.3 的四个假设
 
-> **Through what channels do monetary policy announcements affect asset prices, and how do investors reallocate their portfolios in response?**
+| # | 当前假设 | 检验方法 | 实际结果 |
+|---|---------|---------|---------|
+| H1 | Target shock 显著预测 statement sentiment | NW HAC 回归 | β_T 显著 (p=0.012), β_P 不显著 |
+| H2 | Target shock 显著预测 asset returns | NW HAC 回归 | β_T 显著 (p=0.043), β_P 不显著 |
+| H3 | Target = Path? | Wald 检验 | 不能拒绝 (p=0.90) |
+| H4 | FG 时期 path shock 更重要 | 交互项回归 | 不显著 |
 
-这个问题有两个层次：
-1. **What** — 哪些资产受影响？方向和幅度？
-2. **How** — 投资者如何据此调整组合？传导渠道是什么？
+### 偏离分析
+
+| 维度 | 原始设计 | 当前论文 | 偏离程度 |
+|------|---------|---------|---------|
+| **核心问题** | 语言是否包含**增量信息**（beyond the rate） | 语言反映 **Implementation 还是 Revelation** | 🔴 重定向 |
+| **H1** | Sentiment 与 surprise **正相关但不完全重叠** | Target shock **显著预测** sentiment | 🟡 方向一致但问题不同 |
+| **H2** | 控制 surprise 后 sentiment 对**资产价格**有增量解释力 | Target shock 对**资产回报**有显著效应 | 🔴 被解释变量不同 |
+| **H3** | 情绪更多反映 **information shock** | Target = Path? (Wald test) | 🔴 完全不同 |
+| **H4** | FG 时期语言**更重要** | FG 时期 path 更重要 | 🟡 方向一致但 framing 不同 |
+| **冲击框架** | Kuttner + Two-Shocks (policy vs info) | GSS (target vs path) | 🟡 框架不同但有关联 |
+| **被解释变量** | Sentiment → Asset prices (两步) | Sentiment + Asset returns (并列) | 🟡 结构不同 |
+
+**核心偏离**：原始设计问的是"语言有没有增量信息"（affirmative），当前论文问的是"语言反映什么"（diagnostic）。原始 H3 预期 information shock 更重要，但实际数据不支持——这正是论文重新定位的原因。
 
 ---
 
@@ -38,203 +52,162 @@
 | 传播学 | Framing Theory (Entman 1993) | "data dependent" vs "patient" 是框架操作 |
 | 新闻学 | Second-Level Agenda-Setting (McCombs 1997) | 媒体对 FOMC 声明的二次框架化 |
 
-**当前论文覆盖了**：Signaling Theory + NLP Sentiment
-**当前论文未覆盖**：Rational Inattention、Framing Theory、Agenda-Setting
+**当前论文覆盖**：Signaling + NLP ✅ | Rational Inattention ❌ | Framing ❌ | Agenda-Setting ❌
 
 ### Direction 2: Portfolio Rebalancing and Cross-Asset Contagion
 **核心问题**：货币政策公告后，投资者的跨资产再平衡行为如何产生传染效应？
 
 | 学科 | 理论 | 在 Direction 2 中的角色 |
 |------|------|----------------------|
-| 经济学 | Portfolio Balance Channel (Tobin 1969) | 政策改变资产相对供给，迫使再平衡 |
+| 经济学 | Portfolio Balance Channel (Tobin 1969) | MP 改变资产相对供给，迫使再平衡 |
 | 经济学 | Risk-Taking Channel (Borio & Zhu 2012) | 宽松政策鼓励追逐收益，压缩风险溢价 |
-| 金融科技 | Network Analysis (DCC-GARCH) | 跨资产相关性动态建模 |
-| 金融科技 | LLM Classification | 基金流动的语义分类 |
-| 传播学 | Contagion Theory | 跨资产传染的传播学类比 |
+| 金融科技 | Network Analysis + DCC-GARCH | 跨资产相关性动态建模 |
+| 传播学 | Information Cascade (Bikhchandani 1992) | 投资者模仿他人行为，放大初始冲击 |
+| 新闻学 | Contagion vs. Interdependence (Forbes & Rigobon 2002) | 区分真正的传染和正常关联 |
 
-**Eileen 原始 Proposal 的 4 个假设**：
-- **H1 Risk-Off**：紧缩冲击 → 资金流出高风险资产
-- **H2 Risk-On**：信息冲击 → 资金流入高风险资产
-- **H3 不对称性**：MP shock ≠ Info shock 的组合调整
-- **H4 Risk-Ladder**：投资者沿风险阶梯替代，非二元切换
-
-**当前论文完全未涉及此方向**。
+**Eileen 原始 Proposal 的核心假设**：
+- H1 (Risk-Off): 紧缩 MP shock → 流出高风险资产
+- H2 (Risk-On): 正面 Info shock → 流入高风险资产
+- H3 (不对称): MP ≠ Info 对 fund flows 的影响
+- H4 (Risk-Ladder): 投资者沿风险阶梯替代，非二元切换
 
 ### Direction 3: Media Amplification and Social Transmission
-**核心问题**：财经媒体和社交网络如何放大、扭曲或过滤 FOMC 信号？
+**核心问题**：金融媒体和社交网络如何放大或扭曲央行信号？
 
 | 学科 | 理论 | 在 Direction 3 中的角色 |
 |------|------|----------------------|
-| 传播学 | Social Amplification of Risk (Kasperson 1988) | 媒体放大初始信号 |
-| 传播学 | Two-Step Flow (Lazarsfeld 1944) | 意见领袖中介传播 |
-| 新闻学 | Media Agenda-Setting (McCombs 1972) | 媒体选择强调什么 |
-| 金融科技 | Sentiment Contagion Detection | 新闻→社交媒体的情绪传染 |
-| 经济学 | Noise Trader Theory (De Long 1990) | 媒体噪声放大价格波动 |
-
-**当前论文完全未涉及此方向**。
+| 经济学 | Attention Economics (Hirshleifer & Teoh 2003) | 有限注意力决定哪些信号被放大 |
+| 金融科技 | NLP + Sentiment Contagion | 媒体情绪传播建模 |
+| 传播学 | Social Amplification of Risk (Kasperson 1988) | 媒体放大/衰减风险信号 |
+| 传播学 | Two-Step Flow (Lazarsfeld 1944) | 意见领袖→大众的信号传递 |
+| 新闻学 | Agenda-Setting (McCombs & Shaw 1972) | 媒体决定公众关注什么 |
 
 ### Direction 4: Regime-Dependent Effects
-**核心问题**：以上所有效应如何随政策框架、经济周期和市场环境变化？
+**核心问题**：以上效应如何随政策环境、经济周期和制度框架变化？
 
 | 学科 | 理论 | 在 Direction 4 中的角色 |
 |------|------|----------------------|
-| 经济学 | Lucas Critique (1976) | 政策框架变化→参数不稳定 |
-| 经济学 | Time-Varying Parameter Models | 滚动窗口/Markov-Switching |
-| 金融科技 | ML Regime Detection | 无监督学习识别 regime |
-| 传播学 | Framing Variability | 不同 regime 下框架策略变化 |
-| 新闻学 | Comparative Media Analysis | 跨主席/跨 regime 媒体报道差异 |
-
-**当前论文部分涉及**：FG period 交互检验、Chair 固定效应，但只是二元分组，未用 Markov-Switching 或 ML。
+| 经济学 | Lucas Critique (1976) | 政策制度变化→参数不稳定 |
+| 经济学 | Time-Varying Parameters | TVP-VAR 捕捉动态效应 |
+| 金融科技 | Markov-Switching + ML | 自动识别 regime |
+| 传播学 | Framing Contingency (Hallahan 2008) | 框架效应随语境变化 |
+| 新闻学 | News Value Theory (Galtung & Ruge 1965) | 什么环境下新闻更有影响力 |
 
 ---
 
-## 三、四方向的递进关系
+## 三、当前论文在原始框架中的定位
+
+当前论文（Words Beyond the Rate）= **Direction 1 的第一轮产出**，但发生了重要的研究问题演化：
+
+```
+原始 H3: 情绪更多反映 information shock（预期：Info > Policy）
+    ↓ 数据不支持
+实际发现: Target (policy) 显著，Path (info) 不显著
+    ↓ 重新定位
+当前论文: 语言主要反映 policy implementation（证据偏向 Implementation）
+```
+
+**这个演化是健康的**——原始假设 H3 被数据否定后，论文诚实地报告了发现，并重新定位了问题。这正是学术研究的正常过程。
+
+**但原始 H2（增量解释力）还没有被检验**——这是当前论文最大的缺口：
+
+> **控制 surprise 后，语言情绪对资产价格是否有增量解释力？**
+
+当前论文只检验了 shocks → sentiment 和 shocks → returns，没有检验 **sentiment → returns (controlling for shocks)**。
+
+---
+
+## 四、Phase 2-4 调整方案
+
+### Phase 2: Direction 1 深化 + Direction 2 启动
+
+**Direction 1 深化（补全原始 H2 + 方法升级）**
+
+| 任务 | 对应原始假设 | 优先级 | 工作量 |
+|------|------------|--------|--------|
+| **补做 H2**: Sentiment → Returns (controlling for shocks) | 原始 H2 | 🔴 最高 | 1天 |
+| JK BVAR sign restriction（替代简化版） | 原始 H3 深化 | 🔴 高 | 3-5天 |
+| B-S 完整正交化 + FF narrative IV | 外生性验证 | 🔴 高 | 2-3天 |
+| Statement vs Minutes vs Press Conf 三层对比 | Framing Theory | 🟡 中 | 3-4天 |
+| Sentiment 方法论对比（dict vs LLM） | NLP 方法论 | 🟡 中 | 2-3天 |
+
+**关键**：原始 H2 是当前论文**最大的缺失**——"语言有没有增量信息"这个问题还没回答。当前论文只证明了"shocks 预测 sentiment"，但没有证明"sentiment 预测 returns beyond shocks"。
+
+**Direction 2 启动（Fund Flows + Risk-Ladder）**
+
+| 任务 | 对应 Eileen Proposal | 优先级 | 工作量 |
+|------|---------------------|--------|--------|
+| CRSP Mutual Fund 7类资产流动数据 | H1 Risk-Off | 🔴 高 | 2-3天 |
+| JK 分解 → MP vs Info shock | H1-H3 基础 | 🔴 高 | Phase 1 完成 |
+| Fund flows 回归（MP shock → 流出高风险） | H1 Risk-Off | 🔴 高 | 2天 |
+| Fund flows 回归（Info shock → 流入高风险） | H2 Risk-On | 🔴 高 | 1天 |
+| Risk-Ladder 检验（沿风险阶梯替代） | H4 Risk-Ladder | 🟡 中 | 2天 |
+| DCC-GARCH 跨资产相关性 | Cross-Asset Contagion | 🟡 中 | 2天 |
+
+### Phase 3: Direction 4（Regime-Dependent Effects）
+
+| 任务 | 理论 | 优先级 | 工作量 |
+|------|------|--------|--------|
+| Markov-Switching 识别 regime | Lucas Critique | 🔴 高 | 3天 |
+| Regime-Dependent 回归（Direction 1 + 2） | TVP | 🔴 高 | 2天 |
+| 跨 Fed Chair 对比 | 制度变化 | 🟡 中 | 1天 |
+| ML regime detection（随机森林/梯度提升） | 金融科技 | 🟢 可选 | 2天 |
+
+### Phase 4: Direction 3（Media Amplification）
+
+| 任务 | 理论 | 优先级 | 工作量 |
+|------|------|--------|--------|
+| 金融新闻抓取 + 框架分析 | Agenda-Setting | 🔴 高 | 3-5天 |
+| Media Amplification Index (MAI) | Social Amplification | 🔴 高 | 2天 |
+| Two-Step Flow 检验 | Two-Step Flow | 🟡 中 | 2天 |
+| 社交媒体情绪（Twitter/Reddit） | Attention Economics | 🟢 可选 | 3-5天 |
+
+---
+
+## 五、最紧迫的发现：原始 H2 未检验
+
+当前论文最大的缺口不是 JK 或 B-S，而是**原始 H2**：
+
+> **控制 surprise 后，语言情绪对资产价格是否有增量解释力？**
+
+这是 Direction 1 的核心问题——"语言有没有增量信息"。当前论文只做了：
+- Shocks → Sentiment ✅
+- Shocks → Returns ✅
+- **Sentiment → Returns (controlling for shocks)** ❌
+
+这个回归模型应该是：
+```
+Asset_Return_t = α + β₁ · Target_Shock_t + β₂ · Path_Shock_t + β₃ · Sentiment_t + ε_t
+```
+
+如果 β₃ 显著且增量 R² > 0，则证明语言包含超越利率决策的增量信息——这正是原始 H2 的核心。
+
+**建议**：立即补做这个回归，作为 v10.4 的核心新增结果。
+
+---
+
+## 六、核心逻辑总结
+
+**原始设计的四个 Direction 是递进因果链：**
 
 ```
 Direction 1: 信息如何产生（央行说什么）
-    ↓ 信号产生
+    → Signaling + NLP + Framing + Rational Inattention
 Direction 2: 信息如何传播（投资者怎么动）
-    ↓ 行为传播
+    → Portfolio Balance + Risk-Taking + Network + Risk-Ladder
 Direction 3: 信息如何被放大（媒体怎么加工）
-    ↓ 放大扭曲
+    → Social Amplification + Agenda-Setting + Two-Step Flow
 Direction 4: 以上效应如何随环境变化
-    ↓ 条件依赖
+    → Lucas Critique + TVP + Markov-Switching + ML
 ```
 
-每个方向**独立可发表**，但四个方向合在一起是完整的跨学科研究体系。
-
----
-
-## 四、当前论文 vs 原始设计的定位
-
-| 维度 | 原始 Proposal 核心 | 当前论文 | 差距 |
-|------|-------------------|---------|------|
-| 冲击分解 | **JK MP vs Info** | GSS target vs path | ⚠️ 不同分解框架 |
-| 被解释变量 | **Fund flows (7类资产)** | Statement sentiment | ⚠️ 完全不同 |
-| 核心问题 | **Portfolio reallocation** | Implementation vs Revelation | ⚠️ 不同问题 |
-| 理论假设 | **Risk-Off/Risk-On/Risk-Ladder** | H1-H4 (sentiment/returns) | ⚠️ 不同假设体系 |
-| 资产焦点 | **REIT + 7类基金** | Broad equity market | ⚠️ 不同资产类别 |
-| 跨学科 | **5学科×4方向** | 经济学+NLP | ⚠️ 缺传播学/新闻学 |
-
-**但当前论文不是偏离，而是 Direction 1 的深化**：
-- 原始 Direction 1 问"语言有没有增量信息"→ 当前论文用 GSS shocks 回答了"语言反映什么类型的增量信息"
-- 当前论文的 Implementation vs Revelation 是 Signaling Theory 的具体化
-- 当前论文的 cross-asset evidence 是 Direction 2 的前期探索
-
----
-
-## 五、FF (2025) 对四个 Direction 的影响
-
-| Direction | FF 覆盖了？ | 影响 | 调整 |
-|-----------|----------|------|------|
-| 1 信息内容 | ⚠️ 方法覆盖 | LLM 冲击识别比我们好 | 不比方法，比问题；用 FF 数据做 IV |
-| 2 组合再平衡 | ❌ | 无影响 | **优先推进**——FF 完全没碰 |
-| 3 媒体放大 | ❌ | 无影响 | 保持原计划 |
-| 4 Regime 变化 | ⚠️ 二元 regime | 他只做了 FG vs Normal | 升级为 Markov-Switching + ML |
-
----
-
-## 六、调整后的 Phase 2-4
-
-### Phase 2 → Direction 1 深化 + Direction 2 启动（2-3个月）
-
-**Direction 1 深化（当前论文 v2）**：
-
-| 任务 | 理论支撑 | 优先级 | 工作量 |
-|------|---------|--------|--------|
-| JK 分解升级（BVAR sign restriction） | JK (2020) | 🔴 高 | 3-5天 |
-| B-S 正交化升级（完整控制变量集） | B-S (2023) | 🔴 高 | 2-3天 |
-| FF narrative surprise 作为 IV | 外生性验证 | 🔴 高 | 1-2天 |
-| Statement vs Minutes vs Press Conf | Framing Theory | 🔴 高 | 3-4天 |
-| Sentiment 方法论对比（dict vs LLM） | NLP 方法论 | 🟡 中 | 2-3天 |
-| Rational Inattention 框架引入 | Sims (2003) | 🟡 中 | 1-2天 |
-
-**Direction 2 启动**：
-
-| 任务 | 理论支撑 | 优先级 | 工作量 |
-|------|---------|--------|--------|
-| JK MP vs Info 分解（替代 GSS） | JK (2020) | 🔴 高 | 3-5天 |
-| 7类基金流动数据获取 | Portfolio Balance | 🔴 高 | WRDS 权限 |
-| H1 Risk-Off 检验 | Borio & Zhu | 🔴 高 | 2天 |
-| H2 Risk-On 检验 | Information Effect | 🔴 高 | 2天 |
-| H3 不对称性检验 | Two-Shocks | 🟡 中 | 1天 |
-| H4 Risk-Ladder 检验 | Novel | 🟡 中 | 2-3天 |
-| DCC-GARCH 跨资产相关性 | Network Analysis | 🟡 中 | 3天 |
-
-### Phase 3 → Direction 4（3-4个月）
-
-| 任务 | 理论支撑 | 优先级 | 工作量 |
-|------|---------|--------|--------|
-| Markov-Switching regime 检测 | Lucas Critique | 🔴 高 | 3-5天 |
-| ML 无监督 regime 识别 | FinTech | 🟡 中 | 3天 |
-| 跨主席对比（Greenspan→Powell） | Framing Variability | 🟡 中 | 2天 |
-| ZLB vs Normal 完整对比 | Time-Varying | 🟡 中 | 2天 |
-| Direction 1+2 的 regime 条件分析 | 综合 | 🔴 高 | 3天 |
-
-### Phase 4 → Direction 3（4-6个月）
-
-| 任务 | 理论支撑 | 优先级 | 工作量 |
-|------|---------|--------|--------|
-| 财经新闻抓取+框架分析 | Agenda-Setting | 🔴 高 | 5-7天 |
-| MAI (Media Amplification Index) | Social Amplification | 🔴 高 | 3天 |
-| 社交媒体情绪传染检测 | Two-Step Flow | 🟡 中 | 5天 |
-| 伦理审查 | — | 🔴 高 | 1-2周 |
-| Direction 1+2+4 的媒体调节效应 | 综合 | 🔴 高 | 3天 |
-
----
-
-## 七、关键决策点
-
-### 1. 冲击分解框架：GSS vs JK？
-
-| | GSS target/path | JK MP/Info |
-|---|---|---|
-| 当前论文 | ✅ 已用 | ❌ 只做了简化版 |
-| Direction 1 | 合适（Implementation vs Revelation） | 升级版（区分纯政策vs信息） |
-| Direction 2 | 不合适（target≠MP, path≠Info） | **必须用**（Risk-Off/Risk-On 的理论基础） |
-| 文献综述 | GSS 是基础 | JK 是前沿 |
-
-**建议**：Direction 1 继续用 GSS（保持当前论文一致性），Direction 2 切换到 JK（理论要求）。两个框架在论文中明确对比。
-
-### 2. 被解释变量：Sentiment vs Fund Flows？
-
-| | Sentiment | Fund Flows |
-|---|---|---|
-| Direction 1 | ✅ 核心变量 | 辅助验证 |
-| Direction 2 | 辅助变量 | ✅ 核心变量 |
-| 数据可得性 | 已有 | 需 WRDS CRSP MF |
-| 发表潜力 | 已有论文 | **新论文** |
-
-**建议**：两个变量分别支撑两个 Direction，不冲突。
-
-### 3. REIT 异质性：纳入还是独立？
-
-Eileen 五年计划把 REIT 作为 Year 2 重点，但当前论文用的是 broad equity。
-
-**建议**：REIT 作为 Direction 2 的子分析（Mortgage REIT 对 MP shocks 最敏感），不独立成 Phase。
-
----
-
-## 八、核心逻辑总结
-
-**四个 Direction 是递进因果链，不是平行技术升级：**
-
-```
-Direction 1 (信息产生): 央行说什么 → Signaling + NLP + Framing
-    ↓
-Direction 2 (行为传播): 投资者怎么动 → Portfolio Balance + Risk-Taking + Network
-    ↓
-Direction 3 (信号放大): 媒体怎么加工 → Social Amplification + Agenda-Setting
-    ↓
-Direction 4 (条件依赖): 环境如何调节 → Lucas Critique + TVP + ML
-```
-
-**当前论文 = Direction 1 的第一轮产出**，覆盖了 Signaling + NLP，还缺 Rational Inattention + Framing + Agenda-Setting。
+**当前论文 = Direction 1 的第一轮产出**，但原始 H2（增量解释力）尚未检验。
 
 **Phase 2-4 调整**：
-- Phase 2: Direction 1 深化（JK+B-S+IV+三层文档）+ Direction 2 启动（Fund flows + Risk-Ladder）
-- Phase 3: Direction 4（Markov-Switching + ML regime）
-- Phase 4: Direction 3（Media Amplification + 社交媒体）
+1. **立即补做原始 H2**（Sentiment → Returns controlling for shocks）——这是当前论文最大的缺口
+2. Phase 2: Direction 1 深化（JK+B-S+IV+三层文档）+ Direction 2 启动（Fund flows + Risk-Ladder）
+3. Phase 3: Direction 4（Markov-Switching + ML regime）
+4. Phase 4: Direction 3（Media Amplification + 社交媒体）
 
 **FF (2025) 只影响了 Direction 1 的方法选择，四个 Direction 的核心问题他都没碰。**
 
@@ -247,5 +220,5 @@ Direction 4 (条件依赖): 环境如何调节 → Lucas Critique + TVP + ML
 ---
 
 *分析日期: 2026-06-02*
-*基于: Eileen 四份原始文档 + FF (2025) + 当前论文 v10.3*
+*基于: Eileen 六份原始文档 + FF (2025) + 当前论文 v10.3*
 *理论框架: Signaling → Portfolio Balance → Social Amplification → Lucas Critique*
