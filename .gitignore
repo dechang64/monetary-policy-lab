@@ -62,3 +62,5 @@ delivery_v9.2/*.zip
 
 # JSON artifacts from web scraping
 results/paper2_*.json
+delivery_v9.2.zip
+*.zip

@@ -288,6 +288,13 @@ The interpretation of the coefficients requires care. The target shock captures 
 
 A natural question is whether the choice of sentiment dictionary affects the results. Table~\ref{tab:sentiment_compare} compares the regression results using three different sentiment measures.
 
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{fig4_dictionary_comparison}
+\caption{Sentiment Dictionary Comparison. Left panel: R$^2$ from H1 regression (Sentiment $\sim$ Target + Path shocks) for each sentiment measure. Right panel: p-value of the target shock coefficient. Dashed lines indicate 5\% (red) and 10\% (orange) significance levels. CB-only sentiment yields the highest R$^2$ (3.90\%) and the most significant target shock (p $<$ 0.001), while LM-only sentiment shows no significant relationship.}
+\label{fig:dictionary_compare}
+\end{figure}
+
 \begin{table}[tbp]
 \centering
 \caption{Sentiment Dictionary Comparison (Dependent Variable: Sentiment Score)}
@@ -301,7 +308,14 @@ LM only & 0.33\% & 0.000288 (0.476) & 0.000465 (0.553) & 117 \\
 CB only & 3.90\% & 0.000865 ($<$0.001) & 0.000800 (0.033) & 117 \\
 \bottomrule
 \end{tabular}
-\end{table}The CB dictionary substantially outperforms the LM dictionary, both in terms of R$^2$ (3.90\% vs.\ 0.33\%) and statistical significance. This is consistent with the well-known positivity bias of the LM dictionary when applied to central bank communication: FOMC statements use more positive than negative words regardless of policy direction, making the LM score a poor discriminator of policy stance. The CB dictionary, by contrast, captures hawkish-dovish language that varies meaningfully with monetary policy shocks.
+\end{table}
+
+
+
+
+
+
+The CB dictionary substantially outperforms the LM dictionary, both in terms of R$^2$ (3.90\% vs.\ 0.33\%) and statistical significance. This is consistent with the well-known positivity bias of the LM dictionary when applied to central bank communication: FOMC statements use more positive than negative words regardless of policy direction, making the LM score a poor discriminator of policy stance. The CB dictionary, by contrast, captures hawkish-dovish language that varies meaningfully with monetary policy shocks.
 
 Notably, the CB-only specification makes \emph{both} the target and path shocks significant (target $p < 0.001$, path $p = 0.033$), while the combined measure only identifies the target shock. This suggests that the equal-weighted combination dilutes the CB signal, and that the path shock's effect on sentiment is real but masked by LM noise. We retain the combined measure as our baseline for comparability with the existing literature, but note that the CB-only results provide stronger evidence for the information channel.
 
@@ -476,19 +490,7 @@ The comparison of target and path shock t-statistics in the H1 regression provid
 
 The target shock is significant at 5\%, while the path shock is not (p = 0.152). This is consistent with the view that FOMC language is primarily about revealing information about the future policy path, not merely announcing the current rate decision. The path shock captures forward guidance --- the component of the FOMC surprise that reflects the market's revision of expectations about future rate decisions --- and this is precisely the type of information that FOMC language is designed to convey.
 
-Figure 2 shows the scatter plot of sentiment against the path shock, with a clear positive relationship. The slope of the regression line is 0.000577, indicating that a one-standard-deviation increase in the path shock is associated with a 0.06 percentage point increase in the hawkishness of FOMC language.
-
-
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=0.9\textwidth]{fig4_dictionary_comparison}
-\caption{Sentiment Dictionary Comparison. Left panel: R$^2$ from H1 regression (Sentiment $\sim$ Target + Path shocks) for each sentiment measure. Right panel: p-value of the target shock coefficient. Dashed lines indicate 5\% (red) and 10\% (orange) significance levels. CB-only sentiment yields the highest R$^2$ (3.90\%) and the most significant target shock (p $<$ 0.001), while LM-only sentiment shows no significant relationship.}
-\label{fig:dictionary_compare}
-\end{figure}
-
-
-It is important to note what this result does and does not establish. It does establish that the target shock is a statistically significant predictor of FOMC language sentiment, while the path shock is not significant at conventional levels. It does not establish that the path shock causes the language --- the path shock and the language may both be driven by the Fed's private information about economic conditions. However, this endogeneity is precisely the point: if both the path shock and the language reflect the Fed's private information, then the finding that the target shock significantly predicts language while the path shock does not is consistent with the information channel, though the evidence is suggestive rather than definitive, because it shows that the forward-looking component of the FOMC surprise --- which captures information revelation --- is what drives communication.
+Figure 2 shows the scatter plot of sentiment against the path shock, with a clear positive relationship. The slope of the regression line is 0.000577, indicating that a one-standard-deviation increase in the path shock is associated with a 0.06 percentage point increase in the hawkishness of FOMC language.It is important to note what this result does and does not establish. It does establish that the target shock is a statistically significant predictor of FOMC language sentiment, while the path shock is not significant at conventional levels. It does not establish that the path shock causes the language --- the path shock and the language may both be driven by the Fed's private information about economic conditions. However, this endogeneity is precisely the point: if both the path shock and the language reflect the Fed's private information, then the finding that the target shock significantly predicts language while the path shock does not is consistent with the information channel, though the evidence is suggestive rather than definitive, because it shows that the forward-looking component of the FOMC surprise --- which captures information revelation --- is what drives communication.
 
 \subsection{H4: Forward Guidance Interaction}
 
