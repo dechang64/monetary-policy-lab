@@ -103,6 +103,7 @@ page = st.sidebar.radio(
         "⚙️ Data Explorer",
         "🔬 Phase 1 Research",
         "🧠 Federated AI Intelligence",
+        "🎯 Direction 2: Two-Shocks Rebalancing",
     ],
     label_visibility="collapsed",
 )
@@ -120,6 +121,7 @@ Built for studying how monetary policy announcements reshape asset prices and po
 - 🔗 Real-time FRED Data
 - 📊 Research Results v10.3 (JK + B-S + FF)
 - 🧠 Federated AI Intelligence (NEW)
+- 🎯 Direction 2: MP vs CBI Rebalancing (NEW)
 """)
 
 # ── Route to Pages ──
@@ -154,3 +156,6 @@ elif page == "🧠 Federated AI Intelligence":
     # Use English module
     from modules import fed_intelligence_en
     fed_intelligence_en.render()
+elif page == "🎯 Direction 2: Two-Shocks Rebalancing":
+    from modules import direction2
+    direction2.render()

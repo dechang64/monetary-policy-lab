@@ -101,6 +101,7 @@ page = st.sidebar.radio(
         "⚙️ Data Explorer",
         "🔬 Phase 1 Research",
         "🧠 联邦智能分析",
+        "🎯 Direction 2: 双冲击再平衡",
     ],
     label_visibility="collapsed",
 )
@@ -117,6 +118,7 @@ Built for studying how monetary policy announcements reshape asset prices and po
 - 📋 Classic Paper Replication
 - 🔗 Real-time FRED Data
 - 🧠 联邦智能分析 (NEW)
+- 🎯 Direction 2: MP vs CBI 再平衡 (NEW)
 """)
 
 # ── Route to Pages ──
@@ -147,3 +149,6 @@ elif page == "🔬 Phase 1 Research":
 elif page == "🧠 联邦智能分析":
     from modules import fed_intelligence
     fed_intelligence.render()
+elif page == "🎯 Direction 2: 双冲击再平衡":
+    from modules import direction2
+    direction2.render()
