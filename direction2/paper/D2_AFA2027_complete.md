@@ -1,8 +1,8 @@
 # Information vs. Action: How Central Bank Communication Drives Mutual Fund Rebalancing
 
-**Yang Yang (冬生)**¹ and **Eileen Zhang**²
+**Dechang Yu**¹ and **Eileen Zhang**²
 
-¹ XJTLU (西交利物浦大学)
+¹ Academy of AI, Xi'an Jiaotong-Liverpool University, Suzhou, China
 ² Rutgers Business School
 
 ---
