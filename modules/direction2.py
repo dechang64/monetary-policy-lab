@@ -9,8 +9,11 @@ Key Findings:
 - Post window: H2 supported (CBI drives lagged risk-on)
 - LLM sentiment correctly distinguishes hawkish/dovish; LM dictionary cannot (r=0.000)
 - H5: Corporate bonds show ZLB regime effects
+- Cross-paper comparison: Target shock drives daily prices, CBI shock drives monthly flows
+- Frequency comparison: Both MP and CBI significant at daily (opposite signs), CBI fades at weekly
 
 Paper: D2_AFA2027 — Submitted to AFA 2027 GenAI Session (deadline: Aug 31, 2026)
+Authors: Eileen Zhang (Rutgers) & Dechang Xu (XJTLU)
 """
 
 import streamlit as st
@@ -35,7 +38,7 @@ def render():
         <h3 style='color: white; margin: 0;'>MP vs CBI: How Fed Announcements Reshape Fund Flows</h3>
         <p style='opacity: 0.85; margin: 0.5rem 0 0 0;'>
             Jarociński-Korstvedt decomposition → Monetary Policy (MP) shock vs Central Bank Information (CBI) shock<br>
-            117 FOMC meetings · 7 asset classes · 3 event windows · 3 sentiment baselines
+            117 FOMC meetings · 7 asset classes · 3 event windows · 3 sentiment baselines · 3 frequencies
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -49,7 +52,7 @@ def render():
     with col3:
         st.metric("Event Windows", "3", "Same/Post/Diff")
     with col4:
-        st.metric("Sentiment Baselines", "3", "Raw JK / LM / LLM")
+        st.metric("Frequencies", "3", "Daily/Weekly/Monthly")
 
     st.markdown("---")
 
@@ -64,7 +67,6 @@ def render():
     if os.path.exists(fig1_path):
         st.image(fig1_path, use_container_width=True)
 
-    # Show comparison data
     llm_csv = os.path.join(RESULTS_DIR, "llm_sentiment_results.csv")
     if os.path.exists(llm_csv):
         df = pd.read_csv(llm_csv)
@@ -88,6 +90,11 @@ def render():
             st.metric("Avg LLM (Cuts)", f"{cut_llm:.2f}")
             st.markdown(f"→ Difference: **{abs(hike_llm - cut_llm):.2f}** (clearly separated)")
 
+    # LLM timeline
+    fig9_path = os.path.join(FIGURES_DIR, "fig9_llm_sentiment_timeline.png")
+    if os.path.exists(fig9_path):
+        st.image(fig9_path, use_container_width=True)
+
     st.markdown("---")
 
     # ── Section 2: H1 — Fund Flow Response ──
@@ -101,6 +108,11 @@ def render():
     fig2_path = os.path.join(FIGURES_DIR, "fig2_h1_coefficients_3windows.png")
     if os.path.exists(fig2_path):
         st.image(fig2_path, use_container_width=True)
+
+    # Risk ladder coefficients
+    fig7_path = os.path.join(FIGURES_DIR, "fig7_risk_ladder_coefficients.png")
+    if os.path.exists(fig7_path):
+        st.image(fig7_path, use_container_width=True)
 
     # H1 results table
     st.markdown("**H1 Regression Results (β coefficients)**")
@@ -141,28 +153,47 @@ def render():
     if os.path.exists(fig3_path):
         st.image(fig3_path, use_container_width=True)
 
-    # Significance heatmap
-    st.markdown("#### CBI Shock Significance Heatmap")
     fig6_path = os.path.join(FIGURES_DIR, "fig6_significance_heatmap.png")
     if os.path.exists(fig6_path):
         st.image(fig6_path, use_container_width=True)
 
     st.markdown("---")
 
-    # ── Section 4: Phase 1 LLM Robustness ──
-    st.markdown("### 4. Phase 1 Robustness: LM vs LLM Incremental R²")
+    # ── Section 4: H4 — Substitution Matrix ──
+    st.markdown("### 4. H4: Asset Substitution Matrix")
     st.markdown("""
-    **Finding**: LM and LLM are complementary, not substitutes.
-    - **LM dictionary** better for equities in Forward Guidance period
-    - **LLM hawkish** better for gold and non-FG periods
-    - Both add explanatory power beyond target+path factors, but capture different signals
+    CBI shocks show a monotonic decline in mean |β| with distance from the diagonal
+    (Spearman ρ = -0.77, p = 0.072), suggesting risk-ladder substitution.
+    """)
+
+    fig8_path = os.path.join(FIGURES_DIR, "fig8_h4_substitution_matrix.png")
+    if os.path.exists(fig8_path):
+        st.image(fig8_path, use_container_width=True)
+
+    st.markdown("---")
+
+    # ── Section 5: H5 — ZLB Regime ──
+    st.markdown("### 5. H5: Zero Lower Bound Regime Effects")
+    st.markdown("""
+    ZLB regime amplifies MP effects on corporate bonds (β = -0.462, p = 0.005).
+    """)
+
+    fig5_path = os.path.join(FIGURES_DIR, "fig5_h5_regime_zlb.png")
+    if os.path.exists(fig5_path):
+        st.image(fig5_path, use_container_width=True)
+
+    st.markdown("---")
+
+    # ── Section 6: Phase 1 LLM Robustness ──
+    st.markdown("### 6. Phase 1 Robustness: LM vs LLM Incremental R²")
+    st.markdown("""
+    LM and LLM are complementary: LM better for equities in FG period, LLM better for gold.
     """)
 
     fig4_path = os.path.join(FIGURES_DIR, "fig4_phase1_llm_robustness.png")
     if os.path.exists(fig4_path):
         st.image(fig4_path, use_container_width=True)
 
-    # Show robustness summary
     summary_path = os.path.join(RESULTS_DIR, "phase1_llm_robustness_summary.txt")
     if os.path.exists(summary_path):
         with open(summary_path) as f:
@@ -172,61 +203,107 @@ def render():
 
     st.markdown("---")
 
-    # ── Section 5: H5 — ZLB Regime Analysis ──
-    st.markdown("### 5. H5: Zero Lower Bound Regime Effects")
+    # ── Section 7: Triple Baseline Robustness ──
+    st.markdown("### 7. Triple Baseline Robustness Matrix")
     st.markdown("""
-    **H5**: CBI shock effects are amplified during the Zero Lower Bound period.
-    - Corporate bonds show *** significance in ZLB regime
-    - Suggests forward guidance becomes more powerful when conventional policy is exhausted
+    4 hypotheses × 9 specifications = 36 tests. H3 (government bonds) significant in all 9.
     """)
 
-    fig5_path = os.path.join(FIGURES_DIR, "fig5_h5_regime_zlb.png")
-    if os.path.exists(fig5_path):
-        st.image(fig5_path, use_container_width=True)
+    fig10_path = os.path.join(FIGURES_DIR, "fig10_triple_baseline_robustness.png")
+    if os.path.exists(fig10_path):
+        st.image(fig10_path, use_container_width=True)
 
     st.markdown("---")
 
-    # ── Section 6: Three-Window Robustness Matrix ──
-    st.markdown("### 6. Three-Window × Three-Baseline Robustness Matrix")
+    # ── Section 8: Cross-Paper Comparison ──
+    st.markdown("### 8. Cross-Paper Comparison: Asset Returns vs. Fund Flows")
     st.markdown("""
-    The triple baseline design (Raw JK / B-S LM / B-S LLM) × three event windows (same / post / diff)
-    provides 9 tests per hypothesis per asset class.
+    Comparing Phase 1 (daily asset returns, GSS target/path shocks) with Direction 2 (monthly fund flows, JK MP/CBI shocks).
 
-    **Most robust finding**: H3 for government bonds — differential MP vs CBI effects
-    are significant across all 9 combinations.
+    **Three key findings:**
+    1. **Target shock drives prices, CBI shock drives flows** — two-stage transmission
+    2. **LM dictionary works for returns, LLM works for flows** — complementary measures
+    3. **Government bonds are special** — no price reaction but significant flow response
     """)
 
-    # Build robustness summary table
-    robust_data = []
-    for window in ['same', 'post', 'diff']:
-        fpath = os.path.join(RESULTS_DIR, f"h1_h4_results_{window}_window.json")
-        if os.path.exists(fpath):
-            with open(fpath) as f:
-                d = json.load(f)
-            for asset in ['government_bonds', 'corporate_bonds']:
-                h3 = d['h3_raw'].get(asset, {})
-                h1 = d['h1_raw'].get(asset, {})
-                robust_data.append({
-                    'Window': window.capitalize(),
-                    'Asset': asset.replace('_', ' ').title(),
-                    'β_MP (H1)': f"{h1.get('beta_mp', np.nan):.3f}",
-                    'β_CBI (H1)': f"{h1.get('beta_cbi', np.nan):.3f}",
-                    'H3 Wald p': f"{h3.get('wald_p', np.nan):.3f}",
-                    'H3 Rejected': str(h3.get('h3_rejected', 'N/A')),
-                })
-    if robust_data:
-        st.dataframe(pd.DataFrame(robust_data), use_container_width=True, hide_index=True)
+    fig11_path = os.path.join(FIGURES_DIR, "fig11_phase1_vs_direction2_comparison.png")
+    if os.path.exists(fig11_path):
+        st.image(fig11_path, use_container_width=True)
+
+    fig12_path = os.path.join(FIGURES_DIR, "fig12_cross_paper_scatter.png")
+    if os.path.exists(fig12_path):
+        st.image(fig12_path, use_container_width=True)
 
     st.markdown("---")
 
-    # ── Paper & Code ──
-    st.markdown("### 7. Paper & Replication Package")
+    # ── Section 9: Frequency Comparison ──
+    st.markdown("### 9. Frequency Comparison: Daily vs. Weekly vs. Monthly")
+    st.markdown("""
+    Re-estimating H1/H3 with daily returns (FOMC day) and weekly returns (3-day, 2-day windows).
+
+    **Five patterns:**
+    1. **Daily CRSP VW**: Both MP and CBI significant with **opposite signs** (H3 χ²=40.75***)
+    2. **S&P 500 & NASDAQ**: Only **CBI** significant — information drives stock prices
+    3. **Gold**: Only **MP** significant — reacts to pure rate changes
+    4. **Weekly**: CBI fades, MP persists — information effect is short-lived
+    5. **Monthly flows**: Individual effects not significant, but H3 difference matters
+    """)
+
+    fig13_path = os.path.join(FIGURES_DIR, "fig13_frequency_comparison.png")
+    if os.path.exists(fig13_path):
+        st.image(fig13_path, use_container_width=True)
+
+    # Show daily results table
+    daily_path = os.path.join(RESULTS_DIR, "daily_return_jk_results.json")
+    weekly_path = os.path.join(RESULTS_DIR, "weekly_return_jk_results.json")
+    if os.path.exists(daily_path):
+        with open(daily_path) as f:
+            daily = json.load(f)
+        with open(weekly_path) as f:
+            weekly = json.load(f)
+
+        freq_data = []
+        for asset, r in daily.items():
+            freq_data.append({
+                'Frequency': 'Daily (FOMC day)',
+                'Asset': asset,
+                'β_MP': f"{r['beta_mp']:+.4f}",
+                'p_MP': f"{r['p_mp']:.3f}",
+                'β_CBI': f"{r['beta_cbi']:+.4f}",
+                'p_CBI': f"{r['p_cbi']:.3f}",
+                'H3 χ²': f"{r['wald_chi2']:.2f}",
+                'p_H3': f"{r['wald_p']:.3f}",
+            })
+        for asset, r in weekly.items():
+            freq_data.append({
+                'Frequency': 'Weekly',
+                'Asset': asset,
+                'β_MP': f"{r['beta_mp']:+.4f}",
+                'p_MP': f"{r['p_mp']:.3f}",
+                'β_CBI': f"{r['beta_cbi']:+.4f}",
+                'p_CBI': f"{r['p_cbi']:.3f}",
+                'H3 χ²': f"{r['wald_chi2']:.2f}",
+                'p_H3': f"{r['wald_p']:.3f}",
+            })
+        st.dataframe(pd.DataFrame(freq_data), use_container_width=True, hide_index=True)
+
+    st.markdown("""
+    **Transmission timeline:**
+    - **Day 0**: MP + CBI both affect prices (opposite directions)
+    - **Days 1–2**: CBI fades, MP persists
+    - **Month t+1**: Fund flows adjust based on MP vs CBI difference
+    """)
+
+    st.markdown("---")
+
+    # ── Section 10: Paper & Code ──
+    st.markdown("### 10. Paper & Replication Package")
     col_p1, col_p2 = st.columns(2)
     with col_p1:
         st.markdown("""
         **📄 AFA 2027 GenAI Session Paper**
-        - Title: *Two Shocks, Two Flows: MP vs CBI Effects on Fund Rebalancing*
-        - Authors: Eileen Zhang & Yang Dongsheng
+        - Title: *Information vs. Action: How Central Bank Communication Drives Mutual Fund Rebalancing*
+        - Authors: Eileen Zhang (Rutgers) & Dechang Xu (XJTLU)
         - Deadline: August 31, 2026
         - Status: Draft complete, revisions ongoing
         """)
@@ -243,8 +320,9 @@ def render():
     <div style='background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid #0f3460; margin-top: 1rem;'>
         <p style='margin: 0; font-size: 0.9rem;'>
             <strong>Core Narrative:</strong> Central Bank Information (CBI) shocks drive portfolio rebalancing,
-            not Monetary Policy (MP) shocks. The distinction matters — using LM dictionary sentiment
-            masks this effect entirely; LLM-based sentiment measurement reveals it.
+            not Monetary Policy (MP) shocks. At daily frequency, both matter (opposite signs).
+            At monthly frequency, only the <em>difference</em> matters for fund flows.
+            LLM sentiment reveals what LM dictionary masks (r=0.000).
         </p>
     </div>
     """, unsafe_allow_html=True)
