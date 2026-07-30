@@ -72,6 +72,8 @@ Our main findings are as follows. First, \textbf{MP and CBI shocks have asymmetr
 
 These findings have important implications for monetary policy transmission. The dominant role of CBI shocks in driving rebalancing suggests that what investors respond to is not the mechanical change in interest rates but the \textit{information} conveyed about the economic outlook. This is consistent with \citet{nakamura2018high}'s information effect hypothesis and with \citet{bauer2023reassessment}'s argument that high-frequency identified shocks are contaminated by information effects. Our LLM sentiment analysis further shows that the choice of sentiment measure is not innocuous: the LM dictionary's inability to distinguish hawkish from dovish meetings may lead to misleading conclusions about the information channel.
 
+This paper is the second in a research program studying the information channel of monetary policy. Our companion paper \citep{yang2026beyond} examines the effect of FOMC shocks on \textit{asset returns} using daily data, while this paper examines the effect on \textit{mutual fund flows} using monthly data. The cross-paper comparison (Section~\ref{sec:cross}) reveals that different shocks matter at different horizons: the target shock drives immediate price adjustments, while the CBI shock drives slower portfolio rebalancing.
+
 Our paper contributes to three literatures. First, we contribute to the monetary policy transmission literature by decomposing the policy shock into MP and CBI components and showing that they have differential effects on portfolio rebalancing \citep{jarocinski2020deconstructing, nakamura2018high, bauer2023reassessment}. Second, we contribute to the mutual fund flows literature by documenting the risk-ladder structure of rebalancing in response to FOMC announcements \citep{chevalier1997risk, lou2012dynamics, goldstein2017investor, hau2016asset}. Third, we contribute to the emerging literature on LLM-based financial text analysis by directly comparing LM dictionary and LLM hawkish scores in the context of B-S orthogonalization \citep{loughran2011when, IMF2025llm, BIS2024cblms}.
 
 The remainder of the paper is organized as follows. Section~\ref{sec:lit} reviews the related literature. Section~\ref{sec:data} describes the data. Section~\ref{sec:method} presents the methodology. Section~\ref{sec:results} reports the main results. Section~\ref{sec:llm} analyzes the LLM sentiment comparison. Section~\ref{sec:robust} presents robustness checks. Section~\ref{sec:conclude} concludes.
@@ -505,6 +507,102 @@ Figure~\ref{fig:phase1_robustness} visualizes this comparison.
 
 \textbf{Key finding}: LM and LLM are \textit{complementary}, not substitutes. LM is better for equities in the FG period (where the Fed's communication about future policy is most relevant), while LLM is better for gold (a safe-haven asset that responds to the overall hawkish/dovish stance). This suggests that the two measures capture different dimensions of FOMC communication.
 
+
+\section{Cross-Paper Comparison: Asset Returns vs.\ Fund Flows}
+\label{sec:cross}
+
+This paper is part of a broader research program studying the information channel of monetary policy. Our companion paper \citep{yang2026beyond} (``Phase 1'') examines the effect of FOMC shocks on \textit{asset returns} using daily data, while this paper (``Direction 2'') examines the effect on \textit{mutual fund flows} using monthly data. The comparison across the two papers yields three insights that would not be apparent from either paper alone.
+
+\subsection{Data and Design Comparison}
+
+Table~\ref{tab:cross_compare} summarizes the key differences between the two papers.
+
+\begin{table}[H]
+\centering
+\caption{Cross-Paper Comparison: Phase 1 vs.\ Direction 2}
+\label{tab:cross_compare}
+\begin{tabular}{lll}
+\toprule
+Dimension & Phase 1 (Returns) & Direction 2 (Flows) \\
+\midrule
+Frequency & Daily (FOMC day) & Monthly (fund flows) \\
+Shock decomposition & GSS Target + Path & JK MP + CBI \\
+Dependent variable & Asset returns (\%) & Fund net flows (\%) \\
+Asset coverage & 5 assets (S\&P, NASDAQ, Gold, 10Y, VIX) & 7-asset risk ladder \\
+Sentiment measure & LM dictionary & Triple baseline (Raw/LM/LLM) \\
+Sample & 117 FOMC meetings (2006--2022) & Same \\
+Key driver & Target shock & CBI shock \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Figure~\ref{fig:cross_compare} provides a visual comparison of the two papers' main findings.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../figures/fig11_phase1_vs_direction2_comparison.png}
+\caption{Cross-Paper Comparison. Panel A: Phase 1 asset return response to GSS target and path shocks (daily). Panel B: Direction 2 fund flow response to JK MP and CBI shocks (monthly, diff window). Panel C: LM vs.\ LLM incremental $R^2$ for asset returns (FG period). Panel D: H3 asymmetry test (Wald $\chi^2$) across event windows. Panel E: Summary comparison table.}
+\label{fig:cross_compare}
+\end{figure}
+
+\subsection{Finding 1: Target Shock Drives Prices, CBI Shock Drives Flows}
+\label{sec:finding1}
+
+The most striking cross-paper finding is that \textit{different shocks matter at different horizons and for different dependent variables}. In Phase 1, the GSS target shock---the pure surprise in the current Fed funds rate---is the primary driver of daily asset returns. The target coefficient is significant for S\&P 500 returns ($\beta = -0.259$, $p = 0.030$), NASDAQ ($\beta = -0.282$, $p = 0.039$), and gold ($\beta = -0.404$, $p = 0.015$). The path shock, which captures forward guidance about future policy, is not significant for any asset return.
+
+In Direction 2, the pattern reverses. The MP shock (analogous to the target shock) is largely insignificant for monthly fund flows. Instead, the CBI shock---the information component---drives the risk-ladder rebalancing pattern. The H3 asymmetry test for government bonds is significant in all 9 specifications (3 windows $\times$ 3 baselines), and the H2 risk-ladder interaction $\delta(\text{Risk}\times\text{CBI}) = +0.153$ ($p = 0.015$) in the post window.
+
+\textbf{Interpretation}: This pattern is consistent with a two-stage transmission process. In the \textit{first stage}, markets react instantly to the rate surprise: prices adjust on the FOMC day as discount rates change. This is the traditional interest rate channel \citep{bernanke2005irregularities, gurkaynak2005actions}. In the \textit{second stage}, investors process the information conveyed by the Fed---about the economic outlook, the assessment of risks, and the expected future path---and adjust their portfolio allocations accordingly. This information-driven rebalancing is slower (monthly, not daily) and is captured by the CBI shock, not the MP shock.
+
+This two-stage interpretation is supported by the event window analysis: H1 (MP effect) is significant only in the diff window ($[t-1, t+1]$, capturing the immediate effect), while H2 (CBI effect) is significant only in the post window ($[t+2, t+22]$, capturing the delayed effect). The temporal separation of MP and CBI effects aligns with the cross-paper finding: prices react to MP immediately, flows react to CBI with a lag.
+
+\subsection{Finding 2: LM Dictionary Works for Returns, LLM Works for Flows}
+\label{sec:finding2}
+
+The cross-paper comparison reveals that the choice between LM dictionary and LLM hawkish scores depends on the research question. In Phase 1, where the dependent variable is daily asset returns, the LM dictionary provides higher incremental $R^2$ for equities in the forward guidance period (CRSP VW: 10.62\% vs.\ 6.62\%). This is because the LM dictionary captures specific hawkish/dovish \textit{word frequencies} that are correlated with equity price movements, particularly during periods when the Fed's language about future policy is most informative.
+
+In Direction 2, where the dependent variable is monthly fund flows, the LM dictionary fails to distinguish hawkish from dovish meetings ($r = 0.000$ with LLM hawkish). All meetings receive nearly identical LM scores ($\approx 0.01$), regardless of whether the Fed hiked, cut, or held rates unchanged. The LLM hawkish score, by contrast, correctly separates hawkish ($+0.46$) from dovish ($-0.68$) meetings, and B-S orthogonalization with LLM produces materially different shock series.
+
+\textbf{Interpretation}: The LM dictionary and LLM capture \textit{different dimensions} of FOMC communication. The LM dictionary measures the frequency of specific financial sentiment words (e.g., ``inflation,'' ``uncertainty,'' ``solid''), which may correlate with equity returns because these words signal information about future cash flows and discount rates. The LLM hawkish score, by contrast, provides a holistic assessment of the overall policy stance, which is more relevant for portfolio allocation decisions that depend on the expected future path of policy.
+
+Notably, the LLM is better than the LM dictionary for gold returns in Phase 1 (incremental $R^2$: 12.93\% vs.\ 1.11\% in the FG period). Gold, as a safe-haven asset, may respond more to the overall hawkish/dovish stance than to specific word frequencies. This is consistent with the finding in Direction 2 that the LLM hawkish score is the more relevant measure for portfolio rebalancing decisions.
+
+\subsection{Finding 3: Government Bonds Are Special in Both Papers}
+\label{sec:finding3}
+
+Government bonds play a unique role in both papers, but in different ways:
+
+\begin{itemize}
+    \item \textbf{Phase 1 (returns)}: The 10-year Treasury yield change is \textit{not} significantly affected by the target shock ($\beta = 0.007$, $p = 0.40$) or the path shock ($\beta = -0.001$, $p = 0.89$). This is consistent with the view that the Treasury market is highly efficient and prices in rate decisions before the FOMC announcement \citep{kuttner2001monetary, gurkaynak2005actions}.
+    
+    \item \textbf{Direction 2 (flows)}: Government bond \textit{fund flows} show the most robust differential response to MP vs.\ CBI shocks (H3: 9/9 significant). While the Treasury market may efficiently price the rate change, investors actively rebalance their government bond fund positions in response to the \textit{information} conveyed by the Fed.
+\end{itemize}
+
+\textbf{Interpretation}: This dichotomy---prices don't react but flows do---suggests that the government bond market is informationally efficient in the semi-strong form, but that investors still find it optimal to rebalance their fund positions based on the Fed's information signal. The price adjustment may occur through the yield curve (which is determined by market makers and institutional traders), while the fund flow adjustment reflects the decisions of retail and institutional investors who use mutual funds as their primary vehicle for bond market exposure.
+
+Figure~\ref{fig:cross_scatter} summarizes the cross-paper findings.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../figures/fig12_cross_paper_scatter.png}
+\caption{What Shocks Matter Where? Left panel: Phase 1 target/path shocks (red) vs.\ Direction 2 MP/CBI shocks (blue) across asset classes. Right panel: LM dictionary (orange) vs.\ LLM hawkish (purple) incremental $R^2$ for asset returns.}
+\label{fig:cross_scatter}
+\end{figure}
+
+\subsection{Implications for the Research Program}
+
+The cross-paper comparison suggests a unified narrative for the information channel of monetary policy:
+
+\begin{enumerate}
+    \item \textbf{Price channel}: The target shock (pure rate surprise) drives immediate price adjustments in equity and gold markets. This is the traditional monetary policy transmission channel, operating through discount rates.
+    
+    \item \textbf{Information channel}: The CBI shock (information component) drives slower portfolio rebalancing decisions, particularly in government bond funds. This is the information channel \citep{nakamura2018high, jarocinski2020deconstructing}, operating through investors' updated beliefs about the economic outlook.
+    
+    \item \textbf{Measurement}: The LM dictionary is better suited for studying the price channel (where specific word frequencies correlate with returns), while the LLM hawkish score is better suited for studying the information channel (where the overall policy stance matters for allocation decisions).
+\end{enumerate}
+
+This unified narrative has implications for future research. First, studies of the \textit{price} effects of monetary policy should use high-frequency data and target/path shocks. Second, studies of the \textit{flow} effects should use lower-frequency data and MP/CBI shocks. Third, the choice of sentiment measure should be guided by the research question: LM dictionary for price effects, LLM hawkish for flow effects.
+
 \section{Robustness}
 \label{sec:robust}
 
@@ -571,7 +669,13 @@ Second, the \textbf{temporal structure} of transmission matters: MP shocks have 
 
 Third, the \textbf{choice of sentiment measure} is not innocuous. The LM dictionary's inability to distinguish hawkish from dovish meetings ($r = 0.000$ with LLM) may lead to misleading conclusions about the information channel. LLM-based sentiment measures provide a more nuanced and accurate classification of FOMC communication, with implications for the identification of monetary policy shocks and the measurement of information effects.
 
-Future research could extend this analysis to other asset classes (e.g., ETF flows, hedge fund positions), other central banks (e.g., ECB, BoJ), and other communication channels (e.g., press conferences, speeches, minutes). The LLM-based sentiment methodology could be further refined using domain-specific models \citep{BIS2024cblms} and could be applied to other text-based identification strategies in finance.
+These findings, combined with the cross-paper comparison in Section~\ref{sec:cross}, paint a unified picture of monetary policy transmission. The target shock drives immediate price adjustments (Phase 1), while the CBI shock drives slower portfolio rebalancing (Direction 2). The two channels operate at different horizons and through different mechanisms: the price channel works through discount rates on FOMC day, while the information channel works through investors' updated beliefs about the economic outlook over the following weeks.
+
+The finding that government bonds show no price reaction but significant flow response is particularly noteworthy. It suggests that while the Treasury market is informationally efficient in pricing rate decisions, investors still find it optimal to rebalance their fund positions based on the Fed's information signal. This has implications for the debate on central bank communication: even when markets efficiently price the policy action, the information component of communication still drives real portfolio decisions.
+
+The measurement dimension is equally important. Our cross-paper analysis shows that the LM dictionary and LLM hawkish score are complementary measures suited for different research questions: the LM dictionary for price effects (where word frequencies correlate with returns), the LLM hawkish for flow effects (where the overall policy stance matters for allocation). Future research using LLM-based sentiment measures should be guided by the research question rather than defaulting to one measure.
+
+Future research could extend this analysis along several dimensions. First, examining \textit{intraday} fund flows (using ETF flow data) would bridge the gap between the daily return and monthly flow frequencies, potentially revealing the exact timing of the information-driven rebalancing. Second, studying other central banks (e.g., ECB, BoJ, PBoC) would test whether the information channel is specific to the Fed or is a general feature of central bank communication. Third, examining other communication channels (e.g., FOMC press conferences, speeches, minutes) would test whether different communication venues carry different information content. Fourth, the LLM-based sentiment methodology could be further refined using domain-specific models \citep{BIS2024cblms} and could be applied to other text-based identification strategies in finance, including earnings calls, analyst reports, and regulatory filings. Finally, linking the flow-level findings to real economic outcomes (e.g., does CBI-driven rebalancing affect corporate bond yields and thus firms' cost of capital?) would close the loop between monetary policy communication and real economic activity.
 
 \textbf{Data and Code Availability:} All code, data, and results are available at \url{https://github.com/dechang64/monetary-policy-lab/tree/main/direction2}. The audit chain for GenAI Session compliance is in \texttt{direction2/code/audit\_chain/}.
 
@@ -658,6 +762,9 @@ Sirri, E.G.\ and Tufano, P. (2004). The response of mutual fund flows to prior p
 
 \bibitem[Tobin(1969)]{tobin1969general}
 Tobin, J. (1969). A general equilibrium approach to monetary theory. \textit{Journal of Money, Credit and Banking}, 1(1), 15--29.
+
+\bibitem[Yang and Zhang(2026)]{yang2026beyond}
+Yang, Y.\ and Zhang, E. (2026). Beyond the rate: Information content of FOMC forward guidance language. \textit{MRS 2026 International Risk Conference}. Companion paper.
 
 \end{thebibliography}
 
