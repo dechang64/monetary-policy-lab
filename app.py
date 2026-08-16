@@ -104,6 +104,7 @@ page = st.sidebar.radio(
         "🔬 Phase 1 Research",
         "🧠 Federated AI Intelligence",
         "🤝 M&A / LBO Research Lab",  # NEW
+        "🎯 Direction 2: Two-Shocks Rebalancing",
     ],
     label_visibility="collapsed",
 )
@@ -122,6 +123,7 @@ Built for studying how monetary policy announcements reshape asset prices and po
 - 📊 Research Results v10.3 (JK + B-S + FF)
 - 🧠 Federated AI Intelligence (NEW)
 - 🤝 M&A / LBO Research Lab (NEW)
+- 🎯 Direction 2: MP vs CBI Rebalancing (NEW)
 """)
 
 # ── Route to Pages ──
@@ -159,3 +161,6 @@ elif page == "🧠 Federated AI Intelligence":
 elif page == "🤝 M&A / LBO Research Lab":
     from modules.ma_lab import __init__ as ma_init
     ma_init.render()
+elif page == "🎯 Direction 2: Two-Shocks Rebalancing":
+    from modules import direction2
+    direction2.render()

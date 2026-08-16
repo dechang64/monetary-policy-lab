@@ -1,0 +1,394 @@
+{
+  "h1_raw": {
+    "government_bonds": {
+      "risk_rank": 1,
+      "n": 117,
+      "beta_mp": 0.0876480423234466,
+      "p_mp": 0.4887168416020401,
+      "beta_cbi": -0.37239344633398536,
+      "p_cbi": 0.3714867267256583,
+      "r_squared": 0.23285729607898098,
+      "controls": [],
+      "shock_type": "raw JK"
+    },
+    "corporate_bonds": {
+      "risk_rank": 2,
+      "n": 117,
+      "beta_mp": 0.2017790597186031,
+      "p_mp": 0.09818788711356119,
+      "beta_cbi": 0.3723520397340069,
+      "p_cbi": 0.012874507591964013,
+      "r_squared": 2.518261438159053,
+      "controls": [],
+      "shock_type": "raw JK"
+    },
+    "real_assets": {
+      "risk_rank": 3,
+      "n": 117,
+      "beta_mp": 0.1924665746336095,
+      "p_mp": 0.2666417168304275,
+      "beta_cbi": -0.012574913883679813,
+      "p_cbi": 0.7661963026446514,
+      "r_squared": 0.6634627945449778,
+      "controls": [],
+      "shock_type": "raw JK"
+    },
+    "large_cap_equity": {
+      "risk_rank": 4,
+      "n": 117,
+      "beta_mp": 0.037386810393444395,
+      "p_mp": 0.6897020548212267,
+      "beta_cbi": 0.0501889094714403,
+      "p_cbi": 0.7398857260550381,
+      "r_squared": 0.006954907028067225,
+      "controls": [],
+      "shock_type": "raw JK"
+    },
+    "developed_market_equity": {
+      "risk_rank": 5,
+      "n": 117,
+      "beta_mp": 0.258729306386793,
+      "p_mp": 0.13998746709693174,
+      "beta_cbi": -0.10625408990565419,
+      "p_cbi": 0.42029012162355905,
+      "r_squared": 0.24640829666671138,
+      "controls": [],
+      "shock_type": "raw JK"
+    },
+    "emerging_market_equity": {
+      "risk_rank": 6,
+      "n": 117,
+      "beta_mp": 0.1643318689624021,
+      "p_mp": 0.19297105985755403,
+      "beta_cbi": 0.007200459137000995,
+      "p_cbi": 0.9053639615144641,
+      "r_squared": 0.5807342073418043,
+      "controls": [],
+      "shock_type": "raw JK"
+    },
+    "small_cap_equity": {
+      "risk_rank": 7,
+      "n": 117,
+      "beta_mp": -0.19067699823643433,
+      "p_mp": 0.3545463694196933,
+      "beta_cbi": 0.03226853839660385,
+      "p_cbi": 0.3818745592338414,
+      "r_squared": 2.3424932775025997,
+      "controls": [],
+      "shock_type": "raw JK"
+    }
+  },
+  "h2_raw": {
+    "government_bonds": {
+      "risk_rank": 1,
+      "n": 117,
+      "beta_mp": 0.0876480423234466,
+      "p_mp": 0.4887168416020401,
+      "beta_cbi": -0.37239344633398536,
+      "p_cbi": 0.3714867267256583,
+      "r_squared": 0.23285729607898098,
+      "controls": [],
+      "shock_type": "raw JK",
+      "h2_prediction": "outflow",
+      "h2_supported": "False"
+    },
+    "corporate_bonds": {
+      "risk_rank": 2,
+      "n": 117,
+      "beta_mp": 0.2017790597186031,
+      "p_mp": 0.09818788711356119,
+      "beta_cbi": 0.3723520397340069,
+      "p_cbi": 0.012874507591964013,
+      "r_squared": 2.518261438159053,
+      "controls": [],
+      "shock_type": "raw JK",
+      "h2_prediction": "outflow",
+      "h2_supported": "False"
+    },
+    "real_assets": {
+      "risk_rank": 3,
+      "n": 117,
+      "beta_mp": 0.1924665746336095,
+      "p_mp": 0.2666417168304275,
+      "beta_cbi": -0.012574913883679813,
+      "p_cbi": 0.7661963026446514,
+      "r_squared": 0.6634627945449778,
+      "controls": [],
+      "shock_type": "raw JK",
+      "h2_prediction": "outflow",
+      "h2_supported": "False"
+    },
+    "large_cap_equity": {
+      "risk_rank": 4,
+      "n": 117,
+      "beta_mp": 0.037386810393444395,
+      "p_mp": 0.6897020548212267,
+      "beta_cbi": 0.0501889094714403,
+      "p_cbi": 0.7398857260550381,
+      "r_squared": 0.006954907028067225,
+      "controls": [],
+      "shock_type": "raw JK",
+      "h2_prediction": "inflow",
+      "h2_supported": "False"
+    },
+    "developed_market_equity": {
+      "risk_rank": 5,
+      "n": 117,
+      "beta_mp": 0.258729306386793,
+      "p_mp": 0.13998746709693174,
+      "beta_cbi": -0.10625408990565419,
+      "p_cbi": 0.42029012162355905,
+      "r_squared": 0.24640829666671138,
+      "controls": [],
+      "shock_type": "raw JK",
+      "h2_prediction": "inflow",
+      "h2_supported": false
+    },
+    "emerging_market_equity": {
+      "risk_rank": 6,
+      "n": 117,
+      "beta_mp": 0.1643318689624021,
+      "p_mp": 0.19297105985755403,
+      "beta_cbi": 0.007200459137000995,
+      "p_cbi": 0.9053639615144641,
+      "r_squared": 0.5807342073418043,
+      "controls": [],
+      "shock_type": "raw JK",
+      "h2_prediction": "inflow",
+      "h2_supported": "False"
+    },
+    "small_cap_equity": {
+      "risk_rank": 7,
+      "n": 117,
+      "beta_mp": -0.19067699823643433,
+      "p_mp": 0.3545463694196933,
+      "beta_cbi": 0.03226853839660385,
+      "p_cbi": 0.3818745592338414,
+      "r_squared": 2.3424932775025997,
+      "controls": [],
+      "shock_type": "raw JK",
+      "h2_prediction": "inflow",
+      "h2_supported": "False"
+    }
+  },
+  "h3_raw": {
+    "government_bonds": {
+      "risk_rank": 1,
+      "n": 117,
+      "beta_mp": 0.0876480423234466,
+      "beta_cbi": -0.37239344633398536,
+      "wald_f": 1.351008445210693,
+      "wald_p": 0.24752943886165976,
+      "h3_rejected": "False"
+    },
+    "corporate_bonds": {
+      "risk_rank": 2,
+      "n": 117,
+      "beta_mp": 0.2017790597186031,
+      "beta_cbi": 0.3723520397340069,
+      "wald_f": 0.6264189049495169,
+      "wald_p": 0.43031561240671545,
+      "h3_rejected": "False"
+    },
+    "real_assets": {
+      "risk_rank": 3,
+      "n": 117,
+      "beta_mp": 0.1924665746336095,
+      "beta_cbi": -0.012574913883679813,
+      "wald_f": 1.09504159656493,
+      "wald_p": 0.297570533506831,
+      "h3_rejected": "False"
+    },
+    "large_cap_equity": {
+      "risk_rank": 4,
+      "n": 117,
+      "beta_mp": 0.037386810393444395,
+      "beta_cbi": 0.0501889094714403,
+      "wald_f": 0.005732252376594667,
+      "wald_p": 0.9397812219258268,
+      "h3_rejected": "False"
+    },
+    "developed_market_equity": {
+      "risk_rank": 5,
+      "n": 117,
+      "beta_mp": 0.258729306386793,
+      "beta_cbi": -0.10625408990565419,
+      "wald_f": 1.8224159094047223,
+      "wald_p": 0.17970031415156748,
+      "h3_rejected": "False"
+    },
+    "emerging_market_equity": {
+      "risk_rank": 6,
+      "n": 117,
+      "beta_mp": 0.1643318689624021,
+      "beta_cbi": 0.007200459137000995,
+      "wald_f": 1.0851693816383403,
+      "wald_p": 0.29974816816565897,
+      "h3_rejected": "False"
+    },
+    "small_cap_equity": {
+      "risk_rank": 7,
+      "n": 117,
+      "beta_mp": -0.19067699823643433,
+      "beta_cbi": 0.03226853839660385,
+      "wald_f": 1.070751232072214,
+      "wald_p": 0.30296590815836544,
+      "h3_rejected": "False"
+    }
+  },
+  "h4_raw_mp": {
+    "mean_abs_beta_by_distance": {
+      "1": 0.6414246772101716,
+      "2": 0.3011936092250144,
+      "3": 0.33464043305769653,
+      "4": 0.7493716499551537,
+      "5": 1.090116858941119,
+      "6": 0.48151055090095174
+    },
+    "spearman_rho": 0.3714285714285715,
+    "spearman_p": 0.46847813411078715,
+    "h4_monotonic_decline": "False",
+    "h4_adjacent_dominant": "True",
+    "h4_supported": "False",
+    "interpretation": "Partial ladder: adjacent dominant but non-monotonic"
+  },
+  "h4_raw_cbi": {
+    "mean_abs_beta_by_distance": {
+      "1": 0.6093120863165503,
+      "2": 1.209528695284114,
+      "3": 0.12530437241099412,
+      "4": 0.11737723018507762,
+      "5": 0.2640730331101836,
+      "6": 0.04657606431552601
+    },
+    "spearman_rho": -0.7714285714285715,
+    "spearman_p": 0.07239650145772594,
+    "h4_monotonic_decline": "True",
+    "h4_adjacent_dominant": "True",
+    "h4_supported": "True",
+    "interpretation": "Risk-ladder substitution supported"
+  },
+  "h5": {
+    "by_asset": {
+      "government_bonds": {
+        "risk_rank": 1,
+        "n": 117,
+        "n_zlb": 57,
+        "beta_mp": 0.061804031102661944,
+        "p_mp": 0.7259960227457771,
+        "beta_cbi": -0.549761666224263,
+        "p_cbi": 0.28887401639794097,
+        "beta_mp_x_zlb": 0.0719537556539906,
+        "p_mp_x_zlb": 0.6944977126354341,
+        "beta_cbi_x_zlb": 1.7044811811808809,
+        "p_cbi_x_zlb": 0.05179624601890008,
+        "r_squared": 0.02059310132156189,
+        "h5_mp_amplified": "False",
+        "h5_cbi_amplified": "True"
+      },
+      "corporate_bonds": {
+        "risk_rank": 2,
+        "n": 117,
+        "n_zlb": 57,
+        "beta_mp": 0.24997189809587725,
+        "p_mp": 0.1917135303104971,
+        "beta_cbi": 0.43369135392248176,
+        "p_cbi": 0.0018660342243057302,
+        "beta_mp_x_zlb": -0.14074121876902518,
+        "p_mp_x_zlb": 0.5109349415710285,
+        "beta_cbi_x_zlb": -0.46293203424155294,
+        "p_cbi_x_zlb": 0.04598185151594128,
+        "r_squared": 0.029027730227848436,
+        "h5_mp_amplified": "False",
+        "h5_cbi_amplified": "False"
+      },
+      "real_assets": {
+        "risk_rank": 3,
+        "n": 117,
+        "n_zlb": 57,
+        "beta_mp": 0.2816387272759091,
+        "p_mp": 0.30984907465422395,
+        "beta_cbi": -0.00312641224462663,
+        "p_cbi": 0.9536185327520814,
+        "beta_mp_x_zlb": -0.2636149967519293,
+        "p_mp_x_zlb": 0.34212479568542353,
+        "beta_cbi_x_zlb": 0.05860161950654762,
+        "p_cbi_x_zlb": 0.3654493069018596,
+        "r_squared": 0.020010636203474874,
+        "h5_mp_amplified": "False",
+        "h5_cbi_amplified": "False"
+      },
+      "large_cap_equity": {
+        "risk_rank": 4,
+        "n": 117,
+        "n_zlb": 57,
+        "beta_mp": -0.008771961424929545,
+        "p_mp": 0.9554536577658863,
+        "beta_cbi": 0.20955792309148824,
+        "p_cbi": 0.178162497943415,
+        "beta_mp_x_zlb": 0.14460877642155437,
+        "p_mp_x_zlb": 0.43025472212100546,
+        "beta_cbi_x_zlb": -0.85038264246824,
+        "p_cbi_x_zlb": 1.8572614349922915e-05,
+        "r_squared": 0.016946135700520504,
+        "h5_mp_amplified": "False",
+        "h5_cbi_amplified": "False"
+      },
+      "developed_market_equity": {
+        "risk_rank": 5,
+        "n": 117,
+        "n_zlb": 57,
+        "beta_mp": 0.1025036919431844,
+        "p_mp": 0.2831587664750862,
+        "beta_cbi": -0.06751174983512123,
+        "p_cbi": 0.2893138865071079,
+        "beta_mp_x_zlb": 0.46333495890289894,
+        "p_mp_x_zlb": 0.3366467047693167,
+        "beta_cbi_x_zlb": -0.6306425275174823,
+        "p_cbi_x_zlb": 0.5977071644479499,
+        "r_squared": 0.017686035768769925,
+        "h5_mp_amplified": "False",
+        "h5_cbi_amplified": "False"
+      },
+      "emerging_market_equity": {
+        "risk_rank": 6,
+        "n": 117,
+        "n_zlb": 57,
+        "beta_mp": 0.20714020092856472,
+        "p_mp": 0.3076436919486013,
+        "beta_cbi": -0.03190808141507854,
+        "p_cbi": 0.6324652419735598,
+        "beta_mp_x_zlb": -0.12836945214129564,
+        "p_mp_x_zlb": 0.5350586478430414,
+        "beta_cbi_x_zlb": 0.31622520560586204,
+        "p_cbi_x_zlb": 0.18639887249599862,
+        "r_squared": 0.007698928198954458,
+        "h5_mp_amplified": "False",
+        "h5_cbi_amplified": "False"
+      },
+      "small_cap_equity": {
+        "risk_rank": 7,
+        "n": 117,
+        "n_zlb": 57,
+        "beta_mp": -0.3234887435149623,
+        "p_mp": 0.21421009389170398,
+        "beta_cbi": 0.04797466220791413,
+        "p_cbi": 0.32396782842387084,
+        "beta_mp_x_zlb": 0.39456548743435804,
+        "p_mp_x_zlb": 0.13559885004619,
+        "beta_cbi_x_zlb": -0.14267463390288773,
+        "p_cbi_x_zlb": 0.13897956309891363,
+        "r_squared": 0.046487404197198434,
+        "h5_mp_amplified": "False",
+        "h5_cbi_amplified": "False"
+      }
+    },
+    "summary": {
+      "n_asset_classes": 7,
+      "n_mp_amplified_in_zlb": 0,
+      "n_cbi_amplified_in_zlb": 1,
+      "h5_supported": false,
+      "interpretation": "H5 not supported: only 0 MP and 1 CBI amplified"
+    }
+  }
+}

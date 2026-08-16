@@ -1,0 +1,154 @@
+================================================================================
+Phase 1 LLM Robustness Check: Incremental R² Comparison
+LM Dictionary Sentiment vs LLM Hawkish Score
+================================================================================
+
+
+============================================================
+Asset: CRSP VW Return (vwretd_day)
+============================================================
+
+  Non-FG (N=60):
+    Baseline R² (target+path):     0.0546
+    LM Sentiment R²:               0.0557 (incr: +0.0010)
+    LLM Hawkish R²:                0.0564 (incr: +0.0017)
+    LM coef=-0.0521 (p=0.8070)
+    LLM coef=0.0013 (p=0.7499)
+
+  FG (N=57):
+    Baseline R² (target+path):     0.1996
+    LM Sentiment R²:               0.3058 (incr: +0.1062)
+    LLM Hawkish R²:                0.2658 (incr: +0.0662)
+    LM coef=-2.5979 (p=0.0062)
+    LLM coef=-0.0152 (p=0.0332)
+
+  Full (with interaction) (N=117):
+    Baseline R² (target+path):     0.0910
+    LM Sentiment R²:               0.0987 (incr: +0.0077)
+    LLM Hawkish R²:                0.1495 (incr: +0.0586)
+    LM coef=-0.0372 (p=0.8460)
+    LLM coef=-0.0173 (p=0.0082)
+
+============================================================
+Asset: S&P 500 (sp500_ret)
+============================================================
+
+  Non-FG (N=60):
+    Baseline R² (target+path):     0.1149
+    LM Sentiment R²:               0.1181 (incr: +0.0031)
+    LLM Hawkish R²:                0.1197 (incr: +0.0048)
+    LM coef=10.0469 (p=0.6570)
+    LLM coef=-0.2335 (p=0.5842)
+
+  FG (N=57):
+    Baseline R² (target+path):     0.0018
+    LM Sentiment R²:               0.0412 (incr: +0.0394)
+    LLM Hawkish R²:                0.0087 (incr: +0.0068)
+    LM coef=155.6818 (p=0.1461)
+    LLM coef=0.4802 (p=0.5477)
+
+  Full (with interaction) (N=117):
+    Baseline R² (target+path):     0.0291
+    LM Sentiment R²:               0.0357 (incr: +0.0066)
+    LLM Hawkish R²:                0.0496 (incr: +0.0205)
+    LM coef=0.2560 (p=0.9900)
+    LLM coef=1.0872 (p=0.1255)
+
+============================================================
+Asset: NASDAQ (nasdaq_ret)
+============================================================
+
+  Non-FG (N=60):
+    Baseline R² (target+path):     0.0988
+    LM Sentiment R²:               0.0994 (incr: +0.0005)
+    LLM Hawkish R²:                0.1178 (incr: +0.0190)
+    LM coef=-4.8318 (p=0.8555)
+    LLM coef=-0.5412 (p=0.2770)
+
+  FG (N=57):
+    Baseline R² (target+path):     0.0012
+    LM Sentiment R²:               0.0388 (incr: +0.0376)
+    LLM Hawkish R²:                0.0068 (incr: +0.0056)
+    LM coef=158.2385 (p=0.1557)
+    LLM coef=0.4515 (p=0.5870)
+
+  Full (with interaction) (N=117):
+    Baseline R² (target+path):     0.0339
+    LM Sentiment R²:               0.0348 (incr: +0.0009)
+    LLM Hawkish R²:                0.0566 (incr: +0.0227)
+    LM coef=6.0389 (p=0.7893)
+    LLM coef=1.1157 (p=0.1515)
+
+============================================================
+Asset: 10Y Treasury (ty10_chg)
+============================================================
+
+  Non-FG (N=60):
+    Baseline R² (target+path):     0.0126
+    LM Sentiment R²:               0.0327 (incr: +0.0202)
+    LLM Hawkish R²:                0.0577 (incr: +0.0452)
+    LM coef=1.0262 (p=0.2844)
+    LLM coef=0.0290 (p=0.1070)
+
+  FG (N=57):
+    Baseline R² (target+path):     0.1117
+    LM Sentiment R²:               0.1265 (incr: +0.0148)
+    LLM Hawkish R²:                0.1143 (incr: +0.0026)
+    LM coef=5.0274 (p=0.3474)
+    LLM coef=-0.0156 (p=0.6946)
+
+  Full (with interaction) (N=117):
+    Baseline R² (target+path):     0.0072
+    LM Sentiment R²:               0.0214 (incr: +0.0142)
+    LLM Hawkish R²:                0.0151 (incr: +0.0079)
+    LM coef=0.4557 (p=0.6375)
+    LLM coef=-0.0076 (p=0.8204)
+
+============================================================
+Asset: Gold (gold_ret)
+============================================================
+
+  Non-FG (N=60):
+    Baseline R² (target+path):     0.0318
+    LM Sentiment R²:               0.0376 (incr: +0.0058)
+    LLM Hawkish R²:                0.0842 (incr: +0.0524)
+    LM coef=-17.0924 (p=0.5651)
+    LLM coef=0.9727 (p=0.0789)
+
+  FG (N=57):
+    Baseline R² (target+path):     0.1723
+    LM Sentiment R²:               0.1834 (incr: +0.0111)
+    LLM Hawkish R²:                0.3016 (incr: +0.1293)
+    LM coef=-137.5659 (p=0.4001)
+    LLM coef=-3.4742 (p=0.0028)
+
+  Full (with interaction) (N=117):
+    Baseline R² (target+path):     0.0701
+    LM Sentiment R²:               0.0882 (incr: +0.0181)
+    LLM Hawkish R²:                0.1370 (incr: +0.0669)
+    LM coef=-42.6609 (p=0.1496)
+    LLM coef=-2.9092 (p=0.0041)
+
+================================================================================
+Key Comparison: Incremental R² in FG period
+================================================================================
+
+Asset             LM incr R²  LLM incr R²   Difference
+-------------------------------------------------------
+CRSP VW Return        0.1062       0.0662      -0.0400
+S&P 500               0.0394       0.0068      -0.0325
+NASDAQ                0.0376       0.0056      -0.0320
+10Y Treasury          0.0148       0.0026      -0.0122
+Gold                  0.0111       0.1293      +0.1182
+
+================================================================================
+Key Comparison: Incremental R² in Non-FG period
+================================================================================
+
+Asset             LM incr R²  LLM incr R²   Difference
+-------------------------------------------------------
+CRSP VW Return        0.0010       0.0017      +0.0007
+S&P 500               0.0031       0.0048      +0.0016
+NASDAQ                0.0005       0.0190      +0.0184
+10Y Treasury          0.0202       0.0452      +0.0250
+Gold                  0.0058       0.0524      +0.0466
