@@ -103,6 +103,7 @@ page = st.sidebar.radio(
         "⚙️ Data Explorer",
         "🔬 Phase 1 Research",
         "🧠 Federated AI Intelligence",
+        "🤝 M&A / LBO Research Lab",  # NEW
     ],
     label_visibility="collapsed",
 )
@@ -120,6 +121,7 @@ Built for studying how monetary policy announcements reshape asset prices and po
 - 🔗 Real-time FRED Data
 - 📊 Research Results v10.3 (JK + B-S + FF)
 - 🧠 Federated AI Intelligence (NEW)
+- 🤝 M&A / LBO Research Lab (NEW)
 """)
 
 # ── Route to Pages ──
@@ -154,3 +156,6 @@ elif page == "🧠 Federated AI Intelligence":
     # Use English module
     from modules import fed_intelligence_en
     fed_intelligence_en.render()
+elif page == "🤝 M&A / LBO Research Lab":
+    from modules.ma_lab import __init__ as ma_init
+    ma_init.render()
