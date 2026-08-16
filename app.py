@@ -159,8 +159,8 @@ elif page == "🧠 Federated AI Intelligence":
     from modules import fed_intelligence_en
     fed_intelligence_en.render()
 elif page == "🤝 M&A / LBO Research Lab":
-    from modules.ma_lab import __init__ as ma_init
-    ma_init.render()
+    from modules import ma_lab
+    ma_lab.render()
 elif page == "🎯 Direction 2: Two-Shocks Rebalancing":
     from modules import direction2
     direction2.render()
