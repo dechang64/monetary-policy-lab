@@ -87,27 +87,53 @@ else:
     st.sidebar.info("📊 Using demo data. Go to **Data Explorer** to connect FRED or import CSV.")
 
 # ── Sidebar Navigation ──
-st.sidebar.title("🔬 Research Modules")
-st.sidebar.markdown("---")
+st.sidebar.title("📋 Navigation")
 
-page = st.sidebar.radio(
-    "Navigate",
-    [
-        "🏠 Dashboard",
-        "⚡ Event Study Engine",
-        "🎯 Two-Shocks Decomposition",
-        "💬 FOMC Sentiment Analysis",
-        "🔄 Capital Flow Analysis",
-        "📚 Paper Replication Lab",
-        "📊 Research Results (v10.3)",
-        "⚙️ Data Explorer",
-        "🔬 Phase 1 Research",
-        "🧠 Federated AI Intelligence",
-        "🤝 M&A / LBO Research Lab",  # NEW
-        "🎯 Direction 2: Two-Shocks Rebalancing",
-    ],
-    label_visibility="collapsed",
+section = st.sidebar.radio(
+    "Section",
+    ["🔬 Research Lab", "📚 Courses"],
+    label_visibility="visible",
 )
+
+if section == "🔬 Research Lab":
+    page = st.sidebar.radio(
+        "Page",
+        [
+            "🏠 Dashboard",
+            "⚡ Event Study Engine",
+            "🎯 Two-Shocks Decomposition",
+            "💬 FOMC Sentiment Analysis",
+            "🔄 Capital Flow Analysis",
+            "📚 Paper Replication Lab",
+            "📊 Research Results (v10.3)",
+            "⚙️ Data Explorer",
+            "🔬 Phase 1 Research",
+            "🧠 Federated AI Intelligence",
+            "🤝 M&A / LBO Research Lab",
+            "🎯 Direction 2: Two-Shocks Rebalancing",
+        ],
+        label_visibility="collapsed",
+    )
+else:
+    page = st.sidebar.radio(
+        "Page",
+        [
+            "💰 Course Home",
+            "📊 Budget Planner",
+            "✨ Compound Interest",
+            "👴 Retirement Planner",
+            "🏠 Buy vs Rent",
+            "📈 Portfolio Optimization",
+            "💳 Credit Card Payoff",
+            "🧾 Tax Calculator",
+            "🎓 Student Loan Planner",
+            "🏆 FICO Score Simulator",
+            "🛡️ Insurance Needs",
+        ],
+        label_visibility="collapsed",
+    )
+    # Prefix to distinguish course pages from research pages
+    page = "COURSE:" + page
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
@@ -164,3 +190,38 @@ elif page == "🤝 M&A / LBO Research Lab":
 elif page == "🎯 Direction 2: Two-Shocks Rebalancing":
     from modules import direction2
     direction2.render()
+
+# ── Courses (Personal Finance Teaching) ──
+elif page == "COURSE:💰 Course Home":
+    from modules.courses import home
+    home.render()
+elif page == "COURSE:📊 Budget Planner":
+    from modules.courses import budget_planner
+    budget_planner.render()
+elif page == "COURSE:✨ Compound Interest":
+    from modules.courses import compound_interest_mod
+    compound_interest_mod.render()
+elif page == "COURSE:👴 Retirement Planner":
+    from modules.courses import retirement_planner
+    retirement_planner.render()
+elif page == "COURSE:🏠 Buy vs Rent":
+    from modules.courses import buy_vs_rent_mod
+    buy_vs_rent_mod.render()
+elif page == "COURSE:📈 Portfolio Optimization":
+    from modules.courses import portfolio_opt
+    portfolio_opt.render()
+elif page == "COURSE:💳 Credit Card Payoff":
+    from modules.courses import credit_card
+    credit_card.render()
+elif page == "COURSE:🧾 Tax Calculator":
+    from modules.courses import tax_calculator
+    tax_calculator.render()
+elif page == "COURSE:🎓 Student Loan Planner":
+    from modules.courses import student_loan
+    student_loan.render()
+elif page == "COURSE:🏆 FICO Score Simulator":
+    from modules.courses import fico_simulator
+    fico_simulator.render()
+elif page == "COURSE:🛡️ Insurance Needs":
+    from modules.courses import insurance_needs
+    insurance_needs.render()
