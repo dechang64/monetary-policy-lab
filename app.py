@@ -100,6 +100,7 @@ if section == "🔬 Research Lab":
         "Page",
         [
             "🏠 Dashboard",
+            "🧩 Hypotheses & Framework",
             "⚡ Event Study Engine",
             "🎯 Two-Shocks Decomposition",
             "💬 FOMC Sentiment Analysis",
@@ -141,6 +142,7 @@ st.sidebar.markdown("""
 Built for studying how monetary policy announcements reshape asset prices and portfolio allocation.
 
 **Unique Features:**
+- 🧩 Hypotheses & Framework (6-hypothesis system)
 - 🔴🔵 Two-Shocks Radar
 - 📈 Sentiment Trajectory
 - 🌊 Capital Flow Sankey
@@ -156,6 +158,9 @@ Built for studying how monetary policy announcements reshape asset prices and po
 if page == "🏠 Dashboard":
     from modules import dashboard
     dashboard.render()
+elif page == "🧩 Hypotheses & Framework":
+    from modules import hypotheses
+    hypotheses.render()
 elif page == "⚡ Event Study Engine":
     from modules import event_study
     event_study.render()
