@@ -285,10 +285,12 @@ def classify_point_in_time(style):
     s = s.dropna(subset=["begdt"])
 
     def classify(o, lc, lo):
-        o = str(o or "").strip().upper()
+        o = "" if pd.isna(o) else str(o).strip().upper()
         if o in OBJ_CLASS:
             return OBJ_CLASS[o]
-        text = f"{lc or ''} {lo or ''}".lower()
+        lc = "" if pd.isna(lc) else str(lc)
+        lo = "" if pd.isna(lo) else str(lo)
+        text = f"{lc} {lo}".lower()
         for kw, cls in LIPPER_KEYWORDS:
             if kw in text:
                 return cls
