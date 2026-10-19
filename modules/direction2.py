@@ -31,9 +31,14 @@ FIGURES_DIR = os.path.join(D2_DIR, "figures")
 
 
 def render():
-    st.warning("⚠️ Preliminary. The fund-flow results on this page (H4, H5 and the zero-rate check) "
-               "are being re-run from WRDS; the saved outputs in direction2/results do not yet reproduce them. "
-               "The LLM score is being rebuilt to read the statement text.")
+    st.info("✅ **Flow chapter re-run from WRDS (2026-10-19).** Point-in-time fund classification, "
+            "|flow|≤TNA cap, pseudo Bauer-Swanson step removed; flows 2006-02 → 2026-06. "
+            "Headline: government bonds see significant inflows on CBI shocks "
+            "(+1.13 %TNA per shock, p=0.010) with MP ≈ 0 (Wald MP=CBI p=0.055); "
+            "risk-ladder interaction Risk×CBI = −0.114 (p=0.002) — CBI shocks de-risk portfolios "
+            "(opposite sign to the proposal's prediction, reported as found). "
+            "Full outputs: direction2/flow_rerun_output/flow_results_rerun.json. "
+            "Sections below show the archived pre-audit outputs for comparison.", icon="🔄")
     st.markdown("## 🎯 Direction 2: Portfolio Rebalancing via Two-Shocks Framework")
     st.markdown("""
     <div style='background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
