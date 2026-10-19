@@ -153,8 +153,8 @@ def render():
     with row3[0]:
         _card(
             "H5", "Risk ladder", "blue",
-            "MP and CBI shocks produce <b>systematically different reallocations</b> across asset classes ordered by risk.",
-            "Model 5: Flow = α + β₁·MPₜ + β₂·CBIₜ + β₃·(Risk×MP) + β₄·(Risk×CBI) + γ′Controls + ε — predict β₃ &lt; 0, β₄ &gt; 0",
+            "MP and CBI shocks produce <b>systematically different reallocations</b> across asset classes ordered by risk — CBI revelations trigger de-risking (direction revised per Oct 2026 evidence).",
+            "Model 5: Flow = α + β₁·MPₜ + β₂·CBIₜ + β₃·(Risk×MP) + β₄·(Risk×CBI) + γ′Controls + ε — revised (Oct 2026): β₄ &lt; 0 — CBI shocks de-risk portfolios",
             "Risk-taking channel — Adrian &amp; Shin (2010); Borio &amp; Zhu (2012)",
             "Tested in <b>🎯 Direction 2</b> → risk-ladder panel (Risk × MP, Risk × CBI) · §4 substitution matrix (supporting)",
         )
