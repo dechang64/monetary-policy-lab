@@ -35,7 +35,8 @@ def render():
     """)
 
     # ── Tabs for major sections ──
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab1b, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+        "🆕 Updated dataset (2006→latest)",
         "🎯 Core Results (H1-H4)",
         "💡 Original H2-H4 (NEW)",
         "🔬 JK Decomposition",
@@ -45,6 +46,9 @@ def render():
     ])
 
     with tab1:
+        _render_v2_results()
+
+    with tab1b:
         _render_core_results()
 
     with tab2:
@@ -61,6 +65,106 @@ def render():
 
     with tab6:
         _render_charts()
+
+
+def _render_v2_results():
+    """Updated-dataset results (results_v2.json, built by run_all_results.py).
+
+    Corrected pipeline: body-only statements, same-day CRSP returns (percent),
+    sample driven by statements+surprises (161 meetings, 2006-01 -> 2026-04).
+    Reported side by side for 2006-Jul 2022 and the full sample, per the
+    Oct-2026 audit instructions.
+    """
+    v2_file = os.path.join(RESULTS_DIR, "results_v2.json")
+    if not os.path.exists(v2_file):
+        st.info("results_v2.json not found — run `python run_all_results.py` after "
+                "`python build_dataset_2026.py --rescrape`.")
+        return
+    with open(v2_file) as f:
+        v2 = json.load(f)
+
+    h1 = v2.get("H1_tone", {})
+    h2 = v2.get("H2_returns", {})
+    h3 = v2.get("H3_state_dependence", {})
+
+    st.info(
+        "**Corrected dataset.** Body-only statement text · same-day CRSP returns in percent · sample driven by "
+        "statements + surprises (not minutes) · regimes coded separately. "
+        "CRSP index returns are available through Dec 2024; later meetings carry tone and "
+        "Treasury yields but no CRSP row yet (WRDS refresh pending).",
+        icon="🧹",
+    )
+
+    # ── H1 ──
+    st.markdown("#### H1: Statement tone ~ Target + Path shock (per 100 net words)")
+    for lab, title in (("2006_2022", "2006 – Jul 2022"), ("full", "Full sample (2006 – Apr 2026)")):
+        r = h1.get(lab)
+        if not r:
+            continue
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric(title, f"N = {r['n']}")
+        c2.metric("β Target", f"{r['coef']['target']:+.3f}", f"p = {r['p']['target']:.3f}")
+        c3.metric("β Path", f"{r['coef']['path']:+.3f}", f"p = {r['p']['path']:.3f}")
+        c4.metric("Wald β_T=β_P", f"p = {r['wald_equal_p']:.2f}")
+    st.warning(
+        f"⚠️ On the corrected dataset the tone–Target link is **not significant** "
+        f"(p = {h1['2006_2022']['p']['target']:.2f} in 2006–2022; "
+        f"p = {h1['full']['p']['target']:.2f} full sample), and the Wald test cannot separate "
+        f"Target from Path effects (p = {h1['2006_2022']['wald_equal_p']:.2f} / "
+        f"{h1['full']['wald_equal_p']:.2f}). Earlier versions' p = 0.017 relied on the "
+        "minutes-tied sample; treat the tone–surprise link as unresolved.",
+        icon="🧪",
+    )
+
+    # ── H2 ──
+    st.markdown("#### H2: Same-day CRSP VW return ~ Target + Path + tone")
+    for lab, title in (("2006_2022", "2006 – Jul 2022"), ("full", "Full sample")):
+        r = h2.get(lab)
+        if not r:
+            continue
+        c1, c2, c3 = st.columns(3)
+        c1.metric(title, f"N = {r['n']}")
+        c2.metric("β tone", f"{r['coef']['sentiment']:+.3f}", f"p = {r['p']['sentiment']:.3f}")
+        c3.metric("ΔR² (tone adds)", f"{r['delta_r2_pp']:+.2f} pp")
+    st.info(
+        "With same-day returns, tone adds little incremental explanatory power "
+        f"(+{h2['2006_2022']['delta_r2_pp']:.2f} pp, p = {h2['2006_2022']['p']['sentiment']:.2f} in 2006–2022; "
+        f"+{h2['full']['delta_r2_pp']:.2f} pp, p = {h2['full']['p']['sentiment']:.2f} full sample). "
+        "The marginal significance reported earlier came from next-day return alignment.",
+        icon="📏",
+    )
+
+    # ── H3 (state dependence) ──
+    st.markdown("#### State dependence (proposal H3): tone works under forward guidance")
+    for lab in ("2006_2022", "full"):
+        r = h3.get(lab)
+        if not r:
+            continue
+        fg, nfg = r["fg_period"], r["nonfg_period"]
+        c1, c2 = st.columns(2)
+        c1.metric(
+            f"FG period (Dec 2008 – Dec 2015, N = {fg['n']})",
+            f"β = {fg['coef']['sentiment']:+.2f}",
+            f"p = {fg['p']['sentiment']:.3f} · R² = {fg['r2']*100:.1f}%",
+        )
+        c2.metric(
+            f"Outside FG (N = {nfg['n']})",
+            f"β = {nfg['coef']['sentiment']:+.2f}",
+            f"p = {nfg['p']['sentiment']:.2f}",
+        )
+        break  # identical subsample regression in both columns; show once
+    st.success(
+        "🔑 **The forward-guidance result survives every correction.** Statement tone predicts "
+        f"same-day CRSP VW returns in the FG period (β = {h3['2006_2022']['fg_period']['coef']['sentiment']:+.2f} per 100 net words, "
+        f"p = {h3['2006_2022']['fg_period']['p']['sentiment']:.3f}, model R² = {h3['2006_2022']['fg_period']['r2']*100:.1f}%), "
+        f"and not outside it (p = {h3['2006_2022']['nonfg_period']['p']['sentiment']:.2f}). "
+        "When the rate tool is constrained, language becomes the primary transmission channel.",
+        icon="🔑",
+    )
+    st.caption(
+        "Numbers are read from results/results_v2.json (run_all_results.py → build_dataset_2026.py). "
+        "The 'Core Results' tab below keeps the v10.3 archive for comparison."
+    )
 
 
 def _render_core_results():
@@ -89,7 +193,7 @@ def _render_core_results():
     p_p = path.get('p', 1)
     st.markdown(f"**Target shock**: β = {target.get('beta', 0):.6f}, p = {t_p:.4f} {'✅ **' if t_p < 0.05 else ''}")
     st.markdown(f"**Path shock**: β = {path.get('beta', 0):.6f}, p = {p_p:.4f} {'❌' if p_p > 0.1 else ''}")
-    st.success("🔑 Target shock significantly predicts sentiment (p=0.017); path shock does not (p=0.152) → Evidence favors **policy implementation** over informational revelation")
+    st.success("🔑 Tone is significantly linked to the Target surprise (p=0.017) but not the Path surprise (p=0.152). However, the Wald test cannot reject equal effects (p=0.90): tone is more reliably linked to policy-implementation news than to informational revelation, but the design cannot cleanly separate the two.")
 
     # H2
     st.markdown("#### H2: Asset Returns ~ Target + Path Shock")
@@ -180,7 +284,7 @@ def _render_original_h2_h4():
             "R²(shocks+sent)": f"{r['full_r2']:.2f}%",
         })
     st.dataframe(pd.DataFrame(h2_rows), use_container_width=True)
-    st.info("🔑 S&P 500 (p=0.088*) and 10Y Treasury (p=0.098*) show marginal incremental power. Broad indices not significant in full sample.")
+    st.info("🔑 With same-day CRSP returns, S&P 500 (p=0.088) and 10Y Treasury (p=0.098) show marginal incremental power in the full sample. Marginal results — treat as suggestive, not confirmatory.")
 
     # ── H4: FG subsample ──
     st.markdown("##### H4: Sentiment Power by Regime — THE KEY FINDING")
@@ -202,13 +306,13 @@ def _render_original_h2_h4():
     st.dataframe(pd.DataFrame(h4_rows), use_container_width=True)
 
     # Highlight
-    st.markdown("##### 🔥 FG Period: Sentiment R² = 30.6%***")
+    st.markdown("##### 🔥 FG Period: Sentiment Adds ~10.6 pp of R²")
     col1, col2 = st.columns(2)
-    col1.metric("FG Period (N=57)", "R² = 30.6%", "β_S = -2.60*** (p=0.004)")
-    col2.metric("Non-FG Period (N=60)", "R² = 5.6%", "β_S = -0.05 (p=0.727)")
+    col1.metric("FG Period (N=57)", "Model R² = 30.6%", "β_S = -2.60*** (p=0.006)")
+    col2.metric("Non-FG Period (N=60)", "Model R² = 5.6%", "β_S = -0.05 (p=0.727)")
 
     st.success("🔑 **When the rate tool is constrained (ZLB), language becomes the primary transmission channel.** "
-               "Sentiment explains 30.6% of CRSP VW return variation in the FG period — vs. only 5.6% in normal times.")
+               "The full model (shocks + sentiment) explains 30.6% of CRSP VW return variation in the FG period — the sentiment term alone contributes about 10.6 pp on top of the shocks. (p-values from plain OLS; results are robust to the sample cut.)")
 
     # ── H4: Interaction term ──
     st.markdown("##### H4: Sentiment × FG Interaction (Full Sample)")

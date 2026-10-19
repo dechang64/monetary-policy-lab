@@ -7,7 +7,7 @@ Key Findings:
 - H3: Government bonds show differential MP vs CBI effects (9/9 windows significant with B-S baselines)
 - Diff window: H1 supported (MP drives immediate risk-off)
 - Post window: H2 supported (CBI drives lagged risk-on)
-- LLM sentiment correctly distinguishes hawkish/dovish; LM dictionary cannot (r=0.000)
+- LLM score is being rebuilt to read the statement text (see Preliminary banner)
 - H5: Corporate bonds show ZLB regime effects
 - Cross-paper comparison: Target shock drives daily prices, CBI shock drives monthly flows
 - Frequency comparison: Both MP and CBI significant at daily (opposite signs), CBI fades at weekly
@@ -31,6 +31,9 @@ FIGURES_DIR = os.path.join(D2_DIR, "figures")
 
 
 def render():
+    st.warning("⚠️ Preliminary. The fund-flow results on this page (H4, H5 and the zero-rate check) "
+               "are being re-run from WRDS; the saved outputs in direction2/results do not yet reproduce them. "
+               "The LLM score is being rebuilt to read the statement text.")
     st.markdown("## 🎯 Direction 2: Portfolio Rebalancing via Two-Shocks Framework")
     st.markdown("""
     <div style='background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); 
@@ -59,8 +62,8 @@ def render():
     # ── Section 1: LLM vs LM Sentiment ──
     st.markdown("### 1. LLM vs LM Dictionary Sentiment Comparison")
     st.markdown("""
-    **Core finding**: LM dictionary sentiment and LLM hawkish score measure fundamentally different things.
-    Pearson correlation: **r = 0.000**. LM cannot distinguish rate hikes from cuts; LLM can.
+    **Note**: the current LLM score is built from meeting data (decision, surprises, returns), not from the statement text.
+    It is being rebuilt; the LM–LLM comparison will be reported after that.
     """)
 
     fig1_path = os.path.join(FIGURES_DIR, "fig1_lm_vs_llm_sentiment.png")
@@ -322,7 +325,6 @@ def render():
             <strong>Core Narrative:</strong> Central Bank Information (CBI) shocks drive portfolio rebalancing,
             not Monetary Policy (MP) shocks. At daily frequency, both matter (opposite signs).
             At monthly frequency, only the <em>difference</em> matters for fund flows.
-            LLM sentiment reveals what LM dictionary masks (r=0.000).
         </p>
     </div>
     """, unsafe_allow_html=True)

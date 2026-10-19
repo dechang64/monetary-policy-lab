@@ -99,8 +99,8 @@ if section == "🔬 Research Lab":
     page = st.sidebar.radio(
         "Page",
         [
-            "🏠 Dashboard",
             "🧩 Hypotheses & Framework",
+            "🏠 Dashboard",
             "⚡ Event Study Engine",
             "🎯 Two-Shocks Decomposition",
             "💬 FOMC Sentiment Analysis",
@@ -155,6 +155,18 @@ Built for studying how monetary policy announcements reshape asset prices and po
 """)
 
 # ── Route to Pages ──
+DEMO_PAGES = {
+    "🏠 Dashboard", "⚡ Event Study Engine", "🎯 Two-Shocks Decomposition",
+    "💬 FOMC Sentiment Analysis", "🔄 Capital Flow Analysis", "📚 Paper Replication Lab",
+    "⚙️ Data Explorer", "🔬 Phase 1 Research",
+}
+OTHER_PAGES = {"🧠 Federated AI Intelligence", "🤝 M&A / LBO Research Lab"}
+if page in DEMO_PAGES:
+    st.warning("🧪 Teaching/demo page: uses illustrative or synthetic data. "
+               "Dissertation results are on 📊 Research Results (v10.3) and 🎯 Direction 2.")
+elif page in OTHER_PAGES:
+    st.info("This page is a separate project and is not part of the dissertation.")
+
 if page == "🏠 Dashboard":
     from modules import dashboard
     dashboard.render()

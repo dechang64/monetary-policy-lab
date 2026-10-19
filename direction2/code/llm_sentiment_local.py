@@ -24,7 +24,7 @@ from openai import OpenAI
 # ============================================================
 # Configuration
 # ============================================================
-API_KEY = "sk-IWzK4nWmbGSVPOoRCOeTFFgQQSqwRSijgnudaKkNz7yqkpKG"
+API_KEY = os.environ.get("AMAX_API_KEY", "")  # set in your shell, never in the code
 BASE_URL = "https://ai.amaxsmp.com/v1"
 MODEL = "amax-router"  # Smart routing, no need to specify model
 
