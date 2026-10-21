@@ -118,3 +118,131 @@
 {"model": "deepseek-flash", "date": "2023-05-03", "error": ""}
 {"model": "deepseek-flash", "date": "2024-11-07", "error": ""}
 {"model": "deepseek-flash", "date": "2025-01-29", "error": ""}
+{"model": "gpt-4.1-mini", "date": "2013-09-18", "error": null, "score": -70, "confidence": "high", "one_line": "Maintains highly accommodative policy with ongoing asset purchases and cautious outlook."}
+{"model": "gpt-4.1-mini", "date": "2015-09-17", "error": null, "score": 10, "confidence": "high", "one_line": "Maintains accommodative stance, signals gradual rate increases when conditions improve."}
+{"model": "gpt-4.1-mini", "date": "2017-06-14", "error": null, "score": 40, "confidence": "high", "one_line": "Gradual rate hikes signaled; policy remains accommodative supporting growth"}
+{"model": "claude-haiku-4-5-20251001", "date": "2013-09-18", "error": null, "score": -35, "confidence": "high", "one_line": "Surprised markets by holding QE, citing insufficient evidence of sustained progress"}
+{"model": "claude-haiku-4-5-20251001", "date": "2015-09-17", "error": null, "score": -25, "confidence": "high", "one_line": "Holds rates at zero, citing global risks and below-target inflation"}
+{"model": "claude-haiku-4-5-20251001", "date": "2017-06-14", "error": null, "score": 35, "confidence": "high", "one_line": "Rate hike delivered, but accommodative stance retained with gradual path"}
+{"model": "gemini-2.5-flash", "date": "2013-09-18", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2015-09-17", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2017-06-14", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2007-08-07", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2007-09-18", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2007-12-11", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2008-09-16", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2009-11-04", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2012-09-13", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2013-10-30", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2015-09-17", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2015-12-16", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2017-06-14", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2017-07-26", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2017-09-20", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2017-11-01", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2018-12-19", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2019-09-18", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2020-01-29", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2020-06-10", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2020-12-16", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2021-12-15", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2022-06-15", "error": "JSONDecodeError Unterminated string starting at: line 1 column 2 (char 1)"}
+{"model": "gemini-2.5-flash", "date": "2023-05-03", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2025-01-29", "error": ""}
+{"model": "deepseek-flash", "date": "2013-09-18", "error": ""}
+{"model": "deepseek-flash", "date": "2015-09-17", "error": ""}
+{"model": "deepseek-flash", "date": "2017-06-14", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2007-08-07", "error": null, "score": 50, "confidence": "high", "one_line": "Inflation remains predominant concern despite increased growth risks and market volatility."}
+{"model": "gemini-2.5-flash", "date": "2007-12-11", "error": null, "score": -70, "confidence": "high", "one_line": "FOMC cuts rates due to slowing growth, housing, financial strains; acknowledges inflation risks."}
+{"model": "gemini-2.5-flash", "date": "2008-09-16", "error": null, "score": -75, "confidence": "high", "one_line": "Deep concern about economic weakness and financial strains, despite inflation."}
+{"model": "gemini-2.5-flash", "date": "2011-09-21", "error": null, "score": -90, "confidence": "high", "one_line": "New easing measures, extended ZIRP commitment due to weak economy and risks."}
+{"model": "gemini-2.5-flash", "date": "2012-09-13", "error": null, "score": -95, "confidence": "high", "one_line": "FOMC launches open-ended QE3, extends ZIRP guidance to mid-2015, citing weak labor market."}
+{"model": "gemini-2.5-flash", "date": "2013-12-18", "error": null, "score": 45, "confidence": "high", "one_line": "First modest reduction in asset purchases signals a clear, gradual shift towards less accommodation."}
+{"model": "gemini-2.5-flash", "date": "2015-12-16", "error": null, "score": 35, "confidence": "high", "one_line": "First rate hike in nearly a decade, but with strong dovish forward guidance."}
+{"model": "gemini-2.5-flash", "date": "2016-01-27", "error": null, "score": -70, "confidence": "high", "one_line": "Global risks, low inflation, and gradual path signal significant dovish shift."}
+{"model": "gemini-2.5-flash", "date": "2018-12-19", "error": null, "score": 75, "confidence": "high", "one_line": "Rate hike, strong economy, and signals for further gradual increases."}
+{"model": "gemini-2.5-flash", "date": "2021-12-15", "error": null, "score": 60, "confidence": "high", "one_line": "Accelerated taper signals faster withdrawal of accommodation due to inflation and strong labor."}
+{"model": "gemini-2.5-flash", "date": "2022-06-15", "error": null, "score": 90, "confidence": "high", "one_line": "Aggressive 75bp hike, ongoing increases, strongly committed to fight elevated inflation."}
+{"model": "gemini-2.5-flash", "date": "2007-08-07", "error": null, "score": 55, "confidence": "high", "one_line": "Inflation remains predominant concern despite growth risks and market volatility."}
+{"model": "gemini-2.5-flash", "date": "2007-12-11", "error": null, "score": -75, "confidence": "high", "one_line": "Rate cut due to slowing growth and financial strains, despite inflation risks."}
+{"model": "gemini-2.5-flash", "date": "2008-09-16", "error": null, "score": -70, "confidence": "high", "one_line": "Overwhelmingly dovish due to severe economic weakness, financial strains, and expected inflation moderation."}
+{"model": "gemini-2.5-flash", "date": "2011-09-21", "error": null, "score": -90, "confidence": "high", "one_line": "New Operation Twist and extended low-rate guidance signal significant accommodation."}
+{"model": "gemini-2.5-flash", "date": "2012-09-13", "error": null, "score": -95, "confidence": "high", "one_line": "New open-ended QE3, extended ZIRP guidance to mid-2015, citing weak labor market."}
+{"model": "gemini-2.5-flash", "date": "2013-12-18", "error": null, "score": 20, "confidence": "high", "one_line": "Modest asset purchase reduction, first taper, but cautious dovish language."}
+{"model": "gemini-2.5-flash", "date": "2015-12-16", "error": null, "score": 75, "confidence": "high", "one_line": "First rate hike in nearly a decade, signaling clear tightening despite gradual outlook."}
+{"model": "gemini-2.5-flash", "date": "2016-01-27", "error": null, "score": -50, "confidence": "high", "one_line": "Cautious pause, emphasizing low inflation, global risks, and very gradual future hikes."}
+{"model": "gemini-2.5-flash", "date": "2018-12-19", "error": null, "score": 85, "confidence": "high", "one_line": "Hiked rates, expects further gradual increases amid strong economy and on-target inflation."}
+{"model": "gemini-2.5-flash", "date": "2021-12-15", "error": null, "score": 40, "confidence": "high", "one_line": "Accelerated asset purchase taper due to inflation and strong labor market."}
+{"model": "gemini-2.5-flash", "date": "2022-06-15", "error": null, "score": 88, "confidence": "high", "one_line": "Raises rates 75bps, signals ongoing hikes, strongly committed to fighting inflation."}
+{"model": "deepseek-flash", "date": "2007-08-07", "error": ""}
+{"model": "deepseek-flash", "date": "2007-09-18", "error": ""}
+{"model": "deepseek-flash", "date": "2007-12-11", "error": ""}
+{"model": "deepseek-flash", "date": "2008-09-16", "error": ""}
+{"model": "deepseek-flash", "date": "2009-11-04", "error": ""}
+{"model": "deepseek-flash", "date": "2011-09-21", "error": ""}
+{"model": "deepseek-flash", "date": "2012-09-13", "error": ""}
+{"model": "deepseek-flash", "date": "2013-10-30", "error": ""}
+{"model": "deepseek-flash", "date": "2013-12-18", "error": ""}
+{"model": "deepseek-flash", "date": "2015-10-28", "error": ""}
+{"model": "deepseek-flash", "date": "2015-12-16", "error": ""}
+{"model": "deepseek-flash", "date": "2016-01-27", "error": ""}
+{"model": "deepseek-flash", "date": "2017-07-26", "error": ""}
+{"model": "deepseek-flash", "date": "2017-09-20", "error": ""}
+{"model": "deepseek-flash", "date": "2017-11-01", "error": ""}
+{"model": "deepseek-flash", "date": "2018-12-19", "error": ""}
+{"model": "deepseek-flash", "date": "2019-09-18", "error": ""}
+{"model": "deepseek-flash", "date": "2019-12-11", "error": ""}
+{"model": "deepseek-flash", "date": "2020-01-29", "error": ""}
+{"model": "deepseek-flash", "date": "2020-06-10", "error": ""}
+{"model": "deepseek-flash", "date": "2020-09-16", "error": ""}
+{"model": "deepseek-flash", "date": "2020-11-05", "error": ""}
+{"model": "deepseek-flash", "date": "2020-12-16", "error": ""}
+{"model": "deepseek-flash", "date": "2021-04-28", "error": ""}
+{"model": "deepseek-flash", "date": "2021-12-15", "error": ""}
+{"model": "deepseek-flash", "date": "2022-03-16", "error": ""}
+{"model": "deepseek-flash", "date": "2022-06-15", "error": ""}
+{"model": "deepseek-flash", "date": "2023-05-03", "error": ""}
+{"model": "deepseek-flash", "date": "2024-11-07", "error": ""}
+{"model": "deepseek-flash", "date": "2025-01-29", "error": ""}
+{"model": "deepseek-flash", "date": "2007-08-07", "error": ""}
+{"model": "deepseek-flash", "date": "2007-09-18", "error": null, "score": -80, "confidence": "high", "one_line": "50bp cut, credit and housing worries dominate; inflation risks noted but secondary"}
+{"model": "deepseek-flash", "date": "2007-12-11", "error": null, "score": -25, "confidence": "medium", "one_line": "25bp cut with growth risks, but lingering inflation concerns temper dovish signal."}
+{"model": "deepseek-flash", "date": "2008-09-16", "error": ""}
+{"model": "deepseek-flash", "date": "2009-11-04", "error": ""}
+{"model": "deepseek-flash", "date": "2011-09-21", "error": null, "score": -78, "confidence": "high", "one_line": "Dovish: extends maturity, reinvests MBS, holds rates low through mid-2013 amid weak labor market."}
+{"model": "deepseek-flash", "date": "2012-09-13", "error": null, "score": -90, "confidence": "high", "one_line": "Announces open-ended MBS purchases and low rates through mid-2015; strongly dovish."}
+{"model": "deepseek-flash", "date": "2013-10-30", "error": ""}
+{"model": "deepseek-flash", "date": "2013-12-18", "error": null, "score": 50, "confidence": "high", "one_line": "Tapers asset purchases modestly, signaling hawkish shift while maintaining accommodation."}
+{"model": "deepseek-flash", "date": "2015-10-28", "error": null, "score": 40, "confidence": "high", "one_line": "Hawkish hold; explicitly opens door to a rate hike at next meeting."}
+{"model": "deepseek-flash", "date": "2015-12-16", "error": "{\"score\": 50, \"confidence\":"}
+{"model": "deepseek-flash", "date": "2016-01-27", "error": ""}
+{"model": "deepseek-flash", "date": "2017-07-26", "error": null, "score": 25, "confidence": "high", "one_line": "Hold but signals gradual hikes and imminent balance-sheet normalization; inflation caution."}
+{"model": "deepseek-flash", "date": "2017-09-20", "error": null, "score": 40, "confidence": "high", "one_line": "Signals gradual hikes and balance-sheet normalization, tempered by below-target inflation."}
+{"model": "deepseek-flash", "date": "2017-11-01", "error": null, "score": 30, "confidence": "medium", "one_line": "Maintains rate, cites solid growth, expects gradual hikes; soft inflation tempers hawkish signal."}
+{"model": "deepseek-flash", "date": "2018-12-19", "error": null, "score": 65, "confidence": "high", "one_line": "Signals further gradual rate hikes amid strong labor market and near-target inflation"}
+{"model": "deepseek-flash", "date": "2019-09-18", "error": null, "score": -45, "confidence": "high", "one_line": "Dovish cut citing global risks and muted inflation, but notes strong labor market."}
+{"model": "deepseek-flash", "date": "2019-12-11", "error": "{\"score\": -"}
+{"model": "deepseek-flash", "date": "2020-01-29", "error": ""}
+{"model": "deepseek-flash", "date": "2020-06-10", "error": null, "score": -95, "confidence": "high", "one_line": "Zero rates, ongoing QE, and dovish forward guidance until recovery; strongly expansionary."}
+{"model": "deepseek-flash", "date": "2020-09-16", "error": null, "score": -90, "confidence": "high", "one_line": "Dovish forward guidance and continued asset purchases at zero rates."}
+{"model": "deepseek-flash", "date": "2020-11-05", "error": null, "score": -85, "confidence": "high", "one_line": "Rates held at zero, QE maintained; hike conditions tied to employment and above-2% inflation."}
+{"model": "deepseek-flash", "date": "2020-12-16", "error": null, "score": -85, "confidence": "high", "one_line": "Maintains zero rates and large QE until employment and inflation goals achieved."}
+{"model": "deepseek-flash", "date": "2021-04-28", "error": null, "score": -85, "confidence": "high", "one_line": "Ultra-accommodative: zero rates and ongoing QE until employment and inflation goals met."}
+{"model": "deepseek-flash", "date": "2021-12-15", "error": ""}
+{"model": "deepseek-flash", "date": "2022-03-16", "error": null, "score": 70, "confidence": "high", "one_line": "Hawkish: first hike, ongoing increases expected, balance-sheet reduction coming, elevated inflation."}
+{"model": "deepseek-flash", "date": "2022-06-15", "error": null, "score": 90, "confidence": "high", "one_line": "Strongly hawkish: 75bp hike, ongoing increases, balance-sheet reduction, inflation commitment."}
+{"model": "deepseek-flash", "date": "2023-05-03", "error": ""}
+{"model": "deepseek-flash", "date": "2024-11-07", "error": ""}
+{"model": "deepseek-flash", "date": "2025-01-29", "error": ""}
+{"model": "deepseek-flash", "date": "2007-08-07", "error": null, "score": 55, "confidence": "high", "one_line": "Holds rates; inflation remains predominant concern despite increased downside growth risks."}
+{"model": "deepseek-flash", "date": "2008-09-16", "error": null, "score": -30, "confidence": "medium", "one_line": "Dovish tilt from growth and financial strains, tempered by balanced inflation concerns."}
+{"model": "deepseek-flash", "date": "2009-11-04", "error": null, "score": -70, "confidence": "high", "one_line": "Maintains zero rates and QE, flags subdued inflation; strongly accommodative despite modest taper signal"}
+{"model": "deepseek-flash", "date": "2013-10-30", "error": ""}
+{"model": "deepseek-flash", "date": "2015-12-16", "error": null, "score": 35, "confidence": "high", "one_line": "Cautious liftoff: hawkish hike offset by gradual, accommodative forward guidance and low inflation."}
+{"model": "deepseek-flash", "date": "2016-01-27", "error": null, "score": -20, "confidence": "medium", "one_line": "Cautious hold; gradual hikes expected, but inflation shortfall and global risks temper hawkishness."}
+{"model": "deepseek-flash", "date": "2019-12-11", "error": null, "score": -10, "confidence": "medium", "one_line": "Neutral hold with dovish undertones from below-target inflation and weak investment."}
+{"model": "deepseek-flash", "date": "2020-01-29", "error": null, "score": -10, "confidence": "medium", "one_line": "On hold with dovish nods to below-target inflation and muted pressures."}
+{"model": "deepseek-flash", "date": "2021-12-15", "error": null, "score": 55, "confidence": "high", "one_line": "Hawkish taper acceleration amid elevated inflation, but rates remain near zero."}
+{"model": "deepseek-flash", "date": "2023-05-03", "error": null, "score": 55, "confidence": "high", "one_line": "Hike delivered; hawkish inflation commitment, but softened guidance hints at possible pause."}
+{"model": "deepseek-flash", "date": "2024-11-07", "error": null, "score": -30, "confidence": "high", "one_line": "Quarter-point cut with balanced risks and data-dependent guidance; moderately dovish."}
+{"model": "deepseek-flash", "date": "2025-01-29", "error": null, "score": 0, "confidence": "high", "one_line": "Balanced, data-dependent hold; risks in balance, no clear easing bias."}

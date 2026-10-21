@@ -14,7 +14,7 @@ Cross-model layer: amax-router (main), gpt-4.1-mini, claude-haiku-4.5
 | 2 Fact check | strong-declaration keywords verified | mean ratio 0.46 | one_lines are compressed paraphrases; no unsupported entities found |
 | 3 CROWN | independence from LM anchor | 0/30 triggered; 2/30 direction changed | LLM does NOT get anchored by the dictionary score |
 | 4 Multi-node vote (prompt variants) | 3 variants, direction consensus | **100%** after fix (was 70% — float bug: 2/3=0.6667 < 0.667) | direction is prompt-robust |
-| 4' Multi-node vote (cross-model) | router/gpt/claude | r = 0.81–0.96; direction agreement 70% overall, 64% on LM-divergence sample | high cross-vendor consistency |
+| 4' Multi-node vote (cross-model) | router/gpt/claude/deepseek (n=29) + gemini (partial) | pairwise r = 0.89–0.97; sign-level agreement 93% (27/29); **LM-divergence sample: sign agreement 100% (11/11)** | cross-vendor consensus on every paradigm-shift episode |
 | 5 Self-consistency | 3 samples at T=0.3 | 70% pass; mean range 18.5; 2 statements range > 30 | acceptable; borderline statements flagged |
 
 Final verdicts (v2): Verified 13, LikelyTrue 7, Uncertain 10,
@@ -39,12 +39,15 @@ Consequences of the correction:
 
 1. No systematic hallucination in the scoring: zero LikelyFalse/Hallucination
    after fixes, 100% prompt-variant direction consistency, cross-vendor r
-   up to 0.96.
+   up to 0.97.
 2. Single-model one-off errors DO occur (1/161 detected). Any statement whose
    score drives a headline claim should get the 2-model cross-check (adds
    ~2 calls per statement).
 3. The LLM-vs-LM divergence evidence for the paper stands — and is now
    stronger: every remaining divergence is multi-model confirmed.
+4. Operational: Gemini-2.5-flash and DeepSeek-flash are thinking models on
+   this gateway — reasoning tokens count against max_tokens (120-token
+   budgets truncate mid-JSON; >=800-2000 needed).
 
 Files: `llm_hallucination_audit.py` (5-layer audit),
 `llm_audit_recompute.py` (threshold fix + semantic L1),
