@@ -1,0 +1,1910 @@
+{
+ "meta": {
+  "fix": "L4 vote>=2; L1 semantic via text-embedding-v4 cos>=0.5",
+  "n": 30,
+  "verdict_distribution": {
+   "Verified": 13,
+   "LikelyTrue": 7,
+   "Uncertain": 10
+  },
+  "L1_semantic_support_rate": 0.4,
+  "L1_semantic_mean_cos": 0.478,
+  "L4_fixed_consensus_rate": 1.0,
+  "matching_test": {
+   "hit_rate": 0.733,
+   "n": 30,
+   "mean_margin": 0.02,
+   "min_margin": -0.05,
+   "failures": [
+    {
+     "date": "2007-12-11",
+     "own": 0.513,
+     "best_decoy": 0.524,
+     "margin": -0.011,
+     "match": false
+    },
+    {
+     "date": "2012-09-13",
+     "own": 0.43,
+     "best_decoy": 0.438,
+     "margin": -0.008,
+     "match": false
+    },
+    {
+     "date": "2016-01-27",
+     "own": 0.509,
+     "best_decoy": 0.521,
+     "margin": -0.012,
+     "match": false
+    },
+    {
+     "date": "2019-09-18",
+     "own": 0.474,
+     "best_decoy": 0.524,
+     "margin": -0.05,
+     "match": false
+    },
+    {
+     "date": "2020-09-16",
+     "own": 0.448,
+     "best_decoy": 0.461,
+     "margin": -0.013,
+     "match": false
+    },
+    {
+     "date": "2021-04-28",
+     "own": 0.554,
+     "best_decoy": 0.554,
+     "margin": 0.0,
+     "match": false
+    },
+    {
+     "date": "2021-12-15",
+     "own": 0.388,
+     "best_decoy": 0.415,
+     "margin": -0.027,
+     "match": false
+    },
+    {
+     "date": "2023-05-03",
+     "own": 0.426,
+     "best_decoy": 0.446,
+     "margin": -0.021,
+     "match": false
+    }
+   ]
+  }
+ },
+ "statements": {
+  "2007-08-07": {
+   "date": "2007-08-07",
+   "base": {
+    "score": 35.0,
+    "confidence": "high",
+    "one_line": "Holds rates, inflation concern predominant despite acknowledging growth risks.",
+    "tone": 5.18135
+   },
+   "L1_retrieval": {
+    "coverage": 0.667,
+    "n_terms": 9,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": 35.0,
+    "social_score": 35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "consensus": "hawkish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     35.0,
+     35.0,
+     35.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 0.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.557,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2007-09-18": {
+   "date": "2007-09-18",
+   "base": {
+    "score": -60.0,
+    "confidence": "high",
+    "one_line": "50bp cut citing credit tightening and housing correction signals dovish stance.",
+    "tone": 2.2540999999999998
+   },
+   "L1_retrieval": {
+    "coverage": 0.4,
+    "n_terms": 10,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 1
+   },
+   "L3_crown": {
+    "indep_score": -60.0,
+    "social_score": -70.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -60.0,
+     -70.0,
+     -70.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 10.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.505,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2007-12-11": {
+   "date": "2007-12-11",
+   "base": {
+    "score": -65.0,
+    "confidence": "high",
+    "one_line": "Dovish pivot to cut rates amid slowing growth and financial strains.",
+    "tone": 1.49813
+   },
+   "L1_retrieval": {
+    "coverage": 0.444,
+    "n_terms": 9,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -65.0,
+    "social_score": -35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -35.0,
+     -35.0,
+     -35.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 0.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.513,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2008-09-16": {
+   "date": "2008-09-16",
+   "base": {
+    "score": -20.0,
+    "confidence": "high",
+    "one_line": "Holds rates, stresses downside growth risks and financial strains despite inflation concerns.",
+    "tone": 1.91388
+   },
+   "L1_retrieval": {
+    "coverage": 0.545,
+    "n_terms": 11,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -20.0,
+    "social_score": -35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.7,
+    "drop": 0.2,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -15.0,
+     -20.0,
+     -30.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 15.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.505,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "LikelyTrue"
+  },
+  "2009-11-04": {
+   "date": "2009-11-04",
+   "base": {
+    "score": -35.0,
+    "confidence": "high",
+    "one_line": "Dovish hold: extended low rates, QE purchases continuing, subdued inflation outlook.",
+    "tone": 3.26577
+   },
+   "L1_retrieval": {
+    "coverage": 0.727,
+    "n_terms": 11,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 1.0,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": -35.0,
+    "social_score": -35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -35.0,
+     -60.0,
+     -45.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 25.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.515,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2011-09-21": {
+   "date": "2011-09-21",
+   "base": {
+    "score": -70.0,
+    "confidence": "high",
+    "one_line": "Operation Twist plus extended low-rate guidance signals strong accommodation.",
+    "tone": 2.24913
+   },
+   "L1_retrieval": {
+    "coverage": 0.6,
+    "n_terms": 10,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -70.0,
+    "social_score": -85.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -60.0,
+     -85.0,
+     -55.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 30.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.473,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2012-09-13": {
+   "date": "2012-09-13",
+   "base": {
+    "score": -85.0,
+    "confidence": "high",
+    "one_line": "Open-ended QE3 and extended low-rate guidance signal strongly dovish stance.",
+    "tone": 3.13653
+   },
+   "L1_retrieval": {
+    "coverage": 0.364,
+    "n_terms": 11,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -85.0,
+    "social_score": -85.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -85.0,
+     -85.0,
+     -85.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 0.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.43,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2013-10-30": {
+   "date": "2013-10-30",
+   "base": {
+    "score": -35.0,
+    "confidence": "high",
+    "one_line": "Continued QE with no taper, emphasizing downside inflation risks and labor slack.",
+    "tone": 2.65957
+   },
+   "L1_retrieval": {
+    "coverage": 0.556,
+    "n_terms": 9,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.667,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": -35.0,
+    "social_score": -15.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": true,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -15.0,
+     -35.0,
+     -35.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 20.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.526,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "LikelyTrue"
+  },
+  "2013-12-18": {
+   "date": "2013-12-18",
+   "base": {
+    "score": 15.0,
+    "confidence": "high",
+    "one_line": "Modestly hawkish due to tapering asset purchases while maintaining accommodative stance.",
+    "tone": 2.28873
+   },
+   "L1_retrieval": {
+    "coverage": 0.7,
+    "n_terms": 10,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.667,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": 15.0,
+    "social_score": 15.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "neutral",
+     "hawkish"
+    ],
+    "consensus": "hawkish",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     35.0,
+     15.0,
+     35.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 20.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.625,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "neutral",
+     "hawkish"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "LikelyTrue"
+  },
+  "2015-10-28": {
+   "date": "2015-10-28",
+   "base": {
+    "score": 15.0,
+    "confidence": "high",
+    "one_line": "Holds rates steady but signals imminent hike pending labor and inflation progress.",
+    "tone": 1.4285700000000001
+   },
+   "L1_retrieval": {
+    "coverage": 0.6,
+    "n_terms": 10,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.75,
+    "n_strong": 4
+   },
+   "L3_crown": {
+    "indep_score": 15.0,
+    "social_score": -10.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "dovish"
+    ],
+    "consensus": "neutral",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     10.0,
+     -10.0,
+     -35.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 45.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.552,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "dovish"
+    ],
+    "majority": "neutral",
+    "verified": true
+   },
+   "verdict": "LikelyTrue"
+  },
+  "2015-12-16": {
+   "date": "2015-12-16",
+   "base": {
+    "score": 35.0,
+    "confidence": "high",
+    "one_line": "First rate hike but explicitly gradual, accommodative, and data-dependent.",
+    "tone": 2.43056
+   },
+   "L1_retrieval": {
+    "coverage": 0.5,
+    "n_terms": 8,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.667,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": 35.0,
+    "social_score": 35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "hawkish"
+    ],
+    "consensus": "neutral",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     15.0,
+     15.0,
+     35.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 20.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.41,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "hawkish"
+    ],
+    "majority": "neutral",
+    "verified": true
+   },
+   "verdict": "LikelyTrue"
+  },
+  "2016-01-27": {
+   "date": "2016-01-27",
+   "base": {
+    "score": -15.0,
+    "confidence": "high",
+    "one_line": "Maintains accommodative stance, emphasizes gradual hikes and inflation shortfall monitoring.",
+    "tone": 2.39852
+   },
+   "L1_retrieval": {
+    "coverage": 0.667,
+    "n_terms": 9,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.667,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": -15.0,
+    "social_score": -10.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "consensus": "neutral",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -15.0,
+     -10.0,
+     -15.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 5.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.509,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "majority": "neutral",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2017-07-26": {
+   "date": "2017-07-26",
+   "base": {
+    "score": 35.0,
+    "confidence": "medium",
+    "one_line": "Gradual hikes expected, balance sheet normalization soon, but inflation weakness noted.",
+    "tone": 2.24949
+   },
+   "L1_retrieval": {
+    "coverage": 0.7,
+    "n_terms": 10,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.75,
+    "n_strong": 4
+   },
+   "L3_crown": {
+    "indep_score": 35.0,
+    "social_score": 15.0,
+    "indep_conf": 0.7,
+    "social_conf": 0.9,
+    "drop": -0.2,
+    "direction_changed": true,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "neutral",
+     "hawkish"
+    ],
+    "consensus": "hawkish",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     35.0,
+     15.0,
+     35.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 20.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.392,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "neutral",
+     "hawkish"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "LikelyTrue"
+  },
+  "2017-09-20": {
+   "date": "2017-09-20",
+   "base": {
+    "score": 35.0,
+    "confidence": "medium",
+    "one_line": "Signals gradual hikes and balance sheet normalization despite soft inflation.",
+    "tone": 1.8410900000000001
+   },
+   "L1_retrieval": {
+    "coverage": 0.556,
+    "n_terms": 9,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.75,
+    "n_strong": 4
+   },
+   "L3_crown": {
+    "indep_score": 35.0,
+    "social_score": 45.0,
+    "indep_conf": 0.7,
+    "social_conf": 0.9,
+    "drop": -0.2,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "neutral"
+    ],
+    "consensus": "hawkish",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     35.0,
+     25.0,
+     15.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 20.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.451,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "neutral"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "LikelyTrue"
+  },
+  "2017-11-01": {
+   "date": "2017-11-01",
+   "base": {
+    "score": 15.0,
+    "confidence": "high",
+    "one_line": "Slightly hawkish hold: acknowledges soft inflation but signals gradual hikes ahead.",
+    "tone": 1.42566
+   },
+   "L1_retrieval": {
+    "coverage": 0.4,
+    "n_terms": 10,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": 15.0,
+    "social_score": 15.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "hawkish"
+    ],
+    "consensus": "neutral",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     15.0,
+     15.0,
+     45.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 30.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.456,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "hawkish"
+    ],
+    "majority": "neutral",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2018-12-19": {
+   "date": "2018-12-19",
+   "base": {
+    "score": 55.0,
+    "confidence": "high",
+    "one_line": "Hikes rates, cites strong growth, signals further gradual increases, balanced risks.",
+    "tone": 3.33333
+   },
+   "L1_retrieval": {
+    "coverage": 0.6,
+    "n_terms": 10,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": 55.0,
+    "social_score": 35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "consensus": "hawkish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     55.0,
+     55.0,
+     65.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 10.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.414,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2019-09-18": {
+   "date": "2019-09-18",
+   "base": {
+    "score": -35.0,
+    "confidence": "high",
+    "one_line": "Rate cut on global risks and muted inflation signals dovish tilt.",
+    "tone": 3.11653
+   },
+   "L1_retrieval": {
+    "coverage": 0.444,
+    "n_terms": 9,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.667,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": -35.0,
+    "social_score": -35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -35.0,
+     -35.0,
+     -60.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 25.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.474,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2019-12-11": {
+   "date": "2019-12-11",
+   "base": {
+    "score": 5.0,
+    "confidence": "high",
+    "one_line": "Neutral hold with balanced risks, acknowledging weak inflation but no easing bias.",
+    "tone": 3.20946
+   },
+   "L1_retrieval": {
+    "coverage": 0.333,
+    "n_terms": 9,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 1.0,
+    "n_strong": 1
+   },
+   "L3_crown": {
+    "indep_score": 5.0,
+    "social_score": 0.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "consensus": "neutral",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -15.0,
+     -15.0,
+     15.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 30.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.452,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "majority": "neutral",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2020-01-29": {
+   "date": "2020-01-29",
+   "base": {
+    "score": -10.0,
+    "confidence": "medium",
+    "one_line": "Hold with muted inflation, weak investment; slightly dovish tilt.",
+    "tone": 2.8619499999999998
+   },
+   "L1_retrieval": {
+    "coverage": 0.625,
+    "n_terms": 8,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 1.0,
+    "n_strong": 1
+   },
+   "L3_crown": {
+    "indep_score": -10.0,
+    "social_score": -10.0,
+    "indep_conf": 0.7,
+    "social_conf": 0.9,
+    "drop": -0.2,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "consensus": "neutral",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     0.0,
+     10.0,
+     -15.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 25.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.467,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "majority": "neutral",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2020-06-10": {
+   "date": "2020-06-10",
+   "base": {
+    "score": -85.0,
+    "confidence": "high",
+    "one_line": "Zero rates, ongoing QE, crisis support; strongly dovish stance.",
+    "tone": 3.1401
+   },
+   "L1_retrieval": {
+    "coverage": 0.444,
+    "n_terms": 9,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 1
+   },
+   "L3_crown": {
+    "indep_score": -85.0,
+    "social_score": -70.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -85.0,
+     -70.0,
+     -85.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 15.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.441,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2020-09-16": {
+   "date": "2020-09-16",
+   "base": {
+    "score": -85.0,
+    "confidence": "high",
+    "one_line": "Strongly dovish: near-zero rates, outcome-based forward guidance, ongoing asset purchases.",
+    "tone": 3.45395
+   },
+   "L1_retrieval": {
+    "coverage": 0.0,
+    "n_terms": 12,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": -85.0,
+    "social_score": -75.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -70.0,
+     -85.0,
+     -85.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 15.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.448,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2020-11-05": {
+   "date": "2020-11-05",
+   "base": {
+    "score": -85.0,
+    "confidence": "high",
+    "one_line": "Extremely dovish: zero rates maintained with explicit forward guidance for prolonged accommodation.",
+    "tone": 3.33333
+   },
+   "L1_retrieval": {
+    "coverage": 0.0,
+    "n_terms": 10,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -85.0,
+    "social_score": -85.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -60.0,
+     -85.0,
+     -85.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 25.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.419,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2020-12-16": {
+   "date": "2020-12-16",
+   "base": {
+    "score": -85.0,
+    "confidence": "high",
+    "one_line": "Extremely dovish: zero rates and massive asset purchases until substantial progress.",
+    "tone": 3.125
+   },
+   "L1_retrieval": {
+    "coverage": 0.5,
+    "n_terms": 10,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -85.0,
+    "social_score": -60.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -60.0,
+     -70.0,
+     -90.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 30.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.471,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2021-04-28": {
+   "date": "2021-04-28",
+   "base": {
+    "score": -60.0,
+    "confidence": "high",
+    "one_line": "Dovish: holds near-zero rates, continues $120B monthly asset purchases until substantial progress.",
+    "tone": 3.09917
+   },
+   "L1_retrieval": {
+    "coverage": 0.462,
+    "n_terms": 13,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -60.0,
+    "social_score": -55.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -85.0,
+     -85.0,
+     -95.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 10.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.554,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2021-12-15": {
+   "date": "2021-12-15",
+   "base": {
+    "score": 35.0,
+    "confidence": "medium",
+    "one_line": "Taper acceleration signals hawkish shift, but rates held near zero.",
+    "tone": 4.24901
+   },
+   "L1_retrieval": {
+    "coverage": 0.0,
+    "n_terms": 9,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": 35.0,
+    "social_score": 35.0,
+    "indep_conf": 0.7,
+    "social_conf": 0.9,
+    "drop": -0.2,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "neutral"
+    ],
+    "consensus": "hawkish",
+    "strength": 0.67,
+    "verified": false
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     35.0,
+     35.0,
+     -15.0
+    ],
+    "direction_agreement": 0.67,
+    "score_range": 50.0,
+    "passes": false
+   },
+   "L1_semantic": {
+    "cosine": 0.388,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "neutral"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2022-03-16": {
+   "date": "2022-03-16",
+   "base": {
+    "score": 65.0,
+    "confidence": "high",
+    "one_line": "Hawkish: first hike, ongoing increases, balance sheet runoff, Bullard dissent for 50bp.",
+    "tone": 2.81065
+   },
+   "L1_retrieval": {
+    "coverage": 0.364,
+    "n_terms": 11,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.333,
+    "n_strong": 3
+   },
+   "L3_crown": {
+    "indep_score": 65.0,
+    "social_score": 55.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "consensus": "hawkish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     65.0,
+     55.0,
+     75.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 20.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.47,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  },
+  "2022-06-15": {
+   "date": "2022-06-15",
+   "base": {
+    "score": 85.0,
+    "confidence": "high",
+    "one_line": "Hawkish: 75bp hike, ongoing increases, strongly committed to inflation.",
+    "tone": 2.10084
+   },
+   "L1_retrieval": {
+    "coverage": 0.625,
+    "n_terms": 8,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": 85.0,
+    "social_score": 75.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.9,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "consensus": "hawkish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     75.0,
+     75.0,
+     75.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 0.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.52,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2023-05-03": {
+   "date": "2023-05-03",
+   "base": {
+    "score": 55.0,
+    "confidence": "high",
+    "one_line": "Rate hike plus 'extent additional firming may be appropriate' signals hawkish bias.",
+    "tone": 3.71094
+   },
+   "L1_retrieval": {
+    "coverage": 0.5,
+    "n_terms": 10,
+    "supported": true
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": 55.0,
+    "social_score": 55.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.7,
+    "drop": 0.2,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "consensus": "hawkish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     55.0,
+     55.0,
+     85.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 30.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.426,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "hawkish",
+     "hawkish",
+     "hawkish"
+    ],
+    "majority": "hawkish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2024-11-07": {
+   "date": "2024-11-07",
+   "base": {
+    "score": -35.0,
+    "confidence": "high",
+    "one_line": "Rate cut with balanced risks signals modest dovish stance",
+    "tone": 2.75591
+   },
+   "L1_retrieval": {
+    "coverage": 0.375,
+    "n_terms": 8,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.5,
+    "n_strong": 2
+   },
+   "L3_crown": {
+    "indep_score": -35.0,
+    "social_score": -35.0,
+    "indep_conf": 0.9,
+    "social_conf": 0.7,
+    "drop": 0.2,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "consensus": "dovish",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     -35.0,
+     -35.0,
+     -35.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 0.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.51,
+    "supported": true
+   },
+   "L4_fixed": {
+    "votes": [
+     "dovish",
+     "dovish",
+     "dovish"
+    ],
+    "majority": "dovish",
+    "verified": true
+   },
+   "verdict": "Verified"
+  },
+  "2025-01-29": {
+   "date": "2025-01-29",
+   "base": {
+    "score": 10.0,
+    "confidence": "medium",
+    "one_line": "Hold with balanced risks, data-dependent, slight hawkish tilt from patience",
+    "tone": 3.13725
+   },
+   "L1_retrieval": {
+    "coverage": 0.333,
+    "n_terms": 9,
+    "supported": false
+   },
+   "L2_factcheck": {
+    "verified_ratio": 0.0,
+    "n_strong": 1
+   },
+   "L3_crown": {
+    "indep_score": 10.0,
+    "social_score": 10.0,
+    "indep_conf": 0.7,
+    "social_conf": 0.7,
+    "drop": 0.0,
+    "direction_changed": false,
+    "crown_triggered": false
+   },
+   "L4_vote": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "consensus": "neutral",
+    "strength": 1.0,
+    "verified": true
+   },
+   "L5_selfconsistency": {
+    "samples": [
+     10.0,
+     0.0,
+     10.0
+    ],
+    "direction_agreement": 1.0,
+    "score_range": 10.0,
+    "passes": true
+   },
+   "L1_semantic": {
+    "cosine": 0.455,
+    "supported": false
+   },
+   "L4_fixed": {
+    "votes": [
+     "neutral",
+     "neutral",
+     "neutral"
+    ],
+    "majority": "neutral",
+    "verified": true
+   },
+   "verdict": "Uncertain"
+  }
+ }
+}

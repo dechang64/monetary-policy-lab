@@ -1,0 +1,120 @@
+{"model": "gpt-4.1-mini", "date": "2007-08-07", "error": null, "score": 20, "confidence": "high", "one_line": "Cautious stance prioritizing inflation risk despite growth concerns."}
+{"model": "gpt-4.1-mini", "date": "2007-09-18", "error": null, "score": -70, "confidence": "high", "one_line": "Significant rate cut to support growth amid financial market disruptions."}
+{"model": "gpt-4.1-mini", "date": "2007-12-11", "error": null, "score": -60, "confidence": "high", "one_line": "Lowering rates due to slowing growth and financial strains signals dovish stance."}
+{"model": "gpt-4.1-mini", "date": "2008-09-16", "error": null, "score": -60, "confidence": "high", "one_line": "Maintains low rates amid financial strains and weak growth, signaling easing bias."}
+{"model": "gpt-4.1-mini", "date": "2009-11-04", "error": null, "score": -80, "confidence": "high", "one_line": "Maintains exceptionally low rates and continues large asset purchases to support recovery."}
+{"model": "gpt-4.1-mini", "date": "2011-09-21", "error": null, "score": -60, "confidence": "high", "one_line": "Extends accommodation with low rates and asset purchases amid slow growth and weak labor market."}
+{"model": "gpt-4.1-mini", "date": "2012-09-13", "error": null, "score": -80, "confidence": "high", "one_line": "Strongly accommodative policy with asset purchases and low rates extended"}
+{"model": "gpt-4.1-mini", "date": "2013-10-30", "error": null, "score": -40, "confidence": "high", "one_line": "Maintains highly accommodative policy with ongoing asset purchases and gradual outlook improvement."}
+{"model": "gpt-4.1-mini", "date": "2013-12-18", "error": null, "score": 20, "confidence": "high", "one_line": "Modest tapering signals cautious tightening amid ongoing accommodation."}
+{"model": "gpt-4.1-mini", "date": "2015-10-28", "error": null, "score": 20, "confidence": "high", "one_line": "Gradual rate hike expected; current policy remains accommodative and cautious."}
+{"model": "gpt-4.1-mini", "date": "2015-12-16", "error": null, "score": 40, "confidence": "high", "one_line": "Gradual rate hikes signal cautious tightening amid accommodative stance."}
+{"model": "gpt-4.1-mini", "date": "2016-01-27", "error": null, "score": -20, "confidence": "high", "one_line": "Maintains accommodative policy with gradual rate increases expected over time."}
+{"model": "gpt-4.1-mini", "date": "2017-07-26", "error": null, "score": 30, "confidence": "high", "one_line": "Gradual rate increases expected; policy remains accommodative supporting growth."}
+{"model": "gpt-4.1-mini", "date": "2017-09-20", "error": null, "score": 30, "confidence": "high", "one_line": "Gradual rate increases expected; policy remains accommodative supporting growth."}
+{"model": "gpt-4.1-mini", "date": "2017-11-01", "error": null, "score": 30, "confidence": "high", "one_line": "Gradual rate increases expected; policy remains accommodative supporting growth and inflation."}
+{"model": "gpt-4.1-mini", "date": "2018-12-19", "error": null, "score": 60, "confidence": "high", "one_line": "Gradual rate increases signaled amid strong labor and near-target inflation."}
+{"model": "gpt-4.1-mini", "date": "2019-09-18", "error": null, "score": -40, "confidence": "high", "one_line": "Rate cut signals dovish stance amid muted inflation and global uncertainties."}
+{"model": "gpt-4.1-mini", "date": "2019-12-11", "error": null, "score": -10, "confidence": "high", "one_line": "Maintains rates, acknowledges moderate growth and low inflation, signals cautious stance."}
+{"model": "gpt-4.1-mini", "date": "2020-01-29", "error": null, "score": -20, "confidence": "high", "one_line": "Maintains rates, notes moderate growth and low inflation, signals cautious stance."}
+{"model": "gpt-4.1-mini", "date": "2020-06-10", "error": null, "score": -80, "confidence": "high", "one_line": "Strong commitment to support economy with low rates and asset purchases."}
+{"model": "gpt-4.1-mini", "date": "2020-09-16", "error": null, "score": -60, "confidence": "high", "one_line": "Maintains low rates, supports accommodative policy, monitors risks carefully."}
+{"model": "gpt-4.1-mini", "date": "2020-11-05", "error": null, "score": -70, "confidence": "high", "one_line": "Maintains very low rates and supports accommodative financial conditions"}
+{"model": "gpt-4.1-mini", "date": "2020-12-16", "error": null, "score": -70, "confidence": "high", "one_line": "Maintains low rates and asset purchases, signaling accommodative policy stance."}
+{"model": "gpt-4.1-mini", "date": "2021-04-28", "error": null, "score": -60, "confidence": "high", "one_line": "Maintains low rates and asset purchases, signaling accommodative policy stance."}
+{"model": "gpt-4.1-mini", "date": "2021-12-15", "error": null, "score": -20, "confidence": "high", "one_line": "Gradual tapering signals cautious tightening amid ongoing support and inflation concerns."}
+{"model": "gpt-4.1-mini", "date": "2022-03-16", "error": null, "score": 60, "confidence": "high", "one_line": "Firming policy stance with rate hike and balance sheet reduction planned."}
+{"model": "gpt-4.1-mini", "date": "2022-06-15", "error": null, "score": 70, "confidence": "high", "one_line": "Rate hike and balance sheet reduction signal strong anti-inflation stance."}
+{"model": "gpt-4.1-mini", "date": "2023-05-03", "error": null, "score": 60, "confidence": "high", "one_line": "Rate hike and continued tightening signal a moderately hawkish stance."}
+{"model": "gpt-4.1-mini", "date": "2024-11-07", "error": null, "score": -30, "confidence": "high", "one_line": "Rate cut signals easing, but ongoing balance and vigilance remain."}
+{"model": "gpt-4.1-mini", "date": "2025-01-29", "error": null, "score": 0, "confidence": "high", "one_line": "Maintains rates, data-dependent, balanced risks, no bias toward tightening or easing."}
+{"model": "claude-haiku-4-5-20251001", "date": "2007-08-07", "error": null, "score": 35, "confidence": "high", "one_line": "Inflation remains predominant concern despite rising downside growth risks."}
+{"model": "claude-haiku-4-5-20251001", "date": "2007-09-18", "error": null, "score": -72, "confidence": "high", "one_line": "Aggressive 50bp cut to forestall financial market disruption effects"}
+{"model": "claude-haiku-4-5-20251001", "date": "2007-12-11", "error": null, "score": -55, "confidence": "high", "one_line": "Cutting rates amid housing slump, but inflation risks temper dovish lean."}
+{"model": "claude-haiku-4-5-20251001", "date": "2008-09-16", "error": null, "score": -25, "confidence": "high", "one_line": "Hold with downside growth bias despite elevated inflation uncertainty"}
+{"model": "claude-haiku-4-5-20251001", "date": "2009-11-04", "error": null, "score": -72, "confidence": "high", "one_line": "Rates at zero, QE ongoing, extended accommodation amid weak recovery."}
+{"model": "claude-haiku-4-5-20251001", "date": "2011-09-21", "error": null, "score": -72, "confidence": "high", "one_line": "Operation Twist launched amid significant downside risks and extended ZIRP guidance"}
+{"model": "claude-haiku-4-5-20251001", "date": "2012-09-13", "error": null, "score": -82, "confidence": "high", "one_line": "Launched open-ended QE3 with extended near-zero rate forward guidance."}
+{"model": "claude-haiku-4-5-20251001", "date": "2013-10-30", "error": null, "score": -55, "confidence": "high", "one_line": "Maintains full QE, awaits more evidence before any taper."}
+{"model": "claude-haiku-4-5-20251001", "date": "2013-12-18", "error": null, "score": 15, "confidence": "high", "one_line": "Taper begins modestly but forward guidance stays firmly accommodative"}
+{"model": "claude-haiku-4-5-20251001", "date": "2015-10-28", "error": null, "score": 15, "confidence": "high", "one_line": "Hike signal added but accommodation maintained with inflation still soft"}
+{"model": "claude-haiku-4-5-20251001", "date": "2015-12-16", "error": null, "score": 35, "confidence": "high", "one_line": "Historic first hike but explicitly gradual, accommodative stance retained"}
+{"model": "claude-haiku-4-5-20251001", "date": "2016-01-27", "error": null, "score": -35, "confidence": "high", "one_line": "Holds rates, flags global risks, signals only gradual future hikes."}
+{"model": "claude-haiku-4-5-20251001", "date": "2017-07-26", "error": null, "score": 15, "confidence": "high", "one_line": "Hold with gradual hike bias; balance sheet normalization coming soon"}
+{"model": "claude-haiku-4-5-20251001", "date": "2017-09-20", "error": null, "score": 15, "confidence": "high", "one_line": "Gradual hikes expected; balance sheet runoff initiated; inflation still below target"}
+{"model": "claude-haiku-4-5-20251001", "date": "2017-11-01", "error": null, "score": 15, "confidence": "high", "one_line": "Gradual hikes expected but policy remains accommodative with soft inflation."}
+{"model": "claude-haiku-4-5-20251001", "date": "2018-12-19", "error": null, "score": 55, "confidence": "high", "one_line": "Rate hike delivered with gradual further increases still signaled ahead"}
+{"model": "claude-haiku-4-5-20251001", "date": "2019-09-18", "error": null, "score": -35, "confidence": "high", "one_line": "Rate cut delivered but split vote signals cautious, limited easing path"}
+{"model": "claude-haiku-4-5-20251001", "date": "2019-12-11", "error": null, "score": -10, "confidence": "high", "one_line": "Policy on hold, inflation below target, weak investment noted"}
+{"model": "claude-haiku-4-5-20251001", "date": "2020-01-29", "error": null, "score": -10, "confidence": "high", "one_line": "Hold with dovish tilt; weak investment, below-target inflation acknowledged."}
+{"model": "claude-haiku-4-5-20251001", "date": "2020-06-10", "error": null, "score": -72, "confidence": "high", "one_line": "Zero rates held, QE expanded, crisis language dominates throughout"}
+{"model": "claude-haiku-4-5-20251001", "date": "2020-09-16", "error": null, "score": -72, "confidence": "high", "one_line": "Rates at zero, QE expanding, strong forward guidance to overshoot inflation."}
+{"model": "claude-haiku-4-5-20251001", "date": "2020-11-05", "error": null, "score": -72, "confidence": "high", "one_line": "Rates pinned at zero, asset purchases sustained, inflation overshoot welcomed."}
+{"model": "claude-haiku-4-5-20251001", "date": "2020-12-16", "error": null, "score": -82, "confidence": "high", "one_line": "Rates at zero, massive QE ongoing, no tightening in sight."}
+{"model": "claude-haiku-4-5-20251001", "date": "2021-04-28", "error": null, "score": -72, "confidence": "high", "one_line": "Rates at zero, full QE, inflation overshoot explicitly welcomed."}
+{"model": "claude-haiku-4-5-20251001", "date": "2021-12-15", "error": null, "score": 15, "confidence": "high", "one_line": "Tapering accelerated but rates held; inflation acknowledged, tightening imminent."}
+{"model": "claude-haiku-4-5-20251001", "date": "2022-03-16", "error": null, "score": 72, "confidence": "high", "one_line": "Rate hike delivered with explicit forward guidance for ongoing increases."}
+{"model": "claude-haiku-4-5-20251001", "date": "2022-06-15", "error": null, "score": 82, "confidence": "high", "one_line": "75bps hike, ongoing increases signaled, strongly committed to fighting inflation"}
+{"model": "claude-haiku-4-5-20251001", "date": "2023-05-03", "error": null, "score": 62, "confidence": "high", "one_line": "Rate hike delivered, but conditional pause language subtly introduced"}
+{"model": "claude-haiku-4-5-20251001", "date": "2024-11-07", "error": null, "score": -35, "confidence": "high", "one_line": "Gradual dovish cut with balanced risks and data-dependent caution"}
+{"model": "claude-haiku-4-5-20251001", "date": "2025-01-29", "error": null, "score": 15, "confidence": "high", "one_line": "Holding rates steady, balanced risks, no urgency to cut further."}
+{"model": "gemini-2.5-flash", "date": "2007-08-07", "error": "```json\n{\n"}
+{"model": "gemini-2.5-flash", "date": "2007-09-18", "error": "```json"}
+{"model": "gemini-2.5-flash", "date": "2007-12-11", "error": "```json\n"}
+{"model": "gemini-2.5-flash", "date": "2008-09-16", "error": "```json\n{\n"}
+{"model": "gemini-2.5-flash", "date": "2009-11-04", "error": "```json\n{"}
+{"model": "gemini-2.5-flash", "date": "2011-09-21", "error": "```json\n"}
+{"model": "gemini-2.5-flash", "date": "2012-09-13", "error": "```json\n{"}
+{"model": "gemini-2.5-flash", "date": "2013-10-30", "error": "```"}
+{"model": "gemini-2.5-flash", "date": "2013-12-18", "error": "```json\n"}
+{"model": "gemini-2.5-flash", "date": "2015-10-28", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2015-12-16", "error": "```json"}
+{"model": "gemini-2.5-flash", "date": "2016-01-27", "error": "```json\n"}
+{"model": "gemini-2.5-flash", "date": "2017-07-26", "error": "```json\n{\n"}
+{"model": "gemini-2.5-flash", "date": "2017-09-20", "error": "```"}
+{"model": "gemini-2.5-flash", "date": "2017-11-01", "error": "```json\n"}
+{"model": "gemini-2.5-flash", "date": "2018-12-19", "error": "```json"}
+{"model": "gemini-2.5-flash", "date": "2019-09-18", "error": "```"}
+{"model": "gemini-2.5-flash", "date": "2019-12-11", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2020-01-29", "error": "```json"}
+{"model": "gemini-2.5-flash", "date": "2020-06-10", "error": "```json\n"}
+{"model": "gemini-2.5-flash", "date": "2020-09-16", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2020-11-05", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2020-12-16", "error": "```"}
+{"model": "gemini-2.5-flash", "date": "2021-04-28", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2021-12-15", "error": "```json"}
+{"model": "gemini-2.5-flash", "date": "2022-03-16", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2022-06-15", "error": "```json\n{\n"}
+{"model": "gemini-2.5-flash", "date": "2023-05-03", "error": "```json\n{\n"}
+{"model": "gemini-2.5-flash", "date": "2024-11-07", "error": ""}
+{"model": "gemini-2.5-flash", "date": "2025-01-29", "error": "```json\n{\n"}
+{"model": "deepseek-flash", "date": "2007-08-07", "error": ""}
+{"model": "deepseek-flash", "date": "2007-09-18", "error": ""}
+{"model": "deepseek-flash", "date": "2007-12-11", "error": ""}
+{"model": "deepseek-flash", "date": "2008-09-16", "error": ""}
+{"model": "deepseek-flash", "date": "2009-11-04", "error": ""}
+{"model": "deepseek-flash", "date": "2011-09-21", "error": ""}
+{"model": "deepseek-flash", "date": "2012-09-13", "error": ""}
+{"model": "deepseek-flash", "date": "2013-10-30", "error": ""}
+{"model": "deepseek-flash", "date": "2013-12-18", "error": ""}
+{"model": "deepseek-flash", "date": "2015-10-28", "error": ""}
+{"model": "deepseek-flash", "date": "2015-12-16", "error": ""}
+{"model": "deepseek-flash", "date": "2016-01-27", "error": ""}
+{"model": "deepseek-flash", "date": "2017-07-26", "error": ""}
+{"model": "deepseek-flash", "date": "2017-09-20", "error": ""}
+{"model": "deepseek-flash", "date": "2017-11-01", "error": ""}
+{"model": "deepseek-flash", "date": "2018-12-19", "error": ""}
+{"model": "deepseek-flash", "date": "2019-09-18", "error": ""}
+{"model": "deepseek-flash", "date": "2019-12-11", "error": ""}
+{"model": "deepseek-flash", "date": "2020-01-29", "error": ""}
+{"model": "deepseek-flash", "date": "2020-06-10", "error": ""}
+{"model": "deepseek-flash", "date": "2020-09-16", "error": ""}
+{"model": "deepseek-flash", "date": "2020-11-05", "error": ""}
+{"model": "deepseek-flash", "date": "2020-12-16", "error": ""}
+{"model": "deepseek-flash", "date": "2021-04-28", "error": ""}
+{"model": "deepseek-flash", "date": "2021-12-15", "error": ""}
+{"model": "deepseek-flash", "date": "2022-03-16", "error": ""}
+{"model": "deepseek-flash", "date": "2022-06-15", "error": ""}
+{"model": "deepseek-flash", "date": "2023-05-03", "error": ""}
+{"model": "deepseek-flash", "date": "2024-11-07", "error": ""}
+{"model": "deepseek-flash", "date": "2025-01-29", "error": ""}

@@ -42,7 +42,7 @@
 {"date": "2011-04-27", "score": -85, "confidence": "high", "one_line": "Committee commits to massive asset purchases and zero rates for extended period."}
 {"date": "2011-06-22", "score": -35, "confidence": "medium", "one_line": "Dovish tilt from weaker data, temporary factors, extended low rates, QE completion."}
 {"date": "2011-08-09", "score": -70, "confidence": "high", "one_line": "Extended zero-rate guidance to mid-2013 with readiness for more easing."}
-{"date": "2011-09-21", "score": 85, "confidence": "high", "one_line": "Strongly dovish via Operation Twist and extended zero-rate guidance."}
+{"date": "2011-09-21", "score": -70, "confidence": "high", "one_line": "Operation Twist plus extended low-rate guidance signals strong accommodation despite dissents.", "note": "corrected after cross-model audit (router one-off; 3 reruns -70, gpt -60, claude -72)"}
 {"date": "2011-11-02", "score": -45, "confidence": "high", "one_line": "Maintains easing bias with low rates through mid-2013, downside risks cited."}
 {"date": "2011-12-13", "score": -40, "confidence": "high", "one_line": "Dovish with extended low-rate guidance and easing tools, but no new large stimulus."}
 {"date": "2012-01-25", "score": -60, "confidence": "high", "one_line": "Highly accommodative stance, low rates through late 2014, downside risks."}
