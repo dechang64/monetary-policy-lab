@@ -42,6 +42,10 @@ with all three coefficients significant (tone p<0.001, MP p<0.001, CBI p=0.004).
 
 The advising team asked that tone be orthogonalized to Target and Path before entering the flow regressions of Section 5. It was: orthogonalized tone reproduces raw tone to the fourth decimal (flow-side p=0.635 raw vs 0.625 orth; incremental R² of the orthogonalization 0.4%), because the dictionary score is constructed from the statement text after the decision window and shares almost no variance with the surprise vector. We report the orth spec alongside the raw one throughout — and we flag the deeper point: the near-orthogonality is not a nuisance, it is what makes tone a *separate* measurement channel. A text measure that were highly correlated with the market-priced surprises would be redundant with them; the dictionary's near-independence is precisely why its FG-regime price effect is informative.
 
-## 4.4 Where this leaves the price side
+## 4.4 Does tone come back after 2022? A theory-driven out-of-sample check
+
+The paradigm-shift framework makes a falsifiable prediction outside the FG window: the post-2022 tightening cycle restored explicit path communication (dot plots, "sufficiently restrictive" language), so tone should *re-acquire* price relevance — not reach FG-era magnitude, but re-enter the regression with the right sign. With only 19 post-2022 meetings the power is low, and we report the result as directional: the tone × post-2022 interaction on CRSP VW is **−0.164 (p = 0.094)** — the hawkish-side sign, an order of magnitude below the FG effect, and the ZLB window (n = 15) remains the dead zone (tone p = 0.70). Consistent with the theory's regime-dependence; under-powered to be a headline.
+
+## 4.5 Where this leaves the price side
 
 The announcement-day evidence supports T1 and T2: both shock components move prices with the JK sign structure, and the text carries incremental price information concentrated exactly in the regime where the committee's words were the policy instrument (forward guidance). What the text does *not* do — per the framework's deliberate null — is move monthly flows. That is Section 5.

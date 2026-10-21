@@ -76,7 +76,17 @@ T4 & Flow responses follow the risk ladder: safe-asset inflows on hawkish inform
 T5 & When the communication paradigm shifts, dictionary-based text measures fail in a characteristic way (resolution loss, not bias) & P1 & §7 \\
 \end{longtable}
 
-Two implications are deliberately \emph{null} --- T3, and the flow-side half of T2. Following the contribution discipline fixed with the advising team: a theory that predicts a null where the heuristic expects an effect is more falsifiable than one that predicts an effect everywhere, and the nulls are load-bearing for the paper's mechanism (prices clear the information first; portfolios adjust later, along the risk ladder, to the \emph{risk} content rather than the \emph{words}). \# 3. Data and Measurement
+Two implications are deliberately \emph{null} --- T3, and the flow-side half of T2. Following the contribution discipline fixed with the advising team: a theory that predicts a null where the heuristic expects an effect is more falsifiable than one that predicts an effect everywhere, and the nulls are load-bearing for the paper's mechanism (prices clear the information first; portfolios adjust later, along the risk ladder, to the \emph{risk} content rather than the \emph{words}).
+
+\subsection{2.5 A minimal formal sketch}\label{a-minimal-formal-sketch}
+
+We compress the pillars into the smallest structure that generates T1--T5. Let the central bank have private information \(\theta \sim N(0, \tau_\theta^{-1})\) about the economy (bad news = high \(\theta\)), and let the statement contain a decision component \(a\) (the action) and a textual component \(t = a + \varepsilon_t\), \(\varepsilon_t \sim N(0, \tau_t^{-1})\) --- words about the action plus residual content about \(\theta\). Investors observe the announcement window price \(p = \mathbb{E}[\theta + \kappa a \mid a, t] + u\) with noise \(u\) and risk-aversion weight \(\kappa\).
+
+\textbf{Proposition 1 (inversion).} Under RE, the innovation in \(p\) admits a unique decomposition into \((m, c)\) --- the action-driven and information-driven components --- recovered up to scale by the joint sign pattern of \(p\) and \(a\)'s direct instrument; this is the sign-restriction rule implemented in Section 3.1. \emph{Proof idea:} two signals, two independent shocks, moment restrictions close the system; the full argument (with the JK correspondence) is in Appendix C.
+
+\textbf{Proposition 2 (regime-dependent text relevance).} Tone \(\hat t\) has incremental price content, \(\partial p / \partial \hat t \neq 0\) holding \((m, c)\) fixed, if and only if \(\tau_t\) is informative about \(\theta\) --- i.e., when the paradigm makes words carry state information (forward guidance; explicit reactions functions). In action-centric paradigms \(\tau_t \to \infty\) and the text is dead. This is T2 and its FG-regime prediction.
+
+\textbf{Proposition 3 (flows as residual demand).} Let investors of type \(k\) (risk rank \(r_k\)) hold claims on factor portfolios; a hawkish information update raises the required compensation on high-\(r_k\) factors, so optimal reallocation satisfies \(f_k \propto -r_k \, c\) for information news and \(f_k \perp r_k\) for pure action news --- T4's ladder and risk-neutrality of MP flows --- with flow response at the monthly horizon an order of magnitude smaller than the price response because \(c\) is already in the price (T3). \emph{Proof idea:} first-order condition of mean-variance demand with heterogeneous factor loadings; derivation in Appendix C. \# 3. Data and Measurement
 
 Our sample spans every FOMC meeting with a priced statement from January 2006 through April 2026 --- 161 meetings, covering the pre-crisis tightening, the crisis and zero-lower-bound era, the forward-guidance window, the 2020 pandemic response, the 2022--2023 tightening cycle, and the current balance-sheet run-off. Three measurement blocks feed the paper: the shock decomposition, the statement text measures, and the fund-flow panel.
 
@@ -162,7 +172,11 @@ with all three coefficients significant (tone p\textless0.001, MP p\textless0.00
 
 The advising team asked that tone be orthogonalized to Target and Path before entering the flow regressions of Section 5. It was: orthogonalized tone reproduces raw tone to the fourth decimal (flow-side p=0.635 raw vs 0.625 orth; incremental R² of the orthogonalization 0.4\%), because the dictionary score is constructed from the statement text after the decision window and shares almost no variance with the surprise vector. We report the orth spec alongside the raw one throughout --- and we flag the deeper point: the near-orthogonality is not a nuisance, it is what makes tone a \emph{separate} measurement channel. A text measure that were highly correlated with the market-priced surprises would be redundant with them; the dictionary's near-independence is precisely why its FG-regime price effect is informative.
 
-\subsection{4.4 Where this leaves the price side}\label{where-this-leaves-the-price-side}
+\subsection{4.4 Does tone come back after 2022? A theory-driven out-of-sample check}\label{does-tone-come-back-after-2022-a-theory-driven-out-of-sample-check}
+
+The paradigm-shift framework makes a falsifiable prediction outside the FG window: the post-2022 tightening cycle restored explicit path communication (dot plots, ``sufficiently restrictive'' language), so tone should \emph{re-acquire} price relevance --- not reach FG-era magnitude, but re-enter the regression with the right sign. With only 19 post-2022 meetings the power is low, and we report the result as directional: the tone × post-2022 interaction on CRSP VW is \textbf{−0.164 (p = 0.094)} --- the hawkish-side sign, an order of magnitude below the FG effect, and the ZLB window (n = 15) remains the dead zone (tone p = 0.70). Consistent with the theory's regime-dependence; under-powered to be a headline.
+
+\subsection{4.5 Where this leaves the price side}\label{where-this-leaves-the-price-side}
 
 The announcement-day evidence supports T1 and T2: both shock components move prices with the JK sign structure, and the text carries incremental price information concentrated exactly in the regime where the committee's words were the policy instrument (forward guidance). What the text does \emph{not} do --- per the framework's deliberate null --- is move monthly flows. That is Section 5. \# 5. Flows: The Ruling Null
 
@@ -280,7 +294,11 @@ Table 8.1 splits the flow response by window. Same-month government-bond flows c
 
 The flow null is not tied to one text measure: dictionary tone (p = 0.64), its orthogonalized version (p = 0.63), the FG-regime spec (p = 0.94), and the audited LLM score (p = 0.17) all fail to enter. The price-side null outside FG likewise holds for every asset in Panel B of Table 4.1.
 
-\subsection{8.4 Pipeline audit}\label{pipeline-audit}
+\subsection{8.4 Placebo: flows in non-meeting months}\label{placebo-flows-in-non-meeting-months}
+
+If the de-risking ladder is driven by the information content of statements, months without statements should show nothing. Constructing pseudo-shocks (drawn from the empirical CBI distribution, assigned to the 85 non-meeting months; 595 class-month observations), the placebo regression delivers a clean zero: pseudo-CBI p = 0.84, pseudo Risk × CBI p = 0.91. The real-meeting benchmark (Risk × CBI = −0.066, p = 0.036) is therefore not a property of the flow data or the ladder coding --- it requires the statements (archival: \texttt{batch3\_results.json}).
+
+\subsection{8.5 Pipeline audit}\label{pipeline-audit}
 
 Every headline number runs through the archival pipeline: the shock file (single CSV, versioned), the dataset builder with sanity checks (statement length, tone--length correlation, CRSP same-day cross-checks), and per-chapter result JSONs committed to the repository. Statement scores carry a five-layer audit (Appendix A) with per-statement verdicts; the two drafting-stage corrections (Operation Twist's router one-off; retirement of two untraceable recalled numbers) are documented in the audit notes rather than silently fixed. \# 9. Conclusion
 

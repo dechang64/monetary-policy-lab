@@ -1,0 +1,65 @@
+{
+ "post2022": {
+  "tone_crsp_FG_like": {
+   "n": 19,
+   "r2": 0.0007,
+   "Intercept": {
+    "beta": -0.4515,
+    "se": 1.7771,
+    "p": 0.8025
+   },
+   "tone100": {
+    "beta": 0.0555,
+    "se": 0.5003,
+    "p": 0.913
+   }
+  },
+  "tone_crsp_all_with_post_int": {
+   "n": 150,
+   "r2": 0.0295,
+   "Intercept": {
+    "beta": 0.6196,
+    "se": 0.3903,
+    "p": 0.1146
+   },
+   "tone100": {
+    "beta": -0.0767,
+    "se": 0.1403,
+    "p": 0.5855
+   },
+   "tone_x_post": {
+    "beta": -0.1644,
+    "se": 0.0976,
+    "p": 0.0941
+   }
+  },
+  "n_post": 19
+ },
+ "zlb2020_tone_crsp": {
+  "n": 15,
+  "r2": 0.0114,
+  "Intercept": {
+   "beta": -1.009,
+   "se": 3.6672,
+   "p": 0.7875
+  },
+  "tone100": {
+   "beta": 0.4342,
+   "se": 1.1203,
+   "p": 0.7046
+  }
+ },
+ "placebo_nonmeeting": {
+  "n": 595,
+  "n_months": 85,
+  "pseudo_cbi": {
+   "beta": -0.0004,
+   "p": 0.8378
+  },
+  "pseudo_risk_x_cbi": {
+   "beta": 0.0,
+   "p": 0.9051
+  }
+ },
+ "note": "Placebo uses only non-meeting months (n months=85 of 245 total). Real-meeting reference: Risk x CBI = -0.066 (p=0.036) from flow_results_rerun_v8.json. Fund-level heterogeneity NOT runnable locally (server-side aggregation); queued."
+}

@@ -16,6 +16,10 @@ Table 8.1 splits the flow response by window. Same-month government-bond flows c
 
 The flow null is not tied to one text measure: dictionary tone (p = 0.64), its orthogonalized version (p = 0.63), the FG-regime spec (p = 0.94), and the audited LLM score (p = 0.17) all fail to enter. The price-side null outside FG likewise holds for every asset in Panel B of Table 4.1.
 
-## 8.4 Pipeline audit
+## 8.4 Placebo: flows in non-meeting months
+
+If the de-risking ladder is driven by the information content of statements, months without statements should show nothing. Constructing pseudo-shocks (drawn from the empirical CBI distribution, assigned to the 85 non-meeting months; 595 class-month observations), the placebo regression delivers a clean zero: pseudo-CBI p = 0.84, pseudo Risk × CBI p = 0.91. The real-meeting benchmark (Risk × CBI = −0.066, p = 0.036) is therefore not a property of the flow data or the ladder coding — it requires the statements (archival: `batch3_results.json`).
+
+## 8.5 Pipeline audit
 
 Every headline number runs through the archival pipeline: the shock file (single CSV, versioned), the dataset builder with sanity checks (statement length, tone–length correlation, CRSP same-day cross-checks), and per-chapter result JSONs committed to the repository. Statement scores carry a five-layer audit (Appendix A) with per-statement verdicts; the two drafting-stage corrections (Operation Twist's router one-off; retirement of two untraceable recalled numbers) are documented in the audit notes rather than silently fixed.
