@@ -12,6 +12,10 @@ The Wald test cannot reject equality of the two interaction coefficients (p = 0.
 \input{tables/table61.tex}
 ```
 
+![Flow dynamics by window](figures/fig3_dynamics.png)
+
+Figure 3: flow response per unit shock by window (same month, post, difference), safe classes in blue, risky classes in red. The government-bond inflow (+0.76, same month) reverses by the difference window (−0.99); the conventional component is flat at every window.
+
 ## 6.2 Sign asymmetry: positive news does the work
 
 Splitting CBI by sign sharpens the channel (models_v2): **Risk × CBI(+) = −0.088 (p = 0.020)**; Risk × CBI(−) = −0.055 (p = 0.10). Hawkish information — the market telling the investor that the Fed knows something bad — drives the ladder. Dovish information produces a weak, statistically indistinguishable version of the same slope. The economics: funds do not chase the *policy* on good news; they flee *risk* on bad news. The asymmetry is the portfolio-side footprint of the asymmetry that Badarinath–Frydman-style and homestead asset-pricing work has long documented for prices, here appearing one step later, in quantities.

@@ -19,3 +19,9 @@ Two drafting-stage fixes are part of the audit record. First, the multi-node con
 ```
 
 The variable codebook (`paper/codebook.docx`) enforces one name per definition across the paper: shocks are innovations; "surprise" appears only in the GSS-construction context; tone is never sentiment; "information shock" appears only in the Jarociński-Karadi discussion context, quoted. The audit trail for every headline number runs from the codebook through the archival result files — numbers that could not be traced to an archival source were retired during drafting (two instances, documented in Section 8.4).
+
+## B.1 Descriptive statistics
+
+```{=latex}
+\input{tables/tableb1.tex}
+```

@@ -26,6 +26,10 @@ LLM measures invite a legitimate objection — hallucination. We therefore porte
 
 The audit caught exactly one real error: on the Operation Twist statement (2011-09-21) the main router returned +85 (hawkish) once; three reruns returned −70 each time, and all four vendor families independently returned strongly dovish scores (−60 to −90). "Extend the average maturity of its holdings" is an easing operation; the correction stands, the score file carries the audit note, and the Section 4 correlations moved r = 0.335 → 0.351.
 
+![Score compression](figures/fig4_compression.png)
+
+Figure 4: dictionary tone (horizontal) against the LLM score (vertical). The dictionary compresses the 161 statements into a narrow band while the LLM score spans the full range; the eleven flagged paradigm-shift statements (diamonds) sit where the dictionary is flattest — four consecutive 2020 QE statements at tone ≈ 3.1–3.5 are scored −75 to −85 by the committee of models.
+
 ## 7.4 Positioning
 
 The LLM measure is a **diagnostic of dictionary failure, not a better scorer**. It adds no price or flow predictiveness (Sections 4–5), so we do not ask the reader to switch measures. What it delivers is evidence about the dictionary: the tone measure that dominates the statement-communication literature loses resolution precisely on the episodes the paradigm-shift narrative cares about, and any dictionary-based claim about those episodes should be read alongside this measurement-failure evidence.

@@ -14,6 +14,14 @@ Table 4.1 reports the tone coefficient by asset and regime (Panel A: uncondition
 \input{tables/table41.tex}
 ```
 
+![Preview of the paper's central finding](figures/fig1_preview.png)
+
+Figure 1 (preview): binned tone and same-day CRSP VW returns by regime. The forward-guidance era carries the entire tone-price relationship (slope −1.12, matching Table 4.1's regression); outside it the relationship is flat (+0.04, p = 0.80).
+
+![Tone over time with regime shading](figures/fig2_timeline.png)
+
+Figure 2: dictionary tone across the 161 meetings, with the forward-guidance, zero-rate, and tightening-cycle regimes shaded. Annotations mark Operation Twist (2011), QE3 (2012), and the June-2022 75bp acceleration — the statements at the center of the Section 7 measurement analysis.
+
 Three facts stand out. First, in the FG era a one-standard-deviation hawkish shift in tone (about 12 points) is associated with a −1.12 percentage-point same-day equity return — economically large, and restricted to the FG regime: outside it, the tone coefficient is indistinguishable from zero (+0.04, p=0.80). Second, the sign pattern across assets is exactly what a hawkish text signal implies: equity down, and — in the interaction specification — Treasury yields up (tone×FG on TY10: +0.050, p=0.030). The same words push discount rates up and cash flows down. Third, the short end (TY2) shows no tone response at any horizon: tone acts through the *medium-horizon path* expectations that forward guidance manages, not through the near-term policy rate.
 
 ## 4.2 Horse race: tone survives the shocks
