@@ -8,6 +8,10 @@ With each fund class mapped to a 1–7 ordinal risk rank (government bonds = 1 �
 
 The Wald test cannot reject equality of the two interaction coefficients (p = 0.11); we therefore claim the asymmetry in *sign* (MP flows are risk-neutral; CBI flows are risk-ordered), not in magnitude.
 
+```{=latex}
+\input{tables/table61.tex}
+```
+
 ## 6.2 Sign asymmetry: positive news does the work
 
 Splitting CBI by sign sharpens the channel (models_v2): **Risk × CBI(+) = −0.088 (p = 0.020)**; Risk × CBI(−) = −0.055 (p = 0.10). Hawkish information — the market telling the investor that the Fed knows something bad — drives the ladder. Dovish information produces a weak, statistically indistinguishable version of the same slope. The economics: funds do not chase the *policy* on good news; they flee *risk* on bad news. The asymmetry is the portfolio-side footprint of the asymmetry that Badarinath–Frydman-style and homestead asset-pricing work has long documented for prices, here appearing one step later, in quantities.
@@ -15,6 +19,10 @@ Splitting CBI by sign sharpens the channel (models_v2): **Risk × CBI(+) = −0.
 ## 6.3 The zero-rate exception
 
 In the 2020–2022 zero-rate window, the *conventional* component acquires a flow effect: **MP × ZLB = −1.505 (p = 0.005, n = 1,099, R² = 0.050)** — a one-unit MP shock at the ZLB pushes roughly 1.5 pp of monthly flow out of the average class, concentrated in the safe classes that normally absorb the CBI response (CBI × ZLB is a precise zero, p = 0.78). The reading follows the exposition in Section 2: at the ZLB a conventional surprise is an *exit option* event — the committee has no room to offset a hawkish surprise with further cuts, so even small conventional news is portfolio-relevant, and it operates through the rescue-capacity channel rather than the information channel (whose interaction is null precisely when the level channel binds).
+
+```{=latex}
+\input{tables/table62.tex}
+```
 
 ## 6.4 Putting Sections 4–6 together
 

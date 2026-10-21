@@ -10,6 +10,10 @@ Table 4.1 reports the tone coefficient by asset and regime (Panel A: uncondition
 
 *[TABLE 4.1 — tone coefficient by asset and regime, from `price_results_v1.json` Panel B: CRSP VW FG −1.119 (p=0.004, R²=0.141, n=56); S&P 500 FG −1.027 (p=0.006, R²=0.130); CRSP VW non-FG +0.037 (p=0.803); TY10 FG +0.044 (p=0.134); TY10 non-FG −0.007 (p=0.317); TY2 all regimes p>0.32]*
 
+```{=latex}
+\input{tables/table41.tex}
+```
+
 Three facts stand out. First, in the FG era a one-standard-deviation hawkish shift in tone (about 12 points) is associated with a −1.12 percentage-point same-day equity return — economically large, and restricted to the FG regime: outside it, the tone coefficient is indistinguishable from zero (+0.04, p=0.80). Second, the sign pattern across assets is exactly what a hawkish text signal implies: equity down, and — in the interaction specification — Treasury yields up (tone×FG on TY10: +0.050, p=0.030). The same words push discount rates up and cash flows down. Third, the short end (TY2) shows no tone response at any horizon: tone acts through the *medium-horizon path* expectations that forward guidance manages, not through the near-term policy rate.
 
 ## 4.2 Horse race: tone survives the shocks
@@ -17,6 +21,10 @@ Three facts stand out. First, in the FG era a one-standard-deviation hawkish shi
 Is tone just a noisy proxy for the shocks? No. Table 4.2 (Panel C) puts tone, MP, and CBI in the same regression for the FG subsample. On CRSP VW:
 
 $$\Delta S_m = -1.21\,\text{tone}_m - 1.25\,\text{MP}_m + 1.93\,\text{CBI}_m, \quad R^2 = 0.48, \; n = 56,$$
+
+```{=latex}
+\input{tables/table42.tex}
+```
 
 with all three coefficients significant (tone p<0.001, MP p<0.001, CBI p=0.004). The sign structure is the theory's: conventional shocks (MP) depress equity; information shocks (CBI) *raise* it — the market reads hawkish information as evidence of a stronger economy (Jarociński and Karadi 2020) — and tone carries independent, incremental information about the same-day return beyond both shocks. That a per-100-words dictionary score, orthogonal to the surprise vector by construction, adds 48-percent-of-variance explanatory power jointly with the shocks is the strongest form of T2: the statement's *text* is a separate information channel, not a reflection of the decision.
 

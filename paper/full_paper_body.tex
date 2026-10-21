@@ -100,6 +100,8 @@ Table 4.1 reports the tone coefficient by asset and regime (Panel A: uncondition
 
 \emph{{[}TABLE 4.1 --- tone coefficient by asset and regime, from \texttt{price\_results\_v1.json} Panel B: CRSP VW FG −1.119 (p=0.004, R²=0.141, n=56); S\&P 500 FG −1.027 (p=0.006, R²=0.130); CRSP VW non-FG +0.037 (p=0.803); TY10 FG +0.044 (p=0.134); TY10 non-FG −0.007 (p=0.317); TY2 all regimes p\textgreater0.32{]}}
 
+\input{tables/table41.tex}
+
 Three facts stand out. First, in the FG era a one-standard-deviation hawkish shift in tone (about 12 points) is associated with a −1.12 percentage-point same-day equity return --- economically large, and restricted to the FG regime: outside it, the tone coefficient is indistinguishable from zero (+0.04, p=0.80). Second, the sign pattern across assets is exactly what a hawkish text signal implies: equity down, and --- in the interaction specification --- Treasury yields up (tone×FG on TY10: +0.050, p=0.030). The same words push discount rates up and cash flows down. Third, the short end (TY2) shows no tone response at any horizon: tone acts through the \emph{medium-horizon path} expectations that forward guidance manages, not through the near-term policy rate.
 
 \subsection{4.2 Horse race: tone survives the shocks}\label{horse-race-tone-survives-the-shocks}
@@ -107,6 +109,8 @@ Three facts stand out. First, in the FG era a one-standard-deviation hawkish shi
 Is tone just a noisy proxy for the shocks? No.~Table 4.2 (Panel C) puts tone, MP, and CBI in the same regression for the FG subsample. On CRSP VW:
 
 \[\Delta S_m = -1.21\,\text{tone}_m - 1.25\,\text{MP}_m + 1.93\,\text{CBI}_m, \quad R^2 = 0.48, \; n = 56,\]
+
+\input{tables/table42.tex}
 
 with all three coefficients significant (tone p\textless0.001, MP p\textless0.001, CBI p=0.004). The sign structure is the theory's: conventional shocks (MP) depress equity; information shocks (CBI) \emph{raise} it --- the market reads hawkish information as evidence of a stronger economy (Jarociński and Karadi 2020) --- and tone carries independent, incremental information about the same-day return beyond both shocks. That a per-100-words dictionary score, orthogonal to the surprise vector by construction, adds 48-percent-of-variance explanatory power jointly with the shocks is the strongest form of T2: the statement's \emph{text} is a separate information channel, not a reflection of the decision.
 
@@ -144,6 +148,8 @@ With each fund class mapped to a 1--7 ordinal risk rank (government bonds = 1 \l
 
 The Wald test cannot reject equality of the two interaction coefficients (p = 0.11); we therefore claim the asymmetry in \emph{sign} (MP flows are risk-neutral; CBI flows are risk-ordered), not in magnitude.
 
+\input{tables/table61.tex}
+
 \subsection{6.2 Sign asymmetry: positive news does the work}\label{sign-asymmetry-positive-news-does-the-work}
 
 Splitting CBI by sign sharpens the channel (models\_v2): \textbf{Risk × CBI(+) = −0.088 (p = 0.020)}; Risk × CBI(−) = −0.055 (p = 0.10). Hawkish information --- the market telling the investor that the Fed knows something bad --- drives the ladder. Dovish information produces a weak, statistically indistinguishable version of the same slope. The economics: funds do not chase the \emph{policy} on good news; they flee \emph{risk} on bad news. The asymmetry is the portfolio-side footprint of the asymmetry that Badarinath--Frydman-style and homestead asset-pricing work has long documented for prices, here appearing one step later, in quantities.
@@ -151,6 +157,8 @@ Splitting CBI by sign sharpens the channel (models\_v2): \textbf{Risk × CBI(+) 
 \subsection{6.3 The zero-rate exception}\label{the-zero-rate-exception}
 
 In the 2020--2022 zero-rate window, the \emph{conventional} component acquires a flow effect: \textbf{MP × ZLB = −1.505 (p = 0.005, n = 1,099, R² = 0.050)} --- a one-unit MP shock at the ZLB pushes roughly 1.5 pp of monthly flow out of the average class, concentrated in the safe classes that normally absorb the CBI response (CBI × ZLB is a precise zero, p = 0.78). The reading follows the exposition in Section 2: at the ZLB a conventional surprise is an \emph{exit option} event --- the committee has no room to offset a hawkish surprise with further cuts, so even small conventional news is portfolio-relevant, and it operates through the rescue-capacity channel rather than the information channel (whose interaction is null precisely when the level channel binds).
+
+\input{tables/table62.tex}
 
 \subsection{6.4 Putting Sections 4--6 together}\label{putting-sections-46-together}
 
@@ -208,6 +216,8 @@ The expert-facing concern --- tone may proxy the shocks --- is addressed by orth
 
 Table 8.1 splits the flow response by window. Same-month government-bond flows carry the de-risking inflow (CBI +0.759, p = 0.037); the \emph{difference} window (post minus same) reverses it (CBI −0.988, p = 0.014). MP is a precise zero in all three windows (p ≥ 0.76). Two readings, both consistent with the mechanism: households receive the information shock into safe assets first, then rebalance --- a reversal pattern, not a drift; and the conventional component never moves flows at any horizon.
 
+\input{tables/table81.tex}
+
 \subsection{8.3 Cross-measure nulls}\label{cross-measure-nulls}
 
 The flow null is not tied to one text measure: dictionary tone (p = 0.64), its orthogonalized version (p = 0.63), the FG-regime spec (p = 0.94), and the audited LLM score (p = 0.17) all fail to enter. The price-side null outside FG likewise holds for every asset in Panel B of Table 4.1.
@@ -222,4 +232,18 @@ For the communication-paradigm literature, the measurement chapter delivers a ca
 
 \textbf{Limitations.} Flow aggregation is monthly and class-level; the window structure, however carefully bounded, cannot separate intra-month timing. The text measures cover statements only --- minutes and speeches are outside scope. The LLM layer inherits vendor dependence; the committee rule and the audit protocol bound, but do not eliminate, that dependence.
 
-\textbf{Policy reading.} If prices clear the words and portfolios follow the risk, then central-bank communication works on household portfolios \emph{through repricing}, not through persuasion --- and communication regimes that shift the paradigm (forward guidance, structural operations) are precisely where text-measurement tools must be re-validated before their scores are interpreted.
+\textbf{Policy reading.} If prices clear the words and portfolios follow the risk, then central-bank communication works on household portfolios \emph{through repricing}, not through persuasion --- and communication regimes that shift the paradigm (forward guidance, structural operations) are precisely where text-measurement tools must be re-validated before their scores are interpreted. \# Appendix A --- LLM Audit Protocol
+
+The statement scores used in Sections 4 and 7 pass a five-layer audit ported from the NeuroSync/federated-platform defense (\texttt{federated-ai-platform/src/hallucination/mod.rs}): (1) retrieval consistency --- the returned justification must be supported by the statement text (word-level coverage and an embedding contrastive test against random statements); (2) vector fact-check --- strong-declaration keywords verified word-by-word; (3) CROWN anchor-independence --- the scorer is re-queried with the dictionary score shown; a confidence drop above \(\delta = 0.10\) flags anchoring; (4) multi-node vote --- prompt-variant voting within a model and cross-vendor voting across four to five model families; (5) self-consistency --- repeated sampling at elevated temperature. Per-statement verdicts use the DefenseResult categories: Verified / LikelyTrue / Uncertain / LikelyFalse / Hallucination.
+
+\input{tables/tablea1.tex}
+
+\input{tables/tablea2.tex}
+
+Two drafting-stage fixes are part of the audit record. First, the multi-node consensus rule was initially implemented with a floating-point threshold (0.667) that rejects the intended two-thirds majority (2/3 = 0.6667), suppressing nine verdicts into LikelyFalse; after the fix, all nine resolve as supported. Second, the Operation Twist router one-off (Section 7.3) was caught by the cross-vendor layer and corrected. Both corrections are documented in the audit notes rather than silently applied.
+
+\section{Appendix B --- Seven-Class Flow Effects and Codebook}\label{appendix-b-seven-class-flow-effects-and-codebook}
+
+\input{tables/tablea3.tex}
+
+The variable codebook (\texttt{paper/codebook.docx}) enforces one name per definition across the paper: shocks are innovations; ``surprise'' appears only in the GSS-construction context; tone is never sentiment; ``information shock'' appears only in the Jarociński-Karadi discussion context, quoted. The audit trail for every headline number runs from the codebook through the archival result files --- numbers that could not be traced to an archival source were retired during drafting (two instances, documented in Section 8.4).

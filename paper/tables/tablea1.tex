@@ -1,0 +1,17 @@
+\begin{table}[!tbp]
+\centering\small
+\caption{Five-layer audit: verdicts and layer outcomes (30-statement sample)}
+\label{tab:a1}
+\begin{tabular}{lccc}
+\toprule
+Verdict & N & Layer outcome & Rate \\
+\midrule
+Verified & 13 & L1 semantic match rate & 73\textbackslash\{\}\% \\
+LikelyTrue & 7 & L4 cross-vendor sign agreement & 93\textbackslash\{\}\% (29) / 100\textbackslash\{\}\% (divergence) \\
+Uncertain & 10 & L5 self-consistency pass & 70\textbackslash\{\}\% \\
+LikelyFalse & 0 & L3 CROWN (LM-anchor independence) & 0/30 triggered \\
+Hallucination & 0 & One-off errors caught & 1 (OT 2011-09-21) \\
+\bottomrule
+\end{tabular}
+\\[2pt]\begin{minipage}{0.92\linewidth}\footnotesize\emph{Notes:} Verdicts after threshold-bug fix (v2 recompute). Cross-vendor layer: router/GPT-4.1-mini/Claude-haiku/DeepSeek (n=29) with partial Gemini. Archival sources: \texttt{llm\_audit\_report\_v2.json}, \texttt{llm\_5way\_summary.json}.\end{minipage}
+\end{table}

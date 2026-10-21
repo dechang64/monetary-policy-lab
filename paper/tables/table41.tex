@@ -1,0 +1,24 @@
+\begin{table}[!tbp]
+\centering\small
+\caption{Tone and same-day price reactions, by asset and regime}
+\label{tab:41}
+\begin{tabular}{lccc}
+\toprule
+Asset & Sample & Tone ($\beta$) & SE \\
+\midrule
+10Y futures (bps) & All & $-0.001$ & (0.008) \\
+2Y futures (bps) & All & $-0.001$ & (0.007) \\
+CRSP VW return (\%) & All & $-0.166$ & (0.131) \\
+S\textbackslash\{\}\&P 500 return (\%) & All & $-0.134$ & (0.130) \\
+10Y futures (bps) & FG & $+0.044$ & (0.029) \\
+2Y futures (bps) & FG & $+0.015$ & (0.015) \\
+CRSP VW return (\%) & FG & $-1.119^{***}$ & (0.375) \\
+S\textbackslash\{\}\&P 500 return (\%) & FG & $-1.027^{***}$ & (0.362) \\
+10Y futures (bps) & Non-FG & $-0.007$ & (0.007) \\
+2Y futures (bps) & Non-FG & $-0.004$ & (0.009) \\
+CRSP VW return (\%) & Non-FG & $+0.037$ & (0.147) \\
+S\textbackslash\{\}\&P 500 return (\%) & Non-FG & $+0.070$ & (0.149) \\
+\bottomrule
+\end{tabular}
+\\[2pt]\begin{minipage}{0.92\linewidth}\footnotesize\emph{Notes:} OLS with heteroskedasticity-robust SEs. Dependent variable: same-day change. Tone: LM hawkish-minus-dovish per 100 words. FG: Dec-2008--Dec-2015 (56 meetings). Non-FG row for CRSP uses n=94 (CRSP coverage 150/161). Archival source: \texttt{price\_results\_v1.json}.\end{minipage}
+\end{table}
