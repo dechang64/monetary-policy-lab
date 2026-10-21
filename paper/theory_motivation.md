@@ -107,22 +107,36 @@ only one other paper linking FOMC *statements* (not just decisions) to
 *allocation*; the tone-add-on to flows we estimate is null (see below), which
 sharpens rather than dilutes the shock-based contribution.
 
-## Tone: what the new regressions say (models_v2, Oct 20)
+## LLM vs dictionary: divergence is score compression, not noise
 
-- Adding Tone to the H4 flow regressions (raw and orthogonalized to
-  Target+Path — orth R2 = 0.4%, so the two specs coincide):
-  tone is **not significant for monthly flows** (p = 0.64 raw / 0.63 orth;
-  FG subsample p = 0.94).
-- Interpretation, consistent with Pillar 1 and the timing structure: tone's
-  incremental information is realised in *prices* on the announcement day
-  (where it matters, and only under FG — beta = -1.01, p = 0.005); by the time
-  monthly flows are measured, tone adds nothing the shocks have not already
-  carried. "Prices first, portfolios later" — with tone in the price equation
-  and out of the flow equation.
-- The expert's instruction to orthogonalize tone before using it as a
-  regressor is implemented and reported; because tone is near-orthogonal by
-  construction, orthogonalization is a no-op, which itself answers the
-  question.
+The rebuilt LLM measure reads the full statement text (161/161 scored,
+Oct 21). Headline statistics:
+
+- Correlation with LM tone: r = +0.335 (the old metadata-proxy was r = 0.139;
+  the rebuilt one is a genuinely different, statement-based measure).
+- Correlation with CBI shock: r = +0.03 (as theory requires — CBI is the
+  market's inversion outcome, not a property of the text).
+- In the H4 flow regressions the LLM score adds nothing (p = 0.17), mirroring
+  tone: statement variables have no monthly-flow contribution.
+
+**The substantive finding is in the disagreements.** 11 statements show
+|z(LLM) - z(tone)| > 2, and on those statements the LM dictionary output is
+nearly constant (std = 1.10, mean +2.77) while the LLM separates directions
+sharply (std = 71): Operation Twist (2011-09), QE3 (2012-09), the 2015
+calendar-guidance statement, the 2017 balance-sheet run-off, four consecutive
+2020 pandemic QE statements (LM +3.1 to +3.5 = mildly hawkish; LLM -75 to -85
+= strongly dovish), and the June 2022 acceleration. **The dictionary does not
+mis-read these statements slightly; it fails to differentiate them at all**
+(score compression: resolution 1/65 of the LLM's on exactly the statements
+where communication paradigm shifted — structural operations and
+forward-guidance language). Divergence events are enriched 1.4x in the
+FG∪ZLB regimes and each is a textbook paradigm-shift episode.
+
+Positioning (consistent with the expert's contribution discipline): the LLM
+comparison is NOT "a better scorer" — it adds no price or flow predictiveness.
+Its value is diagnostic: the dictionary loses information precisely when the
+Fed's communication paradigm shifts, and the tone price-effect (FG headline)
+must therefore be read alongside this measurement-failure evidence.
 
 ## Variables: one name, one definition (codebook anchor)
 
@@ -143,10 +157,12 @@ Rule: every symbol appears with exactly one name in the paper. "Shock" is
 reserved for innovations; "surprise" only in the GSS construction context;
 tone is never called sentiment.
 
-## Next runs queued
+## Status of queued runs
 
-1. Credit-premium interaction (Ben's idea): Risk x CBI x (Baa-Treasury
-   spread). FRED fetch in progress; spec: flows ~ MP + CBI + interactions,
-   spread measured at the meeting month.
-2. LLM rebuild (reads statement text directly) — replaces the meeting-metadata
-   proxy; required before any LLM claim enters the paper.
+1. ~~LLM rebuild~~ **DONE (Oct 21)**: 161/161 statements scored from full
+   text; see the divergence section above. Results in
+   `direction2/flow_rerun_output_v8/llm_statement_scores.jsonl`.
+2. Credit-premium interaction (Ben's idea): Risk x CBI x (Baa-Treasury
+   spread) — FRED unreachable for two days (read timeouts); `fetch_spread.py`
+   in repo, run when the line recovers. Spec: flows ~ MP + CBI + triple
+   interaction, spread at the meeting month.
