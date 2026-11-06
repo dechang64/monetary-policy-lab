@@ -20,7 +20,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 DATA_PATH = "/home/z/my-project/monetary-policy-lab/results/analysis_dataset_v6.csv"
-FRED_API_KEY = os.environ.get("FRED_API_KEY", "d43f3c8a1a5c48c5b2a7e9f0d1a2b3c4")
+FRED_API_KEY = os.environ.get("FRED_API_KEY", "")
 OUT_DIR = "/home/z/my-project/monetary-policy-lab/results"
 FOMC_DIR = "/home/z/my-project/monetary-policy-lab/mp-research-platform/data"
 

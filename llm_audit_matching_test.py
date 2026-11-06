@@ -12,7 +12,13 @@ RESL = os.path.join(BASE, "direction2", "flow_rerun_output_v8", "llm_audit_resul
 V2 = os.path.join(BASE, "direction2", "flow_rerun_output_v8", "llm_audit_report_v2.json")
 STMTS = json.load(open(os.path.join(BASE, "data", "fomc_statements_clean.json"), encoding="utf-8"))
 
-client = OpenAI(api_key=os.environ["AMAX_API_KEY"], base_url="https://ai.amaxsmp.com/v1",
+import pytest
+pytestmark = pytest.mark.skipif(
+    "AMAX_API_KEY" not in os.environ,
+    reason="AMAX_API_KEY not set — this test calls real API, skip in CI"
+)
+
+client = OpenAI(api_key=os.environ.get("AMAX_API_KEY", ""), base_url="https://ai.amaxsmp.com/v1",
                 timeout=60, max_retries=2)
 
 def emb(text):
