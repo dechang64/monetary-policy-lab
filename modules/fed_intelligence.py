@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 联邦智能分析模块 (Fed Intelligence Module)
 ==========================================

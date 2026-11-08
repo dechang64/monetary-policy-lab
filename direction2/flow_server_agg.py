@@ -83,7 +83,7 @@ FROM f GROUP BY 1, 2 ORDER BY 1, 2
 
 
 def main():
-    conn = wrds.Connection(wrds_username="dechang", wrds_password=os.environ.get("WRDS_PASSWORD", "3eu2m68a!gYmLYY"))
+    conn = wrds.Connection(wrds_username="dechang", wrds_password=os.environ["WRDS_PASSWORD"])
     print("connected; running server-side aggregation...", flush=True)
     t0 = time.time()
     agg = conn.raw_sql(SQL)
