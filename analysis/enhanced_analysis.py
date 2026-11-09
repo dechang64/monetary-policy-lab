@@ -19,18 +19,27 @@ import os
 import warnings
 warnings.filterwarnings('ignore')
 
-DATA_PATH = "/home/z/my-project/monetary-policy-lab/results/analysis_dataset_v6.csv"
+_BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(_BASE, "results", "analysis_dataset_v6.csv")
 FRED_API_KEY = os.environ.get("FRED_API_KEY", "")
-OUT_DIR = "/home/z/my-project/monetary-policy-lab/results"
-FOMC_DIR = "/home/z/my-project/monetary-policy-lab/mp-research-platform/data"
+OUT_DIR = os.path.join(_BASE, "results")
+FOMC_DIR = os.path.join(_BASE, "mp-research-platform", "data")
 
 # ── Load data ──
-df = pd.read_csv(DATA_PATH, parse_dates=['date'])
-df = df.sort_values('date').reset_index(drop=True)
-# Ensure numeric types
-df['fg_period'] = df['fg_period'].astype(float)
-df['sentiment_x_fg'] = df['sentiment_x_fg'].astype(float)
-print(f"Dataset: {len(df)} meetings, {df['date'].min().strftime('%Y-%m-%d')} to {df['date'].max().strftime('%Y-%m-%d')}")
+df = None
+def _load_data():
+    global df
+    if df is not None:
+        return df
+    _df = pd.read_csv(DATA_PATH, parse_dates=['date'])
+    _df = _df.sort_values('date').reset_index(drop=True)
+    _df['fg_period'] = _df['fg_period'].astype(float)
+    _df['sentiment_x_fg'] = _df['sentiment_x_fg'].astype(float)
+    print(f"Dataset: {len(_df)} meetings, {_df['date'].min().strftime('%Y-%m-%d')} to {_df['date'].max().strftime('%Y-%m-%d')}")
+    df = _df
+    return df
+
+df = _load_data()
 
 # ── Helper: Newey-West OLS ──
 def nw_ols(dep_var, indep_vars, data, lag=4):
