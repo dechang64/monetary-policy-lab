@@ -112,6 +112,7 @@ if section == "🔬 Research Lab":
             "🧠 Federated AI Intelligence",
             "🤝 M&A / LBO Research Lab",
             "🎯 Direction 2: Two-Shocks Rebalancing",
+            "📐 Proposal H1–H6 Tables",
         ],
         label_visibility="collapsed",
     )
@@ -207,6 +208,9 @@ elif page == "🤝 M&A / LBO Research Lab":
 elif page == "🎯 Direction 2: Two-Shocks Rebalancing":
     from modules import direction2
     direction2.render()
+elif page == "📐 Proposal H1–H6 Tables":
+    from modules import hyp_tables
+    hyp_tables.render()
 
 # ── Courses (Personal Finance Teaching) ──
 elif page == "COURSE:💰 Course Home":
