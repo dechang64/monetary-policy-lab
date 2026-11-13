@@ -6,7 +6,7 @@
       "snippet": "Abstract. In this research, we apply large language models (LLMs) to system- atically analyze the sentiment contained in the Federal Reserve's.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "a10e65abf43b",
+      "id": "ssrn_6032214",
       "relevance_score": 0.425,
       "matched_keywords": [
         "federal reserve",
@@ -26,7 +26,7 @@
       "snippet": "Monetary Policy Shocks: A New Hope — Large Language Models and Central Bank Communication. 79 Pages Posted: 29 Oct 2025 Last revised: 3 Nov 2025.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "a2bda48a4088",
+      "id": "ssrn_5669212",
       "relevance_score": 0.4,
       "matched_keywords": [
         "central bank communication",
@@ -40,12 +40,12 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] Measuring Monetary Policy Surprises Using Text Mining",
-      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3368787_code1228461.pdf?abstractid=3347429&mirid=1&type=2",
-      "snippet": "Abstract. We propose a novel approach to measure monetary policy shocks using sentiment anal- ysis, which is free from specification errors ...",
+      "title": "[PDF] Measuring Monetary Policy Surprises Using Text Mining: The Case",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3368787_code1228461.pdf?abstractid=3347429&mirid=1",
+      "snippet": "Abstract. We propose a novel approach to measure monetary policy shocks using sentiment anal- ysis, which is free from specification errors compared to ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "89f58783ee44",
+      "id": "ssrn_3347429",
       "relevance_score": 0.388,
       "matched_keywords": [
         "monetary policy surprise",
@@ -55,8 +55,8 @@
       "impact_type": "methodology_related",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
     },
     {
       "title": "[PDF] 98 Percent Talk: Accuracy, Explainability, and Inference for Text",
@@ -64,7 +64,7 @@
       "snippet": "This paper addresses the methodological framework for applying Natural Language Processing. (NLP) to central bank communications. We evaluate twelve common ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "e24893207af7",
+      "id": "ssrn_5702586",
       "relevance_score": 0.375,
       "matched_keywords": [
         "central bank communication",
@@ -83,7 +83,7 @@
       "snippet": "Other studies have applied NLP to FOMC transcripts using simple dictionary-based or bag-of-word approaches (Mazis and Tsekrekos, 2017; Ruman, ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "00f63eb7fc8b",
+      "id": "dadb2d80e16e",
       "relevance_score": 0.375,
       "matched_keywords": [
         "FOMC",
@@ -97,22 +97,23 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] The financial instability – Monetary policy nexus: Evidence from the",
-      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5275876.pdf?abstractid=5275876&mirid=1&type=2",
-      "snippet": "Abstract. We analyze how financial stability concerns discussed during Federal Open Market. Committee (FOMC) meetings influence the Federal Reserve's ...",
+      "title": "Monetary Policy Nexus: Evidence from the FOMC Minutes",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5275876",
+      "snippet": "by D Kanelis · 2025 · Cited by 7 — Utilizing large language models (LLMs ) to analyze FOMC minutes from 1993 to 2022, we measure both mandate-related and financial stability- ... Read more",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "6e1b8ea6e4da",
-      "relevance_score": 0.347,
+      "id": "ssrn_5275876",
+      "relevance_score": 0.375,
       "matched_keywords": [
         "FOMC",
-        "federal reserve"
+        "large language model",
+        "LLM"
       ],
-      "impact_type": "directly_related",
+      "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
     },
     {
       "title": "[PDF] Extracting Policy Surprises from FOMC Press Conferences",
@@ -120,7 +121,7 @@
       "snippet": "My paper analyzes the sentiment and topical focus of the central bank communi- cations, as well as uses LLM-produced textual data for ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "04e4c4efd771",
+      "id": "ssrn_6402338",
       "relevance_score": 0.317,
       "matched_keywords": [
         "FOMC",
@@ -133,12 +134,12 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] How can a Fed Chair not be an actor? Milán Csaba Badics 1, László",
+      "title": "How can a Fed Chair not be an actor? Milán Csaba Badics",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5282709.pdf?abstractid=5282709&mirid=1",
       "snippet": "We develop a novel framework based on large language models to construct four textual tone indices from FOMC statements and press conference transcripts,.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "0c90350911f2",
+      "id": "ssrn_5282709",
       "relevance_score": 0.317,
       "matched_keywords": [
         "FOMC",
@@ -147,8 +148,8 @@
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": true,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
     },
     {
       "title": "1 Introduction - arXiv",
@@ -156,7 +157,7 @@
       "snippet": "From text to quantified insights: A large-scale llm analysis of central bank communication. IMF Working Papers, 2025(109):1. Cicchetti ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "04fe3469fea1",
+      "id": "a135b184ff2a",
       "relevance_score": 0.317,
       "matched_keywords": [
         "central bank communication",
@@ -174,7 +175,7 @@
       "snippet": "From text to quantified insights: A large-scale llm analysis of central bank communication. Technical Report IMF Working Paper 25/118 ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "80aa7d169a83",
+      "id": "cdcc75f7a38a",
       "relevance_score": 0.317,
       "matched_keywords": [
         "central bank communication",
@@ -192,7 +193,7 @@
       "snippet": "This paper investigates the impact of monetary policy surprises on US Treasury bond yields and the implications for portfolio managers.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "44bb4a3dc049",
+      "id": "ed1794cb6301",
       "relevance_score": 0.3,
       "matched_keywords": [
         "monetary policy surprise",
@@ -210,7 +211,7 @@
       "snippet": "This paper constructs a sentiment measure for published central bank (CB) communications using natural language processing and FinBERT techniques.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "0ff9514bfe6b",
+      "id": "ssrn_4797935",
       "relevance_score": 0.283,
       "matched_keywords": [
         "FinBERT",
@@ -223,12 +224,12 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "Can We Reliably Predict the Fed's Next Move? A Multi-Modal",
+      "title": "Can We Reliably Predict the Fed's Next Move? A Multi-Modal  - arXiv",
       "url": "https://arxiv.org/html/2506.22763v1",
       "snippet": "To capture linguistic signals, we extract sentiment scores from monetary policy documents using FinBERT, a domain-specific transformer model ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "78879455ee2e",
+      "id": "f6e1f9b859ef",
       "relevance_score": 0.283,
       "matched_keywords": [
         "FinBERT",
@@ -237,8 +238,8 @@
       "impact_type": "methodology_related",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-06-20",
+      "scan_id": "20260620_0940"
     },
     {
       "title": "Interpreting Fedspeak with Confidence: A LLM-Based Uncertainty",
@@ -246,7 +247,7 @@
       "snippet": "LLMs offer an accessible and effective solution for financial sentiment analysis, particularly for deciphering central bank policy stances.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "921e72d4a683",
+      "id": "2b411fbb5632",
       "relevance_score": 0.283,
       "matched_keywords": [
         "sentiment analysis",
@@ -264,7 +265,7 @@
       "snippet": "In this survey, we explore the application of LLMs on various financial tasks, focusing on their potential to transform traditional practices and drive ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "3faae49c5e87",
+      "id": "a30f87fe6f9c",
       "relevance_score": 0.283,
       "matched_keywords": [
         "large language model",
@@ -282,7 +283,7 @@
       "snippet": "For the scored 2015–2025 analysis window we retain 15,906 speeches from 122 jurisdic- tions with valid text and complete metadata (country, date, speaker).",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "4ac0722178f3",
+      "id": "ssrn_6478059",
       "relevance_score": 0.245,
       "matched_keywords": [
         "central bank communication"
@@ -294,12 +295,12 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] Central Bank Communications and Sovereign Risk Premia",
+      "title": "Central Bank Communications and Sovereign Risk Premia",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/6727318.pdf?abstractid=6727318&mirid=1",
-      "snippet": "This paper investigates the relationship between forward-looking communication by major and domestic central banks and sovereign risk premia ...",
+      "snippet": "May 6, 2026 — This paper investigates the relationship between forward-looking communication by major and domestic central banks and sovereign risk premia.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "8db84dd5571c",
+      "id": "ssrn_6727318",
       "relevance_score": 0.245,
       "matched_keywords": [
         "central bank communication"
@@ -307,8 +308,8 @@
       "impact_type": "directly_related",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
     },
     {
       "title": "[PDF] A KISS for central bank communication in times of high inflation",
@@ -316,7 +317,7 @@
       "snippet": "The ECB's current projections from March 2022 now forecast inflation rates of 5.1% for 2022, 2.1% for 2023, and 1.9% for 2024. Treatment 'Lane'.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "bed9da05592f",
+      "id": "ssrn_5275846",
       "relevance_score": 0.245,
       "matched_keywords": [
         "central bank communication"
@@ -333,7 +334,7 @@
       "snippet": "Most notably, we demonstrate that Fed seniority influences stock market dynamics: as the Chair transitions from hawkish to dovish, stock returns increase, and, ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "5afd35285b63",
+      "id": "ssrn_4035649",
       "relevance_score": 0.245,
       "matched_keywords": [
         "federal reserve"
@@ -345,12 +346,12 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] Measuring Policy Tone in FOMC Statements with GraphRAG Fine",
+      "title": "Measuring Policy Tone in FOMC Statements with GraphRAG",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/6163827.pdf?abstractid=6163827&mirid=1",
-      "snippet": "Hubert (2021) constructs a hawkish–dovish tone measure using a two-word phrase lexicon developed by Apel and Blix Grimaldi (2014) and demonstrates that this ...",
+      "snippet": "The Federal Open Market Committee ( FOMC ) post-meeting statement conveys assessments of policy and macro- financial conditions, and its tone can shape market ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "a2af8e457467",
+      "id": "ssrn_6163827",
       "relevance_score": 0.245,
       "matched_keywords": [
         "FOMC"
@@ -358,8 +359,8 @@
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
     },
     {
       "title": "Agree to Disagree: Measuring Hidden Dissent in FOMC Meetings",
@@ -367,7 +368,7 @@
       "snippet": "Using FOMC transcripts and customized deep learning models, we quantify “hidden dissent”, or disagreement in the FOMC that is unobserved in ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "43ac2fa04030",
+      "id": "68a918ddaf26",
       "relevance_score": 0.245,
       "matched_keywords": [
         "FOMC"
@@ -384,7 +385,7 @@
       "snippet": "In this study, we consider a three-class classification problem to predict the central bank's next policy rate decision (Raise, Hold, or Lower) ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "b7391875ac84",
+      "id": "85714c455807",
       "relevance_score": 0.245,
       "matched_keywords": [
         "policy rate decision"
@@ -401,7 +402,7 @@
       "snippet": "Applied to the U.S. economy, I identify monetary shocks using a combination of high-frequency surprises and sign restrictions, yielding results ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "b467383d5494",
+      "id": "ae155690b293",
       "relevance_score": 0.245,
       "matched_keywords": [
         "monetary policy shock"
@@ -418,7 +419,7 @@
       "snippet": "Using large language models to quantify central bank content, this paper demonstrates how sentiment aligns with traditional market-based monetary policy ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "1219e2cf4d08",
+      "id": "ssrn_6479920",
       "relevance_score": 0.2,
       "matched_keywords": [
         "large language model"
@@ -435,7 +436,7 @@
       "snippet": "Investors and policymakers need rapid, consistent judgments of whether minutes signal tighter (hawkish) or looser (dovish) policy, yet technical ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "d852d7cdd236",
+      "id": "ssrn_6541280",
       "relevance_score": 0.2,
       "matched_keywords": [
         "large language model"
@@ -452,7 +453,7 @@
       "snippet": "In this section, we focus on studies that are most closely related to our application, namely those that aim to quantify the hawkish–dovish tone of central bank ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "2c5cfad59b47",
+      "id": "ssrn_6427418",
       "relevance_score": 0.2,
       "matched_keywords": [
         "NLP"
@@ -469,7 +470,7 @@
       "snippet": "This research examines whether sentiments conveyed in the State Bank of Pakistan's (SBP) communications impact financial market expectations ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "f6d8b357904e",
+      "id": "2a2e34d85ed2",
       "relevance_score": 0.2,
       "matched_keywords": [
         "sentiment analysis"
@@ -481,12 +482,12 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] Market Expectations and the Impact of Unconventional Monetary",
+      "title": "Market Expectations and the Impact of Unconventional Monetary",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/6783038.pdf?abstractid=6783038&mirid=1",
-      "snippet": "In particular, it aims at showing that the increase in yields during the implementation of QE and forward guidance reflects an adjustment of ...",
+      "snippet": "implementation of QE and forward guidance reflects an adjustment of market expectations of monetary policy following disappointing announcements. The key ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "497f517bf848",
+      "id": "ssrn_6783038",
       "relevance_score": 0.142,
       "matched_keywords": [
         "forward guidance"
@@ -494,8 +495,8 @@
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
     },
     {
       "title": "[PDF] The Emotions of Monetary Policy",
@@ -503,7 +504,7 @@
       "snippet": "forward guidance as an unconventional policy tool to implement further eas- ing of monetary conditions. To be effective, guidance on future ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "fed4adbffd6f",
+      "id": "ssrn_5099686",
       "relevance_score": 0.142,
       "matched_keywords": [
         "forward guidance"
@@ -520,7 +521,7 @@
       "snippet": "Existing studies emphasize policy-rate surprises, forward-guidance shocks, central-bank information effects, tone, and topics. This paper asks ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "8ab6197fed04",
+      "id": "ssrn_6843024",
       "relevance_score": 0.142,
       "matched_keywords": [
         "central bank language"
@@ -532,12 +533,12 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] Words, Tools, and Outcomes: An Assessment of CBRT Monetary",
+      "title": "An Assessment of CBRT Monetary Policy Stance in Turkey",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/6426138.pdf?abstractid=6426138&mirid=1",
-      "snippet": "A well-established body of work documents that policy statements, forward guidance, and rhetorical tone generate measurable market reactions that are ...",
+      "snippet": "A well-established body of work documents that policy statements, forward guidance , and rhetorical tone generate measurable market reactions that are ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "50a6ddfe6730",
+      "id": "ssrn_6426138",
       "relevance_score": 0.142,
       "matched_keywords": [
         "forward guidance"
@@ -545,8 +546,8 @@
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_0959"
     },
     {
       "title": "[PDF] A primer to novel techniques for monetary policy analysis and",
@@ -554,7 +555,7 @@
       "snippet": "Abstract. This paper reviews technical advances that are transforming monetary policy to help practi- tioners better understand their impact.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "9f6408439085",
+      "id": "ssrn_5929900",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -569,7 +570,7 @@
       "snippet": "Abstract. Forecasting the U.S. federal funds rate is important since it impacts global financial condi- tions, and in turn the real economy.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "a1cc1eeb42d9",
+      "id": "ssrn_5401236",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -584,7 +585,7 @@
       "snippet": "First, we quantify sentiment in the minutes of monetary policy meetings, which provide unique insights into the reasoning and debates ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "df88f025e186",
+      "id": "ssrn_6770258",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -599,7 +600,7 @@
       "snippet": "This study introduces a novel approach for measuring the linguistic complexity of monetary policy announcements at a topical level.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "fde0d7a32b23",
+      "id": "ssrn_5310029",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -609,49 +610,34 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] Informational Feedback Loop, Monetary Policy Decisions and Asset",
+      "title": "Informational Feedback Loop, Monetary Policy Decisions and",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/6783058.pdf?abstractid=6783058&mirid=1",
-      "snippet": "This paper investigates, how the Fed and financial markets interact together. More specifically, it looks at the effect on monetary policy ...",
+      "snippet": "This paper investigates, how the Fed and financial markets interact together . More specifically, it looks at the effect on monetary policy and asset prices ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "d8528a1648f3",
+      "id": "ssrn_6783058",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
     },
     {
-      "title": "[PDF] Dynamic Landscape of Monetary Policy Communication in India",
+      "title": "Dynamic Landscape of Monetary Policy Communication in India",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/6436198.pdf?abstractid=6436198&mirid=1",
       "snippet": "Communication has evolved as an effective monetary policy tool for reducing surprise elements and anchoring expectations of economic agents.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "6fdcf45d45fd",
+      "id": "ssrn_6436198",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
-    },
-    {
-      "title": "[PDF] Information in Central Bank Sentiment: An analysis of Fed and ECB",
-      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/4797935.pdf?abstractid=4797935&mirid=1",
-      "snippet": "... hawkish or dovish. In our analysis, we define a positive sentiment as one that is favorable in a general financial context, not limited to a specific ...",
-      "source": "SSRN",
-      "source_type": "working_paper",
-      "id": "56d2f7f60031",
-      "relevance_score": 0.0,
-      "matched_keywords": [],
-      "impact_type": "methodology_related",
-      "impact_description": "Tangentially related — may be useful for literature review",
-      "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
     },
     {
       "title": "[PDF] Deciphering Monetary Policy Board Minutes with Text Mining: The",
@@ -659,7 +645,7 @@
       "snippet": "... lexicon as hawkish (dovish) ... which the central bank becomes dovish, we expect the negative correlation between tonemkt ... In addition, we expect a positive ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "26a61fbeead3",
+      "id": "ssrn_3237909",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -674,7 +660,7 @@
       "snippet": "Consistent with some central bankers' comments, we find a straightforward linear effect: hawkish communications ... (dovish) communications decreasing. (increasing) ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "d7ed32dbff0b",
+      "id": "ssrn_3686904",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -689,7 +675,7 @@
       "snippet": "Media sentiment shifts household inflation and wage expectations, improves out-of-sample forecasts of GDP growth and inflation, and loads ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "15a1621a473b",
+      "id": "43df7e8e443d",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -699,19 +685,19 @@
       "scan_id": "20260529_1855"
     },
     {
-      "title": "[PDF] Monetary Uncertainty as a Determinant of the Response of Stock",
+      "title": "Monetary Uncertainty as a Determinant of the Response",
       "url": "https://arxiv.org/pdf/2212.04525",
-      "snippet": "Stocks exhibit a strong positive response to major MNA: 1 standard deviation of good surprise causes 11-25 bps higher returns. Unsurprisingly, ...",
+      "snippet": "2022 · Cited by 2 — Stocks exhibit a strong positive response to major MNA: 1 standard deviation of good surprise causes 11-25 bps higher returns. Unsurprisingly, ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "b42078083217",
+      "id": "arxiv_2212.04525",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
       "impact_description": "Uncertainty quantification could improve signal-to-noise ratio",
       "already_cited": false,
-      "discovered_date": "2026-05-29",
-      "scan_id": "20260529_1855"
+      "discovered_date": "2026-06-04",
+      "scan_id": "20260604_0915"
     },
     {
       "title": "[PDF] How Effectively Can Current LLMs Analyze Macrofinancial Issues",
@@ -719,7 +705,7 @@
       "snippet": "They evaluate GPT-based models on classifying the monetary policy stance (hawkish vs. dovish) in Federal Open Market Committee (FOMC) announcements, using ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "382609816bca",
+      "id": "ssrn_6341799",
       "relevance_score": 0.375,
       "matched_keywords": [
         "FOMC",
@@ -738,7 +724,7 @@
       "snippet": "The U.S. Federal Open Market Committee. (FOMC) regularly discusses and sets mone- tary policy, affecting the borrowing and spend-.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "3160fc8b94b9",
+      "id": "arxiv_2509.13539",
       "relevance_score": 0.245,
       "matched_keywords": [
         "FOMC"
@@ -755,7 +741,7 @@
       "snippet": "(2025) embed ECB communication into a VAR for the euro area and document inflation forecast improvements of over 16%. These papers establish the empirical ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "36d51e3fc736",
+      "id": "ssrn_6704400",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -770,7 +756,7 @@
       "snippet": "We formalize this intuition by constructing a Linguistic Fragility Score (LFS) with four components, each measured as a within-firm rolling z-score to remove ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "b4baf9fb6137",
+      "id": "ssrn_6515518",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -785,7 +771,7 @@
       "snippet": "(2025) show that this model is highly effective at identifying hawkish and dovish sentiment by capturing complex, domain-specific linguistic ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "e2c42cb46750",
+      "id": "ssrn_6561863",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -795,19 +781,21 @@
       "scan_id": "20260530_0913"
     },
     {
-      "title": "[PDF] The Vocal Dimensions of Monetary Policy",
+      "title": "[PDF] The Vocal Dimensions of Monetary Policy - SSRN",
       "url": "https://papers.ssrn.com/sol3/Delivery.cfm/4946523.pdf?abstractid=4946523&mirid=1",
-      "snippet": "The index ranges from -1 to 1 by construction, corresponding to extremely dovish to extremely hawkish message conveyed in the communication.",
+      "snippet": "textual analysis on central bank communication requires mapping onto the dovish-hawkish scale. TextSentiment = Dovish text − Hawkish text",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "295085b33af7",
-      "relevance_score": 0.0,
-      "matched_keywords": [],
-      "impact_type": "tangential",
+      "id": "ssrn_4946523",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "central bank communication"
+      ],
+      "impact_type": "methodology_upgrade",
       "impact_description": "Topic-decomposed sentiment could improve our R² by reducing signal dilution",
       "already_cited": false,
-      "discovered_date": "2026-05-30",
-      "scan_id": "20260530_0913"
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
     },
     {
       "title": "Monetary Policy in the Media Spotlight: Sentiments, Signals, and",
@@ -815,7 +803,7 @@
       "snippet": "Media sentiment shifts household inflation and wage expectations, improves out-of-sample forecasts of GDP growth and inflation, and loads ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "38ca7f78f71f",
+      "id": "b7fef3ac430f",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -830,7 +818,7 @@
       "snippet": "In this paper, I develop Ornithologist, a weakly-supervised textual classification scheme built around explainability. To validate the approach, ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "2eef43dbf2a5",
+      "id": "arxiv_2505.09083",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -845,7 +833,7 @@
       "snippet": "I develop Ornithologist, a weakly-supervised textual classification system and measure the hawkishness and dovishness of central bank text.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "f4c155f00ee1",
+      "id": "38b73ab9d3bd",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -860,7 +848,7 @@
       "snippet": "“Russia” and “central banks” are also hinted as recurrent and meaningful centroids of information, but the instability and noise within outcomes ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "e0e3882a4a8c",
+      "id": "arxiv_2311.14419",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -875,7 +863,7 @@
       "snippet": "Abstract. This paper develops a framework for robust identification in SVARs when researchers face a zoo of proxy variables.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "c5db2c5ae1ba",
+      "id": "1ea8fd2bcd41",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -890,7 +878,7 @@
       "snippet": "Abstract. In this paper, we present own point of view how the unexpected fluctua- tions of the long-term real interest rate can be explained.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "8bb7fb2ea212",
+      "id": "arxiv_1211.2709",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -905,7 +893,7 @@
       "snippet": "We construct two sentiment variables using FinBERT, called Central Bank. Sentiment (CBS for short). These sentiment indicators focus on the stock market.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "a92dd35ce4aa",
+      "id": "ssrn_5901252",
       "relevance_score": 0.317,
       "matched_keywords": [
         "central bank communication",
@@ -923,7 +911,7 @@
       "snippet": "The hawkish–dovish analysis is economically important because markets price not only the current policy step, but also the communicated path of policy, the ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "8b2602e07ba5",
+      "id": "ssrn_6795338",
       "relevance_score": 0.2,
       "matched_keywords": [
         "large language model"
@@ -940,7 +928,7 @@
       "snippet": "This appendix compares the AI-driven monetary policy framework proposed in the main paper with the Taylor Rule (1993), a widely recognized ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "e29de8b79f4d",
+      "id": "ssrn_5161699",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -955,7 +943,7 @@
       "snippet": "... monetary policy tools: conventional monetary policy, asset purchases, and forward guidance. ... NLP ... surprise and monetary policy shock affect policy.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "0c1a04b1db76",
+      "id": "ssrn_5346292",
       "relevance_score": 0.347,
       "matched_keywords": [
         "monetary policy shock",
@@ -974,7 +962,7 @@
       "snippet": "Unlike the positive fluctuations in dovish statements, hawkish statements presented a consistent tone throughout, often presenting the negative economic updates ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "8a948070ceb5",
+      "id": "ssrn_5297420",
       "relevance_score": 0.245,
       "matched_keywords": [
         "FOMC"
@@ -991,7 +979,7 @@
       "snippet": "The results show that monetary policy sentiment does not qualitatively alter our main findings, with the return correction associated with High-.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "39945d2465a1",
+      "id": "ssrn_5924588",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -1006,7 +994,7 @@
       "snippet": "This research will underscore the imperative for central banks to strategically manage public perception and trust in the digital sphere, transforming ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "427e1eeb7c96",
+      "id": "ssrn_5341253",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -1021,7 +1009,7 @@
       "snippet": "While anticipated rate changes lead to modest adjustments, borrowers respond strongly to surprise rate changes: a 1 percentage point unexpected change in the ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "4a7e2087d044",
+      "id": "ssrn_5398750",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -1031,19 +1019,19 @@
       "scan_id": "20260602_0924"
     },
     {
-      "title": "[PDF] Unraveling the Dynamics of Mutual Fund Behavior",
-      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/f261a80a-7d5f-40b0-b1c9-c4a229c02b5e-MECA.pdf?abstractid=6038625&mirid=1",
-      "snippet": "Additionally, we observe that the more hawkish the ECB speech, the less actively equity fund managers adjust their portfolios, whereas a more dovish stance ...",
+      "title": "Unraveling the Dynamics of Mutual Fund Behavior",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/f261a80a-7d5f-40b0-b1c9-c4a229c02b5e-MECA.pdf?abstractid=6038625&mirid=1&type=2",
+      "snippet": "This paper examines whether and how European Central Bank (ECB) communication affects the portfolio decisions of European equity mutual fund managers.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "c10723a4b22d",
+      "id": "ssrn_6038625",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-06-02",
-      "scan_id": "20260602_0924"
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
     },
     {
       "title": "[PDF] Market disappointment with central bank announcements",
@@ -1051,7 +1039,7 @@
       "snippet": "We introduce an index of market disappointment caused by the content of each central bank announcement for both the Fed and the ECB.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "96ab9fda6f37",
+      "id": "ssrn_6805378",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -1066,7 +1054,7 @@
       "snippet": "Related literature: This paper contributes to a large literature that employs high-frequency iden- tification methods to obtain policy surprises from financial ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "423333223f00",
+      "id": "ssrn_6610761",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -1081,7 +1069,7 @@
       "snippet": "May 10, 2025 — This paper develops a novel Bayesian inference framework for identifying monetary policy shocks in large-scale VARs, addressing longstanding ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "c34e8ee9567f",
+      "id": "223edfb96c9d",
       "relevance_score": 0.245,
       "matched_keywords": [
         "monetary policy shock"
@@ -1093,12 +1081,12 @@
       "scan_id": "20260604_0915"
     },
     {
-      "title": "Assessing the Effects of Monetary Shocks on",
+      "title": "[PDF] Assessing the Effects of Monetary Shocks on Macroeconomic Stars",
       "url": "https://arxiv.org/pdf/2510.05802",
-      "snippet": "2025 — For the identification of the monetary policy shock, we employ the orthogonal high-frequency surprise series of. Bauer and Swanson (2023) as our ...",
+      "snippet": "For the identification of the monetary policy shock, we employ the orthogonal high-frequency surprise series of. Bauer and Swanson (2023) as our ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "b3718bdbd02b",
+      "id": "arxiv_2510.05802",
       "relevance_score": 0.245,
       "matched_keywords": [
         "monetary policy shock"
@@ -1106,8 +1094,8 @@
       "impact_type": "tangential",
       "impact_description": "Tangentially related — may be useful for literature review",
       "already_cited": false,
-      "discovered_date": "2026-06-04",
-      "scan_id": "20260604_0915"
+      "discovered_date": "2026-06-21",
+      "scan_id": "20260621_0947"
     },
     {
       "title": "Monetary Policy in the Media Spotlight",
@@ -1115,7 +1103,7 @@
       "snippet": "May 14, 2026 — Sekkel (2018) Changes in monetary regimes and the identification of monetary policy shocks: narrative evidence from Canada. Journal of Monetary ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "46e9c45cc1d4",
+      "id": "835e8bd49eb5",
       "relevance_score": 0.245,
       "matched_keywords": [
         "monetary policy shock"
@@ -1132,7 +1120,7 @@
       "snippet": "Dictionary for hawkish and dovish words. Panel A1. Panel A2 inflation expectation, interest rate, bank rate, fund rate, price, economic activity, inflation ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "960c952f00e5",
+      "id": "ssrn_3816803",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -1142,36 +1130,22 @@
       "scan_id": "20260604_0915"
     },
     {
-      "title": "Monetary Uncertainty as a Determinant of the Response",
-      "url": "https://arxiv.org/pdf/2212.04525",
-      "snippet": "2022 · Cited by 2 — Stocks exhibit a strong positive response to major MNA: 1 standard deviation of good surprise causes 11-25 bps higher returns. Unsurprisingly, ...",
-      "source": "arXiv",
-      "source_type": "working_paper",
-      "id": "d315a8a2cf05",
-      "relevance_score": 0.0,
-      "matched_keywords": [],
-      "impact_type": "tangential",
-      "impact_description": "Uncertainty quantification could improve signal-to-noise ratio",
-      "already_cited": false,
-      "discovered_date": "2026-06-04",
-      "scan_id": "20260604_0915"
-    },
-    {
-      "title": "From Text to Quantified Insights by Thiago Christiano Silva, Kei",
-      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5289150",
-      "snippet": "This paper introduces a classification framework to analyze central bank communications across four dimensions: topic, communication stance, sentiment, and ...",
+      "title": "[PDF] A Large-Scale LLM Analysis of Central Bank  - SSRN eLibrary",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/wpi2025109.pdf?abstractid=5289150&mirid=1",
+      "snippet": "ABSTRACT: This paper introduces a classification framework to analyze central bank communications across four dimensions: topic, communication stance, ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "29586e9b9768",
-      "relevance_score": 0.245,
+      "id": "ssrn_5289150",
+      "relevance_score": 0.317,
       "matched_keywords": [
-        "central bank communication"
+        "central bank communication",
+        "LLM"
       ],
-      "impact_type": "methodology_upgrade",
+      "impact_type": "directly_related",
       "impact_description": "Tangentially related — may be useful for literature review",
-      "already_cited": true,
-      "discovered_date": "2026-06-05",
-      "scan_id": "20260605_0936"
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_0959"
     },
     {
       "title": "[PDF] Fed Implied Market Prices and Risk Premia Charles W. Calomiris",
@@ -1179,7 +1153,7 @@
       "snippet": "We introduce FDIF, a measure of Fed communication surprise based on the text of FOMC statements. FDIF measures the difference between text-implied and ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "106f6da327f8",
+      "id": "ssrn_4153103",
       "relevance_score": 0.245,
       "matched_keywords": [
         "FOMC"
@@ -1196,7 +1170,7 @@
       "snippet": "easing (QE)) signaled dovish, while others (like inflation) hawkish sentiment, which could have muddled the overall message for a while. In recent periods ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "6832d879612b",
+      "id": "ssrn_4628672",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -1211,7 +1185,7 @@
       "snippet": "... NLP ... Monetary policy surprises and interest rates: Evidence from the Fed funds futures market. ... (forward guidance component of monetary policy).",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "7ca9441940cd",
+      "id": "ssrn_5377690",
       "relevance_score": 0.388,
       "matched_keywords": [
         "monetary policy surprise",
@@ -1231,7 +1205,7 @@
       "snippet": "Classify the monetary policy stance of the following FOMC statement. 3. 4. Categories: 5. - \"hawkish\": Tighter monetary policy, concern about inflation. 6.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "c3dc1fffbb16",
+      "id": "ssrn_5636430",
       "relevance_score": 0.317,
       "matched_keywords": [
         "FOMC",
@@ -1249,7 +1223,7 @@
       "snippet": "Four downstream classification tasks are evaluated, each targeting a distinct dimension of African. CB policy text analysis. Task 1: Monetary Policy Sentiment.",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "e25f1295f614",
+      "id": "ssrn_6821538",
       "relevance_score": 0.283,
       "matched_keywords": [
         "NLP",
@@ -1267,7 +1241,7 @@
       "snippet": "To locate hawkish and dovish sentiment in minutes and speeches, we identify the parts of the speech that focus on monetary policy topics, and then assess the ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "d821ed715d6e",
+      "id": "ssrn_3753711",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -1282,7 +1256,7 @@
       "snippet": "We build a new measure of credit and financial market sentiment using Natural Language Processing on Twitter data.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "e1cca12fc478",
+      "id": "arxiv_2305.16164",
       "relevance_score": 0.2,
       "matched_keywords": [
         "natural language processing"
@@ -1299,7 +1273,7 @@
       "snippet": "Our study contributes to understanding the complex dynamics of the green financial market in response to monetary policies, helping in decision- ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "a65fabc4076c",
+      "id": "2fceff4a648a",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -1314,7 +1288,7 @@
       "snippet": "13The forward guidance policy can also be regarded as a verbal signal. However, in our specification, we do not consider the details of the forward guidance ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "31df574b6b9d",
+      "id": "ssrn_3796816",
       "relevance_score": 0.142,
       "matched_keywords": [
         "forward guidance"
@@ -1331,7 +1305,7 @@
       "snippet": "We measure the sentiment and tone of the minutes of the Swedish central bank using an automated content analysis that converts the qualitative information in ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "62ade6eed29a",
+      "id": "ssrn_2092575",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "methodology_related",
@@ -1346,7 +1320,7 @@
       "snippet": "A key feature of our approach is the use of an external instrument to identify monetary policy shocks within the multivariate unobserved ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "ddd7dfb74541",
+      "id": "ab8249a2eeb0",
       "relevance_score": 0.245,
       "matched_keywords": [
         "monetary policy shock"
@@ -1363,7 +1337,7 @@
       "snippet": "In this paper, we propose a five-stage FOMC meeting simulation framework, MiniFed, which employs LLM agents to simulate real-world FOMC meeting members and ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "2f46733e5062",
+      "id": "938040a9739b",
       "relevance_score": 0.317,
       "matched_keywords": [
         "FOMC",
@@ -1376,27 +1350,12 @@
       "scan_id": "20260618_0957"
     },
     {
-      "title": "[PDF] Investor Sentiment and ECB Communication: Unraveling the",
-      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/f261a80a-7d5f-40b0-b1c9-c4a229c02b5e-MECA.pdf?abstractid=6038625&mirid=1",
-      "snippet": "This paper examines whether and how European Central Bank (ECB) communication affects the portfolio decisions of European equity mutual fund managers.",
-      "source": "SSRN",
-      "source_type": "working_paper",
-      "id": "22eb2c7256b7",
-      "relevance_score": 0.0,
-      "matched_keywords": [],
-      "impact_type": "methodology_related",
-      "impact_description": "Tangentially related — may be useful for literature review",
-      "already_cited": false,
-      "discovered_date": "2026-06-18",
-      "scan_id": "20260618_0957"
-    },
-    {
       "title": "Can We Reliably Predict the Fed’s Next Move? A Multi-Modal",
       "url": "https://arxiv.org/html/2506.22763v1",
       "snippet": "To capture linguistic signals, we extract sentiment scores from monetary policy documents using FinBERT, a domain-specific transformer model fine-tuned for financial text.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "ab296bfa1a89",
+      "id": "b065e0f224a8",
       "relevance_score": 0.283,
       "matched_keywords": [
         "FinBERT",
@@ -1414,7 +1373,7 @@
       "snippet": "This paper aims to address these gaps by providing a comprehensive analysis of central bank communication in four CEE economies: Romania, ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "87e8c43c64f1",
+      "id": "ssrn_6949226",
       "relevance_score": 0.245,
       "matched_keywords": [
         "central bank communication"
@@ -1431,24 +1390,7 @@
       "snippet": "communication as essential tools for effective monetary policy. The FOMC's official statements are a prime serving as a critical chann tent of these statements has evolved over time, impact on financial markets remain undiminished. Market participants, policymakers, and researchers alike OMC statements for sig",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "aa2b20867fff",
-      "relevance_score": 0.245,
-      "matched_keywords": [
-        "FOMC"
-      ],
-      "impact_type": "tangential",
-      "impact_description": "Tangentially related — may be useful for literature review",
-      "already_cited": false,
-      "discovered_date": "2026-06-19",
-      "scan_id": "20260619_0954"
-    },
-    {
-      "title": "[2304.10164] Analyzing FOMC Minutes: Accuracy and Constraints",
-      "url": "https://arxiv.org/abs/2304.10164",
-      "snippet": "This research article analyzes the language used in the official statements released by the Federal Open Market Committee (FOMC) after its scheduled meetings to gain insights into the impact of FOMC official statements on financial markets and economic forecasting.",
-      "source": "arXiv",
-      "source_type": "working_paper",
-      "id": "3119530a1d09",
+      "id": "arxiv_2304.10164",
       "relevance_score": 0.245,
       "matched_keywords": [
         "FOMC"
@@ -1465,7 +1407,7 @@
       "snippet": "Forecasting central bank policy decisions remains a persistent challenge for investors, financial institutions, and policymakers due to the wide-reaching impact of monetary actions. In particular, anticipating shifts in the U.S. federal funds rate is vital for risk management and trading strategies.",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "2d4a88973fbc",
+      "id": "arxiv_2506.22763",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -1475,47 +1417,12 @@
       "scan_id": "20260619_0954"
     },
     {
-      "title": "Can We Reliably Predict the Fed's Next Move? A Multi-Modal  - arXiv",
-      "url": "https://arxiv.org/html/2506.22763v1",
-      "snippet": "To capture linguistic signals, we extract sentiment scores from monetary policy documents using FinBERT, a domain-specific transformer model ...",
-      "source": "arXiv",
-      "source_type": "working_paper",
-      "id": "7aa325211196",
-      "relevance_score": 0.283,
-      "matched_keywords": [
-        "FinBERT",
-        "transformer"
-      ],
-      "impact_type": "methodology_related",
-      "impact_description": "Tangentially related — may be useful for literature review",
-      "already_cited": false,
-      "discovered_date": "2026-06-20",
-      "scan_id": "20260620_0940"
-    },
-    {
       "title": "Non-Linearities in International Spillovers of the ECB's Monetary",
       "url": "https://arxiv.org/html/2406.19938v1",
       "snippet": "After identifying three orthogonal monetary policy shock using the method of Fanelli and Marsi [2022] , we then select an optimal specification and estimate ...",
       "source": "arXiv",
       "source_type": "working_paper",
-      "id": "8b10c9225d73",
-      "relevance_score": 0.245,
-      "matched_keywords": [
-        "monetary policy shock"
-      ],
-      "impact_type": "tangential",
-      "impact_description": "Tangentially related — may be useful for literature review",
-      "already_cited": false,
-      "discovered_date": "2026-06-21",
-      "scan_id": "20260621_0947"
-    },
-    {
-      "title": "[PDF] Assessing the Effects of Monetary Shocks on Macroeconomic Stars",
-      "url": "https://arxiv.org/pdf/2510.05802",
-      "snippet": "For the identification of the monetary policy shock, we employ the orthogonal high-frequency surprise series of. Bauer and Swanson (2023) as our ...",
-      "source": "arXiv",
-      "source_type": "working_paper",
-      "id": "a42a94d9f32a",
+      "id": "3bea20593fd3",
       "relevance_score": 0.245,
       "matched_keywords": [
         "monetary policy shock"
@@ -1532,7 +1439,7 @@
       "snippet": "Related literature: This paper contributes to a large literature that employs high-frequency iden- tification methods to obtain policy surprises from financial ...",
       "source": "SSRN",
       "source_type": "working_paper",
-      "id": "9a5eddc1276d",
+      "id": "ssrn_6578258",
       "relevance_score": 0.0,
       "matched_keywords": [],
       "impact_type": "tangential",
@@ -1540,9 +1447,858 @@
       "already_cited": false,
       "discovered_date": "2026-06-21",
       "scan_id": "20260621_0947"
+    },
+    {
+      "title": "LLMs and Federal Reserve Communications",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/7513339.pdf?abstractid=7513339&mirid=1",
+      "snippet": "Sep 23, 2026 — 2.1 Central Bank Communication and Text Analysis . A large literature has studied central bank communications and we outline only some no-. Read more",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7513339",
+      "relevance_score": 0.448,
+      "matched_keywords": [
+        "central bank communication",
+        "federal reserve",
+        "LLM",
+        "text analysis"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": true,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "When Does LLM-Extracted Central Bank Sentiment Add",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/7441959.pdf?abstractid=7441959&mirid=1",
+      "snippet": "LLM-extracted sentiment can improve risk-based portfolio optimization. every FOMC statement is parsed within seconds by traders, algorithms, and increasingly ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7441959",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "FOMC",
+        "LLM"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "[PDF] The Central Bank Theater: Measuring the Narrative Dependency of",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/7080398.pdf?abstractid=7080398&mirid=1",
+      "snippet": "monetary policy stance from FOMC statements with LLMs (arXiv 2603.14313); Assessing and mitigating miscalibration in LLM-based social science measurement (arXiv.",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7080398",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "FOMC",
+        "LLM"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_0959"
+    },
+    {
+      "title": "[PDF] Trillion Dollar Words: A New Financial Dataset, Task & Market",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID4447632_code5348460.pdf?abstractid=4447632&mirid=1",
+      "snippet": "Monetary policy pronouncements by Federal Open Market Committee (FOMC) are a major driver of financial market returns. Work NLP in Finance the evolution of NLP,",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_4447632",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "FOMC",
+        "NLP"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_0959"
+    },
+    {
+      "title": "Embedding central bank communications for inflation prediction",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/dbc7ff88-7cac-4e3e-9038-ac745129c4da-MECA.pdf?abstractid=5177285&mirid=1&type=2",
+      "snippet": "( 2024 ) employ fine-grained aspect-based sentiment analysis on a large news article text corpus and analyses the predictive power of sentiment indicators for ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_5177285",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "central bank communication",
+        "sentiment analysis"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "A QLoRA Benchmark of Large Language Models",
+      "url": "https://arxiv.org/html/2608.04200v1",
+      "snippet": "Aug 4, 2026 — Datasets constructed from Federal Open Market Committee ( FOMC ) statements focus on monetary policy communications, where sentiment is ... Read more",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "696b6ffa253f",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "FOMC",
+        "large language model"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Can We Model post-ECB Conferences Volatility with LLM",
+      "url": "https://arxiv.org/html/2508.13635v1",
+      "snippet": "Aug 19, 2025 — From text to quantified insights: A large-scale llm analysis of central bank communication . Technical Report IMF Working Paper 25/118 ... Read more",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "4fbd044bffaf",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "central bank communication",
+        "LLM"
+      ],
+      "impact_type": "directly_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Can We Reliably Predict the Fed's Next Move? A Multi",
+      "url": "https://arxiv.org/html/2506.22763v1",
+      "snippet": "Jun 28, 2025 — To capture linguistic signals, we extract sentiment scores from monetary policy documents using FinBERT , a domain-specific transformer model ... Read more",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "26cf3016a48c",
+      "relevance_score": 0.283,
+      "matched_keywords": [
+        "FinBERT",
+        "transformer"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Contextual Embeddings and Yield Curve Forecasting",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/c70b5979-cc78-471f-b119-6d5765bae7bd-MECA.pdf?abstractid=6909272&mirid=1",
+      "snippet": "Abstract. This article investigates whether alternative sentiment measures extracted from. Central Bank communication can improve yield curve forecasting ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_6909272",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "central bank communication"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Central Bank Communication Channel",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/54f3c41b-5141-4c3e-94c7-26faf4a0645e-MECA.pdf?abstractid=5252273&mirid=1&type=2",
+      "snippet": "Formal tools, such as monetary policy statements and Financial Stability. Reports (FSRs), are generally perceived as predictable and effective in reducing ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_5252273",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "central bank communication"
+      ],
+      "impact_type": "directly_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Central Bank Mandates and Monetary Policy Stances",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID4255978_code173476.pdf?abstractid=4255978&mirid=1&type=2",
+      "snippet": "The Federal Reserve System has an institutional mandate to pursue price stability and maximum sus- tainable employment; however, it remains unclear whether ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_4255978",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "federal reserve"
+      ],
+      "impact_type": "directly_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Central Bank Communication with Public: Bank of England",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5279225.pdf?abstractid=5279225&mirid=1&type=2",
+      "snippet": "( 2024 ) research on central bank communication with the general public by quantifying how different message characteristics affect engagement. The. Read more",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_5279225",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "central bank communication"
+      ],
+      "impact_type": "directly_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "[PDF] Central Bank Communication in a Small Open (Unorthodox",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/7344804.pdf?abstractid=7344804&mirid=1",
+      "snippet": "We decompose i) the yield curve shocks into near-term policy stance, forward guidance and timing; and ii) the type of monetary shock into pure.",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7344804",
+      "relevance_score": 0.283,
+      "matched_keywords": [
+        "central bank communication",
+        "forward guidance"
+      ],
+      "impact_type": "identification_strategy",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "Central Bank Communication and Corporate Investment",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/7348218.pdf?abstractid=7348218&mirid=1",
+      "snippet": "by S Asimakopoulos · 2026 · Cited by 1 — We examine whether the risk content of European Central Bank communica- tion affects firm level investment in the euro area. Using a novel Risk Sentiment. Read more",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7348218",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "central bank communication"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "[PDF] Deciphering Federal Reserve Communication via Text Analysis",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID4135736_code694895.pdf?abstractid=4135736&mirid=1",
+      "snippet": "We construct a text-based measure of monetary policy stance and decompose it into expected and surprise components using intraday financial data ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_4135736",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "federal reserve",
+        "text analysis"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": true,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "[PDF] Informational Wedge, Backward Guidance, and Inflation",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/7616939.pdf?abstractid=7616939&mirid=1",
+      "snippet": "allowing policy surprises and forward guidance to be priced rapidly into yield curves. NLP text indicators from Monetary Policy Statements is ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7616939",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "NLP",
+        "forward guidance"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "[PDF] Informativeness of the Federal Reserve Chair Communication's",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/3973959.pdf?abstractid=3973959&mirid=1&type=2",
+      "snippet": "(sentiment, Hawkish/Dovish monetary policy stance). Figure G1 shows the average tone of the Fed Chair statement, before and after a change in the stance of ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_3973959",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "federal reserve"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": true,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Measuring Hidden Dissent in FOMC Meetings",
+      "url": "https://arxiv.org/html/2308.10131v7",
+      "snippet": "Oct 7, 2025 — Using FOMC transcripts and customized deep learning models , we quantify “hidden dissent”, or disagreement in the FOMC that is unobserved in ... Read more",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "8f74545cdc26",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "FOMC"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Analysis of the Fed's communication by using textual",
+      "url": "https://arxiv.org/pdf/2306.04277",
+      "snippet": "by Y Nakayama · 2023 · Cited by 3 — In this study, we analyze. FOMC dictionary and engagement analysis to extract sentiment by topic for the minutes of the FOMC meeting",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_2306.04277",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "FOMC"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Modeling Hawkish-Dovish Latent Beliefs in Multi-Agent",
+      "url": "https://arxiv.org/html/2511.02469v1",
+      "snippet": "Nov 4, 2025 — In this study, we consider a three-class classification problem to predict the central bank's next policy rate decision (Raise, Hold, or Lower) ... Read more",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "31f477089467",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "policy rate decision"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Spillovers of US Interest Rates Monetary Policy &",
+      "url": "https://arxiv.org/html/2111.08631v3",
+      "snippet": "I use the identification strategy introduced by Jarocinski [2020] to identify two FOMC shocks: a pure US monetary policy and an information disclosure shock.",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "dff1e26d0cce",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "FOMC"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Sentiment Analysis of State Bank of Pakistan's Monetary",
+      "url": "https://arxiv.org/html/2408.03328v1",
+      "snippet": "Jul 19, 2024 — This research examines whether sentiments conveyed in the State Bank of Pakistan's (SBP) communications impact financial market expectations",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "d46f969f3f9f",
+      "relevance_score": 0.2,
+      "matched_keywords": [
+        "sentiment analysis"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Monetary Policy in the Media Spotlight: Sentiments,",
+      "url": "https://arxiv.org/html/2605.15092v1",
+      "snippet": "A parallel effort by the Bank of Canada uses a fine-tuned LLM to classify the tone of BoC communications as dovish, neutral, or hawkish, and documents that the ... Read more",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "0a8071a70b93",
+      "relevance_score": 0.2,
+      "matched_keywords": [
+        "LLM"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "[PDF] 1. BOK경제연구 제2019-1호 본문.hwp",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3312561_code2339582.pdf?abstractid=3312561&type=2",
+      "snippet": "expect a positive coefficient: more hawkish (dovish) sentiment should be associated with tight (loose) monetary policy. Table 7 shows the estimation result ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_3312561",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": true,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Highlights",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/bd15e040-e096-4920-bc52-4aa553a0a2cb-MECA.pdf?abstractid=7228019&mirid=1",
+      "snippet": "hawkish, dovish, and neutral sentences from central bank minutes and build a sentiment index that helps forecast future policy-rate decisions",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7228019",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "[PDF] Time-Varying Dictionary and the Predictive Power of FED Minutes",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3312483_code2045216.pdf?abstractid=3312483",
+      "snippet": "when Central Banks are hawkish and decreases when Central Banks are dovish. Other examples where textual data is used for macroeconomic analysis includes ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_3312483",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "Co-jumping of Treasury Yield Curve Rates",
+      "url": "https://arxiv.org/html/1905.01541v1",
+      "snippet": "Two possible sources of policy surprise can be identified from equation Equation 16 (Bibinger et al., 2016; Ellingsen and Söderström, 2001) .",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "ded609f16c8e",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-10",
+      "scan_id": "20261110_0922"
+    },
+    {
+      "title": "[PDF] Sentiment Analysis with Large Language Models Applied to the",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/5120300.pdf?abstractid=5120300&mirid=1",
+      "snippet": "We present the application of Large Language Models (LLMs) to perform sentiment analysis on the Beige Book of the United States Federal Reserve.",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_5120300",
+      "relevance_score": 0.425,
+      "matched_keywords": [
+        "federal reserve",
+        "sentiment analysis",
+        "large language model",
+        "LLM"
+      ],
+      "impact_type": "methodology_upgrade",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_0959"
+    },
+    {
+      "title": "[2108.01026] US Spillovers of US Monetary Policy - arXiv",
+      "url": "https://arxiv.org/abs/2108.01026",
+      "snippet": "I use multiple identification strategies that identify two components of monetary policy surprises around FOMC meetings: a pure US monetary ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_2108.01026",
+      "relevance_score": 0.388,
+      "matched_keywords": [
+        "FOMC",
+        "monetary policy surprise",
+        "monetary policy surprises"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "Sign-Dependent Spillovers of Global Monetary Policy - arXiv",
+      "url": "https://arxiv.org/abs/2602.09237",
+      "snippet": "Using a consistent high-frequency identification of pure monetary policy shocks across 44 advanced and non-advanced economies … q-fin q-fin.EC",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_2602.09237",
+      "relevance_score": 0.3,
+      "matched_keywords": [
+        "monetary policy shock",
+        "high-frequency identification"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "Quantifying Semantic Shift in Financial NLP: Robust Metrics for",
+      "url": "https://arxiv.org/html/2510.00205v1",
+      "snippet": "Recent work demonstrates that public sentiment volatility, measured via FinBERT embeddings, can strongly affect systemic risk forecasting Jin & ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "6def83199395",
+      "relevance_score": 0.283,
+      "matched_keywords": [
+        "NLP",
+        "FinBERT"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "[2209.11150] The Transmission of US Monetary Policy Shocks",
+      "url": "https://arxiv.org/abs/2209.11150",
+      "snippet": "This paper studies the transmission of US monetary policy shocks into Emerging Markets emphasizing the role of investment and financial ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_2209.11150",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "monetary policy shock"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "Time-Varying Identification of Monetary Policy Shocks - arXiv",
+      "url": "https://arxiv.org/html/2311.05883v4",
+      "snippet": "We show that data strongly support time variation in US monetary policy shock identification. In the first regime, which dominates before 2000 ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "1f36b2388ec3",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "monetary policy shock"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "[PDF] The Fed's Fine-Tune: Coarse Statements and Predictive  - SSRN",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/fedgfe103339.pdf?abstractid=6851101&mirid=1",
+      "snippet": "• Sentiment classification (BERT-Sentiment): Paragraph-level classification into monetary policy stances: Dovish, Hawkish, or Neutral. These labels pertain ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_6851101",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_0959"
+    },
+    {
+      "title": "Central Bank Uncertainty and Long-Run Financial Volatility",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7161818",
+      "snippet": "sentiment measure, a phrase-based hawkish-dovish index, and an uncertainty ratio based on hedging language. Average LM net sentiment is 3.08% ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_7161818",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "methodology_related",
+      "impact_description": "Uncertainty quantification could improve signal-to-noise ratio",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "Towards Trustworthy ''Reasoning'' about Central Bank",
+      "url": "https://arxiv.org/html/2505.09083v1",
+      "snippet": "May 14, 2025 — Ornithologist, a weakly-supervised textual classification system and measure the hawkishness and dovishness of central bank text .",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "0cf5ec1a88de",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "Measuring Shocks to Central Bank Independence using Legal",
+      "url": "https://arxiv.org/abs/2202.12695",
+      "snippet": "Abstract:We investigate the consequences of legal rulings on the conduct of monetary policy. Several unconventional monetary policy measures ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_2202.12695",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-11",
+      "scan_id": "20261111_0919"
+    },
+    {
+      "title": "Enhancing Regime Shift Detection Using Unstructured Data",
+      "url": "https://arxiv.org/html/2605.30363v1",
+      "snippet": "LLMs at scale to central-bank communication. From text to quantified insights: a large-scale LLM analysis of central bank communication.",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "9be35050b82f",
+      "relevance_score": 0.317,
+      "matched_keywords": [
+        "central bank communication",
+        "LLM"
+      ],
+      "impact_type": "directly_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "[PDF] Can ChatGPT Predict Future Interest Rate Decisions? - SSRN",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID4572831_code5029259.pdf?abstractid=4572831&mirid=1&type=2",
+      "snippet": "LLMs and GPT models can offer predictive qualities of future interest rate decisions through their tex- tual processing and sentiment capabilities. processing ...",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_4572831",
+      "relevance_score": 0.283,
+      "matched_keywords": [
+        "LLM",
+        "GPT"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_0959"
+    },
+    {
+      "title": "[2609.32773] Forecasting Intraday USD/CAD Exchange Rate",
+      "url": "https://arxiv.org/abs/2609.32773",
+      "snippet": "Monetary-policy news is transformed into structured communication signals using large language models (LLMs) and temporal feature engineering.",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_2609.32773",
+      "relevance_score": 0.283,
+      "matched_keywords": [
+        "large language model",
+        "LLM"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "Interpreting Fedspeak with Confidence: A LLM-Based  - arXiv",
+      "url": "https://arxiv.org/html/2508.08001v2",
+      "snippet": "LLMs offer an accessible and effective solution for financial sentiment analysis, particularly for deciphering central bank policy stances.",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "aea6f1678750",
+      "relevance_score": 0.283,
+      "matched_keywords": [
+        "sentiment analysis",
+        "LLM"
+      ],
+      "impact_type": "methodology_related",
+      "impact_description": "Uncertainty quantification could improve signal-to-noise ratio",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "[PDF] Modeling Hawkish-Dovish Latent Beliefs in Multi-Agent Debate",
+      "url": "https://arxiv.org/pdf/2511.02469",
+      "snippet": "This study proposes a novel framework that adopting AI tech- nologies. analyzing the content of central bank communications, particularly ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_2511.02469",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "central bank communication"
+      ],
+      "impact_type": "directly_related",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "Identification and Estimation of Causal Effects in High-Frequency",
+      "url": "https://arxiv.org/html/2406.15667v3",
+      "snippet": "We provide precise conditions for nonparametric identification of causal effects … the monetary policy surprise is constructed as a 30-minute change, } is ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "ca05e289d3bf",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "monetary policy surprise"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "Working paper nr",
+      "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3747264_code2174183.pdf?abstractid=3747264&mirid=1",
+      "snippet": "One aim of the dictionary was to provide a tool for measuring the extent to which a central bank text or speech was predominantly hawkish or dovish",
+      "source": "SSRN",
+      "source_type": "working_paper",
+      "id": "ssrn_3747264",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "[PDF] Inflation securities valuation with macroeconomic-based no",
+      "url": "https://arxiv.org/pdf/1403.7799",
+      "snippet": "Abstract. We develop a model to price inflation and interest rates derivatives using continuous-time dynamics that have some links with macroeconomic ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "arxiv_1403.7799",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "Seventy Years of Identifying the Phillips Curve and the Policy Rule",
+      "url": "https://arxiv.org/html/2610.06007v1",
+      "snippet": "a monetary shock identified outside the equation, from a narrative record or a market surprise, moves inflation and slack in that ratio",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "68765e61b8cd",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "Beyond Validity: SVAR Identification Through the Proxy Zoo - arXiv",
+      "url": "https://arxiv.org/html/2601.11195v1",
+      "snippet": "Abstract. This paper develops a framework for robust identification in SVARs when researchers face a zoo of proxy variables.",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "ef982322fc49",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "What Impulse Response Do Instrumental Variables Identify? - arXiv",
+      "url": "https://arxiv.org/html/2208.11828v3",
+      "snippet": "By utilizing high-frequency financial market surprises as IVs, obtain the identified set for the impulse response to the pure monetary policy ...",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "1dbeca5f0bab",
+      "relevance_score": 0.0,
+      "matched_keywords": [],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-12",
+      "scan_id": "20261112_0856"
+    },
+    {
+      "title": "Monetary Uncertainty as a Determinant of the Response",
+      "url": "https://arxiv.org/html/2212.04525v1",
+      "snippet": "Dec 8, 2022 — Bernanke and Kuttner (2005) used high-frequency identification to argue that stocks react negatively to Fed Funds rate surprises .",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "1f85c2aa1e1a",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "high-frequency identification",
+        "Kuttner"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Uncertainty quantification could improve signal-to-noise ratio",
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_1002"
+    },
+    {
+      "title": "Assessing the Effects of Monetary Shocks on",
+      "url": "https://arxiv.org/html/2510.05802v1",
+      "snippet": "Oct 7, 2025 — This series identifies monetary policy shocks from high-frequency asset price movements in narrow windows around policy announcements.",
+      "source": "arXiv",
+      "source_type": "working_paper",
+      "id": "86421b74da37",
+      "relevance_score": 0.245,
+      "matched_keywords": [
+        "monetary policy shock"
+      ],
+      "impact_type": "tangential",
+      "impact_description": "Tangentially related — may be useful for literature review",
+      "already_cited": false,
+      "discovered_date": "2026-11-13",
+      "scan_id": "20261113_1002"
     }
   ],
-  "last_scan": "2026-06-21 09:47",
+  "last_scan": "2026-11-13 10:02",
   "scan_history": [
     {
       "date": "2026-05-29 18:55",
@@ -1704,6 +2460,41 @@
       "high_relevance": 0,
       "medium_relevance": 0,
       "low_relevance": 3
+    },
+    {
+      "date": "2026-11-10 09:22",
+      "new_papers": 36,
+      "high_relevance": 0,
+      "medium_relevance": 10,
+      "low_relevance": 26
+    },
+    {
+      "date": "2026-11-11 09:19",
+      "new_papers": 17,
+      "high_relevance": 0,
+      "medium_relevance": 6,
+      "low_relevance": 11
+    },
+    {
+      "date": "2026-11-12 08:56",
+      "new_papers": 13,
+      "high_relevance": 0,
+      "medium_relevance": 1,
+      "low_relevance": 12
+    },
+    {
+      "date": "2026-11-13 09:59",
+      "new_papers": 8,
+      "high_relevance": 0,
+      "medium_relevance": 5,
+      "low_relevance": 3
+    },
+    {
+      "date": "2026-11-13 10:02",
+      "new_papers": 2,
+      "high_relevance": 0,
+      "medium_relevance": 0,
+      "low_relevance": 2
     }
   ]
 }

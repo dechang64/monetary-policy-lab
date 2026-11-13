@@ -89,9 +89,30 @@ def save_db(db):
         json.dump(db, f, indent=2, ensure_ascii=False)
 
 
-def paper_id(title, authors="", year=""):
-    """Generate unique ID for a paper."""
-    raw = f"{title}|{authors}|{year}"
+def paper_id(title, url="", authors="", year=""):
+    """Generate unique ID for a paper.
+    
+    Prefers stable URL identifiers (SSRN abstractid, arXiv id) over title
+    hashing. Rationale (2026-11-13): search-result titles carry unstable
+    noise -- "[PDF]" prefixes, " - SSRN" suffixes, varying truncation --
+    which changed the title hash and re-reported already-vetted papers as
+    "new" (Crane et al. SSRN 7513339: 10-02/11-10/11-13; Espel SSRN
+    5120300: 11-11/11-13). URL keys are stable across title variations.
+    """
+    url = url or ""
+    # 1. Stable URL keys first
+    m = re.search(r'abstract_?id=(\d+)', url)
+    if m:
+        return f"ssrn_{m.group(1)}"
+    m = re.search(r'arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})', url)
+    if m:
+        return f"arxiv_{m.group(1)}"
+    # 2. Normalized-title fallback (strip noise prefixes/suffixes, unify case)
+    t = (title or "").strip()
+    t = re.sub(r'^\s*\[PDF\]\s*', '', t, flags=re.IGNORECASE)
+    t = re.sub(r'\s*[-\u2013\u2014]\s*(SSRN(?:\s+eLibrary)?|arXiv(?:\s+eLibrary)?)\s*$', '', t, flags=re.IGNORECASE)
+    t = re.sub(r'\s+', ' ', t).lower()
+    raw = f"{t}|{authors}|{year}"
     return hashlib.md5(raw.encode()).hexdigest()[:12]
 
 
@@ -401,7 +422,7 @@ def deduplicate(papers):
             continue
         
         # ID dedup
-        pid = paper_id(title, p.get("source", ""))
+        pid = paper_id(title, url=url, authors=p.get("source", ""))
         p["id"] = pid
         
         # Check if we already have this ID
@@ -412,6 +433,28 @@ def deduplicate(papers):
         unique.append(p)
     
     return unique
+
+
+def migrate_db_ids(db):
+    """One-time migration: recompute all historical paper IDs with the new
+    URL-key-first scheme so old entries dedup against future scans.
+    Merges duplicate entries that collapse to the same new ID (keep the
+    one with the highest relevance_score, most recent discovered_date)."""
+    seen = {}
+    for p in db["papers"]:
+        p["id"] = paper_id(p.get("title", ""), url=p.get("url", ""),
+                           authors=p.get("source", ""))
+        seen.setdefault(p["id"], []).append(p)
+    deduped = []
+    merged = 0
+    for group in seen.values():
+        group.sort(key=lambda x: (x.get("relevance_score", 0),
+                                  x.get("discovered_date", "")), reverse=True)
+        deduped.append(group[0])
+        merged += len(group) - 1
+    if merged:
+        print(f"   [id-migrate] merged {merged} duplicate historical entr{'y' if merged == 1 else 'ies'}")
+    db["papers"] = deduped
 
 
 def is_already_cited(title):
@@ -433,6 +476,7 @@ def run_scan():
     print("=" * 70)
     
     db = load_db()
+    migrate_db_ids(db)  # 2026-11-13: unify historical IDs to URL-key scheme
     existing_ids = {p["id"] for p in db["papers"]}
     
     # Search all sources
