@@ -100,19 +100,11 @@ if section == "🔬 Research Lab":
         "Page",
         [
             "🧩 Hypotheses & Framework",
-            "🏠 Dashboard",
-            "⚡ Event Study Engine",
-            "🎯 Two-Shocks Decomposition",
-            "💬 FOMC Sentiment Analysis",
-            "🔄 Capital Flow Analysis",
-            "📚 Paper Replication Lab",
             "📊 Research Results (v10.3)",
-            "⚙️ Data Explorer",
-            "🔬 Phase 1 Research",
-            "🧠 Federated AI Intelligence",
-            "🤝 M&A / LBO Research Lab",
             "🎯 Direction 2: Two-Shocks Rebalancing",
             "📐 Proposal H1–H6 Tables",
+            "🧠 Federated AI Intelligence",
+            "🤝 M&A / LBO Research Lab",
         ],
         label_visibility="collapsed",
     )
@@ -140,64 +132,27 @@ else:
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
 **About This Platform**
-Built for studying how monetary policy announcements reshape asset prices and portfolio allocation.
+Dissertation research platform: how monetary-policy announcements reshape
+asset prices and portfolio allocation. All results pages run on the
+archived, reproducible pipeline.
 
-**Unique Features:**
 - 🧩 Hypotheses & Framework (6-hypothesis system)
-- 🔴🔵 Two-Shocks Radar
-- 📈 Sentiment Trajectory
-- 🌊 Capital Flow Sankey
-- 📋 Classic Paper Replication
-- 🔗 Real-time FRED Data
-- 📊 Research Results v10.3 (JK + B-S + FF)
-- 🧠 Federated AI Intelligence (NEW)
-- 🤝 M&A / LBO Research Lab (NEW)
-- 🎯 Direction 2: MP vs CBI Rebalancing (NEW)
+- 📊 Research Results (JK + B-S + FF)
+- 🎯 Direction 2: MP vs CBI Rebalancing
+- 📐 Proposal H1–H6 Regression Tables
 """)
 
 # ── Route to Pages ──
-DEMO_PAGES = {
-    "🏠 Dashboard", "⚡ Event Study Engine", "🎯 Two-Shocks Decomposition",
-    "💬 FOMC Sentiment Analysis", "🔄 Capital Flow Analysis", "📚 Paper Replication Lab",
-    "⚙️ Data Explorer", "🔬 Phase 1 Research",
-}
-OTHER_PAGES = {"🧠 Federated AI Intelligence", "🤝 M&A / LBO Research Lab"}
-if page in DEMO_PAGES:
-    st.warning("🧪 Teaching/demo page: uses illustrative or synthetic data. "
-               "Dissertation results are on 📊 Research Results (v10.3) and 🎯 Direction 2.")
-elif page in OTHER_PAGES:
-    st.info("This page is a separate project and is not part of the dissertation.")
+# Demo/synthetic-data pages removed 2026-11-13 at user request: reviewers
+# could not tell which pages show real pipeline results. Kept pages all run
+# on archived, reproducible results.
 
-if page == "🏠 Dashboard":
-    from modules import dashboard
-    dashboard.render()
-elif page == "🧩 Hypotheses & Framework":
+if page == "🧩 Hypotheses & Framework":
     from modules import hypotheses
     hypotheses.render()
-elif page == "⚡ Event Study Engine":
-    from modules import event_study
-    event_study.render()
-elif page == "🎯 Two-Shocks Decomposition":
-    from modules import two_shocks
-    two_shocks.render()
-elif page == "💬 FOMC Sentiment Analysis":
-    from modules import sentiment
-    sentiment.render()
-elif page == "🔄 Capital Flow Analysis":
-    from modules import capital_flow
-    capital_flow.render()
-elif page == "📚 Paper Replication Lab":
-    from modules import replication
-    replication.render()
 elif page == "📊 Research Results (v10.3)":
     from modules import wrds_results
     wrds_results.render()
-elif page == "⚙️ Data Explorer":
-    from modules import data_explorer
-    data_explorer.render()
-elif page == "🔬 Phase 1 Research":
-    from modules import research
-    research.render()
 elif page == "🧠 Federated AI Intelligence":
     # Use English module
     from modules import fed_intelligence_en
