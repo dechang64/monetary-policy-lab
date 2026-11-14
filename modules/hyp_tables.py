@@ -93,7 +93,8 @@ def render():
                  f"{v['target']['p']:.3f}",
                  fmt(v["path"]["beta"], v["path"]["p"]), f"{v['path']['p']:.3f}"]
                 for a, v in h1p.items()]
-        st.dataframe(pd.DataFrame(rows, columns=["Asset", "β Target", "p", "β Path", "p"]),
+        st.dataframe(pd.DataFrame(rows, columns=["Asset", "β Target", "p (Target)",
+                                                  "β Path", "p (Path)"]),
                      use_container_width=True, hide_index=True)
         st.caption("Event-window returns on shocks, OLS; N = 161 meetings, 2006–2026. "
                    "Source: price_results_v1.json (B specs).")
@@ -205,8 +206,8 @@ def render():
                              fmt(v["cbi_beta"], v["cbi_p"]), f"{v['cbi_p']:.3f}",
                              fmt(v["mp_beta"], v["mp_p"]), f"{v['mp_p']:.3f}"])
         st.markdown("**H6 Regression — flow response by window and asset class**")
-        st.dataframe(pd.DataFrame(rows, columns=["Window", "Asset class", "β CBI", "p",
-                                                 "β MP", "p"]),
+        st.dataframe(pd.DataFrame(rows, columns=["Window", "Asset class", "β CBI",
+                                                 "p (CBI)", "β MP", "p (MP)"]),
                      use_container_width=True, hide_index=True)
         st.caption("Source: h4_all_windows.json. The government-bond CBI effect reverses "
                    "across windows (+0.76 → −0.99): flight-to-safety inflows unwind as "
