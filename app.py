@@ -103,6 +103,7 @@ if section == "🔬 Research Lab":
             "📊 Research Results (v10.3)",
             "🎯 Direction 2: Two-Shocks Rebalancing",
             "📐 Proposal H1–H6 Tables",
+            "🧪 Robustness Tests",
             "🧠 Federated AI Intelligence",
             "🤝 M&A / LBO Research Lab",
         ],
@@ -166,6 +167,9 @@ elif page == "🎯 Direction 2: Two-Shocks Rebalancing":
 elif page == "📐 Proposal H1–H6 Tables":
     from modules import hyp_tables
     hyp_tables.render()
+elif page == "🧪 Robustness Tests":
+    from modules import robustness
+    robustness.render()
 
 # ── Courses (Personal Finance Teaching) ──
 elif page == "COURSE:💰 Course Home":

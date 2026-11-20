@@ -1,0 +1,131 @@
+{
+ "source": "tables_all_results.xlsx (Eileen Zhang, compiled 2026-11-12); T1 = current dataset spec (2025-26 dropped meetings with missing same-day CRSP return)",
+ "t1_current": [
+  {
+   "sample": "2006 \u2013 Jul 2022",
+   "variable": "target",
+   "coef": 0.0783641333873267,
+   "se": 0.08492284603609647,
+   "p": 0.3578639562591398,
+   "sig": "",
+   "n": 131,
+   "r2": 0.006886295022944688
+  },
+  {
+   "sample": "2006 \u2013 Jul 2022",
+   "variable": "path",
+   "coef": 0.008598875045905507,
+   "se": 0.08824929957082715,
+   "p": 0.9225306198711295,
+   "sig": "",
+   "n": 131,
+   "r2": 0.006886295022944688
+  },
+  {
+   "sample": "2006 \u2013 Jul 2022",
+   "variable": "const",
+   "coef": 2.673153084677375,
+   "se": 0.07007428430934816,
+   "p": 9.040631664297359e-72,
+   "sig": "***",
+   "n": 131,
+   "r2": 0.006886295022944688
+  },
+  {
+   "sample": "2006 \u2013 Jul 2022",
+   "variable": "Wald test: Target = Path (p)",
+   "coef": null,
+   "se": null,
+   "p": 0.5868899454485316,
+   "sig": "",
+   "n": null,
+   "r2": null
+  },
+  {
+   "sample": "Full sample 2006\u20132026",
+   "variable": "target",
+   "coef": 0.05798333407869027,
+   "se": 0.07413173654459053,
+   "p": 0.4352875512084192,
+   "sig": "",
+   "n": 161,
+   "r2": 0.00431319976892508
+  },
+  {
+   "sample": "Full sample 2006\u20132026",
+   "variable": "path",
+   "coef": 0.01402959922937331,
+   "se": 0.07687796953196235,
+   "p": 0.855430728832082,
+   "sig": "",
+   "n": 161,
+   "r2": 0.00431319976892508
+  },
+  {
+   "sample": "Full sample 2006\u20132026",
+   "variable": "const",
+   "coef": 2.782768819640253,
+   "se": 0.06350642780672107,
+   "p": 2.615144670169237e-90,
+   "sig": "***",
+   "n": 161,
+   "r2": 0.00431319976892508
+  },
+  {
+   "sample": "Full sample 2006\u20132026",
+   "variable": "Wald test: Target = Path (p)",
+   "coef": null,
+   "se": null,
+   "p": 0.6959569465901843,
+   "sig": "",
+   "n": null,
+   "r2": null
+  }
+ ],
+ "t8_tone_measures": [
+  {
+   "measure": "Loughran\u2013McDonald dictionary",
+   "mean_hikes": 3.587072402450123,
+   "mean_cuts": 3.031251323627424,
+   "mean_holds": 4.583954503267432,
+   "gap_sd": 0.3935666205074901,
+   "p": 0.159889163846158,
+   "sig": "",
+   "n_hikes": 21,
+   "n_cuts": 16
+  },
+  {
+   "measure": "Central-bank word list",
+   "mean_hikes": 2.689134991459917,
+   "mean_cuts": 1.620854975216209,
+   "mean_holds": 0.9754716554079851,
+   "gap_sd": 0.671642649542341,
+   "p": 0.02354146667818285,
+   "sig": "**",
+   "n_hikes": 21,
+   "n_cuts": 16
+  },
+  {
+   "measure": "Combined tone (\u00bd LM + \u00bd CB)",
+   "mean_hikes": 3.138103696955019,
+   "mean_cuts": 2.326053149421818,
+   "mean_holds": 2.779713079337707,
+   "gap_sd": 1.012377263161674,
+   "p": 0.001852234648637638,
+   "sig": "***",
+   "n_hikes": 21,
+   "n_cuts": 16
+  },
+  {
+   "measure": "LLM hawkishness score (\u2212100 to +100)",
+   "mean_hikes": 51.66666666666666,
+   "mean_cuts": -43.125,
+   "mean_holds": -15.92741935483871,
+   "gap_sd": 1.997428563314189,
+   "p": 3.604907949859416e-10,
+   "sig": "***",
+   "n_hikes": 21,
+   "n_cuts": 16
+  }
+ ]
+}

@@ -28,7 +28,7 @@ The central bank reveals private information through statements; markets invert 
 
 ## 2.2 Pillar 2 — Information economics of policy news
 
-Kuttner (2001) surprise construction; Bauer-Swanson (2022) rejection of high-frequency calibration short-cuts; Jarociński-Karadi (2020) MP/CBI decomposition. We extend the decomposition to *statement text* (CBI from statements, 60 identified meetings) alongside decision-window shocks (91 MP meetings). [TODO: expand with the exact identification equations; codebook anchor Table 2.]
+Kuttner (2001) surprise construction; Bauer-Swanson (2022) rejection of high-frequency calibration short-cuts; Jarociński-Karadi (2020) MP/CBI decomposition. We extend the decomposition to *statement text* (CBI from statements, 60 identified meetings) alongside decision-window shocks (83 MP meetings; NaN-sign fix 2026-11-20). [TODO: expand with the exact identification equations; codebook anchor Table 2.]
 
 ## 2.3 Pillar 3 — APT: why portfolios should lag prices
 
@@ -40,7 +40,7 @@ Under arbitrage pricing, professional arbitrageurs absorb announcement-day price
 
 ## 3.1 Statements and shocks
 
-161 FOMC statements, 2006–2026 (scrubbed: `data/fomc_statements_clean.json`). Decision-window shocks (91 MP / 60 CBI identified meetings) from fed-funds futures + 2y/10y windows [TODO: exact windows]. CBI-from-statements via sign restrictions [TODO: spec].
+161 FOMC statements, 2006–2026 (scrubbed: `data/fomc_statements_clean.json`). Decision-window shocks (83 MP / 60 CBI identified meetings; 2026-11-20 NaN-sign fix) from fed-funds futures + 2y/10y windows [TODO: exact windows]. CBI-from-statements via sign restrictions [TODO: spec].
 
 ## 3.2 Fund flows
 

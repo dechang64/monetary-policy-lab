@@ -35,6 +35,26 @@ def fmt(b, p, prec=3):
     return f"{b:+.{prec}f}{stars(p)}"
 
 
+def _robustness():
+    """Load the headline robustness numbers (gov CBI, Risk x CBI, 2008-09
+    exclusion) from direction2/flow_rerun_output_v8/robustness_tests/results.json.
+    Returns {} when the file is missing."""
+    p = os.path.join(BASE, "direction2/flow_rerun_output_v8/robustness_tests/results.json")
+    if not os.path.exists(p):
+        return {}
+    try:
+        R = json.load(open(p))
+        t1 = R.get("test1", {})
+        inf = t1.get("influence", {})
+        return {
+            "gov_cbi": t1.get("H4 gov bonds, same month: CBI", {}),
+            "risk_x_cbi": t1.get("H5 pooled (same): Risk x CBI", {}),
+            "exclude_2008_09": inf.get("excluding 2008-09-16"),
+        }
+    except Exception:
+        return {}
+
+
 def chart(name):
     p = os.path.join(CH, name)
     if os.path.exists(p):
@@ -70,20 +90,50 @@ def render():
     # ============ H1 ============
     st.markdown("---")
     st.markdown("### H1: Target and Path surprises are associated with statement sentiment")
-    h1 = P["h1"]
-    rows = [
-        ["Target shock (Acosta)", fmt(h1["target"]["beta"], h1["target"]["p"], 6),
-         f"({h1['target']['se']:.6f})", f"{h1['target']['p']:.3f}"],
-        ["Path shock (Acosta)", fmt(h1["path"]["beta"], h1["path"]["p"], 6),
-         f"({h1['path']['se']:.6f})", f"{h1['path']['p']:.3f}"],
-        ["N", f"{h1['n']}", "", ""],
-        ["R²", f"{h1['r2']*100:.2f}%", "", ""],
-    ]
-    st.markdown("**H1 Regression — statement sentiment (0.5·LM + 0.5·CB), NW HAC(4)**")
-    st.dataframe(pd.DataFrame(rows, columns=["Variable", "Coefficient", "NW SE", "p-value"]),
-                 use_container_width=True, hide_index=True)
-    st.caption(f"Sample: {h1['sample']} (audited spec, n={h1['n']}) — {h1['spec']}. "
-               "Source: verified_results.json.")
+    tm_path = os.path.join(BASE, "direction2/flow_rerun_output_v8/tone_measures_current.json")
+    if os.path.exists(tm_path):
+        tm = json.load(open(tm_path))
+        rows = []
+        for v in tm["t1_current"]:
+            if v["variable"].startswith("Wald"):
+                rows.append([f"Wald test: Target = Path (p) — {v['sample']}",
+                             "", "", f"{float(v['p']):.3f}"])
+            elif v["variable"] == "const":
+                continue
+            else:
+                rows.append([v["variable"].capitalize(), fmt(float(v["coef"]), float(v["p"])),
+                             f"({float(v['se']):.3f})", f"{float(v['p']):.3f}"])
+        # N / R2 per sample block
+        for sample in dict.fromkeys(v["sample"] for v in tm["t1_current"]):
+            blk = [v for v in tm["t1_current"] if v["sample"] == sample and v["n"]]
+            if blk:
+                rows.append([f"N — {sample}", str(int(blk[0]["n"])), "", ""])
+                rows.append([f"R² — {sample}", f"{float(blk[0]['r2'])*100:.2f}%", "", ""])
+        st.markdown("**H1 Regression — statement sentiment on Target and Path "
+                    "(current dataset, OLS, classical SE)**")
+        st.dataframe(pd.DataFrame(rows, columns=["Variable", "Coefficient", "SE", "p-value"]),
+                     use_container_width=True, hide_index=True)
+        st.caption("Current dataset (2006–2026; 2025-26 meetings without a same-day CRSP "
+                   "return dropped → N = 131): neither shock predicts sentiment "
+                   "(Target p = .36, Path p = .92). The earlier archived result "
+                   "(audited spec, N = 117, Target p = .017) does not survive the "
+                   "corrected classification — shown for comparison on the Research "
+                   "Results page. Source: tables_all_results.xlsx, Table 1.")
+    else:
+        h1 = P["h1"]
+        rows = [
+            ["Target shock (Acosta)", fmt(h1["target"]["beta"], h1["target"]["p"], 6),
+             f"({h1['target']['se']:.6f})", f"{h1['target']['p']:.3f}"],
+            ["Path shock (Acosta)", fmt(h1["path"]["beta"], h1["path"]["p"], 6),
+             f"({h1['path']['se']:.6f})", f"{h1['path']['p']:.3f}"],
+            ["N", f"{h1['n']}", "", ""],
+            ["R²", f"{h1['r2']*100:.2f}%", "", ""],
+        ]
+        st.markdown("**H1 Regression — statement sentiment (0.5·LM + 0.5·CB), NW HAC(4)**")
+        st.dataframe(pd.DataFrame(rows, columns=["Variable", "Coefficient", "NW SE", "p-value"]),
+                     use_container_width=True, hide_index=True)
+        st.caption(f"Sample: {h1['sample']} (audited spec, n={h1['n']}) — {h1['spec']}. "
+                   "Source: verified_results.json.")
 
     col1, col2 = st.columns(2)
     with col1:
@@ -152,15 +202,31 @@ def render():
     st.markdown("---")
     st.markdown("### H4: MP and CBI shocks have differential effects on fund flows")
     h4 = P["h4"]
+    rob = _robustness()
     rows = [[a.replace("_", " ").title(), fmt(v["mp_beta"], v["mp_p"]),
              fmt(v["cbi_beta"], v["cbi_p"]), f"{v['wald_mp_eq_cbi_p']:.2f}"]
             for a, v in h4.items()]
+    if rob and "gov_cbi" in rob:
+        gc = rob["gov_cbi"]
+        rows.append(["Gov bonds, CBI — robust SE (HC1 / NW)",
+                     fmt(gc["classical"]["beta"], gc["classical"]["p"]),
+                     f"HC1 p = {gc['hc1']['p']:.3f}; NW p = {gc['hac']['p']:.3f}",
+                     "not robust"])
+        ex = rob.get("exclude_2008_09")
+        if ex:
+            rows.append(["Gov bonds, CBI — excluding 2008-09-16",
+                         fmt(ex["gov_cbi_hc1"]["beta"], ex["gov_cbi_hc1"]["p"]),
+                         f"(se {ex['gov_cbi_hc1']['se']:.3f})",
+                         f"p = {ex['gov_cbi_hc1']['p']:.3f}"])
     st.markdown("**H4 Regression — class-level flows on MP and CBI (meeting month)**")
-    st.dataframe(pd.DataFrame(rows, columns=["Asset class", "β MP", "β CBI",
-                                             "Wald p (MP=CBI)"]),
+    st.dataframe(pd.DataFrame(rows, columns=["Asset class / variant", "β MP",
+                                             "β CBI / note", "Wald p / robust p"]),
                  use_container_width=True, hide_index=True)
     st.caption("Controls: log TNA, flow volatility; class-level monthly flows. "
-               "Source: flow_results_rerun_v8.json (H4 same window).")
+               "⚠️ Robustness: the gov-bond CBI effect (classical p = .043) is NOT "
+               "significant under robust standard errors (HC1 p = .342, NW p = .341) "
+               "and hinges on 2008-09-16 (excluding it: β = +0.029, p = .925). "
+               "Source: flow_results_rerun_v8.json + robustness_tests/results.json.")
     chart("h4_flows.png")
 
     # ============ H5 ============
@@ -169,28 +235,34 @@ def render():
     L = P["h5"]["ladder"]
     A = P["h5"]["asym"]
     Z = P["h5"]["zlb"]
+    rob = _robustness()
+    r5 = rob.get("risk_x_cbi") if rob else None
     rows = [
         ["Risk × CBI", fmt(L["risk_x_cbi"]["beta"], L["risk_x_cbi"]["p"]),
          f"({L['risk_x_cbi']['se']:.3f})", f"{L['risk_x_cbi']['p']:.3f}"],
         ["Risk × MP", fmt(L["risk_x_mp"]["beta"], L["risk_x_mp"]["p"]),
          f"({L['risk_x_mp']['se']:.3f})", f"{L['risk_x_mp']['p']:.3f}"],
-        ["Risk × CBI (hawkish: CBI > 0)",
+        ["Risk × CBI (positive CBI = good economic news)",
          fmt(A["risk_x_cbi_pos"]["beta"], A["risk_x_cbi_pos"]["p"]),
          f"({A['risk_x_cbi_pos']['se']:.3f})", f"{A['risk_x_cbi_pos']['p']:.3f}"],
-        ["Risk × CBI (dovish: CBI < 0)",
+        ["Risk × CBI (negative CBI)",
          fmt(A["risk_x_cbi_neg"]["beta"], A["risk_x_cbi_neg"]["p"]),
          f"({A['risk_x_cbi_neg']['se']:.3f})", f"{A['risk_x_cbi_neg']['p']:.3f}"],
         ["MP × ZLB (2020–22)", fmt(Z["mp_x_zlb"]["beta"], Z["mp_x_zlb"]["p"]),
          f"({Z['mp_x_zlb']['se']:.3f})", f"{Z['mp_x_zlb']['p']:.3f}"],
         ["N (meeting months × classes)", f"{L['n']}", "", ""],
     ]
+    if r5:
+        rows.insert(1, ["Risk × CBI — robust / clustered SE", fmt(r5["classical"]["beta"], r5["classical"]["p"]),
+                        f"HC1 p = {r5['hc1']['p']:.3f}; cluster-month p = {r5['cluster_month']['p']:.3f}",
+                        "not robust"])
     st.markdown("**H5 Regression — flows on risk-rank interactions (meeting month)**")
-    st.dataframe(pd.DataFrame(rows, columns=["Variable", "Coefficient", "SE", "p-value"]),
+    st.dataframe(pd.DataFrame(rows, columns=["Variable", "Coefficient", "SE / note", "p-value"]),
                  use_container_width=True, hide_index=True)
-    st.caption("Dependent variable: class-level flow (%TNA); gap-free variant: "
-               "Risk×CBI = −0.114 (p = 0.002). Source: flow_results_rerun_v8.json "
-               "(H5_risk_ladder_same, zero_rate_check) + models_v2_results.json "
-               "(sign asymmetry).")
+    st.caption("Dependent variable: class-level flow (%TNA). "
+               "⚠️ Robustness: Risk × CBI (classical p = .041) is NOT significant under "
+               "HC1 (p = .434) or month-clustered SE (p = .466). "
+               "Source: flow_results_rerun_v8.json + robustness_tests/results.json.")
     chart("h5_ladder.png")
 
     # ============ H6 ============
@@ -198,7 +270,7 @@ def render():
     st.markdown("### H6: Transmission differs across horizons (prices first, portfolios later)")
     if win:
         rows = []
-        labels = {"same": "Same month", "post": "Post month", "diff": "Diff (2m out)"}
+        labels = {"same": "Same month", "post": "Post month", "diff": "Diff (post − same)"}
         for w in ["same", "post", "diff"]:
             for c in ["government_bonds", "emerging_market_equity"]:
                 v = win[w][c]

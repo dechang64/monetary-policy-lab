@@ -238,8 +238,14 @@ def load_fomc():
     # FIX-C note: JK split uses only the SAME-DAY CRSP return; flows never
     # explain that return, so the day-0 circularity from the audit does not
     # apply to this chapter.
-    mp = np.where(np.sign(df["target_shock"]) != np.sign(df["crsp_vw"]), df["target_shock"], 0.0)
-    cbi = np.where(np.sign(df["target_shock"]) == np.sign(df["crsp_vw"]), df["target_shock"], 0.0)
+    # 2026-11-20 bug fix (Eileen): meetings with missing crsp_vw got assigned
+    # mp_shock = target_shock because np.sign(nan) = nan != nan is True, so
+    # those 8 meetings were misclassified as MP. Require a valid same-day
+    # return before classifying; 91/60 -> 83/60 meetings.
+    valid = df["crsp_vw"].notna()
+    ts_sign = np.sign(df["target_shock"])
+    mp = np.where(valid & (ts_sign != np.sign(df["crsp_vw"])), df["target_shock"], 0.0)
+    cbi = np.where(valid & (ts_sign == np.sign(df["crsp_vw"])), df["target_shock"], 0.0)
     df["mp_shock"], df["cbi_shock"] = mp, cbi
     df["zlb_2020_2022"] = ((df.index >= "2020-03-15") & (df.index <= "2022-01-26")).astype(int)
     return df

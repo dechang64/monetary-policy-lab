@@ -40,7 +40,7 @@ empirical implementers). Our sign restriction is the inversion rule:
 - Statement hawkish **and** prices up => the market read it as news about the
   economy (information channel) => CBI shock.
 
-91 MP / 60 CBI meetings out of 161 (2006-2026). Under Pillar 2, CBI shocks are
+83 MP / 60 CBI meetings out of 161 (2006-2026; 2026-11-20 NaN-sign fix — 8 meetings with missing same-day CRSP returns were misclassified as MP under the old sign test; robustness_tests.py baseline_check shows flow results essentially unchanged, gov CBI +0.763 p=.043). Under Pillar 2, CBI shocks are
 the states where the noise term is small enough that the market successfully
 inverts the signal.
 
