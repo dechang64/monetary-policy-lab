@@ -40,8 +40,11 @@ def prices(fomc):
     Returns dict of spec -> {coef: {beta, se, p}, n, r2} with HC1 SEs."""
     df = fomc.dropna(subset=["crsp_vw", "target_shock", "path_shock"]).copy()
     df["tone100"] = df["sentiment"] * 100.0
-    fg = ((df.index >= "2008-12-16") & (df.index <= "2015-12-31")).astype(int)
-    df["fg"] = fg
+    # FIX (audit 2026-11-26): use the dataset's own fg_2008_2015 flag.
+    # A hand-rolled window ..2015-12-31 counts 57 meetings but the dataset
+    # marks 2015-12-16 fg=0 (no FG language) -> 56, matching slide 23 and
+    # robustness test1. All deck numbers use the flag.
+    df["fg"] = df["fg_2008_2015"]
     df["tone_x_fg"] = df["tone100"] * df["fg"]
 
     # merge official JK shocks (A4)
@@ -75,10 +78,22 @@ def prices(fomc):
         ("FG only: T + P + hawkishness", ["target_shock", "path_shock", "hawk100"]),
         ("E11 FG only: sentiment + hawkishness", ["target_shock", "path_shock", "tone100",
                                                   "hawk100"]),
+        # E10 (professor): slide-23 horse race with MP/CBI controls.
+        # sign-rule version = the published 48%-R2 spec; official JK = new.
+        ("E10 FG: T + P + tone + MP(sign-rule) + CBI(sign-rule)",
+         ["target_shock", "path_shock", "tone100", "mp_shock", "cbi_shock"], "fg"),
+        ("E10 FG: T + P + tone + MP(official JK) + CBI(official JK)",
+         ["target_shock", "path_shock", "tone100", "mp_jk", "cbi_jk"], "fg"),
+        ("E10 FG: tone + MP(official JK) + CBI(official JK)",
+         ["tone100", "mp_jk", "cbi_jk"], "fg"),
+        ("E10 full: tone + MP(official JK) + CBI(official JK)",
+         ["tone100", "mp_jk", "cbi_jk"], None),
     ]
-    for name, xs in specs:
+    for spec in specs:
+        name, xs = spec[0], spec[1]
+        restrict_fg = len(spec) > 2 and spec[2] == "fg"
         sub = df.dropna(subset=xs + ["crsp_vw"])
-        if name.startswith("FG only") or name.startswith("E11 FG"):
+        if restrict_fg or name.startswith("FG only") or name.startswith("E11 FG"):
             sub = sub[(sub["fg"] == 1)]
         if len(sub) < 10:
             out[name] = {"skipped": f"n={len(sub)}"}

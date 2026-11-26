@@ -291,13 +291,36 @@ def render():
                          (_b(c["hawk_x_fg"]["beta"]) + f" (p {_p(c['hawk_x_fg']['p'])})") if "hawk_x_fg" in c else "—"])
         _df(rows, ["Specification", "N", "R²", "Sentiment β (p)", "Hawkishness β (p)",
                    "Sentiment × FG β (p)", "Hawkishness × FG β (p)"])
-        st.success("**Answer to E11: it is sentiment, not hawkishness.** In the FG period, "
-                   "the return response loads on the statement sentiment measure "
-                   "(tone100 −1.09, p = .006 even when both measures are included), while "
-                   "the LLM hawkishness score is insignificant everywhere (p = .14–.92). "
-                   "Sentiment breadth, not directional hawkishness, is what prices react to.", icon="✅")
+        st.success("**Answer to E11: it is sentiment, not hawkishness.** In the FG period "
+                   "(N = 56, dataset flag), the return response loads on statement sentiment "
+                   "(tone100 −1.11, p = .005 even when both measures are included), while the "
+                   "LLM hawkishness score is at most marginal (p = .08–.92; only the "
+                   "both-measures spec reaches 10%). Sentiment breadth, not directional "
+                   "hawkishness, is what prices react to.", icon="✅")
         st.caption("Source: direction2/professor_revisions.py (LLM hawkishness from "
                    "llm_statement_scores.jsonl, 5-model consensus).")
+
+        # ── E10: slide-23 horse race, official vs sign-rule controls ──
+        st.markdown("**E10 · Slide-23 horse race with MP/CBI controls, official vs sign-rule**")
+        e10 = {k: v for k, v in split.items() if k.startswith("E10")}
+        if e10:
+            rows = []
+            for name, spec in e10.items():
+                if "skipped" in spec:
+                    continue
+                c = spec["coefs"]
+                tone = (_b(c["tone100"]["beta"]) + f" (p {_p(c['tone100']['p'])})") if "tone100" in c else "—"
+                mp = (_b(c["mp_jk"]["beta"]) + f" (p {_p(c['mp_jk']['p'])})") if "mp_jk" in c else (
+                     (_b(c["mp_shock"]["beta"]) + f" (p {_p(c['mp_shock']['p'])})") if "mp_shock" in c else "—")
+                cbi = (_b(c["cbi_jk"]["beta"]) + f" (p {_p(c['cbi_jk']['p'])})") if "cbi_jk" in c else (
+                      (_b(c["cbi_shock"]["beta"]) + f" (p {_p(c['cbi_shock']['p'])})") if "cbi_shock" in c else "—")
+                rows.append([name, spec["n"], f"{spec['r2']*100:.1f}%", tone, mp, cbi])
+            _df(rows, ["Specification", "N", "R²", "Tone β (p)", "MP β (p)", "CBI β (p)"])
+            st.caption("**Tone survives the official-series controls**: −0.96 (p = .009) with "
+                       "official JK MP/CBI in the FG subsample (published sign-rule version: "
+                       "−1.22, p = .001, R² 50.5% — matches slide 23's 48% spec). The "
+                       "full-sample spec stays insignificant (p = .29). "
+                       "Source: direction2/professor_revisions.py.")
 
         # A5 clustered flows, both shock measures
         st.markdown("**A5 · Clustered flows, both shock measures side by side**")
