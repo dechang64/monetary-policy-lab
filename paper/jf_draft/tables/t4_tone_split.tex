@@ -1,0 +1,18 @@
+% --- auto-generated ---
+\begin{tabular}{lrccccc}
+\toprule
+ & & & \multicolumn{2}{c}{Sentiment (tone100)} & \multicolumn{2}{c}{Hawkishness (LLM)} \\
+\cmidrule(l){4-5}\cmidrule(l){6-7}
+Specification & N & R$^2$ & $\beta$ & SE & $\beta$ & SE \\
+\midrule
+FG subsample: T + P + sentiment & 56 & 32.8\% & -1.013$^{**}$ & (0.381) &  &  \\
+FG subsample: T + P + hawkishness & 56 & 23.6\% &  &  & -0.006 & (0.005) \\
+FG subsample: sentiment + hawkishness & 56 & 36.9\% & -1.113$^{***}$ & (0.379) & -0.008$^{*}$ & (0.004) \\
+Full sample --- return on T, P, sentiment & 150 & 6.3\% & -0.145 & (0.125) &  &  \\
+full: R ~ T + P + hawkishness & 150 & 6.5\% &  &  & -0.003 & (0.003) \\
+full: sentiment + hawkishness together & 150 & 6.8\% & -0.103 & (0.119) & -0.002 & (0.003) \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item \textbf{Note.} Sentiment = 0.5$\cdot$LM + 0.5$\cdot$central-bank word list (tone100). Hawkishness = five-model-consensus LLM score ($-100$ to $+100$). HC1 standard errors. FG subsample uses the dataset's regime flag (56 meetings). Source: professor\_revisions.json.
+\end{tablenotes}

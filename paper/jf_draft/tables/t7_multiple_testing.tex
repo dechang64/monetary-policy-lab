@@ -1,0 +1,23 @@
+% --- auto-generated ---
+\begin{tabular}{lcccc}
+\toprule
+ & Tests & Raw $p<.05$ & Survive Holm & Survive BH \\
+\midrule
+Classical SE & 42 & 6 & 0 & 0 \\
+HC1 SE & 42 & 2 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.6em}
+
+\begin{tabular}{lccc}
+\toprule
+Power / placebo & Estimate & SE & MDE / $p$ \\
+\midrule
+Tone on returns, FG only & -1.013 & 0.381 & MDE 1.07 \\
+Placebo: random 56-meeting windows & -1.133 & & $p = 0.0$; 95 blocks, 1.1\% at least as negative \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item \textbf{Note.} Top: 42 H4 sign-rule coefficient tests (7 classes $\times$ 3 windows $\times$ 2 shocks), Holm and Benjamini--Hochberg corrections. Bottom: minimum detectable effect at 80\% power for the FG-period tone result, and the placebo distribution over consecutive 56-meeting windows. Source: robustness\_tests/results.json, test6.
+\end{tablenotes}

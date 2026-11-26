@@ -1,0 +1,16 @@
+% --- auto-generated ---
+\begin{tabular}{lrccccccccccc}
+\toprule
+Specification & N & R$^2$ & \multicolumn{2}{c}{Tone} & \multicolumn{2}{c}{MP} & \multicolumn{2}{c}{CBI} & \multicolumn{2}{c}{Target} & \multicolumn{2}{c}{Path} \\
+\cmidrule(l){4-5}\cmidrule(l){6-7}\cmidrule(l){8-9}\cmidrule(l){10-11}\cmidrule(l){12-13}
+ & & & $\beta$ & (SE) & $\beta$ & (SE) & $\beta$ & (SE) & $\beta$ & (SE) & $\beta$ & (SE) \\
+\midrule
+T + P + tone + MP(sign rule) + CBI(sign rule) & 56 & 50.5\% & -1.218$^{***}$ & (0.334) & -1.344$^{***}$ & (0.325) & +1.633$^{***}$ & (0.598) & +0.289 & (0.310) & -0.346 & (0.240) \\
+T + P + tone + MP(Official JK) + CBI(Official JK) & 56 & 38.8\% & -0.959$^{***}$ & (0.353) & -89.208$^{**}$ & (38.681) & -107.081$^{*}$ & (55.572) & +2.560$^{*}$ & (1.425) & +3.013$^{*}$ & (1.514) \\
+tone + MP(Official JK) + CBI(Official JK) & 56 & 35.0\% & -0.999$^{***}$ & (0.358) & -14.648$^{***}$ & (4.073) & -32.161 & (38.222) & --- & --- \\
+tone + MP(Official JK) + CBI(Official JK) & 150 & 8.0\% & -0.135 & (0.126) & -7.427$^{**}$ & (3.455) & -3.277 & (9.811) & --- & --- \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item \textbf{Note.} Dependent variable: same-day CRSP value-weighted return, percentage points. Rows 1--3: forward-guidance subsample (56 meetings, dataset regime flag). Row 4: full sample (150 meetings with returns). HC1 standard errors. Row 1 reproduces the published horse-race specification; rows 2--3 replace the sign-rule shocks with the official JK series; official-series coefficients are in the series' native units, so their scale is not comparable across rows --- read the $p$-values. Source: professor\_revisions.json.
+\end{tablenotes}

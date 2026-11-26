@@ -1,0 +1,14 @@
+% --- auto-generated ---
+\begin{tabular}{lccccc}
+\toprule
+Measure & Mean (hikes) & Mean (cuts) & Mean (holds) & Hike--cut gap (SD) & $p$ \\
+\midrule
+Loughran--McDonald dictionary & 3.59 & 3.03 & 4.58 & 0.39 & .160 \\
+Central-bank word list & 2.69 & 1.62 & 0.98 & 0.67$^{**}$ & .024 \\
+Combined (0.5 LM + 0.5 CB) & 3.14 & 2.33 & 2.78 & 1.01$^{***}$ & .002 \\
+LLM hawkishness ($-100$ to $+100$) & 51.67 & -43.12 & -15.93 & 2.00$^{***}$ & $<$ .001 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item \textbf{Note.} Mean score by decision (21 hikes, 16 cuts, 124 holds). Gap in within-measurement standard-deviation units; $p$-value from a two-sample test of hike vs.\ cut means. Source: tables\_all\_results.xlsx, Table 8 (tone\_measures\_current.json).
+\end{tablenotes}

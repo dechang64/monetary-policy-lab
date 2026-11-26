@@ -1,0 +1,15 @@
+% --- auto-generated ---
+\begin{tabular}{lrcccccc}
+\toprule
+Result & $\beta$ & Classical & HC1 & Newey--West & Month cluster & Two-way & Wild bootstrap \\
+\midrule
+Return on T, P, tone (full) & -0.145 & .260 & .248 & .277 & --- & --- & .248 \\
+\quad + FG interaction: Tone$\times$FG & -1.133 & .003 & .003 & .005 & --- & --- & .003 \\
+FG subsample: return on T, P, tone & -1.013 & .005 & .010 & .011 & --- & --- & .012 \\
+Gov-bond flow on CBI (same month) & +0.763 & .043 & .342 & .341 & --- & --- & --- \\
+Risk$\times$CBI, class-month panel (same) & -0.066 & .041 & .434 & --- & .466 & --- & --- \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item \textbf{Note.} $p$-values under six covariance estimators for the five headline sign-rule regressions; column 2 of each row is the classical-SE point estimate of the tone (rows 1--3) or shock (rows 4--5) coefficient. --- = estimator not applicable (cross-section has no cluster dimension). The flow results (last two rows) do not survive robust inference; the FG-period tone result does. Source: robustness\_tests/results.json, test1.
+\end{tablenotes}
