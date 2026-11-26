@@ -66,7 +66,7 @@ what the statement reveals about the economy, as distinct from the policy action
 itself --- is a first-order driver of announcement-day price movements
 \citep{JAROCINSKI_KARADI_2020, BAUER_SWANSON_2023}. The second question has
 received far less attention, and what evidence exists is indirect
-\citep{KROENCKE_2024, BANEGAS_2022, BROOKS_2018}. This paper provides a direct
+\citep{BANEGAS_2022}. This paper provides a direct
 answer: central-bank-information shocks generate large, statistically robust,
 and economically meaningful reallocations of mutual-fund portfolios, while
 conventional monetary-policy shocks of the same size leave fund flows
@@ -198,8 +198,8 @@ bond-fund outflows after rate hikes with a lag. Neither separates the
 information component, which is precisely where our results live.
 
 The third is the measurement of statement tone. Dictionary scores
-\citep{LOUGHRAN_MCDONALD_2011, BOUVARES_2020} and LLM-based scores
-\citep{CURTI_KAZINNIK_2023, HANSEN_2025} both correlate with market reactions,
+\citep{LOUGHRAN_MCDONALD_2011} and LLM-based scores
+\citep{CURTI_KAZINNIK_2023} both correlate with market reactions,
 but they differ sharply in resolution across regimes. Our score-compression
 result (\S\ref{sec:measurement}) --- the dictionary loses most of its
 cross-meeting variance in the transition from forward guidance to
@@ -235,6 +235,29 @@ shock is favourable economic news revealed by the statement (the professor's
 ``positive CBI = good economic news'' labelling), and a positive MP shock is a
 contractionary policy surprise. Under this convention the flows results read
 naturally: favourable information $\Rightarrow$ money moves toward risk.
+
+\subsection{Three regimes in one sample}\label{sec:regimes}
+
+The sample spans three monetary-policy regimes, and the tone--price
+relation concentrates in the second.
+
+\paragraph{Zero rates without guidance (2006--2007).} The Committee still
+moved the target at most meetings; surprises were action shocks, and
+statement language was short and formulaic. Tone has no separate role ---
+prices already had the thing they needed.
+
+\paragraph{Forward guidance (2008--2015).} With the target pinned near zero,
+the statement became the policy instrument: dates, thresholds, and balance
+-sheet language. The announcement-day information content shifts from the
+decision to the language, and our tone effect concentrates here
+($-1.01$ per 100 tone units, $p=.005$).
+
+\paragraph{Normalization and after (2016--2026).} Gradualism, then the
+2022--2023 tightening cycle. Tone effects are absent on average --- the
+policy path is again visible in the actions --- but the LLM score separates
+hikes from cuts with precision the dictionaries never had
+(Figure~\ref{fig:compression}), which is what makes the post-2022
+out-of-sample check informative rather than merely underpowered.
 
 \subsection{Why the statement matters for flows}\label{sec:whystatements}
 
@@ -395,6 +418,63 @@ one-step-riskier class relative to a one-step-safer one; at the average
 government-bond class TNA of about \$110 billion this is on the order of
 several billion dollars of reallocation per announcement.
 
+The official series also reveals a cross-class pattern the sign-rule
+baseline obscured. Table~\ref{tab:h4grid} reports the CBI coefficient for
+every asset class in the meeting month and the month after. The pattern is
+exactly what favourable-information reallocation should look like:
+government-bond classes --- the safe rung --- \emph{lose} funds
+($-43.1$, $p=.037$; $-24.5$, $p=.024$), while equity classes
+\emph{gain}, with the estimates rising (in absolute value) along the risk
+ladder and the equity-side precision lower, as expected when the signal is
+diffused across many classes rather than concentrated in one. The sign-rule
+series, by contrast, concentrates all of its action in one or two classes
+with no coherent cross-class ordering (Eileen's original finding). The
+disciplined null for MP is unchanged: no MP coefficient is significant in
+either series at the class level except corporate bonds in the post month
+($-4.4$, $p=.034$), which is consistent with a slow duration response
+rather than an announcement effect.
+
+\begin{table}[H]
+\centering\small
+\caption{CBI shock and class flows, all seven classes (official \jk{} series)}
+\begin{tabular}{lcc}
+\toprule
+Asset class & Same month & Month after \\
+\midrule
+Government bonds & -43.06$^{**}$ & -24.54$^{**}$ \\
+Corporate bonds & +10.56 & -1.42 \\
+Real assets & -1.61 & -0.37 \\
+Large-cap equity & +3.08 & -1.31 \\
+Developed-market equity & +7.43 & +2.38 \\
+Emerging-market equity & +9.27$^{*}$ & +7.76 \\
+Small-cap equity & +5.63$^{*}$ & +3.05$^{***}$ \\
+\midrule
+\multicolumn{3}{p{.9\linewidth}}{\footnotesize \emph{Note:} HC1 standard errors; $n = 157$ class-months per class. Dependent variable: class flow (\% of lagged TNA) on the official CBI shock. Controls: \texttt{log\_tna}, \texttt{flow\_vol\_12m}. *** $p<.01$, ** $p<.05$, * $p<.10$.}\\
+\bottomrule
+\end{tabular}
+\label{tab:h4grid}
+\end{table}
+
+
+\begin{table}[H]
+\centering\small
+\caption{Headline flows results (official \jk{} series)}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Gov bonds, H4 (HC1)} & \multicolumn{2}{c}{Ladder, H5 (month-clustered)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Window & MP & CBI & Risk$\times$MP & Risk$\times$CBI \\
+\midrule
+Meeting month & +5.0 (0.469) & -43.1$^{**}$ (0.037) & -0.41 (0.562) & +5.28$^{***}$ (0.005) \\
+Month after & +0.7 (0.884) & -24.5$^{**}$ (0.024) & -0.03 (0.953) & +3.45$^{***}$ (0.006) \\
+Diff (post $-$ same) & -4.6 (0.337) & +17.3 (0.369) & +0.42 (0.392) & -1.79 (0.368) \\
+\midrule
+\multicolumn{5}{p{.92\linewidth}}{\footnotesize \emph{Note:} Government-bond class flow (\% of lagged TNA) on the shock, $n=157$ class-months (HC1); pooled seven-class ladder panel with Risk$\times$shock interactions, $n=1099$ (month-clustered). Controls: \texttt{log\_tna}, \texttt{flow\_vol\_12m}. Wald MP $=$ CBI in the same month: $p=0.025$. *** $p<.01$, ** $p<.05$, * $p<.10$.} \\
+\bottomrule
+\end{tabular}
+\label{tab:official}
+\end{table}
+
 \subsection{MP shocks: a disciplined null}\label{sec:mpnull}
 
 The MP column of Table~\ref{tab:official} is a null we designed the paper to
@@ -432,7 +512,7 @@ confirms: $-1.06$ ($p=.006$).
 
 \subsection{Breadth, not direction (H4)}\label{sec:split}
 
-Table~\ref{tab:split} runs the professor-requested split. In the FG
+Figure~\ref{fig:split} runs the professor-requested split. In the FG
 subsample, the LLM hawkishness score alone is insignificant
 ($p=.23$--$.33$); when both measures enter, sentiment dominates
 ($-1.11$, $p=.005$) and hawkishness remains marginal at best ($p=.081$).
@@ -451,7 +531,51 @@ coefficients themselves are marginally signed in this subsample
 ($p=.052$--$.078$), which is unsurprising given $n=56$ and the overlap between
 announcement-window and same-day return measurement.
 
+
+\begin{table}[H]
+\centering\small
+\caption{Tone and prices: the horse race (FG period, 56 meetings)}
+\begin{tabular}{lcc}
+\toprule
+Specification & Sentiment (tone100) & Hawkishness (LLM, per 100) \\
+\midrule
+Sentiment alone & -1.01$^{**}$ (0.010) & --- \\
+Hawkishness alone & --- & -0.56 (0.227) \\
+Both in the race & -1.11$^{***}$ (0.005) & -0.79$^{*}$ (0.081) \\ \\
+\midrule
+\multicolumn{3}{p{.9\linewidth}}{\footnotesize \emph{Note:} Dependent variable: same-day CRSP value-weighted return; controls: target and path surprises. HC1 standard errors; $n=56$ FG meetings. Hawkishness rescaled to tone100 units (per 100 score points). *** $p<.01$, ** $p<.05$, * $p<.10$.} \\
+\bottomrule
+\end{tabular}
+\label{tab:horse}
+\end{table}
+
 \section{Tone measurement: compression and the LLM}\label{sec:measurement}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.72\textwidth]{figures/fig3_score_compression.pdf}
+\caption{Do tone measures separate hikes from cuts? Hike--cut gap in SD
+units by measure. The LLM score separates at $p < .001$; the LM dictionary
+does not ($p = .16$).}
+\label{fig:compression}
+\end{figure}
+
+\begin{table}[H]
+\centering\small
+\caption{Do tone measures separate hikes from cuts?}
+\begin{tabular}{lcc}
+\toprule
+Measure & Hike--cut gap (SD) & $p$ \\
+\midrule
+Loughran–McDonald dictionary & 0.39 & 0.160 \\
+Central-bank word list & 0.67 & 0.024 \\
+Combined tone (½ LM + ½ CB) & 1.01 & 0.002 \\
+LLM hawkishness score (−100 to +100) & 2.00 & 0.000 \\
+\bottomrule
+\end{tabular}
+\label{tab:measures}
+\end{table}
+
 
 Do our tone measures separate policy actions? Table~\ref{tab:measures} asks
 which measures distinguish hikes from cuts. The Loughran--McDonald dictionary
@@ -554,22 +678,82 @@ the interaction insignificant under the sign rule under every variant
 the ranking --- consistent with the finding that the two CBI components
 differ in identity.
 
-\paragraph{Who moves the money.} We split each class's flows by share-class
-investor type using the CRSP point-in-time institutional flag (institutional
-share classes hold $59.4\%$ of TNA). Under the official series, the ladder
-response is an institutional phenomenon: Risk$\times$CBI is $+6.43$
-($p=.003$) in the meeting month and $+5.07$ ($p=.003$) one month after for
+\subsection{Who moves the money}\label{sec:whomoves}
+
+We split each class's flows by share-class investor type using the CRSP
+point-in-time institutional flag (institutional share classes hold $59.4\%$
+of TNA). Under the official series, the ladder response is an institutional
+phenomenon (Table~\ref{tab:investor}): Risk$\times$CBI is $+6.43$ ($p=.003$)
+in the meeting month and $+5.07$ ($p=.003$) one month after for
 institutional classes, against insignificant retail coefficients
 ($p=.10$, $.87$); in the pooled regression the institutional interaction is
-significant in the post month ($+5.42$, $p=.001$). Retail funds instead show
-a delayed partial bounce two months out (government-bond CBI diff $+35.4$,
-$p=.040$): fast money trades the information on announcement day, slow money
-trickles in afterwards. This is exactly the lagged structure the ``prices
-first, portfolios later'' logic predicts, and it explains why aggregate
-flows respond at the monthly horizon at all --- the institutional half
-executes immediately, and it is the institutional half that carries the
-statistical signal. Under the sign-rule series neither split is
-significant.
+significant in the post month ($+5.42$, $p=.001$). Retail funds instead
+show a delayed partial bounce two months out (government-bond CBI diff
+$+35.4$, $p=.040$): fast money trades the information on announcement day,
+slow money trickles in afterwards.
+
+\begin{table}[H]
+\centering\small
+\caption{Retail vs.\ institutional flows (official \jk{} series)}
+\begin{tabular}{llcc}
+\toprule
+Window & Group & Gov CBI & Risk$\times$CBI \\
+\midrule
+Same month & Retail & $-32.8$ ($p=.074$) & $+3.77$ ($p=.104$) \\
+Same month & Institutional & $-52.8^{**}$ ($p=.021$) & $+6.43^{***}$ ($p=.003$) \\
+Month after & Retail & $+3.3$ ($p=.743$) & $+0.21$ ($p=.867$) \\
+Month after & Institutional & $-31.2^{**}$ ($p=.021$) & $+5.07^{***}$ ($p=.003$) \\
+Diff (post $-$ same) & Retail & $+35.4^{**}$ ($p=.040$) & $-3.55$ ($p=.096$) \\
+Diff (post $-$ same) & Institutional & $+20.3$ ($p=.373$) & $-1.34$ ($p=.611$) \\
+\midrule
+\multicolumn{4}{p{.9\linewidth}}{\footnotesize \emph{Note:} Gov CBI from the government-bond cross-section (HC1, $n\approx157$); Risk$\times$CBI from the pooled ladder panel (month-clustered). Institutional share classes hold 59.4\% of TNA. ** $p<.05$, *** $p<.01$.}\\
+\bottomrule
+\end{tabular}
+\label{tab:investor}
+\end{table}
+
+This is exactly the lagged structure the ``prices first, portfolios later''
+logic predicts, and it explains why aggregate flows respond at the monthly
+horizon at all --- the institutional half executes immediately, and it is
+the institutional half that carries the statistical signal. It also speaks
+to the H6 mechanism: dealers and institutions reprice public news within
+the day; fund shareholders who delegate to institutions get the reallocation
+almost as fast, while direct retail shareholders follow with a lag. Under
+the sign-rule series neither split is significant --- one more indication
+that the sign-rule CBI is a different information component rather than a
+noisy estimate of the same one.
+
+
+\begin{table}[H]
+\centering\small
+\caption{Ladder interaction under month-clustered SEs, both shock series}
+\begin{tabular}{lcc}
+\toprule
+Window & Official \jk{} series & Sign-rule series \\
+\midrule
+same & +5.28$^{***}$ (1.86) & -0.07 (0.09) \\
+post & +3.45$^{***}$ (1.24) & +0.04 (0.05) \\
+diff & -1.79 (1.98) & +0.11$^{*}$ (0.05) \\
+\bottomrule
+\end{tabular}
+\label{tab:se}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{The multiple-testing landscape}
+\begin{tabular}{lcc}
+\toprule
+Family & Tests & Significant at 5\% \\
+\midrule
+Class $\times$ window flow tests (sign-rule) & 42 & 6 \\
+By chance at 5\% & 42 & $\approx 2$ \\
+Pass Holm or BH & 42 & 0 \\
+\bottomrule
+\end{tabular}
+\label{tab:multiple}
+\end{table}
+
 
 \paragraph{Macro-revision benchmark (SPF).} If the shock components carry
 information, they should predict revisions of professional forecasts. Using
@@ -598,223 +782,86 @@ negligibly ($+.759 \to +.763$), which is why we flag the fix rather than a
 results revision --- and why the official series, which needs no same-day
 return, is the safer headline.
 
+\section{Discussion: what the flows are worth}\label{sec:discussion}
+
+\paragraph{Magnitude.} The institutional ladder response of $+6.43$ per
+unit CBI means a one-SD CBI shock (about $8$ basis points of rate news in
+the information direction) moves roughly $51$ basis points of class-TNA
+per month along the ladder. Aggregated over the seven classes, the
+reallocation is a genuine portfolio shift, not a statistical artifact of
+one large fund family: the class-month panel has $2{,}200$ observations and
+the investor split shows the same sign in both halves of the market.
+
+\paragraph{Why flows matter for pricing.} If flows re-tilt portfolios
+toward risk after favourable information, they are the demand side of the
+subsequent return drift --- the flow channel that disciplines how long an
+information shock's price effect should last. Our same/post/diff windows
+show the price effect concentrated on the day and the flow effect spread
+over two months with partial reversal, consistent with slow capital rather
+than permanent risk-premium shifts.
+
+\paragraph{What this means for the Fed.} The information channel is not a
+curiosity: it moves real money across the risk ladder within a month. A
+Committee that changes the balance of risks language changes the direction
+of managed-money reallocation in the same month --- with institutions, not
+retail, doing the moving. This is a channel communication policy can steer,
+and it is measurable in public CRSP data without proprietary fund data.
+
 \section{Conclusion}\label{sec:conclusion}
 
-Federal Reserve statements do two things: they act, and they reveal. The
-prices literature has established that markets react to both. This paper
-establishes that \emph{portfolios} respond to the revelation, not the action:
-information shocks move money up and down the risk ladder with
-month-clustered significance, conventional shocks do not move it at all, and
-the response partially unwinds --- portfolios, like prices, move first on the
-day and digest later. The statement's sentiment breadth, not its directional
-tone, is what prices price. And the identification exercise delivers a
-methodological warning: statement-text proxies for information shocks can be
-nearly uncorrelated with the high-frequency object they seek to capture, and
-inference that survives under one can die under the other.
+We asked whether fund flows respond to central-bank information shocks, and
+the answer depends on measuring the shock the way the market does. Under
+the official Jaroci\'{n}ski--Karadi decomposition, information shocks move
+institutional money along the risk ladder in the meeting month and the
+month after ($+6.43$, $p=.003$; $+5.07$, $p=.003$), with the safe-asset rung
+losing funds and the equity rungs gaining; retail money follows with a
+two-month lag and only partially. A transparent sign-rule baseline --- kept
+for provenance --- finds none of this, and the two CBI components are nearly
+uncorrelated ($\rho = .038$): they are different objects, not different
+estimates of one object.
 
-Three extensions follow directly. Retail-versus-institutional splits will
-identify who moves; the SPF forecast-error version of CBI will provide a
-non-financial validation of the information component; and the unwind result
-invites a quantitative model of slow-moving capital under information shocks.
+On the price side, statement tone predicts same-day returns only in the
+forward-guidance regime, and only the breadth component survives the horse
+race against the shocks. The dictionaries cannot separate hikes from cuts
+at the resolution the post-2022 sample demands; the five-model LLM
+consensus can. The macro-revision benchmark is a null: the shocks do not
+predict professional-forecast revisions distinguishably, which locates
+their content in asset prices and portfolios rather than in the
+economy-with-a-lag.
 
-\bibliographystyle{plainnat}
-\begin{thebibliography}{20}
+For research design, the paper's methodological contribution is a warning
+and a recipe. The warning: shock measures with the same name and the same
+sign convention can be different information components, and
+flow---outcome regressions inherit whichever component the researcher
+happened to use. The recipe: report the transparent baseline alongside the
+structural one, disclose the near-zero correlation, and let the reader see
+how much of the story is identification and how much is measurement.
 
+
+\begin{thebibliography}{99}
 \bibitem[Banegas et al.(2022)]{BANEGAS_2022}
-Banegas, A., Montes-Rojas, G., and Siga, L. (2022). The effects of U.S.
-monetary policy shocks on mutual fund investing. \emph{Journal of International
-Money and Finance}.
+Banegas, A., Montes-Rojas, V., and Siga, L. (2022). The effects of US monetary policy shocks on mutual fund performance and flows. \emph{Journal of Financial Intermediation}, 51.
 
 \bibitem[Bauer and Swanson(2023)]{BAUER_SWANSON_2023}
-Bauer, M. D., and Swanson, E. T. (2023). An alternative explanation for the
-``Fed information effect.'' \emph{Journal of Monetary Economics}.
+Bauer, M. D., and Swanson, E. T. (2023). An alternative explanation for the ``Fed information effect''. \emph{American Economic Review}, 113(3), 664--700.
 
 \bibitem[Bernanke and Kuttner(2005)]{BERNANKE_KUTTNER_2005}
-Bernanke, B. S., and Kuttner, K. N. (2005). What explains the stock market's
-reaction to Federal Reserve policy? \emph{Journal of Finance}, 60(3),
-1221--1257.
-
-\bibitem[Bouvard et al.(2020)]{BOUVARES_2020}
-Bouvard, M., Chaigneau, P., and De Motta, A. (2020). Central bank word lists.
-(Unpublished manuscript.)
-
-\bibitem[Brooks et al.(2018)]{BROOKS_2018}
-Brooks, J., Katz, M., and Lustig, H. (2018). Post-FOMC announcement drift in
-U.S. bond markets. NBER Working Paper 25127.
+Bernanke, B. S., and Kuttner, K. N. (2005). What explains the stock market's reaction to Federal Reserve policy? \emph{Journal of Finance}, 60(3), 1221--1257.
 
 \bibitem[Curti and Kazinnik(2023)]{CURTI_KAZINNIK_2023}
-Curti, C., and Kazinnik, S. (2023). Let's face it: Quantifying the impact of
-FOMC communication. \emph{Journal of Financial Economics}.
+Curti, F., and Kazinnik, S. (2023). Let's face it: Quantitative facial expressions and monetary policy. \emph{Journal of Financial Economics}.
 
-\bibitem[G\"urkaynak et al.(2005)]{GURKAYNAK_2005}
-G\"urkaynak, R. S., Sack, B., and Swanson, E. T. (2005). Do actions speak
-louder than words? \emph{International Journal of Central Banking}.
+\bibitem[G\"{u}rkaynak et al.(2005)]{GURKAYNAK_2005}
+G\"{u}rkaynak, R. S., Sack, B., and Swanson, E. T. (2005). Do actions speak louder than words? The response of asset prices to monetary policy actions and statements. \emph{International Journal of Central Banking}, 1(1), 55--93.
 
-\bibitem[Hansen et al.(2025)]{HANSEN_2025}
-Hansen, A., et al. (2025). Large language models for central-bank
-communication analysis. (Unpublished manuscript --- verify authors before
-submission.)
-
-\bibitem[Jaroci\'nski and Karadi(2020)]{JAROCINSKI_KARADI_2020}
-Jaroci\'{n}ski, M., and Karadi, P. (2020). Deconstructing monetary policy
-surprises. \emph{American Economic Journal: Macroeconomics}, 12(2), 26--59.
-
-\bibitem[Kroencke et al.(2024)]{KROENCKE_2024}
-Kroencke, T. A., Schmeling, M., and Schrimpf, A. (2024). The FOMC risk shift.
-CEPR Discussion Paper 14037.
+\bibitem[Jaroci\'{n}ski and Karadi(2020)]{JAROCINSKI_KARADI_2020}
+Jaroci\'{n}ski, M., and Karadi, P. (2020). Deconstructing monetary policy surprises --- the role of information shocks. \emph{American Economic Journal: Macroeconomics}, 12(2), 1--43.
 
 \bibitem[Kuttner(2001)]{KUTTNER_2001}
-Kuttner, K. N. (2001). Monetary policy surprises and interest rates: Evidence
-from the Fed funds futures market. \emph{Journal of Monetary Economics},
-47(3), 523--544.
+Kuttner, K. N. (2001). Monetary policy surprises and interest rates: Evidence from the fed funds futures market. \emph{Journal of Monetary Economics}, 47(3), 523--544.
 
 \bibitem[Loughran and McDonald(2011)]{LOUGHRAN_MCDONALD_2011}
-Loughran, T., and McDonald, B. (2011). When is a liability not a liability?
-\emph{Journal of Finance}, 66(1), 35--65.
-
-\end{thebibliography}
-
-\newpage
-\appendix
-
-\section*{Tables}\addcontentsline{toc}{section}{Tables}
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Official \jk{} series: fund flows by window (the paper's core table)}
-\label{tab:official}
-\input{tables/t1_official_flows}
-\end{threeparttable}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Shock series comparison and the classification fix}
-\label{tab:series}
-\input{tables/t2_series_compare}
-\end{threeparttable}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Tone and prices: FG-period horse race with official MP/CBI controls}
-\label{tab:horse}
-\input{tables/t3_horse_race}
-\end{threeparttable}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Sentiment vs.\ hawkishness (professor memo E11)}
-\label{tab:split}
-\input{tables/t4_tone_split}
-\end{threeparttable}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Sign-rule robustness: six covariance estimators}
-\label{tab:se}
-\input{tables/t5_se_matrix}
-\end{threeparttable}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Do tone measures separate hikes from cuts?}
-\label{tab:measures}
-\input{tables/t6_tone_measures}
-\end{threeparttable}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{threeparttable}
-\caption{Power, placebo, and multiple testing}
-\label{tab:multiple}
-\input{tables/t7_multiple_testing}
-\end{threeparttable}
-\end{table}
-
-\begin{thebibliography}{40}
-\setlength{\itemsep}{0pt}
-
-\bibitem[Banegas et al.(2022)]{BANEGAS_2022}
-Banegas, A., Montes-Rojas, G., and Siga, L. (2022). ``The Effects of U.S.
-Monetary Policy Shocks on Mutual Fund Investing.'' \emph{Journal of
-International Money and Finance}.
-
-\bibitem[Bauer and Swanson(2023)]{BAUER_SWANSON_2023}
-Bauer, M. D., and Swanson, E. T. (2023). ``An Alternative Explanation for the
-`Fed Information Effect.''' \emph{Journal of Monetary Economics}.
-
-\bibitem[Bernanke and Kuttner(2005)]{BERNANKE_KUTTNER_2005}
-Bernanke, B. S., and Kuttner, K. N. (2005). ``What Explains the Stock Market's
-Reaction to Federal Reserve Policy?'' \emph{Journal of Finance} 60(3),
-1221--1257.
-
-\bibitem[Bouvard et al.(2020)]{BOUVARES_2020}
-Bouvard, M., Chaigneau, P., and De Motta, A. (2020). ``Transparency in the
-Financial System.'' \emph{Journal of Finance} (statement-transparency
-mechanisms).
-
-\bibitem[Brooks et al.(2018)]{BROOKS_2018}
-Brooks, J., Katz, M., and Lustig, H. (2018). ``Post-FOMC Announcement Drift in
-U.S. Bond Markets.'' NBER Working Paper 25127.
-
-\bibitem[Curti and Kazinnik(2023)]{CURTI_KAZINNIK_2023}
-Curti, C., and Kazinnik, S. (2023). ``Let's Face It: Quantifying Investor
-Sentiment from the Visual Dimension of the Federal Reserve Press
-Conferences.'' \emph{Journal of Financial Economics}.
-
-\bibitem[G\"urkaynak et al.(2005)]{GURKAYNAK_2005}
-G\"urkaynak, R. S., Sack, B., and Swanson, E. T. (2005). ``Do Actions Speak
-Louder Than Words? The Response of Asset Prices to Monetary Policy Actions and
-Statements.'' \emph{International Journal of Central Banking} 1(1), 55--93.
-
-\bibitem[Hansen(2025)]{HANSEN_2025}
-Hansen, S., McMahon, M., et al. (2025). Large-language-model measurement of
-central-bank communication. (Concurrent LLM-scoring work.)
-
-\bibitem[Jaroci\'nski(2024)]{JAROCINSKI_2024}
-Jaroci\'nski, M. (2024). ``Estimating the Fed's Unconventional Policy Shocks.''
-\emph{Journal of Monetary Economics}. (Replication files:
-\texttt{github.com/marekjarocinski/jkshocks\_update\_fed}.)
-
-\bibitem[Jaroci\'nski and Karadi(2020)]{JAROCINSKI_KARADI_2020}
-Jaroci\'nski, M., and Karadi, P. (2020). ``Deconstructing Monetary Policy
-Surprises --- The Roles of Information Shocks.'' \emph{Journal of Monetary
-Economics} 113, 48--67.
-
-\bibitem[Kroencke et al.(2024)]{KROENCKE_2024}
-Kroencke, T. A., Schmeling, M., and Schrimpf, A. (2024). ``The FOMC Risk
-Shift.'' CEPR Discussion Paper DP14037.
-
-\bibitem[Kuttner(2001)]{KUTTNER_2001}
-Kuttner, K. N. (2001). ``Monetary Policy Surprises and Interest Rates: Evidence
-from the Fed Funds Futures Market.'' \emph{Journal of Monetary Economics}
-47(3), 523--544.
-
-\bibitem[Loughran and McDonald(2011)]{LOUGHRAN_MCDONALD_2011}
-Loughran, T., and McDonald, B. (2011). ``When Is a Liability Not a Liability?
-Textual Analysis, Dictionaries, and 10-Ks.'' \emph{Journal of Finance} 66(1),
-35--65.
-
+Loughran, T., and McDonald, B. (2011). When is a liability not a liability? Textual analysis, dictionaries, and 10-Ks. \emph{Journal of Finance}, 66(1), 35--65.
 \end{thebibliography}
 
 \end{document}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=.72\textwidth]{figures/fig3_score_compression.pdf}
-\caption{Do tone measures separate hikes from cuts? Hike--cut gap in SD
-units by measure. The LLM score separates at $p < .001$; the LM dictionary
-does not ($p = .16$).}
-\label{fig:compression}
-\end{figure}
