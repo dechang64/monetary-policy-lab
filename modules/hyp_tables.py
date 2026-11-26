@@ -223,9 +223,12 @@ def render():
                                              "β CBI / note", "Wald p / robust p"]),
                  use_container_width=True, hide_index=True)
     st.caption("Controls: log TNA, flow volatility; class-level monthly flows. "
-               "⚠️ Robustness: the gov-bond CBI effect (classical p = .043) is NOT "
+               "⚠️ Sign-rule caveat: the gov-bond CBI effect (classical p = .043) is NOT "
                "significant under robust standard errors (HC1 p = .342, NW p = .341) "
                "and hinges on 2008-09-16 (excluding it: β = +0.029, p = .925). "
+               "✅ Under the OFFICIAL Jarociński–Karadi series (2026-11-26) the flows "
+               "results are stronger, not weaker: gov-bond CBI −43.1 (p = .037, HC1), "
+               "Wald MP=CBI p = .025 — see the Robustness Tests page. "
                "Source: flow_results_rerun_v8.json + robustness_tests/results.json.")
     chart("h4_flows.png")
 
@@ -260,8 +263,10 @@ def render():
     st.dataframe(pd.DataFrame(rows, columns=["Variable", "Coefficient", "SE / note", "p-value"]),
                  use_container_width=True, hide_index=True)
     st.caption("Dependent variable: class-level flow (%TNA). "
-               "⚠️ Robustness: Risk × CBI (classical p = .041) is NOT significant under "
-               "HC1 (p = .434) or month-clustered SE (p = .466). "
+               "⚠️ Sign-rule caveat: Risk × CBI (classical p = .041) is NOT significant "
+               "under HC1 (p = .434) or month-clustered SE (p = .466). "
+               "✅ Official JK series + month-clustered SE: Risk × CBI +5.28, p = .005 "
+               "(same window) — the ladder result stands on the official measure. "
                "Source: flow_results_rerun_v8.json + robustness_tests/results.json.")
     chart("h5_ladder.png")
 

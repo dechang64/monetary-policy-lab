@@ -132,6 +132,47 @@ def render():
                    "The forward-guidance tone result is robust: p = .003-.012 across "
                    "all SE methods, placebo below.", icon="⚠️")
 
+    # ── Test 2: official JK series (NOW RAN) ──
+    st.markdown("---")
+    st.markdown("### Test 2 · Official Jarociński–Karadi MP/CBI series (RAN 2026-11-26)")
+    t2 = P.get("test2", {})
+    if t2 and "matched_meetings" in t2:
+        st.success("**The flow results get STRONGER under the official series.** "
+                   "Risk × CBI (same month) is +5.28 with **p = .005 under month-clustered SE** "
+                   "(sign-rule series: p = .466). H4 gov-bond CBI: −43.1 (p = .037), "
+                   "Wald MP=CBI p = .025. Source: Marek Jarociński's updated replication files "
+                   "(github.com/marekjarocinski/jkshocks_update_fed, MP_pm/CBI_pm), matched "
+                   "161/161 of our meeting dates.", icon="✅")
+        rows = [[
+            str(t2.get("matched_meetings")),
+            f"{t2.get('corr_mp_jk_vs_sign_rule', 0):.3f}",
+            f"{t2.get('corr_cbi_jk_vs_sign_rule', 0):.3f}",
+            f"{t2.get('corr_mp_jk_cbi_jk', 0):.3f}",
+        ]]
+        _df(rows, ["Matched meetings", "corr MP: official vs sign-rule",
+                   "corr CBI: official vs sign-rule", "corr MP–CBI within official"])
+        st.caption("The sign-rule CBI is nearly uncorrelated with the official CBI (ρ = .04): "
+                   "they capture different information components, so the official-series "
+                   "results are new evidence, not a re-run.")
+        hrows = []
+        for k, v in t2.items():
+            if k.startswith("H4"):
+                hrows.append([k, v["n"], _b(v["CBI"]["beta"]) + f" (p {_p(v['CBI']['p'])})",
+                              _b(v["MP"]["beta"]) + f" (p {_p(v['MP']['p'])})",
+                              f"{v['wald_p']:.3f}"])
+        if hrows:
+            _df(hrows, ["H4 gov bonds (HC1)", "N", "β CBI (official)", "β MP (official)", "Wald p"])
+        frows = []
+        for k, v in t2.items():
+            if k.startswith("H5"):
+                r, m = v["risk_x_cbi"], v["risk_x_mp"]
+                frows.append([k, v.get("n", ""), _b(r["beta"]) + f" (p {_p(r['p'])})",
+                              _b(m["beta"]) + f" (p {_p(m['p'])})"])
+        if frows:
+            _df(frows, ["H5 pooled (month-clustered)", "N", "Risk × CBI", "Risk × MP"])
+    else:
+        st.info("Test 2 has not been run yet.")
+
     # ── Test 3 ──
     st.markdown("---")
     st.markdown("### Test 3 · Market-beta measurement (downside vs upside)")
@@ -231,13 +272,66 @@ def render():
     else:
         st.info("tone_measures_current.json not found.")
 
+    # ── E11: tone split (sentiment vs hawkishness) ──
+    st.markdown("---")
+    st.markdown("### Tone split: sentiment vs hawkishness (professor E11)")
+    PR = os.path.join(BASE, "direction2/flow_rerun_output_v8/professor_revisions.json")
+    if os.path.exists(PR):
+        pr = json.load(open(PR))
+        split = pr.get("prices_tone_split_and_jk", {})
+        rows = []
+        for name, spec in split.items():
+            if "skipped" in spec:
+                continue
+            c = spec["coefs"]
+            rows.append([name, spec["n"], f"{spec['r2']*100:.1f}%",
+                         (_b(c["tone100"]["beta"]) + f" (p {_p(c['tone100']['p'])})") if "tone100" in c else "—",
+                         (_b(c["hawk100"]["beta"]) + f" (p {_p(c['hawk100']['p'])})") if "hawk100" in c else "—",
+                         (_b(c["tone_x_fg"]["beta"]) + f" (p {_p(c['tone_x_fg']['p'])})") if "tone_x_fg" in c else "—",
+                         (_b(c["hawk_x_fg"]["beta"]) + f" (p {_p(c['hawk_x_fg']['p'])})") if "hawk_x_fg" in c else "—"])
+        _df(rows, ["Specification", "N", "R²", "Sentiment β (p)", "Hawkishness β (p)",
+                   "Sentiment × FG β (p)", "Hawkishness × FG β (p)"])
+        st.success("**Answer to E11: it is sentiment, not hawkishness.** In the FG period, "
+                   "the return response loads on the statement sentiment measure "
+                   "(tone100 −1.09, p = .006 even when both measures are included), while "
+                   "the LLM hawkishness score is insignificant everywhere (p = .14–.92). "
+                   "Sentiment breadth, not directional hawkishness, is what prices react to.", icon="✅")
+        st.caption("Source: direction2/professor_revisions.py (LLM hawkishness from "
+                   "llm_statement_scores.jsonl, 5-model consensus).")
+
+        # A5 clustered flows, both shock measures
+        st.markdown("**A5 · Clustered flows, both shock measures side by side**")
+        cl = pr.get("flows_clustered_both_shocks", {})
+        rows = []
+        for k, v in cl.items():
+            r, m = v["risk_x_cbi"], v["risk_x_mp"]
+            rows.append([k, v["n"], _b(r["beta"]) + f" (p {_p(r['p'])})",
+                         _b(m["beta"]) + f" (p {_p(m['p'])})"])
+        _df(rows, ["Shock measure · window", "N", "Risk × CBI (clustered)", "Risk × MP (clustered)"])
+        st.caption("Month-clustered SEs on the class-month panel. Official JK series: "
+                   "same +5.28 (p = .005), post +3.45 (p = .006), diff −1.79 (p = .37) — "
+                   "the same-window effect partially unwinds two months out, consistent "
+                   "with H6. Sign-rule series remains insignificant.")
+
+    # ── Professor Part I: papers to add ──
+    st.markdown("---")
+    st.markdown("### Related literature added per the professor's memo (Part I)")
+    st.markdown("""
+    | Paper | Relevance |
+    |---|---|
+    | **Bauer & Swanson (2023)**, JME — *An Alternative Explanation for the 'Fed Information Effect'* | Strong pre-FOMC evidence ⇒ the Fed-information-effect literature must control for it. Our statement-based CBI is designed to avoid the pre-FOMC confound (C4) |
+    | **Kroencke, Schmeling & Schrimpf**, CEPR DP14037 — *The FOMC Risk Shift* | Fund flows around FOMC, risk-on/off shifts — **closest paper to ours**; our CBI/risk-ladder channel is distinct |
+    | **Banegas, Montes-Rojas & Siga (2022)**, JIMF | MP shocks and mutual-fund flows by fund strategy |
+    | **Brooks, Katz & Lustig (2018)**, NBER 25127 | Bond-fund investors pull money out after hikes with a lag — directly relevant to H6 |
+    | **Bernanke & Kuttner (2005)**, JoF 60(3) | Why prices move at all: the canonical mechanism |
+    """)
+
     # ── Tests awaiting data ──
     st.markdown("---")
     st.markdown("### Tests awaiting external data")
     st.markdown("""
     | Test | What it needs | Status |
     |---|---|---|
-    | **2 · Official JK shocks** | `data/jk_shocks_meeting.csv` from Marek Jarociński's site; set `JK_*_COL` at the top of the script | ⏳ awaiting file |
     | **4 · Retail vs institutional flows** | run `python3 direction2/robustness_tests.py --wrds` once (needs CRSP `fund_hdr_hist` retail/inst flags) | ⏳ awaiting WRDS run |
     | **7 · SPF forecast errors** | Philadelphia Fed SPF median-forecast files in `data/spf/` | ⏳ awaiting files |
     """)
@@ -248,4 +342,4 @@ def render():
     st.markdown("**Pipeline note.** All numbers on this page are generated by "
                 "`direction2/robustness_tests.py` and committed as JSON "
                 "(`robustness_tests/results.json`, `tone_measures_current.json`). "
-                "Tests 2/4/7 render automatically once their data files are in place.")
+                "Tests 4/7 render automatically once their data files are in place.")
