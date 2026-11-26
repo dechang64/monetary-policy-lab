@@ -250,7 +250,8 @@ prices already had the thing they needed.
 the statement became the policy instrument: dates, thresholds, and balance
 -sheet language. The announcement-day information content shifts from the
 decision to the language, and our tone effect concentrates here
-($-1.01$ per 100 tone units, $p=.005$).
+($-1.01$ per 100 tone units, $p=.010$; $-1.11$, $p=.005$, once the LLM
+hawkishness measure joins the race).
 
 \paragraph{Normalization and after (2016--2026).} Gradualism, then the
 2022--2023 tightening cycle. Tone effects are absent on average --- the
@@ -645,10 +646,11 @@ flow results do not (HC1 $p=.34$--$.43$, cluster $p=.47$). This is why the
 paper's primary flow specifications use the official series.
 
 \paragraph{Placebo and power.} The FG interaction is not an artifact of
-arbitrary period choice: across 95 consecutive 56-meeting windows, the actual
-estimate is the most negative ($p=.01$ share-level). The minimum detectable
-effect at 80\% power for the FG tone result ($1.07$) brackets the estimate
-($1.01$): the design is powered for the effect it finds.
+arbitrary period choice: across 95 consecutive 56-meeting windows, exactly
+one rolling block produces a more negative tone$\times$FG estimate than the
+actual sample ($p=.011$ by block share). The minimum detectable effect at
+80\% power for the FG tone result ($1.07$) brackets the estimate ($1.01$):
+the design is powered for the effect it finds.
 
 \paragraph{Multiple testing.} Of 42 sign-rule H4 coefficients, none survives
 Holm or Benjamini--Hochberg correction under either classical or HC1
@@ -758,21 +760,35 @@ Pass Holm or BH & 42 & 0 \\
 \paragraph{Macro-revision benchmark (SPF).} If the shock components carry
 information, they should predict revisions of professional forecasts. Using
 Philadelphia Fed SPF median forecasts (75 survey quarters, 2006Q2--2025Q1),
-revision = quarter-$t$ median minus quarter-$(t-1)$: neither the official MP
-nor the CBI component distinguishes itself in forecast revisions for real
-GDP growth, unemployment, or CPI inflation (all Wald MP $=$ CBI $p > .08$;
-component $p$-values $.16$--$.99$). The orthogonalized tone measure is a
-borderline predictor of GDP and CPI revisions ($p = .09$ and $.06$, signs
-consistent with breadth), suggesting the announcement's macro-information
-content is diffused rather than component-separable at this sample size. We
-report this as a benchmark null: the flows results do not depend on the
-shocks being macro-forecastable ex post.
+revision = quarter-$t$ median minus quarter-$(t-1)$ forecast for the same
+target quarter. Under the sign-rule baseline, neither the MP nor the CBI
+component distinguishes itself in forecast revisions for real GDP growth,
+unemployment, or CPI inflation (all Wald MP $=$ CBI $p > .08$; component
+$p$-values $.16$--$.99$). Under the official series the scale changes and
+one coefficient turns significant --- MP predicts downward revisions of
+unemployment forecasts ($-1.39$, $p=.019$), consistent with the
+Fed-information channel (tightening news revealing stronger conditions) ---
+but the MP $=$ CBI
+contrast remains indistinguishable everywhere (Wald $p \geq .09$), which is
+the part this benchmark is designed to test. The orthogonalized tone
+measure is a borderline predictor of GDP and CPI revisions
+($p = .09$ and $.06$, signs consistent with breadth). We report this as a
+benchmark null with one caveat: the flows results do not depend on the
+shocks being macro-forecastable ex post, but the official MP's
+unemployment-revision content deserves a closer look in future work.
 
 \paragraph{State dependence.} If the ladder channel operates through
 risk appetite, it should strengthen in high-spread, high-inflation states.
-Splitting the panel on BAA--AAA spread and 12-month CPI inflation medians
-yields no significant state interaction ($p > .22$ throughout): the CBI
-reallocation is not a distress-window artefact.
+On median splits of the BAA--AAA spread and 12-month CPI inflation the
+state interactions are insignificant ($p \geq .18$ throughout), and the
+ladder interaction survives in both halves. The continuous (standardized)
+versions are more informative: high spread states show a \emph{weaker}
+ladder interaction ($-0.20$, $p=.010$) and a larger government-bond CBI
+response ($+1.92$, $p=.006$) --- the reallocation concentrates in calm
+states, consistent with risk-appetite channels shutting down during
+distress. We read the state dependence as suggestive rather than settled:
+the median split is underpowered, the continuous split is sensitive to the
+standardization, and neither overturns the headline.
 
 \paragraph{Sign-rule fragility and the fix.} The sign-rule classification
 itself contained a bug: meetings without same-day returns were assigned to
@@ -849,7 +865,7 @@ Bauer, M. D., and Swanson, E. T. (2023). An alternative explanation for the ``Fe
 Bernanke, B. S., and Kuttner, K. N. (2005). What explains the stock market's reaction to Federal Reserve policy? \emph{Journal of Finance}, 60(3), 1221--1257.
 
 \bibitem[Curti and Kazinnik(2023)]{CURTI_KAZINNIK_2023}
-Curti, F., and Kazinnik, S. (2023). Let's face it: Quantitative facial expressions and monetary policy. \emph{Journal of Financial Economics}.
+Curti, F., and Kazinnik, S. (2023). Let's face it: Quantifying the impact of nonverbal communication in FOMC press conferences. \emph{Journal of Monetary Economics}, 139, 110--126.
 
 \bibitem[G\"{u}rkaynak et al.(2005)]{GURKAYNAK_2005}
 G\"{u}rkaynak, R. S., Sack, B., and Swanson, E. T. (2005). Do actions speak louder than words? The response of asset prices to monetary policy actions and statements. \emph{International Journal of Central Banking}, 1(1), 55--93.
