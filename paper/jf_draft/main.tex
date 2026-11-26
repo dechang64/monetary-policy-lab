@@ -14,6 +14,7 @@
 \usepackage{threeparttable}
 
 \newcommand{\jk}{Jaroci\'{n}ski--Karadi}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \title{\textbf{What the Fed Reveals and Where Investors Put Their Money}\\[10pt]
 \large Fund-Flow Responses to Monetary-Policy and Central-Bank-Information Shocks}
@@ -105,6 +106,23 @@ nothing anywhere on the risk ladder ($p=.47$--$.95$). Investors do not
 realocate in response to the action; they reallocate in response to what the
 statement \emph{reveals}.
 
+Figure~\ref{fig:official} plots the three-window path of both the
+risk-ladder interaction and the government-bond flow response, with
+95\%-confidence intervals; the sign-rule series is overlaid for contrast.
+The contrast between panels is the paper in one picture: under the official
+series the ladder response is large, precisely estimated, and its sign is
+economically coherent; under the sign rule it is small and noisy.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.92\textwidth]{figures/fig1_flows_windows.pdf}
+\caption{Fund-flow responses across event windows. Panel A: Risk$\times$CBI
+interaction from the class-month panel (month-clustered 95\% intervals).
+Panel B: government-bond flow on the CBI shock (HC1 intervals). Black:
+official \jk{} series; grey: sign-rule series.}
+\label{fig:official}
+\end{figure}
+
 \paragraph{2. The reallocation unwinds.} In the difference window (post-month
 minus same-month flow), the Risk$\times$CBI coefficient falls to $-1.79$
 ($p=.37$): roughly half of the initial risk-on shift is reversed by month two.
@@ -121,6 +139,16 @@ race with both measures, sentiment survives ($-1.11$, $p=.005$) and the
 five-model-consensus LLM hawkishness score does not ($p=.081$--$.33$). The
 tone effect also survives the professor-requested horse race with the official
 MP and CBI shocks as controls ($-0.96$, $p=.009$; Table~\ref{tab:horse}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.72\textwidth]{figures/fig2_tone_split.pdf}
+\caption{What prices respond to in the FG period. Black: statement sentiment
+(tone100). Grey: LLM hawkishness (rescaled to tone100 units for display).
+Rows: each measure alone; both in the horse race. 95\% intervals. Sentiment
+survives; hawkishness does not.}
+\label{fig:split}
+\end{figure}
 
 \paragraph{4. Identification discipline.} Our statement-based sign-restriction
 series --- the measure used in earlier drafts --- turns out to be a poor proxy
@@ -193,6 +221,15 @@ $(i_t, r_t)$ up to scale. We use the author-maintained update
 (\texttt{MP\_pm}, \texttt{CBI\_pm}); every one of our 161 meeting dates
 (2006--2026) matches a date in that file.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.85\textwidth]{figures/fig4_series_scatter.pdf}
+\caption{The two shock series. Official \jk{} decomposition (ordinates) vs.\
+our sign-rule classification (abscissae). MP is correlated at $.53$; CBI at
+$.038$ --- the two CBI measures are different information components.}
+\label{fig:series}
+\end{figure}
+
 The interpretation convention we adopt throughout: a \emph{positive} CBI
 shock is favourable economic news revealed by the statement (the professor's
 ``positive CBI = good economic news'' labelling), and a positive MP shock is a
@@ -214,6 +251,66 @@ priced in futures) changes conditional means only through the discount-rate
 channel that no allocation strategy targets. Our hypothesis block formalises
 this (\S\ref{sec:hypotheses}).
 
+\section{Theory}
+
+\subsection{Pillar 1: Rational expectations and the market's inversion rule}\label{pillar-1-rational-expectations-and-the-markets-inversion-rule}
+
+Under rational expectations, the announcement-day price response to an FOMC statement is the market's Bayesian posterior update about the policy path and the state of the economy, given everything the market knew before the statement. This has a consequence that drives the whole paper: the \emph{market's} reaction is the sufficient statistic for the news content of the communication. Any analyst-side measure of what the statement ``said'' --- dictionary scores, LLM scores, human readings --- is an attempt to reconstruct that news from the text alone, and is informative about the text, not about the market's information set.
+
+The central bank's statement enters this inversion twice. First, through the \emph{decision} channel: the target-rate innovation relative to the market's prior. Second, through the \emph{information} channel: the statement reveals the committee's private assessment of the economy, which is valuable to investors independent of the current decision (Coibion, Gorodnichenko, and Ulig 2022; Jarociński and Karadi 2020). We call the market's extraction of this second component the \textbf{central-bank-information (CBI) shock}. CBI is, by construction, the market's inference about the central bank's information set --- not a property of the text. This distinction disciplines every measurement choice that follows: a shock variable that correlates with the \emph{text} is not the market's inversion outcome, and the empirical content of Section 7 rests precisely on keeping text-measures and inversion-measures separate.
+
+\subsection{Pillar 2: From measurement window to shock decomposition}\label{pillar-2-from-measurement-window-to-shock-decomposition}
+
+Kuttner (2001) established the measurement principle: identify policy news from asset-price movements in a narrow window around the announcement, because those prices aggregate the market's information faster than any textual analysis. Bauer and Swanson (2023) sharpened it into an oracle argument --- under RE, the \emph{true} policy surprise equals the market's price response up to a risk-premium correction, so any independently measured ``surprise'' that disagrees with prices is mismeasured, not the market.
+
+Jarociński and Karadi (2020) then showed that the price response itself carries a sign structure that separates two economically distinct events: a conventional monetary shock (MP) and an information shock (CBI) in the Coibion--Gorodnichenko--Ulig sense --- the central bank revealing information about the economy rather than about its reaction function. MP and CBI move rates in the same direction but equity prices in opposite directions.
+
+Our \emph{sign-rule} baseline implements the JK idea with a deliberately
+transparent inversion rule. Let $\Delta S$ be the same-day CRSP value-weighted
+return and $\Delta i$ the policy-rate innovation. We assign
+$\text{MP} = \Delta i \cdot \mathbb{1}[\text{sign}(\Delta i) \neq \text{sign}(\Delta S)]$,
+$\text{CBI} = \Delta i \cdot \mathbb{1}[\text{sign}(\Delta i) = \text{sign}(\Delta S)]$:
+every observation's classification is verifiable by inspection, which matters
+for a paper whose second half is about measurement discipline. Our
+\emph{headline} specification, however, uses the official Jaroci\'{n}ski
+update (\texttt{MP\_pm}, \texttt{CBI\_pm}). The two CBI series are nearly
+uncorrelated ($\rho = .038$): they are different information components, not
+different estimates of one component, and Section~\ref{sec:flows} shows the
+official-series results are the stronger of the two. We report both ---
+the transparent rule as the baseline for provenance, the official series for
+inference.
+\subsection{Pillar 3: Arbitrage pricing and the risk-compensation channel}\label{pillar-3-arbitrage-pricing-and-the-risk-compensation-channel}
+
+If communication shocks are risks, they must be compensated. The arbitrage-pricing view (Ross 1976) predicts that the cross-section of \emph{portfolio} risk premia loads on the shock factors: a factor priced for investors must appear in expected returns, and --- in the mutual-fund margin we observe --- in reallocation flows as investors traverse the risk ladder (Metcalfe, Bhojraj, and Mozes 2020). Pillar 3 delivers the paper's portfolio predictions: a factor whose realization is observable at the announcement must show up in (i) risk-premium pricing and (ii) fund flows that re-tilt portfolios along the risk ladder.
+
+\subsection{Testable implications}\label{testable-implications}
+
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item \textbf{Implication 1 (prices).} Announcement returns load on the shock components, with the CBI response concentrated where information is most valuable.
+\item \textbf{Implication 2 (regime).} The tone--price relation is concentrated in the forward-guidance regime, where the action is foretold and language carries the news.
+\item \textbf{Implication 3 (flows).} CBI shocks reallocate flows across the risk ladder; MP shocks do not move flows.
+\item \textbf{Implication 4 (dynamics).} Flow responses unfold over months, not minutes --- portfolios later.
+\end{itemize}
+
+
+Two implications are deliberately \emph{null} --- T3, and the flow-side half of T2. Following the contribution discipline fixed with the advising team: a theory that predicts a null where the heuristic expects an effect is more falsifiable than one that predicts an effect everywhere, and the nulls are load-bearing for the paper's mechanism (prices clear the information first; portfolios adjust later, along the risk ladder, to the \emph{risk} content rather than the \emph{words}).
+
+\subsection{A minimal formal sketch}\label{a-minimal-formal-sketch}
+
+We compress the pillars into the smallest structure that generates T1--T5. Let the central bank have private information \(\theta \sim N(0, \tau_\theta^{-1})\) about the economy (bad news = high \(\theta\)), and let the statement contain a decision component \(a\) (the action) and a textual component \(t = a + \varepsilon_t\), \(\varepsilon_t \sim N(0, \tau_t^{-1})\) --- words about the action plus residual content about \(\theta\). Investors observe the announcement window price \(p = \mathbb{E}[\theta + \kappa a \mid a, t] + u\) with noise \(u\) and risk-aversion weight \(\kappa\).
+
+\textbf{Proposition 1 (inversion).} Under RE, the innovation in \(p\) admits a unique decomposition into \((m, c)\) --- the action-driven and information-driven components --- recovered up to scale by the joint sign pattern of \(p\) and \(a\)'s direct instrument; this is the sign-restriction rule implemented in Section 3.1. \emph{Proof idea:} two signals, two independent shocks, moment restrictions close the system; the full argument (with the JK correspondence) is in Appendix C.
+
+\textbf{Proposition 2 (regime-dependent text relevance).} Tone \(\hat t\) has incremental price content, \(\partial p / \partial \hat t \neq 0\) holding \((m, c)\) fixed, if and only if \(\tau_t\) is informative about \(\theta\) --- i.e., when the paradigm makes words carry state information (forward guidance; explicit reactions functions). In action-centric paradigms \(\tau_t \to \infty\) and the text is dead. This is T2 and its FG-regime prediction.
+
+\textbf{Proposition 3 (flows as residual demand).} Let investors of type \(k\) (risk rank \(r_k\)) hold claims on factor portfolios; a hawkish information update raises the required compensation on high-\(r_k\) factors, so optimal reallocation satisfies \(f_k \propto -r_k \, c\) for information news and \(f_k \perp r_k\) for pure action news --- T4's ladder and risk-neutrality of MP flows --- with flow response at the monthly horizon an order of magnitude smaller than the price response because \(c\) is already in the price (T3). \emph{Proof idea:} first-order condition of mean-variance demand with heterogeneous factor loadings; derivation in Appendix C. \#\# 3.0 Institutional background: the statement as an instrument
+
+The press release's role changed four times in ways that matter for what a text measure can capture. In \textbf{February 1994} the FOMC began announcing its decision immediately --- before that, markets inferred the move from the open-market desk's operations. In \textbf{2000--2002} the post-meeting statement acquired the balance-of-risks paragraph, giving the committee a forward-looking sentence whose words, not actions, were the news. In \textbf{2005} the statement was restructured around the committee's assessment of the economy, deliberately shortening the action description --- the modern text-first form. In \textbf{August 2011} the committee adopted calendar-based forward guidance (``at least through mid-2013''), making \emph{words about the path} the operative instrument at the zero lower bound; the August 2020 framework review (flexible average inflation targeting) formalized state-contingent guidance again.
+
+Three of our regimes follow this institutional sequence: the forward-guidance window (December 2008 -- December 2015) is the era in which the statement, not the instrument, carried the marginal news; the 2020--2022 zero-rate window is the crisis-template era; the post-2022 cycle re-tightens with dot-plot and ``sufficiently restrictive'' language. The paradigm-shift claims of Section 7 --- dictionary failure on Operation Twist, QE3, calendar guidance, the 2020 templates, and the 2022 acceleration --- are therefore not statistical artifacts: each flagged statement sits on an institutional boundary that the committee itself defined.
+
+
+
 \section{Data}\label{sec:data}
 
 \paragraph{Meetings and shocks.} 161 FOMC announcements, 2006--2026.
@@ -223,6 +320,24 @@ text: body-only scrubbed text for all 161 statements; sentiment is
 $0.5\times$LM $+\ 0.5\times$ central-bank word list per 100 words
 (tone100); the LLM hawkishness score is the five-model consensus
 ($-100$ to $+100$) described in \S\ref{sec:measurement}.
+
+\paragraph{Statement text measures}\label{statement-text-measures}
+
+Statements are scraped from the Federal Reserve's press-release pages (2006--2026) and cleaned to the canonical statement body (\texttt{data/fomc\_statements\_clean.json}; median length a few hundred words; the 2004--2005 short-statement era predates our window). Two text measures are used:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dictionary tone.} LM hawkish-minus-dovish word counts per 100 words (\texttt{tone100\ =\ sentiment\ ×\ 100}). Naming discipline: this variable is never called ``sentiment'' (the codebook reserves that word out of the paper entirely to avoid collision with the investor-sentiment literature).
+\item
+  \textbf{LLM score.} A rebuilt measure that reads the full statement text and returns a −100\ldots+100 stance score with a one-line justification (161/161 statements scored; Section 7 reports its construction and the five-layer audit).
+\end{itemize}
+
+{[}SYSTEM\_NOTE: Content compressed. Read the full version if needed.{]}on share changes; the flow window must start at the meeting month or later (\texttt{gap\ ≤\ 3} calendar months); point-in-time Morningstar classification at the aggregation date; and flows bounded at 50\% of TNA to contain outliers. The panel aggregates to 1,099 fund-month observations across seven asset classes (government bonds, corporate bonds, real assets, large-cap equity, developed-market equity, emerging-market equity, small-cap equity) over 157 meeting months.
+
+\paragraph{One name, one definition}\label{one-name-one-definition}
+
+The variable codebook (\texttt{paper/codebook.docx}) enforces single definitions: shocks are innovations; ``surprise'' appears only in the GSS-construction context; tone is never sentiment; ``information shock'' only in JK-discussion context, quoted. Price reactions use one definition (CRSP value-weighted same-day return) unless a table header states otherwise. The audit trail for every headline number runs from the codebook through the archival result files (\texttt{price\_results\_v1.json}, \texttt{flow\_results\_rerun\_v8.json}, \texttt{models\_v2\_results.json}) --- numbers that could not be traced to an archival source were retired during drafting.
 
 \paragraph{Fund flows.} CRSP Mutual Fund Database, monthly, point-in-time
 (fund header history matched at each fund-month). Classes are the seven
@@ -350,6 +465,53 @@ variance exactly where the policy regime changes. This measurement failure
 explains why dictionary-based tone effects look episodic in the literature,
 and is the practical argument for LLM-based scoring in this literature.
 
+\paragraph{The rebuilt LLM measure}\label{the-rebuilt-llm-measure}
+
+An earlier draft used an LLM score proxied from meeting metadata; it is retired. The rebuilt measure reads the full statement text and returns a −100\ldots+100 stance score with a one-line justification (161/161 statements). Properties:
+
+\begin{itemize}
+\tightlist
+\item
+  Correlation with dictionary tone: \textbf{r = +0.351} --- the two measures overlap but are far from redundant.
+\item
+  Correlation with the CBI shock: \textbf{r = +0.027} --- as Pillar 1 requires. The inversion outcome must not be a property of the text; if it were, the decomposition of Section 2.2 would be circular.
+\item
+  No flow contribution (p = 0.17 in the Section 5 specification), mirroring tone --- the null extends to every text measure.
+\end{itemize}
+
+\paragraph{Divergence is resolution loss, not bias}\label{divergence-is-resolution-loss-not-bias}
+
+Eleven statements show \textbar z(LLM) − z(tone)\textbar{} \textgreater{} 2. On those statements the dictionary output is nearly constant (std = 1.10, mean +2.77) while the LLM separates directions sharply (std ≈ 71): Operation{[}SYSTEM\_NOTE: Content compressed. Read the full version if needed.{]}lve the direction from the words at all.
+
+\paragraph{The five-layer audit}\label{the-five-layer-audit}
+
+LLM measures invite a legitimate objection --- hallucination. We therefore ported a five-layer defense (retrieval consistency, vector fact-check, CROWN anchor-independence, multi-node voting, self-consistency) from our earlier agent infrastructure to the scoring task, and audited a 30-statement sample (11 divergences + 19 random, seed 42):
+
+\begin{itemize}
+\tightlist
+\item
+  Retrieval consistency: 53\% word-level, 73\% embedding-match (own vs random statement); weak margins reflect the template nature of FOMC prose, not fabrication.
+\item
+  CROWN: showing the auditor the dictionary score does not anchor the LLM (0/30 triggered) --- the measures are independent, as claimed.
+\item
+  Multi-node vote, prompt variants: 100\% direction consensus after fixing a float-threshold bug (2/3 = 0.6667 vs a 0.667 threshold had rejected all two-of-three consents --- 9 false ``LikelyFalse'' verdicts that were an audit bug, not an LLM failure).
+\item
+  Self-consistency (T = 0.3, 3 samples): 70\% pass; 2 borderline statements flagged.
+\item
+  \textbf{Cross-vendor layer}: GPT-4.1-mini, Claude-haiku-4.5, DeepSeek-flash, Gemini-2.5-flash (thinking models; reasoning tokens count against \texttt{max\_tokens} --- operational finding). Pairwise r = 0.89--0.97; sign-level agreement 93.1\% (27/29); \textbf{on the 11 LM-divergence statements, sign agreement across vendor families is 100\%}.
+\end{itemize}
+
+The audit caught exactly one real error: on the Operation Twist statement (2011-09-21) the main router returned +85 (hawkish) once; three reruns returned −70 each time, and all four vendor families independently returned strongly dovish scores (−60 to −90). ``Extend the average maturity of its holdings'' is an easing operation; the correction stands, the score file carries the audit note, and the Section 4 correlations moved r = 0.335 → 0.351.
+
+\begin{figure}
+\centering
+\caption{Score compression}
+\end{figure}
+
+Figure 4: dictionary tone (horizontal) against the LLM score (vertical). The dictionary compresses the 161 statements into a narrow band while the LLM score spans the full range; the eleven flagged paradigm-shift statements (diamonds) sit where the dictionary is flattest --- four consecutive 2020 QE statements at tone ≈ 3.1--3.5 are scored −75 to −85 by the committee of models.
+
+\paragraph{Positioning.} Our LLM measure is a concurrent entry into the growing literature on LLM-based central-bank text scoring; its distinguishing feature is the five-layer audit trail and the demonstrated resolution advantage over dictionaries, not novelty for its own sake.
+
 \section{Robustness}\label{sec:robustness}
 
 \paragraph{Inference.} Table~\ref{tab:se} reports the six-covariance-estimator
@@ -383,6 +545,28 @@ the audit: meetings with missing same-day returns had been coded as MP shocks
 by the sign rule ($91\to83$ MP meetings). The correction changes no flow
 result materially (gov-bond CBI $+0.76$, $p=.043$ before and after). All
 results on the official series are unaffected by construction.
+
+\paragraph{Beta-based risk measurement.} The risk ladder's ranking could be
+spurious if class betas are stale. Replacing the ranking with direct market
+betas (full-sample, downside, upside, and rolling 36-month variants) leaves
+the interaction insignificant under the sign rule under every variant
+($p = .31$--$.93$); the official-series result replaces, not complements,
+the ranking --- consistent with the finding that the two CBI components
+differ in identity.
+
+\paragraph{State dependence.} If the ladder channel operates through
+risk appetite, it should strengthen in high-spread, high-inflation states.
+Splitting the panel on BAA--AAA spread and 12-month CPI inflation medians
+yields no significant state interaction ($p > .22$ throughout): the CBI
+reallocation is not a distress-window artefact.
+
+\paragraph{Sign-rule fragility and the fix.} The sign-rule classification
+itself contained a bug: meetings without same-day returns were assigned to
+MP by a NaN sign comparison. Requiring a valid return reclassifies 8 of the
+91 published MP meetings ($83$ after the fix); the flow baseline moves
+negligibly ($+.759 \to +.763$), which is why we flag the fix rather than a
+results revision --- and why the official series, which needs no same-day
+return, is the safer headline.
 
 \section{Conclusion}\label{sec:conclusion}
 
@@ -595,3 +779,12 @@ Textual Analysis, Dictionaries, and 10-Ks.'' \emph{Journal of Finance} 66(1),
 \end{thebibliography}
 
 \end{document}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.72\textwidth]{figures/fig3_score_compression.pdf}
+\caption{Do tone measures separate hikes from cuts? Hike--cut gap in SD
+units by measure. The LLM score separates at $p < .001$; the LM dictionary
+does not ($p = .16$).}
+\label{fig:compression}
+\end{figure}
