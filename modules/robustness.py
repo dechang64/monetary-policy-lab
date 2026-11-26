@@ -360,11 +360,13 @@ def render():
         st.success("**Institutions are the ladder movers.** Institutional share of TNA: "
                    f"{inst_share*100:.1f}%. Under the OFFICIAL JK series, the Risk x CBI "
                    "ladder response is significant for institutional share classes "
-                   "(same +5.46, p = .012; post +4.27, p = .014) and insignificant for "
-                   "retail (p = .13 / .84). Retail funds only show a delayed bounce two "
-                   "months out (diff +30.2, p = .054 on gov-bond CBI) - slow money "
-                   "chasing what fast money already traded. Sign-rule series: no "
-                   "significant split either way.", icon="✅")
+                   "(same +6.43, p = .003; post +5.07, p = .003) and insignificant for "
+                   "retail (p = .10 / .87). In the pooled regression the institutional "
+                   "interaction is significant in the post month (+5.42, p = .001). "
+                   "Retail funds instead show a delayed bounce two months out "
+                   "(diff +35.4, p = .040 on gov-bond CBI) - slow money chasing what "
+                   "fast money already traded. Sign-rule series: no significant split "
+                   "either way.", icon="✅")
         rows = []
         for w in ["same", "post", "diff"]:
             b = t4o.get(f"{w} (official JK)", {})
